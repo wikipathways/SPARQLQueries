@@ -1,0 +1,7 @@
+SELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license 
+WHERE {
+   ?dataset a void:Dataset ;
+   dcterms:title ?titleLit ;
+   dcterms:license ?license ;
+   pav:createdOn ?date .
+ }

@@ -1,0 +1,4 @@
+SELECT DISTINCT count(?dataNodes) as ?DataNodeCount
+WHERE {
+    ?dataNodes a wp:DataNode .
+}

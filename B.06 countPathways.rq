@@ -1,0 +1,4 @@
+SELECT DISTINCT count(?pathwayRDF) as ?pathwayCount
+WHERE {
+    ?pathwayRDF a wp:Pathway .
+} 

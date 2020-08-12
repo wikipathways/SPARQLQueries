@@ -1,0 +1,4 @@
+SELECT DISTINCT count(?Interaction) as ?InteractionCount
+WHERE {
+    ?Interaction a wp:Interaction .
+}
