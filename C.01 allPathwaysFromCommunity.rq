@@ -1,7 +1,5 @@
-SELECT DISTINCT ?pathway (str(?label) as ?Protein)
+SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
 WHERE {
 ?pathway wp:ontologyTag cur:LIPID_MAPS ; #Other communities: AOP; CIRM_Related ; COVID19 ; Blau ; RareDiseases ; SGD_Approved ; WormBase_Approved
-a wp:Pathway . 
-?protein a wp:Protein ; 
-rdfs:label ?label ;
-dcterms:isPartOf ?pathway .}
+a wp:Pathway ; 
+dc:title ?title .}
