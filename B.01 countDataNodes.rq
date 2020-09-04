@@ -1,4 +1,4 @@
-SELECT DISTINCT count(?dataNodes) as ?DataNodeCount
+SELECT DISTINCT count(?DataNodes) as ?DataNodeCount
 WHERE {
-    ?dataNodes a wp:DataNode .
+    ?DataNodes a wp:DataNode .
 }
