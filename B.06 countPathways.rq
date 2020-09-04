@@ -1,4 +1,4 @@
-SELECT DISTINCT count(?pathwayRDF) as ?pathwayCount
+SELECT DISTINCT count(?Pathway) as ?PathwayCount
 WHERE {
-    ?pathwayRDF a wp:Pathway .
+    ?Pathway a wp:Pathway .
 } 
