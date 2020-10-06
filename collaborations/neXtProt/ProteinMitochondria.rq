@@ -1,0 +1,24 @@
+PREFIX : <http://nextprot.org/rdf#>
+PREFIX cv: <http://nextprot.org/rdf/terminology/>
+
+select distinct  ?pathwayname (group_concat(distinct ?gen , ',') as ?genes) where {
+  {?geneProduct a wp:Protein}
+   union
+  {?geneProduct a wp:GeneProduct}
+  ?geneProduct rdfs:label ?gen .
+  filter(!regex(?gen,"[ a-z-]")).
+  ?geneProduct dcterms:isPartOf ?pathway .
+  ?pathway a wp:Pathway .
+  ?pathway wp:organism ?organism .
+  filter(contains(str(?organism),"9606")) 
+  ?pathway dc:title ?pathwayname .
+  filter(regex(?pathwayname,"Rett")).
+  service <https://api.nextprot.org/sparql> {
+    ?entry a :Entry .
+    ?entry :gene / :name ?gen .
+    ?entry :isoform / :cellularComponent ?loc .
+    values ?mitoloc {cv:SL-0173 cv:GO_0005739 } # SL and GO values for mitochondrion
+    ?loc :term / :childOf ?mitoloc.  # mitochondrion
+    ?loc :evidence / :quality :GOLD .
+  }}
+order by ?pathwayname
