@@ -1,0 +1,5 @@
+SELECT DISTINCT ?pathway COUNT(?pubmed) AS ?numberOfReferences
+WHERE 
+     {?pubmed a       wp:PublicationReference . 
+      ?pubmed dcterms:isPartOf ?pathway }
+ORDER BY DESC(?numberOfReferences) 
