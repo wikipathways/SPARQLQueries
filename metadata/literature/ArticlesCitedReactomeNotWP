@@ -1,0 +1,10 @@
+#Articles cited by Reactome but not by WikiPathways
+
+PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+
+SELECT (COUNT(DISTINCT ?pubmed) AS ?count)
+WHERE {
+  ?pubmed a       wp:PublicationReference .
+  MINUS { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:AnalysisCollection }
+  { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:Reactome_Approved }
+}
