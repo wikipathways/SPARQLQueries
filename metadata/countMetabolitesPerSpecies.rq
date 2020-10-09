@@ -1,0 +1,7 @@
+select (str(?label) as ?species) (count(distinct ?metabolite) as ?count) where {
+  ?metabolite a wp:Metabolite ;
+    dcterms:isPartOf ?pw .
+  ?pw dc:title ?title ;
+    wp:organism ?organism ;
+    wp:organismName ?label .
+} GROUP BY ?label ORDER BY DESC(?count)
