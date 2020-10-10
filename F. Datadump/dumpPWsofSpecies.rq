@@ -1,0 +1,8 @@
+SELECT DISTINCT ?wpIdentifier ?pathway ?title ?page
+WHERE {
+    ?pathway dc:title ?title ;
+       foaf:page ?page ;
+       dc:identifier ?wpIdentifier ;
+       wp:organismName "Mus musculus"^^xsd:string .
+ }
+ORDER BY ?wpIdentifier

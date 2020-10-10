@@ -1,0 +1,7 @@
+select distinct ?pathway (str(?label) as ?geneProduct) where {
+    ?geneProduct a wp:GeneProduct . 
+    ?geneProduct rdfs:label ?label .
+    ?geneProduct dcterms:isPartOf ?pathway .
+    ?pathway a wp:Pathway .
+    ?pathway dcterms:identifier "WP1560"^^xsd:string . #Replace "WP1560" with WP ID of interest
+}
