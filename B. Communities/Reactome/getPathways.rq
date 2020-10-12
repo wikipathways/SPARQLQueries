@@ -1,0 +1,5 @@
+SELECT DISTINCT ?pathway (str(?titleLit) as ?title)
+WHERE {
+  ?pathway wp:ontologyTag cur:Reactome_Approved ;
+           dc:title ?titleLit .
+}

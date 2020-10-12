@@ -1,0 +1,5 @@
+SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
+WHERE {
+?pathway wp:ontologyTag cur:IEM ; 
+a wp:Pathway ; 
+dc:title ?title .}

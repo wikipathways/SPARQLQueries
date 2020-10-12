@@ -1,0 +1,8 @@
+SELECT DISTINCT ?pathway (str(?label) as ?Protein)
+WHERE {
+?pathway wp:ontologyTag cur:IEM ;
+  a wp:Pathway . 
+?protein a wp:Protein ; 
+  rdfs:label ?label ;
+  dcterms:isPartOf ?pathway .
+}
