@@ -1,4 +1,4 @@
-SELECT distinct ?pathway ?label ?tag
+SELECT count(distinct ?pathway) as ?pathwaycount
 WHERE {
   ?tag1 a owl:Class ;
   rdfs:label ?label .
