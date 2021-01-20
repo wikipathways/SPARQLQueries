@@ -1,0 +1,10 @@
+SELECT (AVG(?no) AS ?avg) 
+       (MIN(?no) AS ?min) 
+       (MAX(?no) AS ?max) 
+WHERE {
+    SELECT ?Pathway (COUNT(?DataNodes) AS ?no) 
+    WHERE {
+    ?DataNodes a wp:Protein ;
+       dcterms:isPartOf ?Pathway.
+    ?Pathway a wp:Pathway.}
+}
