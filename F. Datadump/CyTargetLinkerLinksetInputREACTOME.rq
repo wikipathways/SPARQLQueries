@@ -1,0 +1,11 @@
+select distinct  (str(?title) as ?PathwayName) (str(?wpid) as ?PathwayID) (fn:substring(?genename,36) as ?GeneName) (fn:substring(?ncbiGeneId,33) as ?GeneID) where {
+  ?gene a wp:GeneProduct ;
+    dcterms:identifier ?id ;
+    dcterms:isPartOf ?pathwayRes ;
+    wp:bdbEntrezGene ?ncbiGeneId ;
+    wp:bdbHgncSymbol ?genename .
+  ?pathwayRes a wp:Pathway ;
+    dcterms:identifier ?wpid ;
+    dc:title ?title ;
+    wp:ontologyTag cur:Reactome_Approved.
+}
