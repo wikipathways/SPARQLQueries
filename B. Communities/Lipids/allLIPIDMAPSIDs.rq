@@ -1,0 +1,14 @@
+prefix lipidmaps:      <https://identifiers.org/lipidmaps/>
+select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (count(distinct ?lipidID) AS ?LipidsInPWs)
+where {
+  ?metabolite a wp:Metabolite ;
+    dcterms:identifier ?id ;
+    dcterms:isPartOf ?pathwayRes ;
+    wp:bdbLipidMaps ?lipidID .
+  ?pathwayRes a wp:Pathway ;
+              wp:organismName "Homo sapiens"^^xsd:string ; 
+    dcterms:identifier ?wpid ;
+    dc:title ?title .
+}
+
+ORDER BY DESC(?LipidsInPWs)
