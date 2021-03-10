@@ -1,6 +1,6 @@
 SELECT DISTINCT ?pathway (str(?label) as ?Protein)
 WHERE {
-?pathway wp:ontologyTag cur:LIPID_MAPS ;
+?pathway wp:ontologyTag cur:Lipids ;
   a wp:Pathway . 
 ?protein a wp:Protein ; 
   rdfs:label ?label ;
