@@ -1,4 +1,4 @@
-select distinct  (str(?title) as ?PathwayName) (str(?wpid) as ?PathwayID) (fn:substring(?genename,36) as ?GeneName) (fn:substring(?ncbiGeneId,33) as ?GeneID) where {
+select distinct  (str(?title) as ?PathwayName) (str(?wpid) as ?PathwayID) (fn:substring(?genename,36) as ?GeneName) (fn:substring(?ncbiGeneId,34) as ?GeneID) where {
   ?gene a wp:DataNode ;
     dcterms:identifier ?id ;
     dcterms:isPartOf ?pathwayRes ;
