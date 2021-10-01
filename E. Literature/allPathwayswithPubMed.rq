@@ -3,3 +3,4 @@ WHERE
      {?pubmed a       wp:PublicationReference . 
       ?pubmed dcterms:isPartOf ?pathway }
 ORDER BY ?pathway
+LIMIT 50
