@@ -7,7 +7,7 @@ prefix xsd:     <http://www.w3.org/2001/XMLSchema#>
 
 SELECT DISTINCT ?pathway
 WHERE{
-?pathway a wp:Pathway.
+?pathway a wp:Pathway, skos:Collection .
 FILTER NOT EXISTS {?node dcterms:isPartOf ?pathway.
 ?node a wp:DataNode}
 }
