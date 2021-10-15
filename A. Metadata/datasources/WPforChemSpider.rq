@@ -1,6 +1,6 @@
 #List of WikiPathways for ChemSpider identifiers
 
-select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?csId,35) as ?chemspider) where {
+select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?csId,36) as ?chemspider) where {
   ?gene a wp:Metabolite ;
     dcterms:identifier ?id ;
     dcterms:isPartOf ?pathwayRes ;
