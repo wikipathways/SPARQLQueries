@@ -1,4 +1,4 @@
 SELECT DISTINCT count(?Pathway) as ?PathwayCount
 WHERE {
-    ?Pathway a wp:Pathway .
+    ?Pathway a wp:Pathway, skos:Collection .
 } 
