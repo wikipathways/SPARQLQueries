@@ -1,0 +1,19 @@
+SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE {
+  SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {
+    SERVICE <https://sparql.wikipathways.org/sparql> {
+      VALUES ?wpid {"WP4224"^^xsd:string "WP4225"^^xsd:string "WP4571"^^xsd:string}
+
+    ?gene a wp:Metabolite ;
+      dcterms:identifier ?id ;
+      dcterms:isPartOf ?pathwayRes ;
+      wp:bdbPubChem ?COMPOUND .
+
+    ?pathwayRes a wp:Pathway ;
+      wp:organismName "Homo sapiens"^^xsd:string ;
+      dcterms:identifier ?wpid ;
+      dc:title ?title .
+    }
+    
+    <http://identifiers.org/molmedb/MM00431> skos:exactMatch ?COMPOUND.
+  }
+}
