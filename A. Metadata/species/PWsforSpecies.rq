@@ -3,6 +3,6 @@ WHERE {
     ?pathway dc:title ?title .
     ?pathway foaf:page ?page .
     ?pathway dc:identifier ?wpIdentifier .
-    ?pathway wp:organismName "Mus musculus"^^xsd:string . #Replace "Mus musculus" with other species: "Homo sapiens", "Rattus norvegicus", "Danio rerio"
+    ?pathway wp:organismName "Mus musculus" . #Replace "Mus musculus" with other species: "Homo sapiens", "Rattus norvegicus", "Danio rerio"
  }
 ORDER BY ?wpIdentifier
