@@ -11,7 +11,7 @@ SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTit
     wp:bdbPubChem ?COMPOUND .
   
   ?pathwayRes a wp:Pathway ;
-    wp:organismName "Homo sapiens"^^xsd:string ;
+    wp:organismName "Homo sapiens";
     dcterms:identifier ?wpid ;
     dc:title ?title . 
 }
