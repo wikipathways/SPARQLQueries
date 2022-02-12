@@ -3,6 +3,6 @@ WHERE {
     ?pathway dc:title ?title ;
        foaf:page ?page ;
        dc:identifier ?wpIdentifier ;
-       wp:organismName "Mus musculus"^^xsd:string .
+       wp:organismName "Mus musculus" .
  }
 ORDER BY ?wpIdentifier
