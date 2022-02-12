@@ -6,7 +6,7 @@ where {
     dcterms:isPartOf ?pathwayRes ; #Define metabolites are part of a pathway
     wp:bdbLipidMaps ?lipidID .     #Find the LIPID MAPS identifier for a certain metabolite
   ?pathwayRes a wp:Pathway ;       #Define what is a pathway
-              wp:organismName "Homo sapiens"^^xsd:string ; #Filter pathways on species Human
+              wp:organismName "Homo sapiens" ; #Filter pathways on species Human
     dcterms:identifier ?wpid ;     #Obtain identifier of pathway
     dc:title ?title .              #Obtain title of pathway
 }
