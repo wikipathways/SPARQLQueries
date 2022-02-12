@@ -3,5 +3,5 @@ select distinct ?pathway (str(?label) as ?Metabolite) where {
        rdfs:label ?label ;
        dcterms:isPartOf ?pathway .
     ?pathway a wp:Pathway ;
-    dcterms:identifier "WP1560"^^xsd:string . #Replace "WP1560" with WP ID of interest
+    dcterms:identifier "WP1560" . #Replace "WP1560" with WP ID of interest
 }
