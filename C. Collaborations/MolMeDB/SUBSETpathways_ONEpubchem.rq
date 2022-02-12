@@ -1,7 +1,7 @@
 SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE {
   SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {
     SERVICE <https://sparql.wikipathways.org/sparql> {
-      VALUES ?wpid {"WP4224"^^xsd:string "WP4225"^^xsd:string "WP4571"^^xsd:string}
+      VALUES ?wpid {"WP4224" "WP4225" "WP4571"}
 
     ?gene a wp:Metabolite ;
       dcterms:identifier ?id ;
