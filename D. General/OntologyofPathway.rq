@@ -3,7 +3,7 @@ WHERE {
   ?pathwayRDF wp:ontologyTag ?o ;
     foaf:page ?pathway ;
     dc:title ?titleLit ;
-    dcterms:identifier "WP1560"^^xsd:string . #Replace "WP1560" with WP ID of interest
+    dcterms:identifier "WP1560" . #Replace "WP1560" with WP ID of interest
 
   FILTER (! regex(str(?pathway), "group"))
 }
