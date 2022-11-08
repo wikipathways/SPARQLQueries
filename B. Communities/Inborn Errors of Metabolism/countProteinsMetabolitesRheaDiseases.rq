@@ -11,8 +11,7 @@ SELECT DISTINCT (str(?title) as ?pathwayName) ?PWID
 
 WHERE {
 
-    VALUES ?PWID {"WP4518" "WP4519" "WP4521" "WP4522" "WP4523" "WP4524"}
-
+    ?pathway wp:ontologyTag cur:IEM . 
     ?pathway dcterms:identifier ?PWID. #Obtain the ID
     ?pathway wp:isAbout ?gpmlRDF_ID . #find the corresponding GPML link     
     ?pathway dc:title ?title . #Obtain the title   
