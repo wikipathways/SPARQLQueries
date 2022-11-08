@@ -10,10 +10,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rhea: <http://rdf.rhea-db.org/>
 
 #Variable selection
-SELECT DISTINCT (str(?title) as ?pathwayName) ?PWID ?newIRI ?reac
+SELECT DISTINCT (str(?title) as ?pathwayName) ?PWID ?interactionID ?reac
 
 WHERE {
-
 #Pathway Model IDs of interest
 VALUES ?PWID {"WP5275"}
   
@@ -36,7 +35,7 @@ VALUES ?PWID {"WP5275"}
         )) AS ?newIRI          # Name for the new variable 
     )
    SERVICE <https://rdf.metanetx.org/sparql/>  {
-     SELECT DISTINCT ?reac #?chem ?chem_name ?comp ?comp_name ?coef ?reac
+     SELECT DISTINCT ?reac
                            WHERE{
     ?reac mnx:reacXref rhea:17658 .}
      }
