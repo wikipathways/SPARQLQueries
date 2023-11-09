@@ -6,7 +6,7 @@ WHERE {
 
 ### Part 2: ###
 ?pathway a wp:Pathway ;
-         wp:organismName "Homo sapiens"^^xsd:string ; 
+         wp:organismName "Homo sapiens" ; 
          dc:title ?titleLit . 	
          
 ### Part 3A: ###
