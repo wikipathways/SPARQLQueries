@@ -1,0 +1,40 @@
+### Part 1: ###
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype 
+?pathway (str(?titleLit) as ?title) 
+?sourceCHEBI ?targetDbCHEBI ?sourceHMDB ?targetDbHMDB ?InteractionID  
+WHERE {  
+
+### Part 2: ###
+?pathway a wp:Pathway ;
+         wp:organismName "Homo sapiens"^^xsd:string ; 
+         dc:title ?titleLit . 	
+         
+### Part 3A: ###
+FILTER (EXISTS {?pathway wp:ontologyTag cur:AnalysisCollection})  .
+### Part 3B: ###
+#FILTER (EXISTS {?pathway wp:ontologyTag cur:Reactome_Approved}) .    
+### Part 3C: ###
+#FILTER (EXISTS {?pathway wp:ontologyTag cur:Lipids}) .
+
+### Part 4: ###
+?interaction dcterms:isPartOf ?pathway ;			
+             a wp:DirectedInteraction ;
+	           wp:source ?source ;
+	           wp:target ?target .  
+OPTIONAL{?interaction a ?mimtype}. 
+VALUES ?mimtype {wp:ComplexBinding wp:Conversion wp:Inhibition wp:Catalysis
+wp:Stimulation wp:TranscriptionTranslation wp:DirectedInteraction} .  
+
+### Part 5: ###
+?source a wp:Metabolite . 
+?source wp:bdbWikidata ?sourceDb . 
+OPTIONAL{?source wp:bdbChEBI ?sourceCHEBI}.
+OPTIONAL{?source wp:bdbHmdb ?sourceHMDB}.
+?target a wp:Metabolite . 
+?target wp:bdbWikidata ?targetDb . 
+OPTIONAL{?target wp:bdbChEBI ?targetDbCHEBI}. 
+OPTIONAL{?target wp:bdbHmdb ?targetDbHMDB}. 
+
+### Part 6: ###
+OPTIONAL{?interaction wp:bdbRhea ?InteractionID} .
+} ORDER BY DESC(?InteractionID)
