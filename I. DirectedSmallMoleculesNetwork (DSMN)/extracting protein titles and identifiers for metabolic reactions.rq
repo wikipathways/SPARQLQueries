@@ -1,0 +1,24 @@
+### Part 1: ###
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName 
+WHERE {  
+?pathway a wp:Pathway ; 
+wp:ontologyTag cur:AnalysisCollection ;
+wp:organismName "Homo sapiens"; 
+dc:title ?titleLit . 
+?interaction dcterms:isPartOf ?pathway ;				
+   a wp:DirectedInteraction ; 
+   wp:source ?source ; 
+ 	   wp:target ?target .   
+?source a wp:Metabolite . 
+?source wp:bdbWikidata ?sourceDb . 
+?target a wp:Metabolite . 
+?target wp:bdbWikidata ?targetDb . 
+
+### Part 2: ###
+?interactions2 dcterms:isPartOf ?pathway;
+               a wp:Catalysis; 
+               wp:source ?sources2;
+               wp:target ?interaction . 
+OPTIONAL{?sources2 wp:bdbEnsembl ?proteinDBWPs}.
+OPTIONAL{?sources2 rdfs:label ?proteinName} .
+}
