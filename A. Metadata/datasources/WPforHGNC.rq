@@ -1,6 +1,6 @@
 #List of WikiPathways for HGNC symbols
 
-select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?hgncId,36) as ?HGNC) where {
+select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?hgncId,37) as ?HGNC) where {
   ?gene a wp:GeneProduct ;
     dcterms:identifier ?id ;
     dcterms:isPartOf ?pathwayRes ;
