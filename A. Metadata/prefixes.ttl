@@ -1,0 +1,21 @@
+@prefix ex: <https://bigcat-um.github.io/sparql-examples/WikiPathways/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+ex:metadata a sh:SPARQLExecutable,
+       sh:SPARQLSelectExecutable ;
+    rdfs:comment "Lists prefixes used in this database."@en ;
+    sh:prefixes _:sparql_examples_prefixes ;
+    sh:select """PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?prefix ?namespace WHERE {
+  [] sh:declare [
+    sh:prefix ?prefix ;
+    sh:namespace ?namespace
+  ] .
+}""" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    schema:keywords "prefix", "namespace" .
