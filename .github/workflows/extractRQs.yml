@@ -1,0 +1,33 @@
+name: Process SPARQL TTL files
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  extract:
+    name: Extract SPARQL files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Extract
+        run: python scripts/transformDotTtlToDotSparql.py
+
+      - name: Commit new .rq files
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add .
+          if git diff --exit-code --staged; then
+              echo "No changes"
+          else
+              git pull
+              git commit -m 'Updated .rq files'
+              git push
+          fi
