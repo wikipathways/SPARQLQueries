@@ -4,4 +4,4 @@ WHERE {
    dcterms:title ?titleLit ;
    dcterms:license ?license ;
    pav:createdOn ?date .
- }
+}
