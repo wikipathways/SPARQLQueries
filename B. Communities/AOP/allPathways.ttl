@@ -1,0 +1,22 @@
+@prefix ex: <https://bigcat-um.github.io/sparql-examples/WikiPathways/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+ex:metadata a sh:SPARQLExecutable,
+       sh:SPARQLSelectExecutable ;
+    rdfs:comment "List all pathways in the AOP community portal and their title."@en ;
+    sh:prefixes _:sparql_examples_prefixes ;
+    sh:select """PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+
+SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
+WHERE {
+  ?pathway wp:ontologyTag cur:AOP ; 
+  a wp:Pathway ; 
+  dc:title ?title .
+}""" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    schema:keywords "prefix", "namespace" .
