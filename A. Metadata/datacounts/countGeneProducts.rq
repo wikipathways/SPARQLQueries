@@ -1,4 +1,0 @@
-SELECT DISTINCT count(?geneProduct) as ?GeneProductCount
-WHERE {
-    ?geneProduct a wp:GeneProduct .
-}

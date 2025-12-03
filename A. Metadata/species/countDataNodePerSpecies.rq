@@ -1,7 +1,0 @@
-select (count(distinct ?datanode) as ?count) (str(?label) as ?species) where {
-  ?datanode a wp:DataNode ;
-    dcterms:isPartOf ?pw .
-  ?pw dc:title ?title ;
-    wp:organism ?organism ;
-    wp:organismName ?label .
-} GROUP BY ?label ORDER BY DESC(?count)

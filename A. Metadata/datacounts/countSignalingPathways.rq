@@ -1,8 +1,0 @@
-SELECT count(distinct ?pathway) as ?pathwaycount
-WHERE {
-  ?tag1 a owl:Class ;
-  rdfs:label ?label .
-  ?tag rdfs:subClassOf* ?tag1.
-  ?pathway a wp:Pathway; wp:ontologyTag ?tag.
-FILTER regex(str(?label), "signaling pathway")
-}

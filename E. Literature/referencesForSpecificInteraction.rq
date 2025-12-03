@@ -1,8 +1,0 @@
-SELECT DISTINCT ?pathway ?interaction ?pubmed WHERE {
-   ?pathway a wp:Pathway .
-   ?pathway dc:identifier <https://identifiers.org/wikipathways/WP5200> . #filter for pathway
-   ?interaction dcterms:isPartOf ?pathway .
-   ?interaction a wp:Interaction .
-   ?interaction wp:participants <https://identifiers.org/uniprot/P35498>. #filter for interaction
-  ?interaction dcterms:references ?pubmed .
-} LIMIT 100
