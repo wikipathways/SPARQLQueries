@@ -1,7 +1,0 @@
-select (count(distinct ?gene) as ?count) (str(?label) as ?species) where {
-  ?gene a wp:GeneProduct ;
-    dcterms:isPartOf ?pw .
-  ?pw dc:title ?title ;
-    wp:organism ?organism ;
-    wp:organismName ?label .
-} GROUP BY ?label ORDER BY DESC(?count)
