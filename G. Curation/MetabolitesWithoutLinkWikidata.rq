@@ -1,9 +1,0 @@
-#Metabolites without a link to Wikidata
-
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-
-SELECT DISTINCT ?metabolite WHERE {
-  ?metabolite a wp:Metabolite .
-  OPTIONAL { ?metabolite wp:bdbWikidata ?wikidata . }
-  FILTER (!BOUND(?wikidata))
-}

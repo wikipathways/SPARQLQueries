@@ -1,5 +1,0 @@
-PREFIX cheminf: <http://semanticscience.org/resource/>
-
-SELECT ?mol ?smilesDepict WHERE {
- ?mol wp:bdbWikidata/cheminf:CHEMINF_000018 ?smilesDepict .
-} LIMIT 25

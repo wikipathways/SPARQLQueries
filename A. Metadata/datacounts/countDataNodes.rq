@@ -1,4 +1,0 @@
-SELECT DISTINCT count(?DataNodes) as ?DataNodeCount
-WHERE {
-    ?DataNodes a wp:DataNode .
-}

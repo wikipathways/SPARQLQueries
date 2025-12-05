@@ -1,5 +1,0 @@
-SELECT count(DISTINCT ?pathway) WHERE {
-  ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .
-  MINUS { ?pubmed a       wp:PublicationReference .
-          ?pubmed dcterms:isPartOf ?pathway }
-}

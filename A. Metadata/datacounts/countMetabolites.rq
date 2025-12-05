@@ -1,4 +1,0 @@
-SELECT DISTINCT count(?Metabolite) as ?MetaboliteCount
-WHERE {
-    ?Metabolite a wp:Metabolite .
-}

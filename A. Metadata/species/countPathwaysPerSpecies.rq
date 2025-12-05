@@ -1,7 +1,0 @@
-SELECT DISTINCT (str(?label) as ?name) ?organism (count(?pw) as ?pathwayCount)
-WHERE {
-    ?pw dc:title ?title ;
-      wp:organism ?organism ;
-      wp:organismName ?label .
-}
-ORDER BY DESC(?pathwayCount)

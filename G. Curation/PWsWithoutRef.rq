@@ -1,7 +1,0 @@
-#Pathways without literature references
-
-SELECT (STR(?speciesLabelLit) AS ?species) (STR(?titleLit) AS ?title) ?pathway WHERE {
-  ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .
-  MINUS { ?pubmed a       wp:PublicationReference .
-          ?pubmed dcterms:isPartOf ?pathway }
-} ORDER BY ASC(?species) ASC(?title)
