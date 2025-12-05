@@ -1,3 +1,7 @@
-# SPARQLQueries
+# SPARQLQueries Examples 
 
-Queries for the [WikiPathways Snorql UI](http://sparql.wikipathways.org/) automated loading
+Queries for the [PlantMetWiki SNORQL UI (SPARQL Explorer)](https://plantmetwiki.bioinformatics.nl/) automated loading
+
+## License 
+
+[ GNU GENERAL PUBLIC LICENSE](LICENSE)
