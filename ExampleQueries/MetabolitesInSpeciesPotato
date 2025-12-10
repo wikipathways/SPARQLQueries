@@ -1,0 +1,14 @@
+PREFIX gpml:    <http://vocabularies.wikipathways.org/gpml#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dc:      <http://purl.org/dc/elements/1.1/>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+prefix wp:      <http://vocabularies.wikipathways.org/wp#>
+
+select distinct ?metabolite (str(?titleLit) as ?title)
+FROM <http://plantmetwiki.bioinformatics.nl/>
+where {
+  ?metabolite a wp:Metabolite ;
+    dcterms:isPartOf ?pw .
+  ?pw dc:title ?titleLit ;
+    wp:organismName "Solanum tuberosum" .
+}
