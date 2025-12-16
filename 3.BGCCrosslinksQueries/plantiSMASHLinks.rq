@@ -1,0 +1,10 @@
+PREFIX pmw: <https://plantmetwiki.bioinformatics.nl/vocab/>
+
+SELECT ?gene ?bgc
+FROM <http://plantmetwiki.bioinformatics.nl/>
+WHERE {
+  ?gene pmw:belongsToBGC ?bgc .
+  FILTER(STRSTARTS(STR(?bgc), "https://plantismash.bioinformatics.nl/precalc/v2/"))
+}
+ORDER BY ?gene
+LIMIT 200
