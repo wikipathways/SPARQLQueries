@@ -1,0 +1,8 @@
+SELECT DISTINCT ?metabolite ?inchikey
+FROM <http://plantmetwiki.bioinformatics.nl/>
+WHERE {
+  ?metabolite ?p ?o .
+  FILTER(STRSTARTS(STR(?metabolite), "https://identifiers.org/inchikey/"))
+  BIND(STRAFTER(STR(?metabolite), "https://identifiers.org/inchikey/") AS ?inchikey)
+}
+LIMIT 50

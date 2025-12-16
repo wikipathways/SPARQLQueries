@@ -1,0 +1,6 @@
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+# Quick peek at some entity types
+SELECT DISTINCT ?type
+FROM <http://plantmetwiki.bioinformatics.nl/>
+WHERE { ?s a ?type . }
+LIMIT 50

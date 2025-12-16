@@ -1,0 +1,9 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?wd
+FROM <http://plantmetwiki.bioinformatics.nl/>
+WHERE {
+  SERVICE <https://query.wikidata.org/sparql> {
+    ?wd wdt:P31 <http://www.wikidata.org/entity/Q11173> .
+  }
+}
+LIMIT 5

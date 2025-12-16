@@ -1,0 +1,7 @@
+PREFIX pmw: <https://plantmetwiki.bioinformatics.nl/vocab/>
+
+SELECT ?gene ?bgc
+FROM <http://plantmetwiki.bioinformatics.nl/>
+WHERE { ?gene pmw:belongsToBGC ?bgc . }
+ORDER BY ?gene
+LIMIT 200

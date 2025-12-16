@@ -1,0 +1,14 @@
+PREFIX wdt:  <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Given the size of Wikidata, this query takes long to execute (~1 min)
+SELECT ?wd ?label
+FROM <http://plantmetwiki.bioinformatics.nl/>
+WHERE {
+  SERVICE <https://query.wikidata.org/sparql> {
+    VALUES ?inchikey { "RYYVLZVUVIJVGH-UHFFFAOYSA-N" }  # caffeine
+    ?wd wdt:P235 ?inchikey .
+    OPTIONAL { ?wd rdfs:label ?label . FILTER(LANG(?label)="en") }
+  }
+}
+LIMIT 10

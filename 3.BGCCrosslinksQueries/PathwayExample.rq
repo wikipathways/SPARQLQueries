@@ -1,0 +1,15 @@
+PREFIX pmw: <https://plantmetwiki.bioinformatics.nl/vocab/>
+PREFIX wp:  <http://vocabularies.wikipathways.org/wp#>
+PREFIX dc:  <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+# Find pathways containing genes linked to MIBIG BGC0002906 (arabidiol-baruol)
+SELECT DISTINCT ?pw (STR(?titleLit) AS ?title)
+FROM <http://plantmetwiki.bioinformatics.nl/>
+WHERE {
+  ?gene pmw:belongsToBGC <https://mibig.secondarymetabolites.org/repository/BGC0002906> .
+  ?interaction wp:participants ?gene ;
+              dcterms:isPartOf ?pw .
+  ?pw dc:title ?titleLit .
+}
+ORDER BY ?title
