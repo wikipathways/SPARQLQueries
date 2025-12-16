@@ -1,0 +1,12 @@
+PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+# dcterms:source "MIBIG" / "plantiSMASH" on the cluster nodes
+SELECT ?bgc ?gene
+FROM <http://plantmetwiki.bioinformatics.nl/>
+WHERE {
+  ?bgc ro:0000051 ?gene ;
+       dcterms:source "plantiSMASH" . # can change to MIBIG
+}
+ORDER BY ?bgc ?gene
+LIMIT 200

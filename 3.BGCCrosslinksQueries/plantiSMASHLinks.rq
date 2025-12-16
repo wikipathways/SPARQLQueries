@@ -1,10 +1,10 @@
-PREFIX pmw: <https://plantmetwiki.bioinformatics.nl/vocab/>
+PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
 
-SELECT ?gene ?bgc
+SELECT ?bgc ?gene
 FROM <http://plantmetwiki.bioinformatics.nl/>
 WHERE {
-  ?gene pmw:belongsToBGC ?bgc .
+  ?bgc ro:0000051 ?gene .
   FILTER(STRSTARTS(STR(?bgc), "https://plantismash.bioinformatics.nl/precalc/v2/"))
 }
-ORDER BY ?gene
+ORDER BY ?bgc ?gene
 LIMIT 200
