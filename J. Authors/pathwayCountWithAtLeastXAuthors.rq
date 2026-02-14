@@ -1,0 +1,10 @@
+PREFIX dc:    <http://purl.org/dc/elements/1.1/>
+PREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>
+
+SELECT ?atLeast (COUNT(DISTINCT ?pathway) AS ?count) WHERE {
+  ?author_ a foaf:Person ;
+    wp:hasAuthorship ?authorship .
+  ?authorship ^wp:hasAuthorship ?pathway ;
+    wpq:series_ordinal ?atLeast .
+} GROUP BY ?atLeast
+  ORDER BY ASC(xsd:integer(?atLeast))
