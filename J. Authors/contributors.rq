@@ -1,0 +1,18 @@
+PREFIX dc:    <http://purl.org/dc/elements/1.1/>
+PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+PREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>
+PREFIX pav:   <http://purl.org/pav/>
+
+SELECT (COUNT(DISTINCT ?pathway) AS ?count) ?name ?orcid ?page WHERE {
+  VALUES ?ordinal { "1" }
+  ?author_ a foaf:Person ;
+    wp:hasAuthorship ?authorship .
+  ?authorship ^wp:hasAuthorship ?pathway ;
+    wpq:series_ordinal ?ordinal .
+  ?pathway pav:hasVersion ?pathway_ .
+  ?pathway_ a wp:Pathway ; dcterms:identifier ?version .
+  OPTIONAL { ?author_ foaf:homepage ?page }
+  OPTIONAL { ?author_ foaf:name ?name }
+  OPTIONAL { ?author_ dc:identifier ?orcid }
+} GROUP BY ?ordinal ?name ?orcid ?page
+  ORDER BY DESC(?count)
