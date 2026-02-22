@@ -9,7 +9,8 @@ SELECT ?pathway ?version ?ordinal ?author_ ?name ?orcid ?page WHERE {
     wp:hasAuthorship ?authorship .
   ?authorship ^wp:hasAuthorship ?pathway ;
     wpq:series_ordinal ?ordinal .
-  ?pathway a wp:Pathway ; pav:hasVersion / wp:isAbout / gpml:version ?version .
+  ?pathway pav:hasVersion ?pathway_ .
+  ?pathway_ a wp:Pathway ; wp:isAbout / gpml:version ?version .
   OPTIONAL { ?author_ foaf:homepage ?page }
   OPTIONAL { ?author_ foaf:name ?name }
   OPTIONAL { ?author_ dc:identifier ?orcid }
