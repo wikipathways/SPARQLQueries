@@ -1,0 +1,50 @@
+{
+  "categories": {
+    "Metadata": [
+      "A. Metadata/",
+      "A. Metadata/datacounts/",
+      "A. Metadata/species/"
+    ],
+    "Data Sources": [
+      "A. Metadata/datasources/"
+    ],
+    "Communities": [
+      "B. Communities/AOP/",
+      "B. Communities/CIRM Stem Cell Pathways/",
+      "B. Communities/COVID19/",
+      "B. Communities/Inborn Errors of Metabolism/",
+      "B. Communities/Lipids/",
+      "B. Communities/RareDiseases/",
+      "B. Communities/Reactome/",
+      "B. Communities/WormBase/"
+    ],
+    "Collaborations": [
+      "C. Collaborations/AOP-Wiki/",
+      "C. Collaborations/MetaNetX/",
+      "C. Collaborations/MolMeDB/",
+      "C. Collaborations/neXtProt/",
+      "C. Collaborations/smallMolecules_Rhea_IDSM/"
+    ],
+    "General": [
+      "D. General/"
+    ],
+    "Literature": [
+      "E. Literature/"
+    ],
+    "Data Export": [
+      "F. Datadump/"
+    ],
+    "Curation": [
+      "G. Curation/"
+    ],
+    "Chemistry": [
+      "H. Chemistry/"
+    ],
+    "DSMN": [
+      "I. DirectedSmallMoleculesNetwork (DSMN)/"
+    ],
+    "Authors": [
+      "J. Authors/"
+    ]
+  }
+}

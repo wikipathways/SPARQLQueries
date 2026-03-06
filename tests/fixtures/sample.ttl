@@ -1,0 +1,13 @@
+@prefix ex: <https://bigcat-um.github.io/sparql-examples/WikiPathways/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+ex:sample a sh:SPARQLExecutable,
+       sh:SPARQLSelectExecutable ;
+    rdfs:comment "A sample query for testing."@en ;
+    sh:prefixes _:sparql_examples_prefixes ;
+    sh:select """SELECT ?x WHERE { ?x a ?type }""" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    schema:keywords "test" .
