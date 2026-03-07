@@ -1,3 +1,6 @@
+# title: Pathways per Species
+# category: Metadata
+
 SELECT DISTINCT (str(?label) as ?name) ?organism (count(?pw) as ?pathwayCount)
 WHERE {
     ?pw dc:title ?title ;

@@ -1,3 +1,6 @@
+# title: Gene Products per Species
+# category: Metadata
+
 select (count(distinct ?gene) as ?count) (str(?label) as ?species) where {
   ?gene a wp:GeneProduct ;
     dcterms:isPartOf ?pw .

@@ -1,3 +1,6 @@
+# title: Count of Metabolites
+# category: Metadata
+
 SELECT DISTINCT count(?Metabolite) as ?MetaboliteCount
 WHERE {
     ?Metabolite a wp:Metabolite .

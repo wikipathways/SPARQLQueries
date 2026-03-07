@@ -1,3 +1,6 @@
+# title: Average Metabolites per Pathway
+# category: Metadata
+
 SELECT (AVG(?no) AS ?avg) 
        (MIN(?no) AS ?min) 
        (MAX(?no) AS ?max) 

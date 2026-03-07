@@ -1,3 +1,6 @@
+# title: Count of Gene Products
+# category: Metadata
+
 SELECT DISTINCT count(?geneProduct) as ?GeneProductCount
 WHERE {
     ?geneProduct a wp:GeneProduct .

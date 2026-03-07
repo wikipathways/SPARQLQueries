@@ -1,3 +1,6 @@
+# title: Count of Proteins
+# category: Metadata
+
 SELECT DISTINCT count(?protein) as ?ProteinCount
 WHERE {
     ?protein a wp:Protein .

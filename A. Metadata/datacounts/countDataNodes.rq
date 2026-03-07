@@ -1,3 +1,6 @@
+# title: Count of Data Nodes
+# category: Metadata
+
 SELECT DISTINCT count(?DataNodes) as ?DataNodeCount
 WHERE {
     ?DataNodes a wp:DataNode .

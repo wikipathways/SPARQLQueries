@@ -1,3 +1,6 @@
+# title: External Linkout Counts
+# category: Metadata
+
 SELECT ?pred (COUNT(DISTINCT ?entity) AS ?count) WHERE {
   VALUES ?pred {
     # metabolites

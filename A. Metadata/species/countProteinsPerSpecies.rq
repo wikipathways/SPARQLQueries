@@ -1,3 +1,6 @@
+# title: Proteins per Species
+# category: Metadata
+
 select (count(distinct ?protein) as ?count) (str(?label) as ?species) where {
   ?protein a wp:Protein ;
     dcterms:isPartOf ?pw .

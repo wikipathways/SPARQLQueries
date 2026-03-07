@@ -1,4 +1,5 @@
-#List of WikiPathways for Ensembl identifiers
+# title: WikiPathways for Ensembl Identifiers
+# category: Data Sources
 
 select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?ensId,32) as ?ensembl) where {
   ?gene a wp:GeneProduct ;

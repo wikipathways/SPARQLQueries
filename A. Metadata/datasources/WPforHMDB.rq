@@ -1,4 +1,5 @@
-#ist of WikiPathways for HMDB identifiers
+# title: WikiPathways for HMDB Identifiers
+# category: Data Sources
 
 select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?hmdbId,29) as ?hmdb) where {
   ?gene a wp:Metabolite ;

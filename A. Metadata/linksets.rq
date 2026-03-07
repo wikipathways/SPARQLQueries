@@ -1,3 +1,6 @@
+# title: Linksets Overview
+# category: Metadata
+
 SELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license 
 WHERE {
    ?dataset a void:Linkset ;

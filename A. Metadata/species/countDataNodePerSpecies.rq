@@ -1,3 +1,6 @@
+# title: Data Nodes per Species
+# category: Metadata
+
 select (count(distinct ?datanode) as ?count) (str(?label) as ?species) where {
   ?datanode a wp:DataNode ;
     dcterms:isPartOf ?pw .

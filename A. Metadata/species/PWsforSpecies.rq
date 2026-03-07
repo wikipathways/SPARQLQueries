@@ -1,3 +1,6 @@
+# title: Pathways for a Species
+# category: Metadata
+
 SELECT DISTINCT ?wpIdentifier ?pathway ?page
 WHERE {
     ?pathway dc:title ?title .

@@ -1,4 +1,5 @@
-#List of WikiPathways for ChemSpider identifiers
+# title: WikiPathways for ChemSpider Identifiers
+# category: Data Sources
 
 select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?csId,36) as ?chemspider) where {
   ?gene a wp:Metabolite ;

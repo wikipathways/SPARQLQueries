@@ -1,3 +1,6 @@
+# title: Count of Signaling Pathways
+# category: Metadata
+
 SELECT count(distinct ?pathway) as ?pathwaycount
 WHERE {
   ?tag1 a owl:Class ;

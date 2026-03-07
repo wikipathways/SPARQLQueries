@@ -1,3 +1,6 @@
+# title: Dataset Metadata
+# category: Metadata
+
 SELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license 
 WHERE {
    ?dataset a void:Dataset ;
