@@ -1,3 +1,6 @@
+# title: Inborn Errors of Metabolism Pathways
+# category: Communities
+
 SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
 WHERE {
 ?pathway wp:ontologyTag cur:IEM ; 

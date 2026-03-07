@@ -1,3 +1,6 @@
+# title: CIRM Stem Cell Pathways
+# category: Communities
+
 SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
 WHERE {
 ?pathway wp:ontologyTag cur:CIRM_Related ; 

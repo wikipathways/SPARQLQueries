@@ -1,3 +1,6 @@
+# title: Total Lipid Classes
+# category: Communities
+
 SELECT count(DISTINCT ?lipidID) as ?IndividualLipidsPerClass
 WHERE {     ?metabolite a wp:Metabolite ;
     dcterms:identifier ?id ;

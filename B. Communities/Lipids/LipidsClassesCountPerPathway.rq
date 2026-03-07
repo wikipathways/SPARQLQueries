@@ -1,3 +1,6 @@
+# title: Lipid Classes Count per Pathway
+# category: Communities
+
 SELECT DISTINCT ?pathwayRes (str(?wpid) AS ?pathway) (str(?title) AS ?pathwayTitle) (count(DISTINCT ?lipidID) AS ?Class_LipidsInPWs)
 WHERE {     ?metabolite a wp:Metabolite ;
     dcterms:identifier ?id ;

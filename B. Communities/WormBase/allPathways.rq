@@ -1,3 +1,6 @@
+# title: WormBase Community Pathways
+# category: Communities
+
 SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
 WHERE {
 ?pathway wp:ontologyTag cur:WormBase_Approved ; 

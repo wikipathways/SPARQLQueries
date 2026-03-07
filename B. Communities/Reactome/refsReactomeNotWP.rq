@@ -1,3 +1,6 @@
+# title: References in Reactome but Not WikiPathways
+# category: Communities
+
 SELECT (COUNT(DISTINCT ?pubmed) AS ?count)
 WHERE {
   ?pubmed a       wp:PublicationReference .

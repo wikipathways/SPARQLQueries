@@ -1,3 +1,6 @@
+# title: Reactome Pathways
+# category: Communities
+
 SELECT DISTINCT ?pathway (str(?titleLit) as ?title)
 WHERE {
   ?pathway wp:ontologyTag cur:Reactome_Approved ;

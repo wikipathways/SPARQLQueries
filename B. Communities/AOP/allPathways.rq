@@ -1,3 +1,6 @@
+# title: AOP Community Pathways
+# category: Communities
+
 PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>

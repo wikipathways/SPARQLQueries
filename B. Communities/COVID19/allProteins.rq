@@ -1,3 +1,6 @@
+# title: COVID-19 Community Proteins
+# category: Communities
+
 SELECT DISTINCT ?pathway (str(?label) as ?Protein)
 WHERE {
 ?pathway wp:ontologyTag cur:COVID19 ;

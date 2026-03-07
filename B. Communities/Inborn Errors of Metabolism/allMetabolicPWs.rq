@@ -1,3 +1,6 @@
+# title: Inborn Errors of Metabolism Metabolic Pathways
+# category: Communities
+
 SELECT distinct ?pathway ?label ?tag
 WHERE {
   ?tag1 a owl:Class ;
