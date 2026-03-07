@@ -1,4 +1,5 @@
-#Pathways without literature references
+# title: Pathways Without References
+# category: Curation
 
 SELECT (STR(?speciesLabelLit) AS ?species) (STR(?titleLit) AS ?title) ?pathway WHERE {
   ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .

@@ -1,4 +1,5 @@
-#Metabolites without a link to Wikidata
+# title: Metabolites Without Wikidata Links
+# category: Curation
 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 

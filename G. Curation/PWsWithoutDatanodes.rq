@@ -1,4 +1,5 @@
-#Pathways without (annotated) datanodes
+# title: Pathways Without Data Nodes
+# category: Curation
 
 prefix wp:      <http://vocabularies.wikipathways.org/wp#>
 prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>

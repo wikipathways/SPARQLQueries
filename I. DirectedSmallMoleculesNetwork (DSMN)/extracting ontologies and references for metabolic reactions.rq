@@ -1,5 +1,8 @@
+# title: Extracting Ontologies and References for Metabolic Reactions
+# category: DSMN
+
 ### Part 1: ###
-SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt 
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt
 ?curationstatus ?InteractionRef ?PWref ?sourceLit ?targetLit 
 WHERE {
 ?pathway a wp:Pathway ; 

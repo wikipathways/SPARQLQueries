@@ -1,6 +1,9 @@
+# title: Extracting Protein Titles and Identifiers for Metabolic Reactions
+# category: DSMN
+
 ### Part 1: ###
-SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName 
-WHERE {  
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName
+WHERE {
 ?pathway a wp:Pathway ; 
 wp:ontologyTag cur:AnalysisCollection ;
 wp:organismName "Homo sapiens"; 

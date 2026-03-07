@@ -1,6 +1,9 @@
+# title: Extracting Directed Metabolic Reactions
+# category: DSMN
+
 ### Part 1: ###
-SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype 
-?pathway (str(?titleLit) as ?title) 
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype
+?pathway (str(?titleLit) as ?title)
 ?sourceCHEBI ?targetDbCHEBI ?sourceHMDB ?targetDbHMDB ?InteractionID  
 WHERE {  
 

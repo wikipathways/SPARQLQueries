@@ -1,4 +1,5 @@
-# Finding double mappings to Wikidata for metabolites:
+# title: Metabolites with Duplicate Wikidata Mappings
+# category: Curation
 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 

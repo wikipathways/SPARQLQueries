@@ -1,3 +1,6 @@
+# title: Count of Pathways Without References
+# category: Curation
+
 SELECT count(DISTINCT ?pathway) WHERE {
   ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .
   MINUS { ?pubmed a       wp:PublicationReference .

@@ -1,3 +1,6 @@
+# title: Controlling Duplicate Mappings from Wikidata
+# category: DSMN
+
 ### Part 1: ###
 #Required prefixes for querying WikiPathways content in Blazegraph
 PREFIX gpml:		<http://vocabularies.wikipathways.org/gpml#>

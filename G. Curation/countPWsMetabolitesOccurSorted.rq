@@ -1,4 +1,5 @@
-#Sorting the metabolites by the number of pathways they occur in
+# title: Pathways by Metabolite Occurrence Count
+# category: Curation
 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 

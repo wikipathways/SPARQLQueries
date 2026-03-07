@@ -1,3 +1,6 @@
+# title: IDSM Chemical Similarity Search
+# category: Chemistry
+
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ebi: <http://ebi.rdf.ac.uk/dataset/>
 PREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>
@@ -8,7 +11,7 @@ PREFIX sso: <http://semanticscience.org/resource/>
 PREFIX rh:<http://rdf.rhea-db.org/>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
-SELECT distinct ((substr(str(?chebioSrc),32)) as ?SourceOrigin) ((substr(str(?similarSrc),32)) as ?SourceSimilar) ((substr(str(?chebioTgt),32)) as ?TargetOrigin) ((substr(str(?similarTgt),32)) as ?TargetSimilar)  #?reaction 
+SELECT distinct ((substr(str(?chebioSrc),32)) as ?SourceOrigin) ((substr(str(?similarSrc),32)) as ?SourceSimilar) ((substr(str(?chebioTgt),32)) as ?TargetOrigin) ((substr(str(?similarTgt),32)) as ?TargetSimilar)  #?reaction
 WHERE {
   ?interaction dcterms:isPartOf ?pathway ; a wp:Conversion ;
       wp:source ?source ;
