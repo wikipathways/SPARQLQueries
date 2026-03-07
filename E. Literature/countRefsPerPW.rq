@@ -1,5 +1,8 @@
+# title: Reference Count per Pathway
+# category: Literature
+
 SELECT DISTINCT ?pathway COUNT(?pubmed) AS ?numberOfReferences
-WHERE 
-     {?pubmed a       wp:PublicationReference . 
+WHERE
+     {?pubmed a       wp:PublicationReference .
       ?pubmed dcterms:isPartOf ?pathway }
-ORDER BY DESC(?numberOfReferences) 
+ORDER BY DESC(?numberOfReferences)

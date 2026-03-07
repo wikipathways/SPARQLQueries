@@ -1,5 +1,8 @@
+# title: Metabolites of a Pathway
+# category: General
+
 select distinct ?pathway (str(?label) as ?Metabolite) where {
-    ?Metabolite a wp:Metabolite ; 
+    ?Metabolite a wp:Metabolite ;
        rdfs:label ?label ;
        dcterms:isPartOf ?pathway .
     ?pathway a wp:Pathway ;

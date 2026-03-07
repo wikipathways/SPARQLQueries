@@ -1,4 +1,6 @@
-#Prefixes required which might not be available in the SPARQL endpoint by default
+# title: MetaNetX Reaction ID Mapping
+# category: Collaborations
+
 PREFIX wp:      <http://vocabularies.wikipathways.org/wp#>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>

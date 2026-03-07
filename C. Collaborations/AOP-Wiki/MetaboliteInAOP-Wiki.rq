@@ -1,7 +1,10 @@
-PREFIX aopo:	<http://aopkb.org/aop_ontology#> 
-PREFIX cheminf:	<http://semanticscience.org/resource/CHEMINF_> 
+# title: Metabolites in AOP-Wiki
+# category: Collaborations
 
-SELECT DISTINCT (str(?title) as ?pathwayName) ?chemical ?ChEBI ?ChemicalName  ?mappedid ?LinkedStressor 
+PREFIX aopo:	<http://aopkb.org/aop_ontology#>
+PREFIX cheminf:	<http://semanticscience.org/resource/CHEMINF_>
+
+SELECT DISTINCT (str(?title) as ?pathwayName) ?chemical ?ChEBI ?ChemicalName  ?mappedid ?LinkedStressor
 
 WHERE {
    ?pathway a wp:Pathway ; wp:organismName "Homo sapiens"; dcterms:identifier ?WPID ; dc:title ?title . 

@@ -1,3 +1,6 @@
+# title: References for a Specific Interaction
+# category: Literature
+
 SELECT DISTINCT ?pathway ?interaction ?pubmed WHERE {
    ?pathway a wp:Pathway .
    ?pathway dc:identifier <https://identifiers.org/wikipathways/WP5200> . #filter for pathway

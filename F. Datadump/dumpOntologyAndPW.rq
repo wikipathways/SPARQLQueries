@@ -1,3 +1,6 @@
+# title: Ontology and Pathway Data Export
+# category: Data Export
+
 SELECT DISTINCT ?depicts (str(?titleLit) as ?title) (str(?speciesLabelLit) as ?speciesLabel) ?identifier ?ontology
 WHERE {
 	?pathway foaf:page ?depicts .

@@ -1,4 +1,7 @@
-SELECT (?o as ?pwOntologyTerm) (str(?titleLit) as ?title) ?pathway 
+# title: Ontology Terms of a Pathway
+# category: General
+
+SELECT (?o as ?pwOntologyTerm) (str(?titleLit) as ?title) ?pathway
 WHERE {
   ?pathwayRDF wp:ontologyTag ?o ;
     dc:identifier ?pathway ;

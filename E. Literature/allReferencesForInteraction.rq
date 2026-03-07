@@ -1,3 +1,6 @@
+# title: All References for an Interaction
+# category: Literature
+
 SELECT DISTINCT ?pathway ?interaction ?pubmed ?partnerref WHERE {
    ?pathway a wp:Pathway ;
             dc:identifier <https://identifiers.org/wikipathways/WP5200> .

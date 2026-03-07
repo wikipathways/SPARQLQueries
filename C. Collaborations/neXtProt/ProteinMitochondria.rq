@@ -1,3 +1,6 @@
+# title: Mitochondrial Proteins via neXtProt
+# category: Collaborations
+
 PREFIX : <http://nextprot.org/rdf#>
 PREFIX cv: <http://nextprot.org/rdf/terminology/>
 

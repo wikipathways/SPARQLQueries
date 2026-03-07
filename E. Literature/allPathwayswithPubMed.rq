@@ -1,6 +1,9 @@
-SELECT DISTINCT ?pathway ?pubmed 
-WHERE 
-     {?pubmed a       wp:PublicationReference . 
+# title: All Pathways with PubMed References
+# category: Literature
+
+SELECT DISTINCT ?pathway ?pubmed
+WHERE
+     {?pubmed a       wp:PublicationReference .
       ?pubmed dcterms:isPartOf ?pathway }
 ORDER BY ?pathway
 LIMIT 50

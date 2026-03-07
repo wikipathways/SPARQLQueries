@@ -1,3 +1,6 @@
+# title: Interactions of a Pathway
+# category: General
+
 SELECT DISTINCT ?pathway ?interaction ?participants ?DataNodeLabel
 WHERE {
 

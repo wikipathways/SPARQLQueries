@@ -1,5 +1,8 @@
+# title: Genes of a Pathway
+# category: General
+
 select distinct ?pathway (str(?label) as ?geneProduct) where {
-    ?geneProduct a wp:GeneProduct . 
+    ?geneProduct a wp:GeneProduct .
     ?geneProduct rdfs:label ?label .
     ?geneProduct dcterms:isPartOf ?pathwayRev .
     ?pathwayRev a wp:Pathway .

@@ -1,3 +1,6 @@
+# title: Protein Cellular Location via neXtProt
+# category: Collaborations
+
 PREFIX : <http://nextprot.org/rdf#>
 select distinct  ?pathwayname ?entry str(?gen)  (group_concat(distinct str(?loclab); SEPARATOR = ",") as ?locations) where {
   {?geneProduct a wp:Protein}

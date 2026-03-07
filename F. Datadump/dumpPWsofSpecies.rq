@@ -1,3 +1,6 @@
+# title: Pathways by Species Data Export
+# category: Data Export
+
 SELECT DISTINCT ?wpIdentifier ?pathway ?title ?page
 WHERE {
     ?pathway dc:title ?title ;
