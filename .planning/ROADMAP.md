@@ -13,7 +13,7 @@ This roadmap transforms ~85 SPARQL query files from opaque camelCase filenames i
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - CI pipeline fix, controlled category vocabulary, and header conventions guide
-- [ ] **Phase 2: Titles and Categories** - Add title and category headers to all ~85 .rq files
+- [x] **Phase 2: Titles and Categories** - Add title and category headers to all ~85 .rq files (completed 2026-03-07)
 - [ ] **Phase 3: Descriptions** - Add description headers to all ~85 .rq files
 - [ ] **Phase 4: Parameterization and Validation** - Add param headers to ~15-20 queries and enable CI lint for all headers
 
@@ -41,7 +41,7 @@ Plans:
   1. Every .rq file in the repository has a `# title:` header with a clear, descriptive display name
   2. Every .rq file has a `# category:` header using exactly one value from the controlled vocabulary
   3. The SNORQL UI renders the query list with readable names grouped by category
-**Plans:** 1/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Header validation test suite (META-01, META-02)
@@ -82,6 +82,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-03-06 |
-| 2. Titles and Categories | 1/3 | In Progress|  |
+| 2. Titles and Categories | 3/3 | Complete   | 2026-03-07 |
 | 3. Descriptions | 0/? | Not started | - |
 | 4. Parameterization and Validation | 0/? | Not started | - |
