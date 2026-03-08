@@ -1,5 +1,8 @@
 # title: Total Lipid Classes
 # category: Communities
+# description: Counts the number of individual lipids in a specific LIPID MAPS subclass
+#   across human pathways. Change the FILTER value to query different subclasses (FA, GL,
+#   GP, SP, ST, PR, SL, PK).
 
 SELECT count(DISTINCT ?lipidID) as ?IndividualLipidsPerClass
 WHERE {     ?metabolite a wp:Metabolite ;

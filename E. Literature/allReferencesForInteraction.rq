@@ -1,5 +1,8 @@
 # title: All References for an Interaction
 # category: Literature
+# description: Returns all publication references for interactions in a given
+#   pathway, including references attached to both the interaction itself and its
+#   participating data nodes.
 
 SELECT DISTINCT ?pathway ?interaction ?pubmed ?partnerref WHERE {
    ?pathway a wp:Pathway ;

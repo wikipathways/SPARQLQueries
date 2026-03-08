@@ -1,5 +1,7 @@
 # title: Interactions of a Pathway
 # category: General
+# description: Returns all interactions in a given pathway along with the
+#   participating data nodes and their labels.
 
 SELECT DISTINCT ?pathway ?interaction ?participants ?DataNodeLabel
 WHERE {

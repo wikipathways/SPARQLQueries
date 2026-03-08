@@ -1,5 +1,7 @@
 # title: Reference Count per Pathway
 # category: Literature
+# description: Counts the number of PubMed publication references per pathway,
+#   sorted by descending reference count.
 
 SELECT DISTINCT ?pathway COUNT(?pubmed) AS ?numberOfReferences
 WHERE

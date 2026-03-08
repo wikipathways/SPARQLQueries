@@ -1,5 +1,7 @@
 # title: Count of Pathways Without References
 # category: Curation
+# description: Returns the total number of pathways that have no associated
+#   publication references.
 
 SELECT count(DISTINCT ?pathway) WHERE {
   ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .

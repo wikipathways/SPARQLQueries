@@ -1,5 +1,7 @@
 # title: References for a Specific Interaction
 # category: Literature
+# description: Returns publication references for a single interaction identified by
+#   both a pathway and a specific participant URI.
 
 SELECT DISTINCT ?pathway ?interaction ?pubmed WHERE {
    ?pathway a wp:Pathway .

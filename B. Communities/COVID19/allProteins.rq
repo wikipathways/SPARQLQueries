@@ -1,5 +1,6 @@
 # title: COVID-19 Community Proteins
 # category: Communities
+# description: Lists all proteins found in COVID-19 community pathways.
 
 SELECT DISTINCT ?pathway (str(?label) as ?Protein)
 WHERE {

@@ -1,5 +1,6 @@
 # title: AOP Community Pathways
 # category: Communities
+# description: Lists all pathways tagged with the AOP community curation tag.
 
 PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>

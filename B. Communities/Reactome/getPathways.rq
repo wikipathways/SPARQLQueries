@@ -1,5 +1,6 @@
 # title: Reactome Pathways
 # category: Communities
+# description: Lists all pathways tagged with the Reactome Approved curation tag.
 
 SELECT DISTINCT ?pathway (str(?titleLit) as ?title)
 WHERE {

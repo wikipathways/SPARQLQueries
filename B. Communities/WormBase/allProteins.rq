@@ -1,5 +1,6 @@
 # title: WormBase Community Proteins
 # category: Communities
+# description: Lists all proteins found in WormBase Approved community pathways.
 
 SELECT DISTINCT ?pathway (str(?label) as ?Protein)
 WHERE {

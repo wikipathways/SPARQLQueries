@@ -1,5 +1,7 @@
 # title: Ontology and Pathway Data Export
 # category: Data Export
+# description: Exports pathway metadata including page URLs, titles, species, identifiers,
+#   and associated ontology tags for bulk download.
 
 SELECT DISTINCT ?depicts (str(?titleLit) as ?title) (str(?speciesLabelLit) as ?speciesLabel) ?identifier ?ontology
 WHERE {

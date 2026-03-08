@@ -1,5 +1,6 @@
 # title: Inborn Errors of Metabolism Proteins
 # category: Communities
+# description: Lists all proteins found in Inborn Errors of Metabolism (IEM) community pathways.
 
 SELECT DISTINCT ?pathway (str(?label) as ?Protein)
 WHERE {

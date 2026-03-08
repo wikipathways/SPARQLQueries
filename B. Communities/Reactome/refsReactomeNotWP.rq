@@ -1,5 +1,7 @@
 # title: References in Reactome but Not WikiPathways
 # category: Communities
+# description: Counts publication references found in Reactome-approved pathways but not
+#   in the WikiPathways Analysis Collection.
 
 SELECT (COUNT(DISTINCT ?pubmed) AS ?count)
 WHERE {

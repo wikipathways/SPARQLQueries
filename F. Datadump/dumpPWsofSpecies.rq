@@ -1,5 +1,7 @@
 # title: Pathways by Species Data Export
 # category: Data Export
+# description: Exports all pathways for a given species, returning identifiers,
+#   titles, and page URLs ordered by pathway ID.
 
 SELECT DISTINCT ?wpIdentifier ?pathway ?title ?page
 WHERE {

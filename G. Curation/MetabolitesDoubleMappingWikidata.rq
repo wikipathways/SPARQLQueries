@@ -1,5 +1,7 @@
 # title: Metabolites with Duplicate Wikidata Mappings
 # category: Curation
+# description: Detects metabolites that are mapped to more than one Wikidata
+#   identifier, listing all duplicate mappings per metabolite.
 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 

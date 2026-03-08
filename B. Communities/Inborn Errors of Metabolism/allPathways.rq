@@ -1,5 +1,6 @@
 # title: Inborn Errors of Metabolism Pathways
 # category: Communities
+# description: Lists all pathways tagged with the Inborn Errors of Metabolism (IEM) community curation tag.
 
 SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
 WHERE {

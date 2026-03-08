@@ -1,5 +1,7 @@
 # title: Lipids Count per Pathway
 # category: Communities
+# description: Counts the total number of lipids with LIPID MAPS identifiers per human
+#   pathway, ordered by count.
 
 prefix lipidmaps:      <https://identifiers.org/lipidmaps/> #IRI can be used to create URLs from identifiers in line 7
 select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (count(distinct ?lipidID) AS ?LipidsInPWs)

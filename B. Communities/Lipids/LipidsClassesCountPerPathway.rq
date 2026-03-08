@@ -1,5 +1,7 @@
 # title: Lipid Classes Count per Pathway
 # category: Communities
+# description: Counts the number of lipids in a specific LIPID MAPS subclass per human
+#   pathway, ordered by count. Change the FILTER value to query different subclasses.
 
 SELECT DISTINCT ?pathwayRes (str(?wpid) AS ?pathway) (str(?title) AS ?pathwayTitle) (count(DISTINCT ?lipidID) AS ?Class_LipidsInPWs)
 WHERE {     ?metabolite a wp:Metabolite ;

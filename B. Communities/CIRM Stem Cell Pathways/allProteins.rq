@@ -1,5 +1,6 @@
 # title: CIRM Stem Cell Proteins
 # category: Communities
+# description: Lists all proteins found in CIRM Stem Cell community pathways.
 
 SELECT DISTINCT ?pathway (str(?label) as ?Protein)
 WHERE {

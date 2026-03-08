@@ -1,5 +1,7 @@
 # title: Pathways by Metabolite Occurrence Count
 # category: Curation
+# description: Counts how many pathways each metabolite appears in, filtered to
+#   metabolites without a Wikidata mapping, sorted by descending pathway count.
 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 

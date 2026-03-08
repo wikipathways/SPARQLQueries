@@ -1,5 +1,7 @@
 # title: Metabolites of a Pathway
 # category: General
+# description: Lists all metabolites in a given pathway, returning the pathway
+#   identifier and metabolite labels.
 
 select distinct ?pathway (str(?label) as ?Metabolite) where {
     ?Metabolite a wp:Metabolite ;

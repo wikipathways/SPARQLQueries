@@ -1,5 +1,7 @@
 # title: Ontology Terms of a Pathway
 # category: General
+# description: Retrieves all ontology tags associated with a given pathway,
+#   returning the ontology term URI, pathway title, and identifier.
 
 SELECT (?o as ?pwOntologyTerm) (str(?titleLit) as ?title) ?pathway
 WHERE {

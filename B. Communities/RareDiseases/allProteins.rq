@@ -1,5 +1,6 @@
 # title: Rare Diseases Community Proteins
 # category: Communities
+# description: Lists all proteins found in Rare Diseases community pathways.
 
 SELECT DISTINCT ?pathway (str(?label) as ?Protein)
 WHERE {

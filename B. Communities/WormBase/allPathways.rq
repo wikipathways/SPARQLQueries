@@ -1,5 +1,6 @@
 # title: WormBase Community Pathways
 # category: Communities
+# description: Lists all pathways tagged with the WormBase Approved community curation tag.
 
 SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
 WHERE {

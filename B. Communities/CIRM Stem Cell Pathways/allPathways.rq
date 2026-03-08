@@ -1,5 +1,6 @@
 # title: CIRM Stem Cell Pathways
 # category: Communities
+# description: Lists all pathways tagged with the CIRM Stem Cell community curation tag.
 
 SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
 WHERE {

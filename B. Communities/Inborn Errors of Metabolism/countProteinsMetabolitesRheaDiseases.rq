@@ -1,5 +1,8 @@
 # title: IEM Proteins, Metabolites, Rhea, and Diseases
 # category: Communities
+# description: Summarizes IEM community pathways with counts of proteins, metabolites,
+#   Rhea reaction annotations, missing Rhea IDs, and linked OMIM disease identifiers
+#   per pathway.
 
 PREFIX wp:      <http://vocabularies.wikipathways.org/wp#>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>

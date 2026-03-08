@@ -1,5 +1,7 @@
 # title: All Pathways with PubMed References
 # category: Literature
+# description: Lists pathways that have associated PubMed publication references,
+#   returning pathway and PubMed identifiers ordered by pathway.
 
 SELECT DISTINCT ?pathway ?pubmed
 WHERE

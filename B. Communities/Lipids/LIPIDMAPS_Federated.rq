@@ -1,5 +1,8 @@
 # title: LIPID MAPS Federated Query
 # category: Communities
+# description: Retrieves lipid names, formulas, and associated pathways for a specific
+#   LIPID MAPS category by querying the LIPID MAPS SPARQL endpoint. May be slower due to
+#   external endpoint dependency.
 
 PREFIX chebi: <http://purl.obolibrary.org/obo/chebi/>
 

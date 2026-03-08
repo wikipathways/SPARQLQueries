@@ -1,5 +1,7 @@
 # title: Metabolites Without Wikidata Links
 # category: Curation
+# description: Lists metabolites that have no Wikidata identifier mapping, useful for
+#   identifying gaps in cross-database linkage.
 
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 

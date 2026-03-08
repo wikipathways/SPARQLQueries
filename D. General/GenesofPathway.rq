@@ -1,5 +1,7 @@
 # title: Genes of a Pathway
 # category: General
+# description: Lists all gene products in a given pathway, returning the pathway
+#   identifier and gene product labels.
 
 select distinct ?pathway (str(?label) as ?geneProduct) where {
     ?geneProduct a wp:GeneProduct .

@@ -1,5 +1,7 @@
 # title: Unclassified Metabolites
 # category: Curation
+# description: Finds data nodes with a data source annotation that are not classified
+#   as metabolites, grouped by data source with counts sorted descending.
 
 prefix wp:      <http://vocabularies.wikipathways.org/wp#>
 prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>

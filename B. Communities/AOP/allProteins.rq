@@ -1,5 +1,6 @@
 # title: AOP Community Proteins
 # category: Communities
+# description: Lists all proteins found in AOP community pathways.
 
 SELECT DISTINCT ?pathway (str(?label) as ?Protein)
 WHERE {
