@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-03-PLAN.md
-last_updated: "2026-03-08T08:59:54.346Z"
+stopped_at: Completed 04-03-PLAN.md
+last_updated: "2026-03-08T11:55:47.979Z"
 last_activity: 2026-03-08 -- Completed 03-04 (D-J description headers)
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 9
-  completed_plans: 9
+  total_plans: 12
+  completed_plans: 11
   percent: 89
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** Every .rq file has proper comment headers so the SNORQL UI displays meaningful names, descriptions, and filterable categories
-**Current focus:** Phase 3: Descriptions
+**Current focus:** Phase 4: Parameterization and Validation
 
 ## Current Position
 
-Phase: 3 of 4 (Descriptions)
-Plan: 4 of 4 in current phase (COMPLETE)
+Phase: 4 of 4 (Parameterization and Validation)
+Plan: 1 of 3 in current phase (COMPLETE)
 Status: Executing
-Last activity: 2026-03-08 -- Completed 03-04 (D-J description headers)
+Last activity: 2026-03-08 -- Completed 04-01 (CI lint and conventions)
 
-Progress: [█████████░] 89%
+Progress: [████████░░] 83%
 
 ## Performance Metrics
 
@@ -59,6 +59,8 @@ Progress: [█████████░] 89%
 | Phase 03-descriptions P02 | 2min | 2 tasks | 29 files |
 | Phase 03-descriptions P04 | 3min | 2 tasks | 29 files |
 | Phase 03-descriptions P03 | 4min | 2 tasks | 7 files |
+| Phase 04-parameterization-and-validation P01 | 1min | 2 tasks | 3 files |
+| Phase 04-parameterization-and-validation P03 | 1min | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -82,6 +84,8 @@ Recent decisions affecting current work:
 - [Phase 03-descriptions]: IDSM description uses 4-line multi-line format for service name, URL, and performance note
 - [Phase 03-descriptions]: Contributors query described as first-author count since SPARQL filters ordinal=1
 - [Phase 03-descriptions]: B. Communities descriptions already committed by prior 03-04 execution; verified and kept
+- [Phase 04]: Lint script validates presence of 3 fields only (no format, order, or vocabulary checks)
+- [Phase 04]: Preserved #filter inline comments while removing #Replace hints during parameterization
 
 ### Pending Todos
 
@@ -94,6 +98,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08T08:59:54.341Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-03-08T11:55:47.971Z
+Stopped at: Completed 04-03-PLAN.md
 Resume file: None

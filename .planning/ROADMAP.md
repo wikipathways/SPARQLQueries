@@ -72,10 +72,12 @@ Plans:
   2. Queries with hardcoded pathway IDs, molecule IDs, or gene names have `# param:` headers with appropriate types (string/uri)
   3. Queries with hardcoded external database references have `# param:` headers where the reference is a meaningful user choice
   4. A CI lint step runs on every push and fails if any .rq file is missing required headers (title, category, description)
-**Plans**: TBD
+**Plans:** 2/3 plans executed
 
 Plans:
-- [ ] 04-01: TBD
+- [ ] 04-01-PLAN.md — CI lint script, GitHub Actions integration, and HEADER_CONVENTIONS.md update (FOUND-04)
+- [ ] 04-02-PLAN.md — Species parameterization for 8 query files (PARAM-01)
+- [ ] 04-03-PLAN.md — Pathway ID and protein ID parameterization for 9 query files (PARAM-02, PARAM-03)
 
 ## Progress
 
@@ -87,4 +89,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | 1. Foundation | 2/2 | Complete | 2026-03-06 |
 | 2. Titles and Categories | 3/3 | Complete   | 2026-03-07 |
 | 3. Descriptions | 4/4 | Complete   | 2026-03-08 |
-| 4. Parameterization and Validation | 0/? | Not started | - |
+| 4. Parameterization and Validation | 2/3 | In Progress|  |

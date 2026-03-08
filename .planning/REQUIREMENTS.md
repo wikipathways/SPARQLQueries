@@ -12,7 +12,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FOUND-01**: CI extraction script preserves or emits comment headers when generating .rq from .ttl
 - [x] **FOUND-02**: Controlled category vocabulary defined (matching folder topics: Metadata, Communities, Collaborations, General, Literature, Datadump, Curation, Chemistry, DSMN, Authors)
 - [x] **FOUND-03**: Header conventions guide documenting format rules for title, description, category, and param headers
-- [ ] **FOUND-04**: CI lint step validates that all .rq files have required headers (title, category, description)
+- [x] **FOUND-04**: CI lint step validates that all .rq files have required headers (title, category, description)
 
 ### Metadata
 
@@ -23,8 +23,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Parameterization
 
 - [ ] **PARAM-01**: Queries with hardcoded species URIs have `# param:` with enum type for organism selection
-- [ ] **PARAM-02**: Queries with hardcoded pathway/molecule IDs have `# param:` with string/uri type
-- [ ] **PARAM-03**: Queries with hardcoded external database references have `# param:` where appropriate
+- [x] **PARAM-02**: Queries with hardcoded pathway/molecule IDs have `# param:` with string/uri type
+- [x] **PARAM-03**: Queries with hardcoded external database references have `# param:` where appropriate
 
 ## v2 Requirements
 
@@ -59,13 +59,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-01 | Phase 1: Foundation | Complete |
 | FOUND-02 | Phase 1: Foundation | Complete |
 | FOUND-03 | Phase 1: Foundation | Complete |
-| FOUND-04 | Phase 4: Parameterization and Validation | Pending |
+| FOUND-04 | Phase 4: Parameterization and Validation | Complete |
 | META-01 | Phase 2: Titles and Categories | Complete |
 | META-02 | Phase 2: Titles and Categories | Complete |
 | META-03 | Phase 3: Descriptions | Complete |
 | PARAM-01 | Phase 4: Parameterization and Validation | Pending |
-| PARAM-02 | Phase 4: Parameterization and Validation | Pending |
-| PARAM-03 | Phase 4: Parameterization and Validation | Pending |
+| PARAM-02 | Phase 4: Parameterization and Validation | Complete |
+| PARAM-03 | Phase 4: Parameterization and Validation | Complete |
 
 **Coverage:**
 - v1 requirements: 10 total
