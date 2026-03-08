@@ -1,5 +1,8 @@
 # title: Extracting Ontologies and References for Metabolic Reactions
 # category: DSMN
+# description: Retrieves ontology annotations, curation status, and literature
+#   references for directed metabolic reactions in human pathways as part of the
+#   DSMN workflow.
 
 ### Part 1: ###
 SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt

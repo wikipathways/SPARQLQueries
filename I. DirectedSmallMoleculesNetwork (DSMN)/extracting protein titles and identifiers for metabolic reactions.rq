@@ -1,5 +1,8 @@
 # title: Extracting Protein Titles and Identifiers for Metabolic Reactions
 # category: DSMN
+# description: Extracts catalyzing proteins for directed metabolic reactions in
+#   human AnalysisCollection pathways, returning Ensembl identifiers and protein
+#   names as part of the DSMN workflow.
 
 ### Part 1: ###
 SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName

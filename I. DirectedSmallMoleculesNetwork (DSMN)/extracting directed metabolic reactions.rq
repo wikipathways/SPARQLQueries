@@ -1,5 +1,8 @@
 # title: Extracting Directed Metabolic Reactions
 # category: DSMN
+# description: Extracts directed metabolite-to-metabolite interactions from human
+#   pathways in the AnalysisCollection, returning source and target identifiers,
+#   interaction types, and Rhea IDs as part of the DSMN workflow.
 
 ### Part 1: ###
 SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype

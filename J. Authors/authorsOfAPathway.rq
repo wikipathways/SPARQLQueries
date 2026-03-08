@@ -1,5 +1,7 @@
 # title: Authors of a Pathway
 # category: Authors
+# description: Lists all authors of a given pathway in ordinal order, returning
+#   name, ORCID, homepage, and pathway version.
 
 PREFIX dc:    <http://purl.org/dc/elements/1.1/>
 PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
