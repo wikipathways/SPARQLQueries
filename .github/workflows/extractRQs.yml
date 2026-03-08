@@ -20,6 +20,8 @@ jobs:
         run: pip install rdflib
       - name: Extract
         run: python scripts/transformDotTtlToDotSparql.py
+      - name: Lint headers
+        run: python scripts/lint_headers.py
 
       - name: Commit new .rq files
         run: |
