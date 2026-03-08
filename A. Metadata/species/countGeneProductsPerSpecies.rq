@@ -1,5 +1,7 @@
 # title: Gene Products per Species
 # category: Metadata
+# description: Counts the number of distinct gene products per species in WikiPathways,
+#   ordered by count descending.
 
 select (count(distinct ?gene) as ?count) (str(?label) as ?species) where {
   ?gene a wp:GeneProduct ;

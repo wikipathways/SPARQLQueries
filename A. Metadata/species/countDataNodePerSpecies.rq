@@ -1,5 +1,7 @@
 # title: Data Nodes per Species
 # category: Metadata
+# description: Counts the number of distinct data nodes per species in WikiPathways,
+#   ordered by count descending.
 
 select (count(distinct ?datanode) as ?count) (str(?label) as ?species) where {
   ?datanode a wp:DataNode ;

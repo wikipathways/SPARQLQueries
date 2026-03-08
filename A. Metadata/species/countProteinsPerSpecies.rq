@@ -1,5 +1,7 @@
 # title: Proteins per Species
 # category: Metadata
+# description: Counts the number of distinct proteins per species in WikiPathways,
+#   ordered by count descending.
 
 select (count(distinct ?protein) as ?count) (str(?label) as ?species) where {
   ?protein a wp:Protein ;
