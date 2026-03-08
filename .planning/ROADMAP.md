@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - CI pipeline fix, controlled category vocabulary, and header conventions guide
 - [x] **Phase 2: Titles and Categories** - Add title and category headers to all ~85 .rq files (completed 2026-03-07)
-- [ ] **Phase 3: Descriptions** - Add description headers to all ~85 .rq files
+- [ ] **Phase 3: Descriptions** - Add description headers to all 90 .rq files
 - [ ] **Phase 4: Parameterization and Validation** - Add param headers to ~15-20 queries and enable CI lint for all headers
 
 ## Phase Details
@@ -55,10 +55,13 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Every .rq file has a `# description:` header explaining what the query does and what it returns
   2. Federated queries (those using SERVICE clauses) mention federation and potential performance impact in their descriptions
-**Plans**: TBD
+**Plans:** 4 plans
 
 Plans:
-- [ ] 03-01: TBD
+- [ ] 03-01-PLAN.md — Description test setup and CI verification (META-03)
+- [ ] 03-02-PLAN.md — Add descriptions to A. Metadata (29 files) (META-03)
+- [ ] 03-03-PLAN.md — Add descriptions to B. Communities and C. Collaborations (32 files, 8 federated) (META-03)
+- [ ] 03-04-PLAN.md — Add descriptions to D-J directories (29 files, 1 federated) (META-03)
 
 ### Phase 4: Parameterization and Validation
 **Goal**: Queries with hardcoded values become interactive in SNORQL, and a CI lint step ensures all files maintain required headers going forward
@@ -83,5 +86,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-03-06 |
 | 2. Titles and Categories | 3/3 | Complete   | 2026-03-07 |
-| 3. Descriptions | 0/? | Not started | - |
+| 3. Descriptions | 0/4 | Not started | - |
 | 4. Parameterization and Validation | 0/? | Not started | - |

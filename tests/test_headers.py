@@ -88,6 +88,17 @@ def test_all_rq_have_valid_category(rq_file):
         )
 
 
+@pytest.mark.parametrize("rq_file", _RQ_PARAMS)
+def test_all_rq_have_description(rq_file):
+    """Every .rq file must have a '# description: ...' line in its header block."""
+    header = parse_header(rq_file)
+    desc_pattern = re.compile(r"^# description: .+")
+    descriptions = [line for line in header if desc_pattern.match(line)]
+    assert descriptions, (
+        f"Missing '# description:' header in {rq_file.relative_to(ROOT)}"
+    )
+
+
 def test_titles_are_unique():
     """All title values across .rq files must be unique (no duplicates)."""
     title_pattern = re.compile(r"^# title: (.+)")
@@ -110,22 +121,31 @@ def test_titles_are_unique():
 
 
 def test_header_field_order():
-    """When both title and category are present, title must appear before category."""
+    """When title, category, description are present, they must appear in that order."""
     title_pattern = re.compile(r"^# title: ")
     cat_pattern = re.compile(r"^# category: ")
+    desc_pattern = re.compile(r"^# description: ")
     for rq_file in _RQ_FILES:
         header = parse_header(rq_file)
         title_idx = None
         cat_idx = None
+        desc_idx = None
         for i, line in enumerate(header):
             if title_pattern.match(line) and title_idx is None:
                 title_idx = i
             if cat_pattern.match(line) and cat_idx is None:
                 cat_idx = i
+            if desc_pattern.match(line) and desc_idx is None:
+                desc_idx = i
         if title_idx is not None and cat_idx is not None:
             assert title_idx < cat_idx, (
                 f"In {rq_file.relative_to(ROOT)}: title (line {title_idx}) "
                 f"must appear before category (line {cat_idx})"
+            )
+        if cat_idx is not None and desc_idx is not None:
+            assert cat_idx < desc_idx, (
+                f"In {rq_file.relative_to(ROOT)}: category (line {cat_idx}) "
+                f"must appear before description (line {desc_idx})"
             )
 
 
