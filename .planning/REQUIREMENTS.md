@@ -18,7 +18,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **META-01**: All ~85 .rq files have `# title:` headers with clear display names
 - [x] **META-02**: All ~85 .rq files have `# category:` headers using the controlled vocabulary
-- [ ] **META-03**: All ~85 .rq files have `# description:` headers explaining what the query does and returns
+- [x] **META-03**: All ~85 .rq files have `# description:` headers explaining what the query does and returns
 
 ### Parameterization
 
@@ -62,7 +62,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-04 | Phase 4: Parameterization and Validation | Pending |
 | META-01 | Phase 2: Titles and Categories | Complete |
 | META-02 | Phase 2: Titles and Categories | Complete |
-| META-03 | Phase 3: Descriptions | Pending |
+| META-03 | Phase 3: Descriptions | Complete |
 | PARAM-01 | Phase 4: Parameterization and Validation | Pending |
 | PARAM-02 | Phase 4: Parameterization and Validation | Pending |
 | PARAM-03 | Phase 4: Parameterization and Validation | Pending |
