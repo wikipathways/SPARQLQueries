@@ -2,12 +2,13 @@
 # category: General
 # description: Returns all interactions in a given pathway along with the
 #   participating data nodes and their labels.
+# param: pathwayId | string | WP1425 | Pathway ID
 
 SELECT DISTINCT ?pathway ?interaction ?participants ?DataNodeLabel
 WHERE {
 
    ?pathway a wp:Pathway ;
-      dc:identifier <https://identifiers.org/wikipathways/WP1425> .
+      dc:identifier <https://identifiers.org/wikipathways/{{pathwayId}}> .
    ?interaction dcterms:isPartOf ?pathway ; 
       a wp:Interaction ;
       wp:participants ?participants .

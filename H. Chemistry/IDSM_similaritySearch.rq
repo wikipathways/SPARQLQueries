@@ -4,6 +4,7 @@
 #   metabolites in a pathway's directed interactions via the IDSM/ChEBI structure
 #   search service (idsm.elixir-czech.cz). May be slower due to external endpoint
 #   dependency.
+# param: pathwayId | string | WP4225 | Pathway ID
 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ebi: <http://ebi.rdf.ac.uk/dataset/>
@@ -22,7 +23,7 @@ WHERE {
       wp:target ?target .
     ?source wp:bdbChEBI ?chebiSrc .
     ?target wp:bdbChEBI ?chebiTgt .
-    ?pathway dcterms:identifier "WP4225".
+    ?pathway dcterms:identifier "{{pathwayId}}".
     BIND(iri(concat("http://purl.obolibrary.org/obo/CHEBI_", substr(str(?chebiSrc),37))) AS ?chebioSrc)
     BIND(iri(concat("http://purl.obolibrary.org/obo/CHEBI_", substr(str(?chebiTgt),37))) AS ?chebioTgt)
 #IDSM
