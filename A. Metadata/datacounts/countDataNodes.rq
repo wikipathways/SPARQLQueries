@@ -1,5 +1,6 @@
 # title: Count of Data Nodes
 # category: Metadata
+# description: Counts the total number of data nodes in WikiPathways.
 
 SELECT DISTINCT count(?DataNodes) as ?DataNodeCount
 WHERE {

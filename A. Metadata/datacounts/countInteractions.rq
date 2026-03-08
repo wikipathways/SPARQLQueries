@@ -1,5 +1,6 @@
 # title: Count of Interactions
 # category: Metadata
+# description: Counts the total number of interactions in WikiPathways.
 
 SELECT DISTINCT count(?Interaction) as ?InteractionCount
 WHERE {

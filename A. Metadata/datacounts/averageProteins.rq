@@ -1,5 +1,7 @@
 # title: Average Proteins per Pathway
 # category: Metadata
+# description: Calculates the average, minimum, and maximum number of proteins per
+#   pathway in WikiPathways.
 
 SELECT (AVG(?no) AS ?avg) 
        (MIN(?no) AS ?min) 

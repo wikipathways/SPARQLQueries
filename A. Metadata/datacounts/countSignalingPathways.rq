@@ -1,5 +1,7 @@
 # title: Count of Signaling Pathways
 # category: Metadata
+# description: Counts the total number of signaling pathways in WikiPathways by
+#   filtering on the signaling pathway ontology tag.
 
 SELECT count(distinct ?pathway) as ?pathwaycount
 WHERE {

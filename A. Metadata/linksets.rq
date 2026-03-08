@@ -1,5 +1,7 @@
 # title: Linksets Overview
 # category: Metadata
+# description: Returns all VoID linksets in the WikiPathways RDF with their title,
+#   creation date, and license information.
 
 SELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license 
 WHERE {

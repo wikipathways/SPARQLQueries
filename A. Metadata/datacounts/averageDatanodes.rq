@@ -1,5 +1,7 @@
 # title: Average Data Nodes per Pathway
 # category: Metadata
+# description: Calculates the average, minimum, and maximum number of data nodes per
+#   pathway in WikiPathways.
 
 SELECT (AVG(?no) AS ?avg) 
        (MIN(?no) AS ?min) 

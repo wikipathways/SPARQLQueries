@@ -1,5 +1,7 @@
 # title: SPARQL Prefixes
 # category: Metadata
+# description: Lists all namespace prefixes declared in the WikiPathways SPARQL
+#   endpoint via SHACL prefix declarations.
 
 PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>

@@ -1,5 +1,6 @@
 # title: Count of Metabolites
 # category: Metadata
+# description: Counts the total number of metabolites in WikiPathways.
 
 SELECT DISTINCT count(?Metabolite) as ?MetaboliteCount
 WHERE {
