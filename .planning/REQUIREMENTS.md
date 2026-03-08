@@ -22,7 +22,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Parameterization
 
-- [ ] **PARAM-01**: Queries with hardcoded species URIs have `# param:` with enum type for organism selection
+- [x] **PARAM-01**: Queries with hardcoded species URIs have `# param:` with enum type for organism selection
 - [x] **PARAM-02**: Queries with hardcoded pathway/molecule IDs have `# param:` with string/uri type
 - [x] **PARAM-03**: Queries with hardcoded external database references have `# param:` where appropriate
 
@@ -63,7 +63,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | META-01 | Phase 2: Titles and Categories | Complete |
 | META-02 | Phase 2: Titles and Categories | Complete |
 | META-03 | Phase 3: Descriptions | Complete |
-| PARAM-01 | Phase 4: Parameterization and Validation | Pending |
+| PARAM-01 | Phase 4: Parameterization and Validation | Complete |
 | PARAM-02 | Phase 4: Parameterization and Validation | Complete |
 | PARAM-03 | Phase 4: Parameterization and Validation | Complete |
 
