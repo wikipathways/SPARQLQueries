@@ -157,19 +157,19 @@ WHERE {
 ORDER BY DESC(?date)
 ```
 
-### Example 3: Parameterized query (Phase 4 preview)
+### Example 3: Parameterized query (Phase 4)
 
 ```sparql
 # title: Pathways by Species
 # category: General
 # description: Returns all pathways for a given species.
-# param: species | enum:Homo sapiens,Mus musculus,Rattus norvegicus | Homo sapiens | Species
+# param: species | enum:Homo sapiens,Mus musculus,Rattus norvegicus,... | Homo sapiens | Species
 
 SELECT ?pathway ?title
 WHERE {
   ?pathway a wp:Pathway ;
            dc:title ?title ;
-           wp:organismName "$species"^^xsd:string .
+           wp:organismName "{{species}}" .
 }
 ORDER BY ?title
 ```
