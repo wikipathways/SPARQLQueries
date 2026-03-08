@@ -1,5 +1,8 @@
 # title: Molecular Similarity Reactions via Rhea and IDSM
 # category: Collaborations
+# description: Finds structurally similar compounds for reaction sources and targets in a
+#   pathway by querying the IDSM structure search service for molecular similarity. May be
+#   slower due to external endpoint dependency.
 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ebi: <http://ebi.rdf.ac.uk/dataset/>

@@ -1,5 +1,8 @@
 # title: Mitochondrial Proteins via neXtProt
 # category: Collaborations
+# description: Identifies mitochondrial proteins in Rett syndrome pathways by querying
+#   the neXtProt SPARQL endpoint for gold-quality mitochondrion localization annotations.
+#   May be slower due to external endpoint dependency.
 
 PREFIX : <http://nextprot.org/rdf#>
 PREFIX cv: <http://nextprot.org/rdf/terminology/>

@@ -1,5 +1,8 @@
 # title: Pathways for a PubChem Compound (MolMeDB)
 # category: Collaborations
+# description: Finds all human pathways containing a specific MolMeDB compound by
+#   resolving its PubChem identifier through the MolMeDB SPARQL endpoint. May be slower
+#   due to external endpoint dependency.
 
 SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE
 {
