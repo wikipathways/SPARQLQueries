@@ -2,12 +2,13 @@
 # category: Data Export
 # description: Exports all pathways for a given species, returning identifiers,
 #   titles, and page URLs ordered by pathway ID.
+# param: species | enum:Acetobacterium woodii,Anopheles gambiae,Arabidopsis thaliana,Bacillus subtilis,Beta vulgaris,Bos taurus,Brassica napus,Caenorhabditis elegans,Canis familiaris,Caulobacter vibrioides,Citrus sinensis,Coffea arabica,Danio rerio,Daphnia magna,Drosophila melanogaster,Equus caballus,Escherichia coli,Gallus gallus,Gibberella zeae,Homo sapiens,Hordeum vulgare,Ilex paraguariensis,Mus musculus,Mycobacterium tuberculosis,Oryza sativa,Pan troglodytes,Paullinia cupana,Perilla frutescens,Plasmodium falciparum,Populus trichocarpa,Rattus norvegicus,Saccharomyces cerevisiae,Solanum lycopersicum,Sus scrofa,Theobroma cacao,Triticum aestivum,Vitis vinifera,Zea mays | Homo sapiens | Species
 
 SELECT DISTINCT ?wpIdentifier ?pathway ?title ?page
 WHERE {
     ?pathway dc:title ?title ;
        foaf:page ?page ;
        dc:identifier ?wpIdentifier ;
-       wp:organismName "Mus musculus" .
+       wp:organismName "{{species}}" .
  }
 ORDER BY ?wpIdentifier

@@ -3,6 +3,7 @@
 # description: Extracts directed metabolite-to-metabolite interactions from human
 #   pathways in the AnalysisCollection, returning source and target identifiers,
 #   interaction types, and Rhea IDs as part of the DSMN workflow.
+# param: species | enum:Acetobacterium woodii,Anopheles gambiae,Arabidopsis thaliana,Bacillus subtilis,Beta vulgaris,Bos taurus,Brassica napus,Caenorhabditis elegans,Canis familiaris,Caulobacter vibrioides,Citrus sinensis,Coffea arabica,Danio rerio,Daphnia magna,Drosophila melanogaster,Equus caballus,Escherichia coli,Gallus gallus,Gibberella zeae,Homo sapiens,Hordeum vulgare,Ilex paraguariensis,Mus musculus,Mycobacterium tuberculosis,Oryza sativa,Pan troglodytes,Paullinia cupana,Perilla frutescens,Plasmodium falciparum,Populus trichocarpa,Rattus norvegicus,Saccharomyces cerevisiae,Solanum lycopersicum,Sus scrofa,Theobroma cacao,Triticum aestivum,Vitis vinifera,Zea mays | Homo sapiens | Species
 
 ### Part 1: ###
 SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype
@@ -12,7 +13,7 @@ WHERE {
 
 ### Part 2: ###
 ?pathway a wp:Pathway ;
-         wp:organismName "Homo sapiens" ; 
+         wp:organismName "{{species}}" ;
          dc:title ?titleLit . 	
          
 ### Part 3A: ###
