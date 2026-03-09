@@ -3,6 +3,7 @@
 # description: Finds all human pathways containing a specific MolMeDB compound by
 #   resolving its PubChem identifier through the MolMeDB SPARQL endpoint. May be slower
 #   due to external endpoint dependency.
+# param: species | string | Homo sapiens | Species
 
 SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE
 {
@@ -17,7 +18,7 @@ SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTit
     wp:bdbPubChem ?COMPOUND .
   
   ?pathwayRes a wp:Pathway ;
-    wp:organismName "Homo sapiens";
+    wp:organismName "{{species}}";
     dcterms:identifier ?wpid ;
     dc:title ?title . 
 }

@@ -3,7 +3,8 @@
 # description: Counts the number of individual lipids in a specific LIPID MAPS subclass
 #   across human pathways. Change the FILTER value to query different subclasses (FA, GL,
 #   GP, SP, ST, PR, SL, PK).
-# param: species | enum:Acetobacterium woodii,Anopheles gambiae,Arabidopsis thaliana,Bacillus subtilis,Beta vulgaris,Bos taurus,Brassica napus,Caenorhabditis elegans,Canis familiaris,Caulobacter vibrioides,Citrus sinensis,Coffea arabica,Danio rerio,Daphnia magna,Drosophila melanogaster,Equus caballus,Escherichia coli,Gallus gallus,Gibberella zeae,Homo sapiens,Hordeum vulgare,Ilex paraguariensis,Mus musculus,Mycobacterium tuberculosis,Oryza sativa,Pan troglodytes,Paullinia cupana,Perilla frutescens,Plasmodium falciparum,Populus trichocarpa,Rattus norvegicus,Saccharomyces cerevisiae,Solanum lycopersicum,Sus scrofa,Theobroma cacao,Triticum aestivum,Vitis vinifera,Zea mays | Homo sapiens | Species
+# param: species | string | Homo sapiens | Species
+# param: lipidClass | enum:FA,GL,GP,SP,ST,PR,SL,PK | FA | LIPID MAPS Class
 
 SELECT count(DISTINCT ?lipidID) as ?IndividualLipidsPerClass
 WHERE {     ?metabolite a wp:Metabolite ;
@@ -14,5 +15,5 @@ WHERE {     ?metabolite a wp:Metabolite ;
               wp:organismName "{{species}}"; #Filter for a species (ommit when querying all pathways available for all species)
     dcterms:identifier ?wpid ;
     dc:title ?title .
-  FILTER regex(str(?lipidID), "FA" ). #Filter for a LIPID MAPS ID subclass: 'FA' Fatty Acids ; 'GL' Glycerolipid ; 'GP' Glycerophospholipid ; 'SP' Sphingolipids ; 'ST' Sterol lipids ; 'PR' Prenol Lipids ; 'SL' Saccharolipids ; 'PK' Polyketides
+  FILTER regex(str(?lipidID), "{{lipidClass}}" ). #Filter for a LIPID MAPS ID subclass: 'FA' Fatty Acids ; 'GL' Glycerolipid ; 'GP' Glycerophospholipid ; 'SP' Sphingolipids ; 'ST' Sterol lipids ; 'PR' Prenol Lipids ; 'SL' Saccharolipids ; 'PK' Polyketides
 }

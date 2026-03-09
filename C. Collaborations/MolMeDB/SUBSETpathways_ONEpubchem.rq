@@ -3,6 +3,7 @@
 # description: Checks a subset of pathways for the presence of a specific MolMeDB
 #   compound by querying the MolMeDB SPARQL endpoint. Uses nested federation with both
 #   MolMeDB and WikiPathways endpoints. May be slower due to external endpoint dependency.
+# param: species | string | Homo sapiens | Species
 
 SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE {
   SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {
@@ -15,7 +16,7 @@ SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTit
       wp:bdbPubChem ?COMPOUND .
 
     ?pathwayRes a wp:Pathway ;
-      wp:organismName "Homo sapiens" ;
+      wp:organismName "{{species}}" ;
       dcterms:identifier ?wpid ;
       dc:title ?title .
     }

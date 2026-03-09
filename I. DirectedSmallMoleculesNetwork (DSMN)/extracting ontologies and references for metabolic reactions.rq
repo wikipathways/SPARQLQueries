@@ -3,7 +3,7 @@
 # description: Retrieves ontology annotations, curation status, and literature
 #   references for directed metabolic reactions in human pathways as part of the
 #   DSMN workflow.
-# param: species | enum:Acetobacterium woodii,Anopheles gambiae,Arabidopsis thaliana,Bacillus subtilis,Beta vulgaris,Bos taurus,Brassica napus,Caenorhabditis elegans,Canis familiaris,Caulobacter vibrioides,Citrus sinensis,Coffea arabica,Danio rerio,Daphnia magna,Drosophila melanogaster,Equus caballus,Escherichia coli,Gallus gallus,Gibberella zeae,Homo sapiens,Hordeum vulgare,Ilex paraguariensis,Mus musculus,Mycobacterium tuberculosis,Oryza sativa,Pan troglodytes,Paullinia cupana,Perilla frutescens,Plasmodium falciparum,Populus trichocarpa,Rattus norvegicus,Saccharomyces cerevisiae,Solanum lycopersicum,Sus scrofa,Theobroma cacao,Triticum aestivum,Vitis vinifera,Zea mays | Homo sapiens | Species
+# param: species | string | Homo sapiens | Species
 
 ### Part 1: ###
 SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt

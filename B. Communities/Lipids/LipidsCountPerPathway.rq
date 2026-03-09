@@ -2,7 +2,7 @@
 # category: Communities
 # description: Counts the total number of lipids with LIPID MAPS identifiers per human
 #   pathway, ordered by count.
-# param: species | enum:Acetobacterium woodii,Anopheles gambiae,Arabidopsis thaliana,Bacillus subtilis,Beta vulgaris,Bos taurus,Brassica napus,Caenorhabditis elegans,Canis familiaris,Caulobacter vibrioides,Citrus sinensis,Coffea arabica,Danio rerio,Daphnia magna,Drosophila melanogaster,Equus caballus,Escherichia coli,Gallus gallus,Gibberella zeae,Homo sapiens,Hordeum vulgare,Ilex paraguariensis,Mus musculus,Mycobacterium tuberculosis,Oryza sativa,Pan troglodytes,Paullinia cupana,Perilla frutescens,Plasmodium falciparum,Populus trichocarpa,Rattus norvegicus,Saccharomyces cerevisiae,Solanum lycopersicum,Sus scrofa,Theobroma cacao,Triticum aestivum,Vitis vinifera,Zea mays | Homo sapiens | Species
+# param: species | string | Homo sapiens | Species
 
 prefix lipidmaps:      <https://identifiers.org/lipidmaps/> #IRI can be used to create URLs from identifiers in line 7
 select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (count(distinct ?lipidID) AS ?LipidsInPWs)
