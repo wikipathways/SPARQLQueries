@@ -1,3 +1,8 @@
+# title: Dataset Metadata
+# category: Metadata
+# description: Returns all VoID datasets in the WikiPathways RDF with their title,
+#   creation date, and license information.
+
 SELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license 
 WHERE {
    ?dataset a void:Dataset ;

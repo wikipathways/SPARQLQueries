@@ -1,3 +1,8 @@
+# title: External Linkout Counts
+# category: Metadata
+# description: Counts the number of distinct entities linked to each external database
+#   (ChEBI, ChemSpider, HMDB, PubChem, Ensembl, NCBI Gene, HGNC, Rhea, UniProt).
+
 SELECT ?pred (COUNT(DISTINCT ?entity) AS ?count) WHERE {
   VALUES ?pred {
     # metabolites

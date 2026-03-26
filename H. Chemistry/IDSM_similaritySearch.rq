@@ -1,3 +1,11 @@
+# title: IDSM Chemical Similarity Search
+# category: Chemistry
+# description: Finds structurally similar ChEBI compounds for source and target
+#   metabolites in a pathway's directed interactions via the IDSM/ChEBI structure
+#   search service (idsm.elixir-czech.cz). May be slower due to external endpoint
+#   dependency.
+# param: pathwayId | string | WP4225 | Pathway ID
+
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ebi: <http://ebi.rdf.ac.uk/dataset/>
 PREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>
@@ -8,14 +16,14 @@ PREFIX sso: <http://semanticscience.org/resource/>
 PREFIX rh:<http://rdf.rhea-db.org/>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
-SELECT distinct ((substr(str(?chebioSrc),32)) as ?SourceOrigin) ((substr(str(?similarSrc),32)) as ?SourceSimilar) ((substr(str(?chebioTgt),32)) as ?TargetOrigin) ((substr(str(?similarTgt),32)) as ?TargetSimilar)  #?reaction 
+SELECT distinct ((substr(str(?chebioSrc),32)) as ?SourceOrigin) ((substr(str(?similarSrc),32)) as ?SourceSimilar) ((substr(str(?chebioTgt),32)) as ?TargetOrigin) ((substr(str(?similarTgt),32)) as ?TargetSimilar)  #?reaction
 WHERE {
   ?interaction dcterms:isPartOf ?pathway ; a wp:Conversion ;
       wp:source ?source ;
       wp:target ?target .
     ?source wp:bdbChEBI ?chebiSrc .
     ?target wp:bdbChEBI ?chebiTgt .
-    ?pathway dcterms:identifier "WP4225".
+    ?pathway dcterms:identifier "{{pathwayId}}".
     BIND(iri(concat("http://purl.obolibrary.org/obo/CHEBI_", substr(str(?chebiSrc),37))) AS ?chebioSrc)
     BIND(iri(concat("http://purl.obolibrary.org/obo/CHEBI_", substr(str(?chebiTgt),37))) AS ?chebioTgt)
 #IDSM

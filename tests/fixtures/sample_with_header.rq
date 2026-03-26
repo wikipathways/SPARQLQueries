@@ -1,0 +1,5 @@
+# title: Sample Query
+# category: Metadata
+# description: A test query.
+
+SELECT ?old WHERE { ?old a ?type }

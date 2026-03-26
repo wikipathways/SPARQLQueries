@@ -1,3 +1,8 @@
+# title: Pathways with Multiple Authors
+# category: Authors
+# description: Counts how many pathways have at least N authors for each author
+#   ordinal position, showing the distribution of author counts across pathways.
+
 PREFIX dc:    <http://purl.org/dc/elements/1.1/>
 PREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>
 

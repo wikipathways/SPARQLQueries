@@ -1,4 +1,9 @@
-#Prefixes required which might not be available in the SPARQL endpoint by default
+# title: MetaNetX Reaction ID Mapping
+# category: Collaborations
+# description: Maps Rhea reaction IDs from a WikiPathways pathway to MetaNetX reaction
+#   identifiers by querying the MetaNetX SPARQL endpoint. May be slower due to external
+#   endpoint dependency.
+
 PREFIX wp:      <http://vocabularies.wikipathways.org/wp#>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>

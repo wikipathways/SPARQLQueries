@@ -1,4 +1,7 @@
-#List of WikiPathways for NCBI Gene identifiers
+# title: WikiPathways for NCBI Gene Identifiers
+# category: Data Sources
+# description: Lists pathways containing gene products with NCBI Gene identifiers,
+#   showing the pathway title and extracted NCBI Gene ID.
 
 select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?ncbiGeneId,33) as ?NCBIGene) where {
   ?gene a wp:GeneProduct ;

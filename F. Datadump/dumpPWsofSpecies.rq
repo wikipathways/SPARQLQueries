@@ -1,8 +1,14 @@
+# title: Pathways by Species Data Export
+# category: Data Export
+# description: Exports all pathways for a given species, returning identifiers,
+#   titles, and page URLs ordered by pathway ID.
+# param: species | string | Homo sapiens | Species
+
 SELECT DISTINCT ?wpIdentifier ?pathway ?title ?page
 WHERE {
     ?pathway dc:title ?title ;
        foaf:page ?page ;
        dc:identifier ?wpIdentifier ;
-       wp:organismName "Mus musculus" .
+       wp:organismName "{{species}}" .
  }
 ORDER BY ?wpIdentifier

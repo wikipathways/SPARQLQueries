@@ -1,3 +1,8 @@
+# title: References in WikiPathways but Not Reactome
+# category: Communities
+# description: Counts publication references found in the WikiPathways Analysis Collection
+#   but not in Reactome-approved pathways.
+
 SELECT (COUNT(DISTINCT ?pubmed) AS ?count)
 WHERE {
   ?pubmed a       wp:PublicationReference .

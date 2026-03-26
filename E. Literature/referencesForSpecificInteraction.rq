@@ -1,8 +1,15 @@
+# title: References for a Specific Interaction
+# category: Literature
+# description: Returns publication references for a single interaction identified by
+#   both a pathway and a specific participant URI.
+# param: pathwayId | string | WP5200 | Pathway ID
+# param: proteinId | string | P35498 | UniProt Protein ID
+
 SELECT DISTINCT ?pathway ?interaction ?pubmed WHERE {
    ?pathway a wp:Pathway .
-   ?pathway dc:identifier <https://identifiers.org/wikipathways/WP5200> . #filter for pathway
+   ?pathway dc:identifier <https://identifiers.org/wikipathways/{{pathwayId}}> . #filter for pathway
    ?interaction dcterms:isPartOf ?pathway .
    ?interaction a wp:Interaction .
-   ?interaction wp:participants <https://identifiers.org/uniprot/P35498>. #filter for interaction
+   ?interaction wp:participants <https://identifiers.org/uniprot/{{proteinId}}>. #filter for interaction
   ?interaction dcterms:references ?pubmed .
 } LIMIT 100

@@ -1,4 +1,7 @@
-#Pathways without literature references
+# title: Pathways Without References
+# category: Curation
+# description: Lists pathways that have no associated publication references,
+#   returning species, title, and pathway identifier sorted alphabetically.
 
 SELECT (STR(?speciesLabelLit) AS ?species) (STR(?titleLit) AS ?title) ?pathway WHERE {
   ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .

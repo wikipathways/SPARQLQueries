@@ -1,9 +1,16 @@
+# title: Extracting Protein Titles and Identifiers for Metabolic Reactions
+# category: DSMN
+# description: Extracts catalyzing proteins for directed metabolic reactions in
+#   human AnalysisCollection pathways, returning Ensembl identifiers and protein
+#   names as part of the DSMN workflow.
+# param: species | string | Homo sapiens | Species
+
 ### Part 1: ###
-SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName 
-WHERE {  
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName
+WHERE {
 ?pathway a wp:Pathway ; 
 wp:ontologyTag cur:AnalysisCollection ;
-wp:organismName "Homo sapiens"; 
+wp:organismName "{{species}}";
 dc:title ?titleLit . 
 ?interaction dcterms:isPartOf ?pathway ;				
    a wp:DirectedInteraction ; 

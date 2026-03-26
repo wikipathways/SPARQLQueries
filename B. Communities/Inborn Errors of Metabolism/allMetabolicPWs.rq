@@ -1,3 +1,8 @@
+# title: Inborn Errors of Metabolism Metabolic Pathways
+# category: Communities
+# description: Retrieves pathways classified under metabolic pathway ontology terms,
+#   filtering by label to find metabolic pathway annotations.
+
 SELECT distinct ?pathway ?label ?tag
 WHERE {
   ?tag1 a owl:Class ;

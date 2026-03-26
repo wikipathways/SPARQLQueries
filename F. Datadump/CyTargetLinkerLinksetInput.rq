@@ -1,3 +1,9 @@
+# title: CyTargetLinker Linkset Input
+# category: Data Export
+# description: Exports pathway-gene associations formatted as input for
+#   CyTargetLinker, a Cytoscape app for link set analysis. Returns pathway names and
+#   IDs paired with HGNC gene symbols and Entrez Gene IDs.
+
 select distinct  (str(?title) as ?PathwayName) (str(?wpid) as ?PathwayID) (fn:substring(?genename,37) as ?GeneName) (fn:substring(?ncbiGeneId,34) as ?GeneID) where {
   ?gene a wp:DataNode ;
     dcterms:identifier ?id ;

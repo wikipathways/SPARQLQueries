@@ -1,3 +1,8 @@
+# title: All Contributors
+# category: Authors
+# description: Counts the number of pathways each first author (ordinal 1)
+#   contributes to, sorted by descending pathway count.
+
 PREFIX dc:    <http://purl.org/dc/elements/1.1/>
 PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
 PREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>

@@ -1,9 +1,16 @@
+# title: Extracting Ontologies and References for Metabolic Reactions
+# category: DSMN
+# description: Retrieves ontology annotations, curation status, and literature
+#   references for directed metabolic reactions in human pathways as part of the
+#   DSMN workflow.
+# param: species | string | Homo sapiens | Species
+
 ### Part 1: ###
-SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt 
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt
 ?curationstatus ?InteractionRef ?PWref ?sourceLit ?targetLit 
 WHERE {
 ?pathway a wp:Pathway ; 
-         	wp:organismName "Homo sapiens"; 
+         	wp:organismName "{{species}}";
          	dc:title ?titleLit . 
 ?interaction dcterms:isPartOf ?pathway ; 
    a wp:DirectedInteraction ; 

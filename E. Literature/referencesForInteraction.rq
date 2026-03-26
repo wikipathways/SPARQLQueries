@@ -1,8 +1,14 @@
+# title: References for an Interaction
+# category: Literature
+# description: Returns publication references directly attached to interactions in a
+#   given pathway, along with the participating data node labels.
+# param: pathwayId | string | WP5200 | Pathway ID
+
 SELECT DISTINCT ?pathway ?interaction ?pubmed
 WHERE {
 
    ?pathway a wp:Pathway ;
-      dc:identifier <https://identifiers.org/wikipathways/WP5200> . #filter for one pathway
+      dc:identifier <https://identifiers.org/wikipathways/{{pathwayId}}> . #filter for one pathway
    ?interaction dcterms:isPartOf ?pathway ; 
       a wp:Interaction ;
        dcterms:references ?pubmed ;

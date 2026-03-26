@@ -1,3 +1,9 @@
+# title: Lipids Count per Pathway
+# category: Communities
+# description: Counts the total number of lipids with LIPID MAPS identifiers per human
+#   pathway, ordered by count.
+# param: species | string | Homo sapiens | Species
+
 prefix lipidmaps:      <https://identifiers.org/lipidmaps/> #IRI can be used to create URLs from identifiers in line 7
 select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (count(distinct ?lipidID) AS ?LipidsInPWs)
 where {
@@ -6,7 +12,7 @@ where {
     dcterms:isPartOf ?pathwayRes ; #Define metabolites are part of a pathway
     wp:bdbLipidMaps ?lipidID .     #Find the LIPID MAPS identifier for a certain metabolite
   ?pathwayRes a wp:Pathway ;       #Define what is a pathway
-              wp:organismName "Homo sapiens" ; #Filter pathways on species Human
+              wp:organismName "{{species}}" ; #Filter pathways on species Human
     dcterms:identifier ?wpid ;     #Obtain identifier of pathway
     dc:title ?title .              #Obtain title of pathway
 }

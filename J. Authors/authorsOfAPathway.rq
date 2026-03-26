@@ -1,10 +1,16 @@
+# title: Authors of a Pathway
+# category: Authors
+# description: Lists all authors of a given pathway in ordinal order, returning
+#   name, ORCID, homepage, and pathway version.
+# param: pathwayId | string | WP4846 | Pathway ID
+
 PREFIX dc:    <http://purl.org/dc/elements/1.1/>
 PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
 PREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>
 PREFIX pav:   <http://purl.org/pav/>
 
 SELECT ?pathway ?version ?ordinal ?author_ ?name ?orcid ?page WHERE {
-  VALUES ?pathway { <https://identifiers.org/wikipathways/WP4846> }
+  VALUES ?pathway { <https://identifiers.org/wikipathways/{{pathwayId}}> }
   ?author_ a foaf:Person ;
     wp:hasAuthorship ?authorship .
   ?authorship ^wp:hasAuthorship ?pathway ;

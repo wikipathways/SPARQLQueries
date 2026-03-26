@@ -1,3 +1,7 @@
+# title: COVID-19 Community Pathways
+# category: Communities
+# description: Lists all pathways tagged with the COVID-19 community curation tag.
+
 SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
 WHERE {
 ?pathway wp:ontologyTag cur:COVID19 ; 

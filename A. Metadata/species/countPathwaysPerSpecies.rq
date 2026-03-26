@@ -1,3 +1,8 @@
+# title: Pathways per Species
+# category: Metadata
+# description: Counts the number of pathways per species in WikiPathways, returning
+#   the species name, organism URI, and pathway count.
+
 SELECT DISTINCT (str(?label) as ?name) ?organism (count(?pw) as ?pathwayCount)
 WHERE {
     ?pw dc:title ?title ;

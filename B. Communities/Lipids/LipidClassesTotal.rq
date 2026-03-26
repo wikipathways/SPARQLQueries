@@ -1,11 +1,19 @@
+# title: Total Lipid Classes
+# category: Communities
+# description: Counts the number of individual lipids in a specific LIPID MAPS subclass
+#   across human pathways. Change the FILTER value to query different subclasses (FA, GL,
+#   GP, SP, ST, PR, SL, PK).
+# param: species | string | Homo sapiens | Species
+# param: lipidClass | enum:FA,GL,GP,SP,ST,PR,SL,PK | FA | LIPID MAPS Class
+
 SELECT count(DISTINCT ?lipidID) as ?IndividualLipidsPerClass
 WHERE {     ?metabolite a wp:Metabolite ;
     dcterms:identifier ?id ;
     dcterms:isPartOf ?pathwayRes ;
     wp:bdbLipidMaps ?lipidID . #Metabolite DataNodes need to have a LIPID MAPS ID, for this query to count correctly (some lipids might be missed due to missing Xrefs)
   ?pathwayRes a wp:Pathway ;
-              wp:organismName "Homo sapiens"; #Filter for a species (ommit when querying all pathways available for all species)
+              wp:organismName "{{species}}"; #Filter for a species (ommit when querying all pathways available for all species)
     dcterms:identifier ?wpid ;
     dc:title ?title .
-  FILTER regex(str(?lipidID), "FA" ). #Filter for a LIPID MAPS ID subclass: 'FA' Fatty Acids ; 'GL' Glycerolipid ; 'GP' Glycerophospholipid ; 'SP' Sphingolipids ; 'ST' Sterol lipids ; 'PR' Prenol Lipids ; 'SL' Saccharolipids ; 'PK' Polyketides
+  FILTER regex(str(?lipidID), "{{lipidClass}}" ). #Filter for a LIPID MAPS ID subclass: 'FA' Fatty Acids ; 'GL' Glycerolipid ; 'GP' Glycerophospholipid ; 'SP' Sphingolipids ; 'ST' Sterol lipids ; 'PR' Prenol Lipids ; 'SL' Saccharolipids ; 'PK' Polyketides
 }

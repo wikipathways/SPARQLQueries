@@ -1,3 +1,8 @@
+# title: Controlling Duplicate Mappings from Wikidata
+# category: DSMN
+# description: Detects metabolites mapped to multiple Wikidata identifiers as a
+#   quality control step in the DSMN workflow.
+
 ### Part 1: ###
 #Required prefixes for querying WikiPathways content in Blazegraph
 PREFIX gpml:		<http://vocabularies.wikipathways.org/gpml#>

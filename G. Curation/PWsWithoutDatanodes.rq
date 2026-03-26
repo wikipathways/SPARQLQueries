@@ -1,4 +1,7 @@
-#Pathways without (annotated) datanodes
+# title: Pathways Without Data Nodes
+# category: Curation
+# description: Finds pathways that contain no data nodes, indicating empty or
+#   incomplete pathway entries that may need curation.
 
 prefix wp:      <http://vocabularies.wikipathways.org/wp#>
 prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>

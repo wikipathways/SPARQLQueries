@@ -1,3 +1,8 @@
+# title: SMILES for Metabolites
+# category: Chemistry
+# description: Retrieves SMILES chemical structure notations for metabolites via
+#   their Wikidata links.
+
 PREFIX cheminf: <http://semanticscience.org/resource/>
 
 SELECT ?mol ?smilesDepict WHERE {

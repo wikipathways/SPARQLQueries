@@ -1,10 +1,17 @@
-PREFIX aopo:	<http://aopkb.org/aop_ontology#> 
-PREFIX cheminf:	<http://semanticscience.org/resource/CHEMINF_> 
+# title: Metabolites in AOP-Wiki
+# category: Collaborations
+# description: Finds metabolites in human pathways that are linked to stressors in
+#   AOP-Wiki by querying the AOP-Wiki SPARQL endpoint via ChEBI identifiers. May be
+#   slower due to external endpoint dependency.
+# param: species | string | Homo sapiens | Species
 
-SELECT DISTINCT (str(?title) as ?pathwayName) ?chemical ?ChEBI ?ChemicalName  ?mappedid ?LinkedStressor 
+PREFIX aopo:	<http://aopkb.org/aop_ontology#>
+PREFIX cheminf:	<http://semanticscience.org/resource/CHEMINF_>
+
+SELECT DISTINCT (str(?title) as ?pathwayName) ?chemical ?ChEBI ?ChemicalName  ?mappedid ?LinkedStressor
 
 WHERE {
-   ?pathway a wp:Pathway ; wp:organismName "Homo sapiens"; dcterms:identifier ?WPID ; dc:title ?title . 
+   ?pathway a wp:Pathway ; wp:organismName "{{species}}"; dcterms:identifier ?WPID ; dc:title ?title .
    ?chemical a wp:Metabolite; dcterms:isPartOf ?pathway; wp:bdbChEBI ?mappedid . 
    SERVICE <https://aopwiki.rdf.bigcat-bioinformatics.org/sparql/>{
     ?mappedid a cheminf:000407; cheminf:000407 ?ChEBI .

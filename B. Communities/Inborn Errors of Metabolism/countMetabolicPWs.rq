@@ -1,3 +1,8 @@
+# title: Count of IEM Metabolic Pathways
+# category: Communities
+# description: Counts the total number of pathways classified under metabolic pathway
+#   ontology terms.
+
 SELECT count(distinct ?pathway) as ?pathwaycount
 WHERE {
   ?tag1 a owl:Class ;

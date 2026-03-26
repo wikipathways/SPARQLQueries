@@ -1,3 +1,8 @@
+# title: References in Both Reactome and WikiPathways
+# category: Communities
+# description: Counts publication references that appear in both Reactome-approved and
+#   WikiPathways Analysis Collection pathways.
+
 SELECT (COUNT(DISTINCT ?pubmed) AS ?count)
 WHERE {
   ?pubmed a       wp:PublicationReference .

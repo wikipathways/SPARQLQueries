@@ -1,4 +1,7 @@
-#List of WikiPathways for PubChem CID identifiers
+# title: WikiPathways for PubChem CID Identifiers
+# category: Data Sources
+# description: Lists pathways containing metabolites with PubChem compound identifiers,
+#   showing the pathway title and extracted PubChem CID.
 
 select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (fn:substring(?cid,46) as ?PubChem) where {
   ?gene a wp:Metabolite ;
