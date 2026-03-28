@@ -2,7 +2,7 @@
 # category: General
 # description: Lists all gene products in a given pathway, returning the pathway
 #   identifier and gene product labels.
-# param: pathwayId | string | WP1560 | Pathway ID
+# param: pathwayId|autocomplete:pathway|WP1560|Pathway ID
 
 select distinct ?pathway (str(?label) as ?geneProduct) where {
     ?geneProduct a wp:GeneProduct .

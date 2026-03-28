@@ -2,7 +2,7 @@
 # category: General
 # description: Lists all metabolites in a given pathway, returning the pathway
 #   identifier and metabolite labels.
-# param: pathwayId | string | WP1560 | Pathway ID
+# param: pathwayId|autocomplete:pathway|WP1560|Pathway ID
 
 select distinct ?pathway (str(?label) as ?Metabolite) where {
     ?Metabolite a wp:Metabolite ;
