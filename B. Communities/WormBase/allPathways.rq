@@ -1,9 +1,0 @@
-# title: WormBase Community Pathways
-# category: Communities
-# description: Lists all pathways tagged with the WormBase Approved community curation tag.
-
-SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
-WHERE {
-?pathway wp:ontologyTag cur:WormBase_Approved ; 
-a wp:Pathway ; 
-dc:title ?title .}

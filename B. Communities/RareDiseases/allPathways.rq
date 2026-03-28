@@ -1,9 +1,0 @@
-# title: Rare Diseases Community Pathways
-# category: Communities
-# description: Lists all pathways tagged with the Rare Diseases community curation tag.
-
-SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
-WHERE {
-?pathway wp:ontologyTag cur:RareDiseases ; 
-a wp:Pathway ; 
-dc:title ?title .}
