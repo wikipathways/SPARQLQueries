@@ -1,4 +1,4 @@
-# title: {{community}} Community Proteins
+# title: Community Proteins
 # category: Communities
 # description: Lists all proteins found in pathways tagged with a selected community.
 # param: community|autocomplete:community|AOP|Community

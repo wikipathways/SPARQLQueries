@@ -1,4 +1,4 @@
-# title: Count of {{entityType}}
+# title: Count of Entity Type
 # category: Metadata
 # description: Counts the total number of a selected entity type in WikiPathways.
 # param: entityType|enum:DataNode=Data Nodes,GeneProduct=Gene Products,Interaction=Interactions,Metabolite=Metabolites,Protein=Proteins|DataNode|Entity Type

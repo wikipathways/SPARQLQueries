@@ -1,4 +1,4 @@
-# title: Average {{entityType}} per Pathway
+# title: Average Entity Type per Pathway
 # category: Metadata
 # description: Calculates the average, minimum, and maximum number of a selected
 #   entity type per pathway in WikiPathways.
