@@ -1,8 +1,0 @@
-# title: Count of Gene Products
-# category: Metadata
-# description: Counts the total number of gene products in WikiPathways.
-
-SELECT DISTINCT count(?geneProduct) as ?GeneProductCount
-WHERE {
-    ?geneProduct a wp:GeneProduct .
-}
