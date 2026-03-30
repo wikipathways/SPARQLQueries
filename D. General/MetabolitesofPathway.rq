@@ -5,9 +5,13 @@
 # param: pathwayId|autocomplete:pathway|WP1560|Pathway ID
 
 select distinct ?pathway (str(?label) as ?Metabolite) where {
+    {
+        SELECT ?pathway WHERE {
+            ?pathway dcterms:identifier "{{pathwayId}}" .
+            ?pathway a wp:Pathway .
+        }
+    }
     ?Metabolite a wp:Metabolite ;
        rdfs:label ?label ;
        dcterms:isPartOf ?pathway .
-    ?pathway a wp:Pathway ;
-    dcterms:identifier "{{pathwayId}}" .
 }
