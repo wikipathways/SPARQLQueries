@@ -2,7 +2,7 @@
 # category: General
 # description: Returns all interactions in a given pathway along with the
 #   participating data nodes and their labels.
-# param: pathwayId | string | WP1425 | Pathway ID
+# param: pathwayId|autocomplete:pathway|WP1425|Pathway ID
 
 SELECT DISTINCT ?pathway ?interaction ?participants ?DataNodeLabel
 WHERE {

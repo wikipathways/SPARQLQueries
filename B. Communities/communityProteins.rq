@@ -1,0 +1,13 @@
+# title: Community Proteins
+# category: Communities
+# description: Lists all proteins found in pathways tagged with a selected community.
+# param: community|autocomplete:community|AOP|Community
+
+SELECT DISTINCT ?pathway (str(?label) AS ?Protein)
+WHERE {
+  ?pathway wp:ontologyTag cur:{{community}} ;
+    a wp:Pathway .
+  ?protein a wp:Protein ;
+    rdfs:label ?label ;
+    dcterms:isPartOf ?pathway .
+}

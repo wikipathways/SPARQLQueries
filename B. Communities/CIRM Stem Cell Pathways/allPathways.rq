@@ -1,9 +1,0 @@
-# title: CIRM Stem Cell Pathways
-# category: Communities
-# description: Lists all pathways tagged with the CIRM Stem Cell community curation tag.
-
-SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle)
-WHERE {
-?pathway wp:ontologyTag cur:CIRM_Related ; 
-a wp:Pathway ; 
-dc:title ?title .}

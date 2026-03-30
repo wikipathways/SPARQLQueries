@@ -1,8 +1,0 @@
-# title: Count of Proteins
-# category: Metadata
-# description: Counts the total number of proteins in WikiPathways.
-
-SELECT DISTINCT count(?protein) as ?ProteinCount
-WHERE {
-    ?protein a wp:Protein .
-}
