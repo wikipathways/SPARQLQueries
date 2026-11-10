@@ -12,4 +12,5 @@ where {
   ?mb dc:source ?datasourceLit ;
     dcterms:identifier ?identifier .
   FILTER NOT EXISTS { ?mb a wp:Metabolite }
-} order by desc(?count)
+} group by ?datasourceLit
+order by desc(?count)

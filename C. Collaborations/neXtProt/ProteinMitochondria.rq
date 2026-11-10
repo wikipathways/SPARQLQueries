@@ -7,7 +7,7 @@
 PREFIX : <http://nextprot.org/rdf#>
 PREFIX cv: <http://nextprot.org/rdf/terminology/>
 
-select distinct  ?pathwayname (group_concat(distinct ?gen , ',') as ?genes) where {
+select distinct  ?pathwayname (group_concat(distinct ?gen; separator=",") as ?genes) where {
   {?geneProduct a wp:Protein}
    union
   {?geneProduct a wp:GeneProduct}
@@ -27,4 +27,5 @@ select distinct  ?pathwayname (group_concat(distinct ?gen , ',') as ?genes) wher
     ?loc :term / :childOf ?mitoloc.  # mitochondrion
     ?loc :evidence / :quality :GOLD .
   }}
+group by ?pathwayname
 order by ?pathwayname

@@ -9,4 +9,5 @@ WHERE {
       wp:organism ?organism ;
       wp:organismName ?label .
 }
+GROUP BY ?organism ?label
 ORDER BY DESC(?pathwayCount)

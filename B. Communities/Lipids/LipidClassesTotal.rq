@@ -6,7 +6,7 @@
 # param: species | string | Homo sapiens | Species
 # param: lipidClass | enum:FA,GL,GP,SP,ST,PR,SL,PK | FA | LIPID MAPS Class
 
-SELECT count(DISTINCT ?lipidID) as ?IndividualLipidsPerClass
+SELECT (count(DISTINCT ?lipidID) as ?IndividualLipidsPerClass)
 WHERE {     ?metabolite a wp:Metabolite ;
     dcterms:identifier ?id ;
     dcterms:isPartOf ?pathwayRes ;

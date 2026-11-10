@@ -17,6 +17,7 @@ WHERE {
   BIND (IRI(CONCAT("https://identifiers.org/lipidmaps/",
                SUBSTR(STR(?lipidmaps), 31))) AS ?lmid)
   ?lipid wp:bdbLipidMaps ?lmid ;
-         dcterms:isPartOf ?pathway .
-  ?pathway a wp:Pathway ; dcterms:identifier ?wpid_ .
+         dcterms:isPartOf ?pw .
+  ?pw a wp:Pathway ; dcterms:identifier ?wpid_ .
 }
+GROUP BY ?lipid ?name ?formula ?lmid

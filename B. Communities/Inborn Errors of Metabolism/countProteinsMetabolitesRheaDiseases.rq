@@ -49,4 +49,5 @@ WHERE {
     FILTER regex(?omim, "omim.org", "i") #Only keep hrefs if they contain 'omim.org'
     }
       
-} ORDER BY ASC(?pathway)
+} GROUP BY ?pathway ?title ?PWID
+ORDER BY ASC(?pathway)

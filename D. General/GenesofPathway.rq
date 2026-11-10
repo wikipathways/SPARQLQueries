@@ -12,7 +12,7 @@ select distinct ?pathway (str(?label) as ?geneProduct) where {
             ?pathwayRev dc:identifier ?pathway .
         }
     }
-    ?geneProduct dcterms:isPartOf ?pathwayRev .
-    ?geneProduct a wp:GeneProduct .
-    ?geneProduct rdfs:label ?label .
+    ?gene dcterms:isPartOf ?pathwayRev .
+    ?gene a wp:GeneProduct .
+    ?gene rdfs:label ?label .
 }

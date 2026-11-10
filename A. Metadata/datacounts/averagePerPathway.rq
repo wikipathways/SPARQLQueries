@@ -13,4 +13,5 @@ WHERE {
     ?entity a wp:{{entityType}} ;
        dcterms:isPartOf ?Pathway .
     ?Pathway a wp:Pathway .}
+    GROUP BY ?Pathway
 }
