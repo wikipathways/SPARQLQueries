@@ -20,3 +20,4 @@ WHERE {
          dcterms:isPartOf ?pathway .
   ?pathway a wp:Pathway ; dcterms:identifier ?wpid_ .
 }
+GROUP BY ?lipid ?name ?formula ?lmid

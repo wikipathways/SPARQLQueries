@@ -16,5 +16,5 @@ WHERE {     ?metabolite a wp:Metabolite ;
     dc:title ?title .
   FILTER regex(str(?lipidID), "{{lipidClass}}" ). #Filter for a LIPID MAPS ID subclass: 'FA' Fatty Acids ; 'GL' Glycerolipid ; 'GP' Glycerophospholipid ; 'SP' Sphingolipids ; 'ST' Sterol lipids ; 'PR' Prenol Lipids ; 'SL' Saccharolipids ; 'PK' Polyketides
 }
-
+GROUP BY ?pathwayRes ?wpid ?title
 ORDER BY DESC(?Class_LipidsInPWs)

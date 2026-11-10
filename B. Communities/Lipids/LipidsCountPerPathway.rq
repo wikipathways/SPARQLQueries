@@ -16,5 +16,5 @@ where {
     dcterms:identifier ?wpid ;     #Obtain identifier of pathway
     dc:title ?title .              #Obtain title of pathway
 }
-
+GROUP BY ?pathwayRes ?wpid ?title
 ORDER BY DESC(?LipidsInPWs)

@@ -3,7 +3,7 @@
 # description: Returns the total number of pathways that have no associated
 #   publication references.
 
-SELECT count(DISTINCT ?pathway) WHERE {
+SELECT (count(DISTINCT ?pathway) AS ?pathwayCount) WHERE {
   ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .
   MINUS { ?pubmed a       wp:PublicationReference .
           ?pubmed dcterms:isPartOf ?pathway }

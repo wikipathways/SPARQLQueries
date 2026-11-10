@@ -11,7 +11,7 @@ select distinct ?pathway (str(?label) as ?Metabolite) where {
             ?pathway a wp:Pathway .
         }
     }
-    ?Metabolite a wp:Metabolite ;
+    ?metabolite a wp:Metabolite ;
        rdfs:label ?label ;
        dcterms:isPartOf ?pathway .
 }
