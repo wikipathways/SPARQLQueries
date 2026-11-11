@@ -15,8 +15,8 @@
 wpq:WPQ009 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:identifier "WPQ009" ;
     rdfs:label "Pathways for a Species"@en ;
-    rdfs:comment "Lists all pathways for a given species, returning the WikiPathways identifier and page URL. Default species is Mus musculus."@en ;
-    schema:version "1.0.0" ;
+    rdfs:comment "Lists all pathways for a given species, returning the WikiPathways identifier and page URL."@en ;
+    schema:version "1.0.1" ;
     dcterms:created "2020-10-11"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-2230-0840> ;
     dcterms:contributor <https://orcid.org/0000-0001-8449-1318> ;
