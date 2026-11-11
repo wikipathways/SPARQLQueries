@@ -14,9 +14,9 @@ on:
 
 jobs:
   examples:
-    uses: wikipathways/Snorql-UI/.github/workflows/examples-index.yml@feat/ttl-examples-index
+    uses: wikipathways/Snorql-UI/.github/workflows/examples-index.yml@v1.4.0
     with:
-      tools-ref: feat/ttl-examples-index
+      tools-ref: v1.4.0
       publish: ${{ github.event_name != 'pull_request' }}
       sib-project: WikiPathways
     permissions:

@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: wikipathways/Snorql-UI
-          ref: feat/ttl-examples-index
+          ref: v1.4.0
           path: .snorql-tools
           sparse-checkout: tools/examples
       - uses: actions/setup-python@v5
