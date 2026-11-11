@@ -1,0 +1,69 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ060 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ060" ;
+    rdfs:label "Extracting Protein Titles and Identifiers for Metabolic Reactions"@en ;
+    rdfs:comment "Extracts catalyzing proteins for directed metabolic reactions in human AnalysisCollection pathways, returning Ensembl identifiers and protein names as part of the DSMN workflow."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2023-11-10"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
+    dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:DSMN ;
+    schema:keywords "DSMN", "directed small molecules network" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "I. DirectedSmallMoleculesNetwork (DSMN)/extracting protein titles and identifiers for metabolic reactions.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/extracting%20protein%20titles%20and%20identifiers%20for%20metabolic%20reactions.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:parameter [
+        a sh:Parameter ;
+        sh:path param:species ;
+        sh:name "Species" ;
+        sh:defaultValue "Homo sapiens" ;
+        sh:datatype xsd:string ;
+        snorql:autocomplete "species" ;
+        sh:order 1
+    ] ;
+    sh:select """PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+### Part 1: ###
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName
+WHERE {
+?pathway a wp:Pathway ; 
+wp:ontologyTag cur:AnalysisCollection ;
+wp:organismName ?species;
+dc:title ?titleLit . 
+?interaction dcterms:isPartOf ?pathway ;				
+   a wp:DirectedInteraction ; 
+   wp:source ?source ; 
+ 	   wp:target ?target .   
+?source a wp:Metabolite . 
+?source wp:bdbWikidata ?sourceDb . 
+?target a wp:Metabolite . 
+?target wp:bdbWikidata ?targetDb . 
+
+### Part 2: ###
+?interactions2 dcterms:isPartOf ?pathway;
+               a wp:Catalysis; 
+               wp:source ?sources2;
+               wp:target ?interaction . 
+OPTIONAL{?sources2 wp:bdbEnsembl ?proteinDBWPs}.
+OPTIONAL{?sources2 rdfs:label ?proteinName} .
+VALUES ?species { "Homo sapiens" }
+}""" .

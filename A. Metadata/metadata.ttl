@@ -1,19 +1,40 @@
-@prefix ex: <https://bigcat-um.github.io/sparql-examples/WikiPathways/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:metadata a sh:SPARQLExecutable,
-       sh:SPARQLSelectExecutable ;
-    rdfs:comment "Returns the title of the dataset, creation date, and license."@en ;
-    sh:prefixes _:sparql_examples_prefixes ;
-    sh:select """SELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license 
+wpq:WPQ001 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ001" ;
+    rdfs:label "Dataset Metadata"@en ;
+    rdfs:comment "Returns all VoID datasets in the WikiPathways RDF with their title, creation date, and license information."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2020-08-12"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:contributor <https://orcid.org/0000-0001-7542-0286> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:Metadata ;
+    schema:keywords "metadata" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "A. Metadata/metadata.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/e7888dc71b1cb7fb1540decc7e1f8f8a29848bfa/A.%20Metadata/metadata.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:select """PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license 
 WHERE {
    ?dataset a void:Dataset ;
    dcterms:title ?titleLit ;
    dcterms:license ?license ;
    pav:createdOn ?date .
-}""" ;
-    schema:target <https://sparql.wikipathways.org/sparql> ;
-    schema:keywords "license", "metadata" .
+}""" .

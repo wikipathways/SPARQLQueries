@@ -1,0 +1,42 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ064 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ064" ;
+    rdfs:label "Pathways with Multiple Authors"@en ;
+    rdfs:comment "Counts how many pathways have at least N authors for each author ordinal position, showing the distribution of author counts across pathways."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2026-02-14"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0001-7542-0286> ;
+    dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:Authors ;
+    schema:keywords "authors" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "J. Authors/pathwayCountWithAtLeastXAuthors.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/J.%20Authors/pathwayCountWithAtLeastXAuthors.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:select """PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dc:    <http://purl.org/dc/elements/1.1/>
+PREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>
+
+SELECT ?atLeast (COUNT(DISTINCT ?pathway) AS ?count) WHERE {
+  ?author_ a foaf:Person ;
+    wp:hasAuthorship ?authorship .
+  ?authorship ^wp:hasAuthorship ?pathway ;
+    wpq:series_ordinal ?atLeast .
+} GROUP BY ?atLeast
+  ORDER BY ASC(xsd:integer(?atLeast))""" .

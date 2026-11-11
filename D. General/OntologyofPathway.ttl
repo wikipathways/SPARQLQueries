@@ -1,0 +1,52 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ039 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ039" ;
+    rdfs:label "Ontology Terms of a Pathway"@en ;
+    rdfs:comment "Retrieves all ontology tags associated with a given pathway, returning the ontology term URI, pathway title, and identifier."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2020-10-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:contributor <https://orcid.org/0000-0001-8449-1318>, <https://orcid.org/0000-0001-7542-0286> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:General ;
+    schema:keywords "general" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "D. General/OntologyofPathway.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/1366822debc316b6cdaf88354b020008d0d3cb71/D.%20General/OntologyofPathway.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:parameter [
+        a sh:Parameter ;
+        sh:path param:pathwayId ;
+        sh:name "Pathway ID" ;
+        sh:defaultValue "WP1560" ;
+        sh:datatype xsd:string ;
+        snorql:autocomplete "pathway" ;
+        sh:order 1
+    ] ;
+    sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (?o as ?pwOntologyTerm) (str(?titleLit) as ?title) ?pathway
+WHERE {
+  VALUES ?pathwayId { "WP1560" }
+  ?pathwayRDF wp:ontologyTag ?o ;
+    dc:identifier ?pathway ;
+    dc:title ?titleLit ;
+    dcterms:identifier ?pathwayId .
+
+  FILTER (! regex(str(?pathway), "group"))
+}""" .

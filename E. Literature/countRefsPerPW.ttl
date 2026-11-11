@@ -1,0 +1,37 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ042 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ042" ;
+    rdfs:label "Reference Count per Pathway"@en ;
+    rdfs:comment "Counts the number of PubMed publication references per pathway, sorted by descending reference count."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2020-10-09"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:Literature ;
+    schema:keywords "literature" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "E. Literature/countRefsPerPW.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/E.%20Literature/countRefsPerPW.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:select """PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway (COUNT(?pubmed) AS ?numberOfReferences)
+WHERE
+     {?pubmed a       wp:PublicationReference .
+      ?pubmed dcterms:isPartOf ?pathway }
+GROUP BY ?pathway
+ORDER BY DESC(?numberOfReferences)""" .

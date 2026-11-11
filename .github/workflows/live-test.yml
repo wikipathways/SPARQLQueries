@@ -1,0 +1,28 @@
+name: Live test
+
+# Runs every example against the WikiPathways SPARQL endpoint once a week and
+# checks the expected number of results (snorql:expect). A failing run means a
+# query broke, an endpoint it federates with is down, or the data changed.
+
+on:
+  schedule:
+    - cron: '17 5 * * 1'
+  workflow_dispatch:
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: wikipathways/Snorql-UI
+          ref: v1.4.0
+          path: .snorql-tools
+          sparse-checkout: tools/examples
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r .snorql-tools/tools/examples/requirements.txt
+      - name: Run the examples
+        run: python .snorql-tools/tools/examples/snorql_examples.py live --timeout 150

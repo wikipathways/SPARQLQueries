@@ -1,0 +1,51 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ009 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ009" ;
+    rdfs:label "Pathways for a Species"@en ;
+    rdfs:comment "Lists all pathways for a given species, returning the WikiPathways identifier and page URL. Default species is Mus musculus."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2020-10-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:contributor <https://orcid.org/0000-0001-8449-1318> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:Species ;
+    schema:keywords "metadata", "organism" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "A. Metadata/species/PWsforSpecies.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/A.%20Metadata/species/PWsforSpecies.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:parameter [
+        a sh:Parameter ;
+        sh:path param:species ;
+        sh:name "Species" ;
+        sh:defaultValue "Homo sapiens" ;
+        sh:datatype xsd:string ;
+        snorql:autocomplete "species" ;
+        sh:order 1
+    ] ;
+    sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?wpIdentifier ?pathway ?page
+WHERE {
+    ?pathway dc:title ?title .
+    ?pathway foaf:page ?page .
+    ?pathway dc:identifier ?wpIdentifier .
+    VALUES ?species { "Homo sapiens" }
+    ?pathway wp:organismName ?species .
+ }
+ORDER BY ?wpIdentifier""" .

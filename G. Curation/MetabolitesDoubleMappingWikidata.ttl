@@ -1,0 +1,38 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ050 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ050" ;
+    rdfs:label "Metabolites with Duplicate Wikidata Mappings"@en ;
+    rdfs:comment "Detects metabolites that are mapped to more than one Wikidata identifier, listing all duplicate mappings per metabolite."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2020-10-09"^^xsd:date ;
+    dcterms:creator <https://github.com/laurent2207> ;
+    dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:Curation ;
+    schema:keywords "curation" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "G. Curation/MetabolitesDoubleMappingWikidata.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/G.%20Curation/MetabolitesDoubleMappingWikidata.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:select """PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT DISTINCT ?metaboliteID (GROUP_CONCAT(DISTINCT ?wikidata;separator=", ") AS ?results) WHERE {
+  ?metaboliteID a wp:Metabolite .
+  ?metaboliteID wp:bdbWikidata ?wikidata .
+  ?metaboliteID wp:bdbWikidata ?wikidata2 .
+  FILTER(?wikidata != ?wikidata2)
+} GROUP BY ?metaboliteID""" .

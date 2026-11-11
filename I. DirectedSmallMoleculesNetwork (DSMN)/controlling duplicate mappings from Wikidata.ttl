@@ -1,0 +1,57 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ057 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ057" ;
+    rdfs:label "Controlling Duplicate Mappings from Wikidata"@en ;
+    rdfs:comment "Detects metabolites mapped to multiple Wikidata identifiers as a quality control step in the DSMN workflow."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2023-11-09"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
+    dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:DSMN ;
+    schema:keywords "DSMN", "directed small molecules network" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "I. DirectedSmallMoleculesNetwork (DSMN)/controlling duplicate mappings from Wikidata.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/controlling%20duplicate%20mappings%20from%20Wikidata.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:select """### Part 1: ###
+#Required prefixes for querying WikiPathways content in Blazegraph
+PREFIX gpml:		<http://vocabularies.wikipathways.org/gpml#>
+PREFIX wp:		<http://vocabularies.wikipathways.org/wp#> 
+PREFIX wprdf:		<http://rdf.wikipathways.org/>
+PREFIX biopax:		<http://www.biopax.org/release/biopax-level3.owl#> 
+PREFIX cas:		<http://identifiers.org/cas/>
+PREFIX dc:		<http://purl.org/dc/elements/1.1/> 
+PREFIX dcterms:		<http://purl.org/dc/terms/>
+PREFIX foaf:		<http://xmlns.com/foaf/0.1/> 
+PREFIX ncbigene:		<http://identifiers.org/ncbigene/>
+PREFIX pubmed:		<http://www.ncbi.nlm.nih.gov/pubmed/> 
+PREFIX rdf:		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:		<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:		<http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd:		<http://www.w3.org/2001/XMLSchema#> 
+PREFIX cur:		<http://vocabularies.wikipathways.org/wp#Curation:>
+
+### Part 2: ###
+#Control for double mappings to Wikidata IDs.
+SELECT DISTINCT ?metaboliteID 
+(GROUP_CONCAT(DISTINCT ?wikidata;separator=", ") AS ?results) 
+WHERE {
+  ?metaboliteID a wp:Metabolite .
+  ?metaboliteID wp:bdbWikidata ?wikidata .
+  ?metaboliteID wp:bdbWikidata ?wikidata2 .
+FILTER(?wikidata != ?wikidata2)
+} GROUP BY ?metaboliteID""" .

@@ -1,0 +1,43 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ066 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ066" ;
+    rdfs:label "Groups and Complexes with a Particular Gene"@en ;
+    rdfs:comment "Lists all groups and complexes that contain a particular gene or protein (wp:GeneProduct), here gene products whose label contains \"CYP\"."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2026-11-10"^^xsd:date ;
+    dcterms:creator <https://www.wikipathways.org/> ;
+    dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:General ;
+    schema:keywords "complex", "gene", "group" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    prov:wasDerivedFrom <https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/066.ttl> ;
+    prov:wasDerivedFrom <https://www.wikipathways.org/sparql.html> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:select """PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway (str(?label) as ?geneProduct)
+WHERE {
+    ?gene a wp:GeneProduct .
+    ?gene rdfs:label ?label .
+    ?gene dcterms:isPartOf ?pathway .
+
+    FILTER NOT EXISTS { ?pathway a wp:Interaction } .
+    FILTER NOT EXISTS { ?pathway a wp:Pathway } .
+    FILTER regex(str(?label), "CYP").
+}""" .

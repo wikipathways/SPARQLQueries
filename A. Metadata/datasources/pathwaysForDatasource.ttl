@@ -1,0 +1,57 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ017 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ017" ;
+    rdfs:label "WikiPathways for Datasource Identifiers"@en ;
+    rdfs:comment "Lists pathways containing entities with identifiers from a selected data source, showing the pathway title and identifier URI."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2026-03-30"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:DataSources ;
+    schema:keywords "data sources" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "A. Metadata/datasources/pathwaysForDatasource.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/A.%20Metadata/datasources/pathwaysForDatasource.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:parameter [
+        a sh:Parameter ;
+        sh:path param:datasource ;
+        sh:name "Data Source" ;
+        sh:defaultValue "Ensembl" ;
+        sh:nodeKind sh:IRI ;
+        snorql:valueTemplate "http://vocabularies.wikipathways.org/wp#bdb{value}" ;
+        snorql:option [ rdf:value "Chemspider" ; rdfs:label "ChemSpider" ; sh:order 1 ] ;
+        snorql:option [ rdf:value "Ensembl" ; rdfs:label "Ensembl" ; sh:order 2 ] ;
+        snorql:option [ rdf:value "HgncSymbol" ; rdfs:label "HGNC" ; sh:order 3 ] ;
+        snorql:option [ rdf:value "Hmdb" ; rdfs:label "HMDB" ; sh:order 4 ] ;
+        snorql:option [ rdf:value "EntrezGene" ; rdfs:label "NCBI Gene" ; sh:order 5 ] ;
+        snorql:option [ rdf:value "PubChem" ; rdfs:label "PubChem" ; sh:order 6 ] ;
+        sh:order 1
+    ] ;
+    sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathwayRes (str(?wpid) AS ?pathway) (str(?title) AS ?pathwayTitle) ?identifier
+WHERE {
+  VALUES ?datasource { <http://vocabularies.wikipathways.org/wp#bdbEnsembl> }
+  ?gene dcterms:identifier ?id ;
+    dcterms:isPartOf ?pathwayRes ;
+    ?datasource ?identifier .
+  ?pathwayRes a wp:Pathway ;
+    dcterms:identifier ?wpid ;
+    dc:title ?title .
+}""" .

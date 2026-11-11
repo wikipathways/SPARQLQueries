@@ -1,0 +1,40 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ078 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ078" ;
+    rdfs:label "Metabolite Identifier Count per Data Source"@en ;
+    rdfs:comment "Counts the distinct metabolite identifiers per data source. ChEBI, HMDB and LIPID MAPS are the main data sources for metabolite identifiers."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2026-11-10"^^xsd:date ;
+    dcterms:creator <https://www.wikipathways.org/> ;
+    dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:Metabolites ;
+    schema:keywords "counts", "data sources", "metabolite" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    prov:wasDerivedFrom <https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/078.ttl> ;
+    prov:wasDerivedFrom <https://www.wikipathways.org/metabolome.html> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (str(?datasource) as ?source) (count(distinct ?identifier) as ?count)
+WHERE {
+  ?mb a wp:Metabolite ;
+    dc:source ?datasource ;
+    dc:identifier ?identifier .
+}
+GROUP BY ?datasource
+ORDER BY DESC(?count)""" .

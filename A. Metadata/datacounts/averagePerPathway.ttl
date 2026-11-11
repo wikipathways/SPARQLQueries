@@ -1,0 +1,57 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ012 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ012" ;
+    rdfs:label "Average Entity Type per Pathway"@en ;
+    rdfs:comment "Calculates the average, minimum, and maximum number of a selected entity type per pathway in WikiPathways."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2026-03-30"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:DataCounts ;
+    schema:keywords "metadata", "counts" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "A. Metadata/datacounts/averagePerPathway.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/A.%20Metadata/datacounts/averagePerPathway.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:parameter [
+        a sh:Parameter ;
+        sh:path param:entityType ;
+        sh:name "Entity Type" ;
+        sh:defaultValue "DataNode" ;
+        sh:nodeKind sh:IRI ;
+        snorql:valueTemplate "http://vocabularies.wikipathways.org/wp#{value}" ;
+        snorql:option [ rdf:value "DataNode" ; rdfs:label "Data Nodes" ; sh:order 1 ] ;
+        snorql:option [ rdf:value "GeneProduct" ; rdfs:label "Gene Products" ; sh:order 2 ] ;
+        snorql:option [ rdf:value "Interaction" ; rdfs:label "Interactions" ; sh:order 3 ] ;
+        snorql:option [ rdf:value "Metabolite" ; rdfs:label "Metabolites" ; sh:order 4 ] ;
+        snorql:option [ rdf:value "Protein" ; rdfs:label "Proteins" ; sh:order 5 ] ;
+        sh:order 1
+    ] ;
+    sh:select """PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (AVG(?no) AS ?avg)
+       (MIN(?no) AS ?min)
+       (MAX(?no) AS ?max)
+WHERE {
+    SELECT ?Pathway (COUNT(?entity) AS ?no)
+    WHERE {
+    VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#DataNode> }
+    ?entity a ?entityType ;
+       dcterms:isPartOf ?Pathway .
+    ?Pathway a wp:Pathway .}
+    GROUP BY ?Pathway
+}""" .

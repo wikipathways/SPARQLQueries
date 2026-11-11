@@ -1,29 +1,26 @@
 # SPARQL Queries for WikiPathways
 
-Example SPARQL queries for the [WikiPathways Snorql UI](http://sparql.wikipathways.org/). These queries are loaded automatically to help users explore WikiPathways RDF data and build novel queries.
+Example SPARQL queries for the [WikiPathways SPARQL editor](https://sparql.wikipathways.org/).
+They help people explore the WikiPathways RDF and start their own queries.
 
-## Adding a new query
+Each example is a Turtle file with the query and its metadata (title, description,
+version, creators, category, parameters), in the format of
+[SIB's sparql-examples](https://github.com/sib-swiss/sparql-examples). Every example has a
+permanent identifier and IRI, for example
+[`WPQ036`](https://sparql.wikipathways.org/?example=WPQ036) is
+`https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ036`. Files can be moved
+and renamed without breaking links.
 
-1. **Pick the right directory.** Queries are organized by topic in lettered directories (A-J). Place your `.rq` file in the matching directory.
+- [AUTHORING.md](AUTHORING.md): how to write or change an example, and how versions work.
+- `categories.ttl`: the categories that make up the editor's tree.
+- `contributors.ttl`: names of creators and contributors.
+- `collection.ttl`: the collection itself.
 
-2. **Add a header.** Every `.rq` file must start with these required header fields:
+On every push to `master`, CI publishes the `examples-index` branch, which the editor
+reads; it also holds every past version of every example and plain `.rq` copies.
 
-   ```sparql
-   # title: Genes of a Pathway
-   # category: General
-   # description: Lists all gene products in a given pathway, returning the pathway
-   #   identifier and gene product labels.
-
-   SELECT ...
-   ```
-
-   - `title` -- short, descriptive name
-   - `category` -- must match an entry in `categories.json`
-   - `description` -- what the query does (wrap long lines with `#   ` continuation indent)
-
-   See [HEADER_CONVENTIONS.md](HEADER_CONVENTIONS.md) for full details, including optional fields like `keywords` and `param`.
-
-3. **Alternative: TTL format.** You can also write a `.ttl` (Turtle/RDF) file using the SHACL `sh:SPARQLExecutable` pattern. The CI pipeline will auto-generate the corresponding `.rq` file on merge to `master`. If a `.ttl` source exists, do not edit the `.rq` file directly.
+The `.rq` files next to the `.ttl` files are the old format. They are kept only until the
+editor reads the new index, and are no longer edited.
 
 ## License
 
