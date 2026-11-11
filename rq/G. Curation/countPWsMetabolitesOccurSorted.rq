@@ -1,0 +1,19 @@
+# title: Pathways by Metabolite Occurrence Count
+# category: Curation
+# description: Counts how many pathways each metabolite appears in, filtered to metabolites without a Wikidata mapping, sorted by descending pathway count.
+#
+# WPQ048 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ048
+# Generated from G. Curation/countPWsMetabolitesOccurSorted.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?metabolite (count(DISTINCT ?pathwayRes) as ?pathways) WHERE {
+  ?metabolite a wp:Metabolite ;
+    dcterms:identifier ?id ;
+    dcterms:isPartOf ?pathwayRes .
+  ?pathwayRes a wp:Pathway .
+  OPTIONAL { ?metabolite wp:bdbWikidata ?wikidata . }
+  FILTER (!BOUND(?wikidata))
+} GROUP BY ?metabolite ORDER BY DESC(?pathways)

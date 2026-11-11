@@ -1,0 +1,16 @@
+# title: Interactions for a Particular Data Node
+# category: General
+# description: Finds all interactions (wp:Interaction) connected to a particular data node, here the Ensembl gene ENSG00000125845.
+#
+# WPQ071 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ071
+# Generated from D. General/InteractionsOfDataNode.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?interaction ?pathway WHERE {
+   ?pathway a wp:Pathway .
+   ?interaction dcterms:isPartOf ?pathway .
+   ?interaction a wp:Interaction .
+   ?interaction wp:participants <https://identifiers.org/ensembl/ENSG00000125845> .
+}

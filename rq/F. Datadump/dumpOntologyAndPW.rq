@@ -1,0 +1,21 @@
+# title: Ontology and Pathway Data Export
+# category: Data Export
+# description: Exports pathway metadata including page URLs, titles, species, identifiers, and associated ontology tags for bulk download.
+#
+# WPQ046 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ046
+# Generated from F. Datadump/dumpOntologyAndPW.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?depicts (str(?titleLit) as ?title) (str(?speciesLabelLit) as ?speciesLabel) ?identifier ?ontology
+WHERE {
+	?pathway foaf:page ?depicts .
+        ?pathway dc:title ?titleLit .
+        ?pathway wp:organism ?species .
+        ?pathway wp:organismName ?speciesLabelLit .
+        ?pathway dc:identifier ?identifier .
+
+        OPTIONAL {?pathway wp:ontologyTag ?ontology .}
+}

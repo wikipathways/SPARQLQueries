@@ -1,0 +1,22 @@
+# title: CyTargetLinker Linkset Input
+# category: Data Export
+# description: Exports pathway-gene associations formatted as input for CyTargetLinker, a Cytoscape app for link set analysis. Returns pathway names and IDs paired with HGNC gene symbols and Entrez Gene IDs.
+#
+# WPQ045 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ045
+# Generated from F. Datadump/CyTargetLinkerLinksetInput.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+select distinct  (str(?title) as ?PathwayName) (str(?wpid) as ?PathwayID) (fn:substring(?genename,37) as ?GeneName) (fn:substring(?ncbiGeneId,34) as ?GeneID) where {
+  ?gene a wp:DataNode ;
+    dcterms:identifier ?id ;
+    dcterms:isPartOf ?pathwayRes ;
+    wp:bdbEntrezGene ?ncbiGeneId ;
+    wp:bdbHgncSymbol ?genename .
+  ?pathwayRes a wp:Pathway ;
+    dcterms:identifier ?wpid ;
+    dc:title ?title .
+}

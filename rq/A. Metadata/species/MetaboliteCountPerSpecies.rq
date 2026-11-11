@@ -1,0 +1,18 @@
+# title: Metabolite Count per Species
+# category: Species
+# description: Counts the metabolites per species. The RDF generation normalises identifiers, so metabolites with identifiers from different databases are not counted twice, but metabolites with different charge states are still counted separately.
+#
+# WPQ070 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ070
+# Generated from A. Metadata/species/MetaboliteCountPerSpecies.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (count(distinct ?metabolite) as ?count) (str(?label) as ?species) WHERE {
+  ?metabolite a wp:Metabolite ;
+    dcterms:isPartOf ?pw .
+  ?pw dc:title ?title ;
+    wp:organism ?organism ;
+    wp:organismName ?label .
+} GROUP BY ?label ORDER BY DESC(?count)

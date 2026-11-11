@@ -1,0 +1,692 @@
+{
+ "schema": 1,
+ "examples": {
+  "WPQ001": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/metadata.ttl"
+   }
+  ],
+  "WPQ002": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/linksets.ttl"
+   }
+  ],
+  "WPQ003": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/prefixes.ttl"
+   }
+  ],
+  "WPQ004": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/communityPathways.ttl"
+   }
+  ],
+  "WPQ005": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/PathwayCountPerDisease.ttl"
+   }
+  ],
+  "WPQ006": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/species/SpeciesWithIRIs.ttl"
+   }
+  ],
+  "WPQ007": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/species/PathwaysAndSpecies.ttl"
+   }
+  ],
+  "WPQ008": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/species/countPathwaysPerSpecies.ttl"
+   }
+  ],
+  "WPQ009": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/species/PWsforSpecies.ttl"
+   },
+   {
+    "version": "1.0.1",
+    "commit": "a62284fbc6af06dbc078c2fb1a9e8e1fe9860ad7",
+    "date": "2026-11-11",
+    "path": "A. Metadata/species/PWsforSpecies.ttl"
+   }
+  ],
+  "WPQ010": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/HomologyConvertedPathways.ttl"
+   }
+  ],
+  "WPQ011": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/authors.ttl"
+   }
+  ],
+  "WPQ012": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datacounts/averagePerPathway.ttl"
+   }
+  ],
+  "WPQ013": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datacounts/countOfEntityType.ttl"
+   }
+  ],
+  "WPQ014": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datacounts/countPathways.ttl"
+   }
+  ],
+  "WPQ015": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datacounts/countSignalingPathways.ttl"
+   }
+  ],
+  "WPQ016": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datacounts/linkoutCounts.ttl"
+   }
+  ],
+  "WPQ017": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datasources/pathwaysForDatasource.ttl"
+   }
+  ],
+  "WPQ018": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/species/countEntityPerSpecies.ttl"
+   }
+  ],
+  "WPQ019": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/communityProteins.ttl"
+   }
+  ],
+  "WPQ020": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Inborn Errors of Metabolism/allMetabolicPWs.ttl"
+   }
+  ],
+  "WPQ021": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Inborn Errors of Metabolism/countMetabolicPWs.ttl"
+   }
+  ],
+  "WPQ022": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Inborn Errors of Metabolism/countProteinsMetabolitesRheaDiseases.ttl"
+   }
+  ],
+  "WPQ023": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Lipids/LipidClassesTotal.ttl"
+   }
+  ],
+  "WPQ024": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Lipids/LIPIDMAPS_Federated.ttl"
+   }
+  ],
+  "WPQ025": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Lipids/LipidsClassesCountPerPathway.ttl"
+   }
+  ],
+  "WPQ026": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Lipids/LipidsCountPerPathway.ttl"
+   }
+  ],
+  "WPQ027": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Reactome/getPathways.ttl"
+   }
+  ],
+  "WPQ028": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Reactome/refsReactomeAndWP.ttl"
+   }
+  ],
+  "WPQ029": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Reactome/refsReactomeNotWP.ttl"
+   }
+  ],
+  "WPQ030": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/Reactome/refsWPNotReactome.ttl"
+   }
+  ],
+  "WPQ031": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "C. Collaborations/AOP-Wiki/MetaboliteInAOP-Wiki.ttl"
+   }
+  ],
+  "WPQ032": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "C. Collaborations/MetaNetX/reactionID_mapping.ttl"
+   }
+  ],
+  "WPQ033": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "C. Collaborations/MolMeDB/ONEpubchem_MANYpathways.ttl"
+   }
+  ],
+  "WPQ034": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "C. Collaborations/MolMeDB/SUBSETpathways_ONEpubchem.ttl"
+   }
+  ],
+  "WPQ035": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "C. Collaborations/smallMolecules_Rhea_IDSM/molecularSimularity_Reactions.ttl"
+   }
+  ],
+  "WPQ036": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/GenesofPathway.ttl"
+   }
+  ],
+  "WPQ037": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/InteractionsofPathway.ttl"
+   }
+  ],
+  "WPQ038": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/MetabolitesofPathway.ttl"
+   }
+  ],
+  "WPQ039": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/OntologyofPathway.ttl"
+   }
+  ],
+  "WPQ040": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "E. Literature/allPathwayswithPubMed.ttl"
+   }
+  ],
+  "WPQ041": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "E. Literature/allReferencesForInteraction.ttl"
+   }
+  ],
+  "WPQ042": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "E. Literature/countRefsPerPW.ttl"
+   }
+  ],
+  "WPQ043": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "E. Literature/referencesForInteraction.ttl"
+   }
+  ],
+  "WPQ044": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "E. Literature/referencesForSpecificInteraction.ttl"
+   }
+  ],
+  "WPQ045": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "F. Datadump/CyTargetLinkerLinksetInput.ttl"
+   }
+  ],
+  "WPQ046": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "F. Datadump/dumpOntologyAndPW.ttl"
+   }
+  ],
+  "WPQ047": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "F. Datadump/dumpPWsofSpecies.ttl"
+   }
+  ],
+  "WPQ048": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "G. Curation/countPWsMetabolitesOccurSorted.ttl"
+   }
+  ],
+  "WPQ049": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "G. Curation/countPWsWithoutRef.ttl"
+   }
+  ],
+  "WPQ050": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "G. Curation/MetabolitesDoubleMappingWikidata.ttl"
+   }
+  ],
+  "WPQ051": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "G. Curation/MetabolitesNotClassified.ttl"
+   }
+  ],
+  "WPQ052": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "G. Curation/MetabolitesWithoutLinkWikidata.ttl"
+   }
+  ],
+  "WPQ053": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "G. Curation/PWsWithoutDatanodes.ttl"
+   }
+  ],
+  "WPQ054": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "G. Curation/PWsWithoutRef.ttl"
+   }
+  ],
+  "WPQ055": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "H. Chemistry/IDSM_similaritySearch.ttl"
+   }
+  ],
+  "WPQ056": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "H. Chemistry/smiles.ttl"
+   }
+  ],
+  "WPQ057": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "I. DirectedSmallMoleculesNetwork (DSMN)/controlling duplicate mappings from Wikidata.ttl"
+   }
+  ],
+  "WPQ058": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "I. DirectedSmallMoleculesNetwork (DSMN)/extracting directed metabolic reactions.ttl"
+   }
+  ],
+  "WPQ059": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "I. DirectedSmallMoleculesNetwork (DSMN)/extracting ontologies and references for metabolic reactions.ttl"
+   }
+  ],
+  "WPQ060": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "I. DirectedSmallMoleculesNetwork (DSMN)/extracting protein titles and identifiers for metabolic reactions.ttl"
+   }
+  ],
+  "WPQ061": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "J. Authors/authorsOfAPathway.ttl"
+   }
+  ],
+  "WPQ062": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "J. Authors/contributors.ttl"
+   }
+  ],
+  "WPQ063": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "J. Authors/firstAuthors.ttl"
+   }
+  ],
+  "WPQ064": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "J. Authors/pathwayCountWithAtLeastXAuthors.ttl"
+   }
+  ],
+  "WPQ065": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/PathwaysWithGene.ttl"
+   }
+  ],
+  "WPQ066": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/GroupsAndComplexesWithGene.ttl"
+   }
+  ],
+  "WPQ067": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datacounts/PathwayCountPerOntologyTerm.ttl"
+   }
+  ],
+  "WPQ068": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "B. Communities/PathwayCountPerCurationTag.ttl"
+   }
+  ],
+  "WPQ069": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/PathwaysWithOntologyTerm.ttl"
+   }
+  ],
+  "WPQ070": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/species/MetaboliteCountPerSpecies.ttl"
+   }
+  ],
+  "WPQ071": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "D. General/InteractionsOfDataNode.ttl"
+   }
+  ],
+  "WPQ072": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datasources/AllDataSources.ttl"
+   }
+  ],
+  "WPQ073": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "A. Metadata/datasources/EntryCountPerDataSource.ttl"
+   }
+  ],
+  "WPQ074": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "H. Chemistry/ChEMBLCompoundsAndPathways.ttl"
+   }
+  ],
+  "WPQ075": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "H. Chemistry/MetabolitesWithInChIKeysFromWikidata.ttl"
+   }
+  ],
+  "WPQ076": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "K. Metabolites/AllMetabolites.ttl"
+   }
+  ],
+  "WPQ077": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "K. Metabolites/MetabolitesInZebrafishPathways.ttl"
+   }
+  ],
+  "WPQ078": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "K. Metabolites/MetaboliteIdentifierCountPerDataSource.ttl"
+   }
+  ],
+  "WPQ079": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "K. Metabolites/MetabolitesWithKEGGIdentifier.ttl"
+   }
+  ],
+  "WPQ080": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "K. Metabolites/HumanMetabolome.ttl"
+   }
+  ],
+  "WPQ081": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "K. Metabolites/PathwaysWithMostMetabolites.ttl"
+   }
+  ],
+  "WPQ082": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "K. Metabolites/MetabolitesInMostPathways.ttl"
+   }
+  ],
+  "WPQ083": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "K. Metabolites/EnzymaticReactionsBetweenMetabolites.ttl"
+   }
+  ],
+  "WPQ084": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "C. Collaborations/neXtProt/ProteinCellularLocation.ttl"
+   }
+  ],
+  "WPQ085": [
+   {
+    "version": "1.0.0",
+    "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6",
+    "date": "2026-11-11",
+    "path": "C. Collaborations/neXtProt/ProteinMitochondria.ttl"
+   }
+  ]
+ },
+ "releases": {}
+}

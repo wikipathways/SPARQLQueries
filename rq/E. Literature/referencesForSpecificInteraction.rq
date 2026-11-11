@@ -1,0 +1,23 @@
+# title: References for a Specific Interaction
+# category: Literature
+# description: Returns publication references for a single interaction identified by both a pathway and a specific participant URI.
+# param: pathwayId|autocomplete:pathway|WP5200|Pathway ID
+# param: proteinId|string|P35498|UniProt Protein ID
+#
+# WPQ044 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ044
+# Generated from E. Literature/referencesForSpecificInteraction.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway ?interaction ?pubmed WHERE {
+   ?pathway a wp:Pathway .
+   VALUES ?pathwayId { <https://identifiers.org/wikipathways/{{pathwayId}}> }
+   ?pathway dc:identifier ?pathwayId . #filter for pathway
+   ?interaction dcterms:isPartOf ?pathway .
+   ?interaction a wp:Interaction .
+   VALUES ?proteinId { <https://identifiers.org/uniprot/{{proteinId}}> }
+   ?interaction wp:participants ?proteinId. #filter for interaction
+  ?interaction dcterms:references ?pubmed .
+} LIMIT 100

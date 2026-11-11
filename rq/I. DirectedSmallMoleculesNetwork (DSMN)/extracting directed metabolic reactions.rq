@@ -1,0 +1,54 @@
+# title: Extracting Directed Metabolic Reactions
+# category: Directed Small Molecules Network (DSMN)
+# description: Extracts directed metabolite-to-metabolite interactions from human pathways in the AnalysisCollection, returning source and target identifiers, interaction types, and Rhea IDs as part of the DSMN workflow.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ058 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ058
+# Generated from I. DirectedSmallMoleculesNetwork (DSMN)/extracting directed metabolic reactions.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+### Part 1: ###
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype
+?pathway (str(?titleLit) as ?title)
+?sourceCHEBI ?targetDbCHEBI ?sourceHMDB ?targetDbHMDB ?InteractionID  
+WHERE {  
+
+### Part 2: ###
+VALUES ?species { "{{species}}" }
+?pathway a wp:Pathway ;
+         wp:organismName ?species ;
+         dc:title ?titleLit . 	
+         
+### Part 3A: ###
+FILTER (EXISTS {?pathway wp:ontologyTag cur:AnalysisCollection})  .
+### Part 3B: ###
+#FILTER (EXISTS {?pathway wp:ontologyTag cur:Reactome_Approved}) .    
+### Part 3C: ###
+#FILTER (EXISTS {?pathway wp:ontologyTag cur:Lipids}) .
+
+### Part 4: ###
+?interaction dcterms:isPartOf ?pathway ;			
+             a wp:DirectedInteraction ;
+	           wp:source ?source ;
+	           wp:target ?target .  
+OPTIONAL{?interaction a ?mimtype}. 
+VALUES ?mimtype {wp:ComplexBinding wp:Conversion wp:Inhibition wp:Catalysis
+wp:Stimulation wp:TranscriptionTranslation wp:DirectedInteraction} .  
+
+### Part 5: ###
+?source a wp:Metabolite . 
+?source wp:bdbWikidata ?sourceDb . 
+OPTIONAL{?source wp:bdbChEBI ?sourceCHEBI}.
+OPTIONAL{?source wp:bdbHmdb ?sourceHMDB}.
+?target a wp:Metabolite . 
+?target wp:bdbWikidata ?targetDb . 
+OPTIONAL{?target wp:bdbChEBI ?targetDbCHEBI}. 
+OPTIONAL{?target wp:bdbHmdb ?targetDbHMDB}. 
+
+### Part 6: ###
+OPTIONAL{?interaction wp:bdbRhea ?InteractionID} .
+} ORDER BY DESC(?InteractionID)

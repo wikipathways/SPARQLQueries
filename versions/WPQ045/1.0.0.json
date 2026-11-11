@@ -1,0 +1,44 @@
+{
+ "id": "WPQ045",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ045",
+ "label": "CyTargetLinker Linkset Input",
+ "description": "Exports pathway-gene associations formatted as input for CyTargetLinker, a Cytoscape app for link set analysis. Returns pathway names and IDs paired with HGNC gene symbols and Entrez Gene IDs.",
+ "version": "1.0.0",
+ "created": "2021-02-03",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataExport"
+ ],
+ "keywords": [
+  "data export"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/F.%20Datadump/CyTargetLinkerLinksetInput.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX fn: <http://www.w3.org/2005/xpath-functions#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nselect distinct  (str(?title) as ?PathwayName) (str(?wpid) as ?PathwayID) (fn:substring(?genename,37) as ?GeneName) (fn:substring(?ncbiGeneId,34) as ?GeneID) where {\n  ?gene a wp:DataNode ;\n    dcterms:identifier ?id ;\n    dcterms:isPartOf ?pathwayRes ;\n    wp:bdbEntrezGene ?ncbiGeneId ;\n    wp:bdbHgncSymbol ?genename .\n  ?pathwayRes a wp:Pathway ;\n    dcterms:identifier ?wpid ;\n    dc:title ?title .\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "F. Datadump/CyTargetLinkerLinksetInput.ttl",
+ "aliases": [
+  "F. Datadump/CyTargetLinkerLinksetInput.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

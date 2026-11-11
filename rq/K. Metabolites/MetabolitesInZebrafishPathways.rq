@@ -1,0 +1,17 @@
+# title: Metabolites in Zebrafish Pathways
+# category: Metabolites
+# description: Lists the metabolites in Danio rerio (zebrafish) pathways, with the pathway title.
+#
+# WPQ077 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ077
+# Generated from K. Metabolites/MetabolitesInZebrafishPathways.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?metabolite (str(?titleLit) as ?title) WHERE {
+  ?metabolite a wp:Metabolite ;
+    dcterms:isPartOf ?pw .
+  ?pw dc:title ?titleLit ;
+    wp:organismName "Danio rerio" .
+}

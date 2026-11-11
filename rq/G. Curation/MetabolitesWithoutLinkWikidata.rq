@@ -1,0 +1,15 @@
+# title: Metabolites Without Wikidata Links
+# category: Curation
+# description: Lists metabolites that have no Wikidata identifier mapping, useful for identifying gaps in cross-database linkage.
+#
+# WPQ052 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ052
+# Generated from G. Curation/MetabolitesWithoutLinkWikidata.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT DISTINCT ?metabolite WHERE {
+  ?metabolite a wp:Metabolite .
+  OPTIONAL { ?metabolite wp:bdbWikidata ?wikidata . }
+  FILTER (!BOUND(?wikidata))
+}

@@ -1,0 +1,44 @@
+{
+ "id": "WPQ042",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ042",
+ "label": "Reference Count per Pathway",
+ "description": "Counts the number of PubMed publication references per pathway, sorted by descending reference count.",
+ "version": "1.0.0",
+ "created": "2020-10-09",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+ ],
+ "keywords": [
+  "literature"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/E.%20Literature/countRefsPerPW.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (COUNT(?pubmed) AS ?numberOfReferences)\nWHERE\n     {?pubmed a       wp:PublicationReference .\n      ?pubmed dcterms:isPartOf ?pathway }\nGROUP BY ?pathway\nORDER BY DESC(?numberOfReferences)",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "E. Literature/countRefsPerPW.ttl",
+ "aliases": [
+  "E. Literature/countRefsPerPW.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

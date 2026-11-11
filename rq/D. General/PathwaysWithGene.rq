@@ -1,0 +1,20 @@
+# title: Pathways with a Particular Gene
+# category: General
+# description: Lists all pathways per instance of a particular gene or protein (wp:GeneProduct), here all gene products whose label contains "CYP".
+#
+# WPQ065 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ065
+# Generated from D. General/PathwaysWithGene.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway (str(?label) as ?geneProduct)
+WHERE {
+    ?gene a wp:GeneProduct .
+    ?gene rdfs:label ?label .
+    ?gene dcterms:isPartOf ?pathway .
+    ?pathway a wp:Pathway .
+
+    FILTER regex(str(?label), "CYP").
+}

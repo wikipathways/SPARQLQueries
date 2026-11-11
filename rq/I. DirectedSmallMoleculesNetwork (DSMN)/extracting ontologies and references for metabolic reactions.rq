@@ -1,0 +1,42 @@
+# title: Extracting Ontologies and References for Metabolic Reactions
+# category: Directed Small Molecules Network (DSMN)
+# description: Retrieves ontology annotations, curation status, and literature references for directed metabolic reactions in human pathways as part of the DSMN workflow.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ059 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ059
+# Generated from I. DirectedSmallMoleculesNetwork (DSMN)/extracting ontologies and references for metabolic reactions.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+### Part 1: ###
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt
+?curationstatus ?InteractionRef ?PWref ?sourceLit ?targetLit 
+WHERE {
+VALUES ?species { "{{species}}" }
+?pathway a wp:Pathway ; 
+         	wp:organismName ?species;
+         	dc:title ?titleLit . 
+?interaction dcterms:isPartOf ?pathway ; 
+   a wp:DirectedInteraction ; 
+   wp:source ?source ;
+   wp:target ?target . 
+?source a wp:Metabolite . 
+?source wp:bdbWikidata ?sourceDb . 
+?target a wp:Metabolite . 
+?target wp:bdbWikidata ?targetDb . 
+
+### Part 2: ###
+#OPTIONAL{?pathway wp:pathwayOntologyTag ?PWOnt} . 
+#OPTIONAL{?pathway wp:diseaseOntologyTag ?DiseaseOnt} . 
+
+### Part 3: ###
+#OPTIONAL{?pathway wp:ontologyTag ?curationstatus} . 
+
+### Part 4: ###
+OPTIONAL{?interaction dcterms:bibliographicCitation ?InteractionRef} . 
+OPTIONAL{?pathway dcterms:references ?PWref} . 
+OPTIONAL{?source dcterms:bibliographicCitation ?sourceLit} . 
+OPTIONAL{?target dcterms:bibliographicCitation ?targetLit} . 
+}

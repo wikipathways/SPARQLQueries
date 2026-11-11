@@ -1,0 +1,21 @@
+# title: Groups and Complexes with a Particular Gene
+# category: General
+# description: Lists all groups and complexes that contain a particular gene or protein (wp:GeneProduct), here gene products whose label contains "CYP".
+#
+# WPQ066 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ066
+# Generated from D. General/GroupsAndComplexesWithGene.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway (str(?label) as ?geneProduct)
+WHERE {
+    ?gene a wp:GeneProduct .
+    ?gene rdfs:label ?label .
+    ?gene dcterms:isPartOf ?pathway .
+
+    FILTER NOT EXISTS { ?pathway a wp:Interaction } .
+    FILTER NOT EXISTS { ?pathway a wp:Pathway } .
+    FILTER regex(str(?label), "CYP").
+}

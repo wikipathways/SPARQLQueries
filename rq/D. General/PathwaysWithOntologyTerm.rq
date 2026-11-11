@@ -1,0 +1,18 @@
+# title: Pathways with a Particular Ontology Term
+# category: General
+# description: Lists the pathways tagged with a particular ontology term, here PW_0000296 from the Pathway Ontology.
+#
+# WPQ069 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ069
+# Generated from D. General/PathwaysWithOntologyTerm.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT ?pathway (str(?titleLit) AS ?title)
+WHERE {
+  ?pathwayRDF wp:ontologyTag obo:PW_0000296 ;
+              foaf:page ?pathway ;
+              dc:title ?titleLit .
+}

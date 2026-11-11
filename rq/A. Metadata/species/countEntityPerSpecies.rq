@@ -1,0 +1,21 @@
+# title: Entity Type per Species
+# category: Species
+# description: Counts the number of distinct entities of a selected type per species in WikiPathways, ordered by count descending.
+# param: entityType|enum:DataNode=Data Nodes,GeneProduct=Gene Products,Metabolite=Metabolites,Protein=Proteins|DataNode|Entity Type
+#
+# WPQ018 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ018
+# Generated from A. Metadata/species/countEntityPerSpecies.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (COUNT(DISTINCT ?entity) AS ?count) (str(?label) AS ?species)
+WHERE {
+  VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#{{entityType}}> }
+  ?entity a ?entityType ;
+    dcterms:isPartOf ?pw .
+  ?pw dc:title ?title ;
+    wp:organism ?organism ;
+    wp:organismName ?label .
+} GROUP BY ?label ORDER BY DESC(?count)

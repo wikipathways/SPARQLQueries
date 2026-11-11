@@ -1,0 +1,4723 @@
+{
+ "schema": 1,
+ "generated": "2026-11-11T20:10:40Z",
+ "repository": "wikipathways/SPARQLQueries",
+ "commit": "a62284fbc6af06dbc078c2fb1a9e8e1fe9860ad7",
+ "collection": {
+  "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples",
+  "name": "WikiPathways SPARQL examples",
+  "description": "Example SPARQL queries for the WikiPathways SPARQL endpoint, shown in the query editor at https://sparql.wikipathways.org/.",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "iriBase": "https://sparql.wikipathways.org/.well-known/sparql-examples/",
+  "idPrefix": "WPQ"
+ },
+ "categories": [
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata",
+   "label": "Metadata",
+   "order": 1,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts",
+   "label": "Data counts",
+   "order": 1,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species",
+   "label": "Species",
+   "order": 2,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataSources",
+   "label": "Data Sources",
+   "order": 2,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Communities",
+   "label": "Communities",
+   "order": 3,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/InbornErrorsOfMetabolism",
+   "label": "Inborn Errors of Metabolism",
+   "order": 1,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Communities"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Lipids",
+   "label": "Lipids",
+   "order": 2,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Communities"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Reactome",
+   "label": "Reactome",
+   "order": 3,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Communities"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Collaborations",
+   "label": "Collaborations",
+   "order": 4,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/AOPWiki",
+   "label": "AOP-Wiki",
+   "order": 1,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Collaborations"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/MetaNetX",
+   "label": "MetaNetX",
+   "order": 2,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Collaborations"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/MolMeDB",
+   "label": "MolMeDB",
+   "order": 3,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Collaborations"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/neXtProt",
+   "label": "neXtProt",
+   "order": 4,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Collaborations"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/RheaIDSM",
+   "label": "Rhea and IDSM",
+   "order": 5,
+   "notation": "",
+   "parent": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Collaborations"
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General",
+   "label": "General",
+   "order": 5,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature",
+   "label": "Literature",
+   "order": 6,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataExport",
+   "label": "Data Export",
+   "order": 7,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation",
+   "label": "Curation",
+   "order": 8,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Chemistry",
+   "label": "Chemistry",
+   "order": 9,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites",
+   "label": "Metabolites",
+   "order": 10,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DSMN",
+   "label": "Directed Small Molecules Network (DSMN)",
+   "order": 11,
+   "notation": "",
+   "parent": null
+  },
+  {
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Authors",
+   "label": "Authors",
+   "order": 12,
+   "notation": "",
+   "parent": null
+  }
+ ],
+ "examples": [
+  {
+   "id": "WPQ001",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ001",
+   "label": "Dataset Metadata",
+   "description": "Returns all VoID datasets in the WikiPathways RDF with their title, creation date, and license information.",
+   "version": "1.0.0",
+   "created": "2020-08-12",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+   ],
+   "keywords": [
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/e7888dc71b1cb7fb1540decc7e1f8f8a29848bfa/A.%20Metadata/metadata.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX pav: <http://purl.org/pav/>\nPREFIX void: <http://rdfs.org/ns/void#>\n\nSELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license \nWHERE {\n   ?dataset a void:Dataset ;\n   dcterms:title ?titleLit ;\n   dcterms:license ?license ;\n   pav:createdOn ?date .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/metadata.ttl",
+   "aliases": [
+    "A. Metadata/metadata.rq"
+   ]
+  },
+  {
+   "id": "WPQ002",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ002",
+   "label": "Linksets Overview",
+   "description": "Returns all VoID linksets in the WikiPathways RDF with their title, creation date, and license information.",
+   "version": "1.0.0",
+   "created": "2021-02-06",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+   ],
+   "keywords": [
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/56af22ea28b931bcc0f93575c2e65a5c585b8a12/A.%20Metadata/linksets.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX pav: <http://purl.org/pav/>\nPREFIX void: <http://rdfs.org/ns/void#>\n\nSELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license \nWHERE {\n   ?dataset a void:Linkset ;\n   dcterms:title ?titleLit .\n   OPTIONAL {\n     ?dataset dcterms:license ?license ;\n       pav:createdOn ?date .\n   }\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/linksets.ttl",
+   "aliases": [
+    "A. Metadata/linksets.rq"
+   ]
+  },
+  {
+   "id": "WPQ003",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ003",
+   "label": "SPARQL Prefixes",
+   "description": "Lists all namespace prefixes declared in the WikiPathways SPARQL endpoint via SHACL prefix declarations.",
+   "version": "1.0.0",
+   "created": "2024-11-12",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+   ],
+   "keywords": [
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/e7888dc71b1cb7fb1540decc7e1f8f8a29848bfa/A.%20Metadata/prefixes.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX sh: <http://www.w3.org/ns/shacl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?prefix ?namespace WHERE {\n  [] sh:declare [\n    sh:prefix ?prefix ;\n    sh:namespace ?namespace\n  ] .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/prefixes.ttl",
+   "aliases": [
+    "A. Metadata/prefixes.rq"
+   ]
+  },
+  {
+   "id": "WPQ004",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ004",
+   "label": "Community Pathways",
+   "description": "Lists all pathways tagged with a selected community curation tag.",
+   "version": "1.0.0",
+   "created": "2026-03-30",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Communities"
+   ],
+   "keywords": [
+    "communities"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/B.%20Communities/communityPathways.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (str(?title) AS ?PathwayTitle)\nWHERE {\n  VALUES ?community { <http://vocabularies.wikipathways.org/wp#Curation:AOP> }\n  ?pathway wp:ontologyTag ?community ;\n    a wp:Pathway ;\n    dc:title ?title .\n}",
+   "params": [
+    {
+     "name": "community",
+     "variable": "community",
+     "label": "Community",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "http://vocabularies.wikipathways.org/wp#Curation:{value}",
+     "default": "AOP",
+     "autocomplete": "community",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/communityPathways.ttl",
+   "aliases": [
+    "B. Communities/communityPathways.rq"
+   ]
+  },
+  {
+   "id": "WPQ005",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ005",
+   "label": "Pathway Count per Disease",
+   "description": "List all diseases and the number of pathways they are linked to, in decreasing order.",
+   "version": "1.0.0",
+   "created": "2024-10-20",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "disease"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/005.ttl"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?diseaseLabel ?disease (COUNT(DISTINCT ?pathway) AS ?count)\nWHERE {\n  ?pathway wp:diseaseOntologyTag ?disease ; \n           a wp:Pathway .\n  ?disease rdfs:label ?diseaseLabel .\n} GROUP BY ?diseaseLabel ?disease\n  ORDER BY DESC(?count)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/PathwayCountPerDisease.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ006",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ006",
+   "label": "Species with Their IRIs",
+   "description": "Get the species currently in WikiPathways with their respective URIs.",
+   "version": "1.0.0",
+   "created": "2024-10-20",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species"
+   ],
+   "keywords": [
+    "organism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/006.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?organism (str(?label) as ?name)\nWHERE {\n    ?concept wp:organism ?organism ;\n      wp:organismName ?label .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/species/SpeciesWithIRIs.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ007",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ007",
+   "label": "Pathways and Their Species",
+   "description": "List pathways and their species.",
+   "version": "1.0.0",
+   "created": "2024-10-20",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species"
+   ],
+   "keywords": [
+    "organism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/007.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\n\nSELECT DISTINCT (str(?title) as ?pathway) (str(?label) as ?organism)\nWHERE {\n    ?pw dc:title ?title ;\n      wp:organismName ?label .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/species/PathwaysAndSpecies.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ008",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ008",
+   "label": "Pathways per Species",
+   "description": "Counts the number of pathways per species in WikiPathways, returning the species name, organism URI, and pathway count.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species"
+   ],
+   "keywords": [
+    "metadata",
+    "organism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/A.%20Metadata/species/countPathwaysPerSpecies.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT (str(?label) as ?name) ?organism (count(?pw) as ?pathwayCount)\nWHERE {\n    ?pw dc:title ?title ;\n      wp:organism ?organism ;\n      wp:organismName ?label .\n}\nGROUP BY ?organism ?label\nORDER BY DESC(?pathwayCount)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/species/countPathwaysPerSpecies.ttl",
+   "aliases": [
+    "A. Metadata/species/countPathwaysPerSpecies.rq"
+   ]
+  },
+  {
+   "id": "WPQ009",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ009",
+   "label": "Pathways for a Species",
+   "description": "Lists all pathways for a given species, returning the WikiPathways identifier and page URL.",
+   "version": "1.0.1",
+   "created": "2020-10-11",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species"
+   ],
+   "keywords": [
+    "metadata",
+    "organism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/A.%20Metadata/species/PWsforSpecies.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?wpIdentifier ?pathway ?page\nWHERE {\n    ?pathway dc:title ?title .\n    ?pathway foaf:page ?page .\n    ?pathway dc:identifier ?wpIdentifier .\n    VALUES ?species { \"Homo sapiens\" }\n    ?pathway wp:organismName ?species .\n }\nORDER BY ?wpIdentifier",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/species/PWsforSpecies.ttl",
+   "aliases": [
+    "A. Metadata/species/PWsforSpecies.rq"
+   ]
+  },
+  {
+   "id": "WPQ010",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ010",
+   "label": "Homology-Converted Pathways",
+   "description": "List all homology converted pathways.",
+   "version": "1.0.0",
+   "created": "2024-10-20",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+   ],
+   "keywords": [
+    "homology",
+    "organism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/010.ttl"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\n\nSELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle) ?organism\nWHERE {\n  ?pathway wp:ontologyTag cur:Homology_Converted ;\n  a wp:Pathway ; \n  dc:title ?title ;\n  wp:organismName ?organism .\n} ORDER BY ASC(?organism) ASC(?PathwayTitle)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/HomologyConvertedPathways.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ011",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ011",
+   "label": "Authors of All Pathways",
+   "description": "Lists all pathway authors with their name, homepage, and ORCID, along with the number of pathways each author created.",
+   "version": "1.0.0",
+   "created": "2026-01-13",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+   ],
+   "keywords": [
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/56af22ea28b931bcc0f93575c2e65a5c585b8a12/A.%20Metadata/authors.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc:    <http://purl.org/dc/elements/1.1/>\nPREFIX foaf:  <http://xmlns.com/foaf/0.1/>\n\nSELECT (COUNT(DISTINCT ?pathway) AS ?count) ?page ?name ?orcid WHERE {\n  ?author_ ^dc:creator ?pathway ;\n    a foaf:Person .\n  OPTIONAL { ?author_ foaf:homepage ?page }\n  OPTIONAL { ?author_ foaf:name ?name }\n  OPTIONAL { ?author_ dc:identifier ?orcid }\n} GROUP BY ?page ?name ?orcid\n  ORDER BY DESC(?count)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/authors.ttl",
+   "aliases": [
+    "A. Metadata/authors.rq"
+   ]
+  },
+  {
+   "id": "WPQ012",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ012",
+   "label": "Average Entity Type per Pathway",
+   "description": "Calculates the average, minimum, and maximum number of a selected entity type per pathway in WikiPathways.",
+   "version": "1.0.0",
+   "created": "2026-03-30",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+   ],
+   "keywords": [
+    "counts",
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/A.%20Metadata/datacounts/averagePerPathway.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (AVG(?no) AS ?avg)\n       (MIN(?no) AS ?min)\n       (MAX(?no) AS ?max)\nWHERE {\n    SELECT ?Pathway (COUNT(?entity) AS ?no)\n    WHERE {\n    VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#DataNode> }\n    ?entity a ?entityType ;\n       dcterms:isPartOf ?Pathway .\n    ?Pathway a wp:Pathway .}\n    GROUP BY ?Pathway\n}",
+   "params": [
+    {
+     "name": "entityType",
+     "variable": "entityType",
+     "label": "Entity Type",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "http://vocabularies.wikipathways.org/wp#{value}",
+     "default": "DataNode",
+     "autocomplete": null,
+     "options": [
+      {
+       "value": "DataNode",
+       "label": "Data Nodes"
+      },
+      {
+       "value": "GeneProduct",
+       "label": "Gene Products"
+      },
+      {
+       "value": "Interaction",
+       "label": "Interactions"
+      },
+      {
+       "value": "Metabolite",
+       "label": "Metabolites"
+      },
+      {
+       "value": "Protein",
+       "label": "Proteins"
+      }
+     ]
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datacounts/averagePerPathway.ttl",
+   "aliases": [
+    "A. Metadata/datacounts/averagePerPathway.rq"
+   ]
+  },
+  {
+   "id": "WPQ013",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ013",
+   "label": "Count of Entity Type",
+   "description": "Counts the total number of a selected entity type in WikiPathways.",
+   "version": "1.0.0",
+   "created": "2026-03-30",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+   ],
+   "keywords": [
+    "counts",
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/A.%20Metadata/datacounts/countOfEntityType.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "SELECT DISTINCT (COUNT(?entity) AS ?count)\nWHERE {\n    VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#DataNode> }\n    ?entity a ?entityType .\n}",
+   "params": [
+    {
+     "name": "entityType",
+     "variable": "entityType",
+     "label": "Entity Type",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "http://vocabularies.wikipathways.org/wp#{value}",
+     "default": "DataNode",
+     "autocomplete": null,
+     "options": [
+      {
+       "value": "DataNode",
+       "label": "Data Nodes"
+      },
+      {
+       "value": "GeneProduct",
+       "label": "Gene Products"
+      },
+      {
+       "value": "Interaction",
+       "label": "Interactions"
+      },
+      {
+       "value": "Metabolite",
+       "label": "Metabolites"
+      },
+      {
+       "value": "Protein",
+       "label": "Proteins"
+      }
+     ]
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datacounts/countOfEntityType.ttl",
+   "aliases": [
+    "A. Metadata/datacounts/countOfEntityType.rq"
+   ]
+  },
+  {
+   "id": "WPQ014",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ014",
+   "label": "Count of Pathways",
+   "description": "Counts the total number of pathways in WikiPathways.",
+   "version": "1.0.0",
+   "created": "2020-08-12",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+   ],
+   "keywords": [
+    "counts",
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/A.%20Metadata/datacounts/countPathways.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT (count(?Pathway) as ?PathwayCount)\nWHERE {\n    ?Pathway a wp:Pathway, skos:Collection .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datacounts/countPathways.ttl",
+   "aliases": [
+    "A. Metadata/datacounts/countPathways.rq"
+   ]
+  },
+  {
+   "id": "WPQ015",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ015",
+   "label": "Count of Signaling Pathways",
+   "description": "Counts the total number of signaling pathways in WikiPathways by filtering on the signaling pathway ontology tag.",
+   "version": "1.0.0",
+   "created": "2020-08-12",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+   ],
+   "keywords": [
+    "counts",
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/A.%20Metadata/datacounts/countSignalingPathways.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (count(distinct ?pathway) as ?pathwaycount)\nWHERE {\n  ?tag1 a owl:Class ;\n  rdfs:label ?label .\n  ?tag rdfs:subClassOf* ?tag1.\n  ?pathway a wp:Pathway; wp:ontologyTag ?tag.\nFILTER regex(str(?label), \"signaling pathway\")\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datacounts/countSignalingPathways.ttl",
+   "aliases": [
+    "A. Metadata/datacounts/countSignalingPathways.rq"
+   ]
+  },
+  {
+   "id": "WPQ016",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ016",
+   "label": "External Linkout Counts",
+   "description": "Counts the number of distinct entities linked to each external database (ChEBI, ChemSpider, HMDB, PubChem, Ensembl, NCBI Gene, HGNC, Rhea, UniProt).",
+   "version": "1.0.0",
+   "created": "2024-01-07",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+   ],
+   "keywords": [
+    "counts",
+    "metadata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/56af22ea28b931bcc0f93575c2e65a5c585b8a12/A.%20Metadata/datacounts/linkoutCounts.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT ?pred (COUNT(DISTINCT ?entity) AS ?count) WHERE {\n  VALUES ?pred {\n    # metabolites\n    wp:bdbChEBI wp:bdbChemspider wp:bdbHmdb wp:bdbPubChem\n    # gene products\n    wp:bdbEnsembl wp:bdbEntrezGene wp:bdbHgncSymbol\n    # interactions\n    wp:bdbRhea wp:bdbUniprot\n  }\n  ?entity ?pred []\n} GROUP BY ?pred\n  ORDER BY DESC(?count)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datacounts/linkoutCounts.ttl",
+   "aliases": [
+    "A. Metadata/datacounts/linkoutCounts.rq"
+   ]
+  },
+  {
+   "id": "WPQ017",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ017",
+   "label": "WikiPathways for Datasource Identifiers",
+   "description": "Lists pathways containing entities with identifiers from a selected data source, showing the pathway title and identifier URI.",
+   "version": "1.0.0",
+   "created": "2026-03-30",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataSources"
+   ],
+   "keywords": [
+    "data sources"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/A.%20Metadata/datasources/pathwaysForDatasource.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathwayRes (str(?wpid) AS ?pathway) (str(?title) AS ?pathwayTitle) ?identifier\nWHERE {\n  VALUES ?datasource { <http://vocabularies.wikipathways.org/wp#bdbEnsembl> }\n  ?gene dcterms:identifier ?id ;\n    dcterms:isPartOf ?pathwayRes ;\n    ?datasource ?identifier .\n  ?pathwayRes a wp:Pathway ;\n    dcterms:identifier ?wpid ;\n    dc:title ?title .\n}",
+   "params": [
+    {
+     "name": "datasource",
+     "variable": "datasource",
+     "label": "Data Source",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "http://vocabularies.wikipathways.org/wp#bdb{value}",
+     "default": "Ensembl",
+     "autocomplete": null,
+     "options": [
+      {
+       "value": "Chemspider",
+       "label": "ChemSpider"
+      },
+      {
+       "value": "Ensembl",
+       "label": "Ensembl"
+      },
+      {
+       "value": "HgncSymbol",
+       "label": "HGNC"
+      },
+      {
+       "value": "Hmdb",
+       "label": "HMDB"
+      },
+      {
+       "value": "EntrezGene",
+       "label": "NCBI Gene"
+      },
+      {
+       "value": "PubChem",
+       "label": "PubChem"
+      }
+     ]
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datasources/pathwaysForDatasource.ttl",
+   "aliases": [
+    "A. Metadata/datasources/pathwaysForDatasource.rq"
+   ]
+  },
+  {
+   "id": "WPQ018",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ018",
+   "label": "Entity Type per Species",
+   "description": "Counts the number of distinct entities of a selected type per species in WikiPathways, ordered by count descending.",
+   "version": "1.0.0",
+   "created": "2026-03-30",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species"
+   ],
+   "keywords": [
+    "metadata",
+    "organism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/A.%20Metadata/species/countEntityPerSpecies.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (COUNT(DISTINCT ?entity) AS ?count) (str(?label) AS ?species)\nWHERE {\n  VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#DataNode> }\n  ?entity a ?entityType ;\n    dcterms:isPartOf ?pw .\n  ?pw dc:title ?title ;\n    wp:organism ?organism ;\n    wp:organismName ?label .\n} GROUP BY ?label ORDER BY DESC(?count)",
+   "params": [
+    {
+     "name": "entityType",
+     "variable": "entityType",
+     "label": "Entity Type",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "http://vocabularies.wikipathways.org/wp#{value}",
+     "default": "DataNode",
+     "autocomplete": null,
+     "options": [
+      {
+       "value": "DataNode",
+       "label": "Data Nodes"
+      },
+      {
+       "value": "GeneProduct",
+       "label": "Gene Products"
+      },
+      {
+       "value": "Metabolite",
+       "label": "Metabolites"
+      },
+      {
+       "value": "Protein",
+       "label": "Proteins"
+      }
+     ]
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/species/countEntityPerSpecies.ttl",
+   "aliases": [
+    "A. Metadata/species/countEntityPerSpecies.rq"
+   ]
+  },
+  {
+   "id": "WPQ019",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ019",
+   "label": "Community Proteins",
+   "description": "Lists all proteins found in pathways tagged with a selected community.",
+   "version": "1.0.0",
+   "created": "2026-03-30",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Communities"
+   ],
+   "keywords": [
+    "communities"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/B.%20Communities/communityProteins.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (str(?label) AS ?Protein)\nWHERE {\n  VALUES ?community { <http://vocabularies.wikipathways.org/wp#Curation:AOP> }\n  ?pathway wp:ontologyTag ?community ;\n    a wp:Pathway .\n  ?protein a wp:Protein ;\n    rdfs:label ?label ;\n    dcterms:isPartOf ?pathway .\n}",
+   "params": [
+    {
+     "name": "community",
+     "variable": "community",
+     "label": "Community",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "http://vocabularies.wikipathways.org/wp#Curation:{value}",
+     "default": "AOP",
+     "autocomplete": "community",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/communityProteins.ttl",
+   "aliases": [
+    "B. Communities/communityProteins.rq"
+   ]
+  },
+  {
+   "id": "WPQ020",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ020",
+   "label": "Inborn Errors of Metabolism Metabolic Pathways",
+   "description": "Retrieves pathways classified under metabolic pathway ontology terms, filtering by label to find metabolic pathway annotations.",
+   "version": "1.0.0",
+   "created": "2020-08-12",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/InbornErrorsOfMetabolism"
+   ],
+   "keywords": [
+    "communities",
+    "inborn errors of metabolism",
+    "metabolism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/B.%20Communities/Inborn%20Errors%20of%20Metabolism/allMetabolicPWs.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT distinct ?pathway ?label ?tag\nWHERE {\n  ?tag1 a owl:Class ;\n  rdfs:label ?label .\n  ?tag rdfs:subClassOf* ?tag1.\n  ?pathway a wp:Pathway; wp:ontologyTag ?tag.\nFILTER regex(str(?label), \"metabolic pathway\")\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Inborn Errors of Metabolism/allMetabolicPWs.ttl",
+   "aliases": [
+    "B. Communities/Inborn Errors of Metabolism/allMetabolicPWs.rq"
+   ]
+  },
+  {
+   "id": "WPQ021",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ021",
+   "label": "Count of IEM Metabolic Pathways",
+   "description": "Counts the total number of pathways classified under metabolic pathway ontology terms.",
+   "version": "1.0.0",
+   "created": "2020-08-12",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/InbornErrorsOfMetabolism"
+   ],
+   "keywords": [
+    "communities",
+    "inborn errors of metabolism",
+    "metabolism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/B.%20Communities/Inborn%20Errors%20of%20Metabolism/countMetabolicPWs.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (count(distinct ?pathway) as ?pathwaycount)\nWHERE {\n  ?tag1 a owl:Class ;\n  rdfs:label ?label .\n  ?tag rdfs:subClassOf* ?tag1.\n  ?pathway a wp:Pathway; wp:ontologyTag ?tag.\nFILTER regex(str(?label), \"metabolic pathway\")\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Inborn Errors of Metabolism/countMetabolicPWs.ttl",
+   "aliases": [
+    "B. Communities/Inborn Errors of Metabolism/countMetabolicPWs.rq"
+   ]
+  },
+  {
+   "id": "WPQ022",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ022",
+   "label": "IEM Proteins, Metabolites, Rhea, and Diseases",
+   "description": "Summarizes IEM community pathways with counts of proteins, metabolites, Rhea reaction annotations, missing Rhea IDs, and linked OMIM disease identifiers per pathway.",
+   "version": "1.0.0",
+   "created": "2022-11-08",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/InbornErrorsOfMetabolism"
+   ],
+   "keywords": [
+    "communities",
+    "inborn errors of metabolism",
+    "metabolism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/B.%20Communities/Inborn%20Errors%20of%20Metabolism/countProteinsMetabolitesRheaDiseases.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX gpml: <http://vocabularies.wikipathways.org/gpml#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX wp:      <http://vocabularies.wikipathways.org/wp#>\nPREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dcterms: <http://purl.org/dc/terms/>\n\n#Variable selection\nSELECT DISTINCT (str(?title) as ?pathwayName) ?PWID \n(count(distinct ?geneProduct) AS ?ProteinsInPWs) (count(distinct ?metaboliteNode) AS ?MetabolitesInPWs) \n(count(distinct ?interactionID) AS ?RheaInPWs) (count(distinct ?interactionMissing) AS ?NoRheaInPWs)\n(count(distinct ?omim) as ?diseaseIDs)\n\nWHERE {\n\n    ?pathway wp:ontologyTag cur:IEM . \n    ?pathway dcterms:identifier ?PWID. #Obtain the ID\n    ?pathway wp:isAbout ?gpmlRDF_ID . #find the corresponding GPML link     \n    ?pathway dc:title ?title . #Obtain the title   \n\n    {\n    ?geneProduct dcterms:isPartOf ?pathway . #Only those part of PW             \n    ?geneProduct a wp:Protein . #Filter for Protein DataNodes    \n    } \n    UNION\n    { \n    ?metaboliteNode a wp:Metabolite . #Filter for Metabolite DataNodes\n    ?metaboliteNode dcterms:isPartOf ?pathway . #Only those part of PW\n    }\n    UNION \n    { \n    OPTIONAL{?interaction wp:bdbRhea ?interactionID . #Find interactions with a Rhea ID\n    ?interaction dcterms:isPartOf ?pathway .} #Only those part of PW\n    }\n    UNION\n    {\n    OPTIONAL{?interactionMissing dcterms:isPartOf ?pathway . #Find additional interactions\n    ?interactionMissing rdf:type wp:Conversion . #That are of type 'metabolic conversion'\n    FILTER NOT EXISTS {?interactionMissing wp:bdbRhea ?interactionID . } #Without a Rhea ID   \n    }  \n    }\n    UNION {\n    ?diseaseNode dcterms:isPartOf ?gpmlRDF_ID . #Only check for matching pathways \n    ?diseaseNode rdf:type gpml:Label . #Only include textLabels\n    ?diseaseNode gpml:href ?omim . #That have an href attribute  \n    FILTER regex(?omim, \"omim.org\", \"i\") #Only keep hrefs if they contain 'omim.org'\n    }\n      \n} GROUP BY ?pathway ?title ?PWID\nORDER BY ASC(?pathway)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Inborn Errors of Metabolism/countProteinsMetabolitesRheaDiseases.ttl",
+   "aliases": [
+    "B. Communities/Inborn Errors of Metabolism/countProteinsMetabolitesRheaDiseases.rq"
+   ]
+  },
+  {
+   "id": "WPQ023",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ023",
+   "label": "Total Lipid Classes",
+   "description": "Counts the number of individual lipids in a specific LIPID MAPS subclass across human pathways. Change the FILTER value to query different subclasses (FA, GL, GP, SP, ST, PR, SL, PK).",
+   "version": "1.0.0",
+   "created": "2023-11-30",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Lipids"
+   ],
+   "keywords": [
+    "communities",
+    "LIPID MAPS",
+    "lipids"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/B.%20Communities/Lipids/LipidClassesTotal.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (count(DISTINCT ?lipidID) as ?IndividualLipidsPerClass)\nWHERE {     ?metabolite a wp:Metabolite ;\n    dcterms:identifier ?id ;\n    dcterms:isPartOf ?pathwayRes ;\n    wp:bdbLipidMaps ?lipidID . #Metabolite DataNodes need to have a LIPID MAPS ID, for this query to count correctly (some lipids might be missed due to missing Xrefs)\n  VALUES ?species { \"Homo sapiens\" }\n  ?pathwayRes a wp:Pathway ;\n              wp:organismName ?species; #Filter for a species (ommit when querying all pathways available for all species)\n    dcterms:identifier ?wpid ;\n    dc:title ?title .\n  VALUES ?lipidClass { \"FA\" }\n  FILTER regex(str(?lipidID), ?lipidClass ). #Filter for a LIPID MAPS ID subclass: 'FA' Fatty Acids ; 'GL' Glycerolipid ; 'GP' Glycerophospholipid ; 'SP' Sphingolipids ; 'ST' Sterol lipids ; 'PR' Prenol Lipids ; 'SL' Saccharolipids ; 'PK' Polyketides\n}",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    },
+    {
+     "name": "lipidClass",
+     "variable": "lipidClass",
+     "label": "LIPID MAPS Class",
+     "description": null,
+     "order": 2,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "FA",
+     "autocomplete": null,
+     "options": [
+      {
+       "value": "FA",
+       "label": "FA"
+      },
+      {
+       "value": "GL",
+       "label": "GL"
+      },
+      {
+       "value": "GP",
+       "label": "GP"
+      },
+      {
+       "value": "SP",
+       "label": "SP"
+      },
+      {
+       "value": "ST",
+       "label": "ST"
+      },
+      {
+       "value": "PR",
+       "label": "PR"
+      },
+      {
+       "value": "SL",
+       "label": "SL"
+      },
+      {
+       "value": "PK",
+       "label": "PK"
+      }
+     ]
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Lipids/LipidClassesTotal.ttl",
+   "aliases": [
+    "B. Communities/Lipids/LipidClassesTotal.rq"
+   ]
+  },
+  {
+   "id": "WPQ024",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ024",
+   "label": "LIPID MAPS Federated Query",
+   "description": "Retrieves lipid names, formulas, and associated pathways for a specific LIPID MAPS category by querying the LIPID MAPS SPARQL endpoint. May be slower due to external endpoint dependency.",
+   "version": "1.0.0",
+   "created": "2023-02-13",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Lipids"
+   ],
+   "keywords": [
+    "communities",
+    "LIPID MAPS",
+    "lipids"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://lipidmaps.org/sparql"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/769e44d643956539cbb80185e3de0477ad3d4d45/B.%20Communities/Lipids/LIPIDMAPS_Federated.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX chebi: <http://purl.obolibrary.org/obo/chebi/>\n\nSELECT ?lipid ?name ?formula ?lmid (GROUP_CONCAT(?wpid_;separator=\", \") AS ?pathway)\nWHERE {\n  SERVICE <https://lipidmaps.org/sparql> {\n    VALUES ?category { <https://www.lipidmaps.org/rdf/category/112> <https://www.lipidmaps.org/rdf/category/11200> } \n    ?lipidmaps rdfs:label ?name ;\n      rdfs:subClassOf* ?category ;\n      chebi:formula ?formula .\n  }\n  BIND (IRI(CONCAT(\"https://identifiers.org/lipidmaps/\",\n               SUBSTR(STR(?lipidmaps), 31))) AS ?lmid)\n  ?lipid wp:bdbLipidMaps ?lmid ;\n         dcterms:isPartOf ?pw .\n  ?pw a wp:Pathway ; dcterms:identifier ?wpid_ .\n}\nGROUP BY ?lipid ?name ?formula ?lmid",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Lipids/LIPIDMAPS_Federated.ttl",
+   "aliases": [
+    "B. Communities/Lipids/LIPIDMAPS_Federated.rq"
+   ]
+  },
+  {
+   "id": "WPQ025",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ025",
+   "label": "Lipid Classes Count per Pathway",
+   "description": "Counts the number of lipids in a specific LIPID MAPS subclass per human pathway, ordered by count. Change the FILTER value to query different subclasses.",
+   "version": "1.0.0",
+   "created": "2023-11-30",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Lipids"
+   ],
+   "keywords": [
+    "communities",
+    "LIPID MAPS",
+    "lipids"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/B.%20Communities/Lipids/LipidsClassesCountPerPathway.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathwayRes (str(?wpid) AS ?pathway) (str(?title) AS ?pathwayTitle) (count(DISTINCT ?lipidID) AS ?Class_LipidsInPWs)\nWHERE {     ?metabolite a wp:Metabolite ;\n    dcterms:identifier ?id ;\n    dcterms:isPartOf ?pathwayRes ;\n    wp:bdbLipidMaps ?lipidID . #Metabolite DataNodes need to have a LIPID MAPS ID, for this query to count correctly (some lipids might be missed due to missing Xrefs)\n  VALUES ?species { \"Homo sapiens\" }\n  ?pathwayRes a wp:Pathway ;\n              wp:organismName ?species ; #Filter for a species (ommit when querying all pathways available for all species)\n    dcterms:identifier ?wpid ;\n    dc:title ?title .\n  VALUES ?lipidClass { \"FA\" }\n  FILTER regex(str(?lipidID), ?lipidClass ). #Filter for a LIPID MAPS ID subclass: 'FA' Fatty Acids ; 'GL' Glycerolipid ; 'GP' Glycerophospholipid ; 'SP' Sphingolipids ; 'ST' Sterol lipids ; 'PR' Prenol Lipids ; 'SL' Saccharolipids ; 'PK' Polyketides\n}\nGROUP BY ?pathwayRes ?wpid ?title\nORDER BY DESC(?Class_LipidsInPWs)",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    },
+    {
+     "name": "lipidClass",
+     "variable": "lipidClass",
+     "label": "LIPID MAPS Class",
+     "description": null,
+     "order": 2,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "FA",
+     "autocomplete": null,
+     "options": [
+      {
+       "value": "FA",
+       "label": "FA"
+      },
+      {
+       "value": "GL",
+       "label": "GL"
+      },
+      {
+       "value": "GP",
+       "label": "GP"
+      },
+      {
+       "value": "SP",
+       "label": "SP"
+      },
+      {
+       "value": "ST",
+       "label": "ST"
+      },
+      {
+       "value": "PR",
+       "label": "PR"
+      },
+      {
+       "value": "SL",
+       "label": "SL"
+      },
+      {
+       "value": "PK",
+       "label": "PK"
+      }
+     ]
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Lipids/LipidsClassesCountPerPathway.ttl",
+   "aliases": [
+    "B. Communities/Lipids/LipidsClassesCountPerPathway.rq"
+   ]
+  },
+  {
+   "id": "WPQ026",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ026",
+   "label": "Lipids Count per Pathway",
+   "description": "Counts the total number of lipids with LIPID MAPS identifiers per human pathway, ordered by count.",
+   "version": "1.0.0",
+   "created": "2021-03-03",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Lipids"
+   ],
+   "keywords": [
+    "communities",
+    "LIPID MAPS",
+    "lipids"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/B.%20Communities/Lipids/LipidsCountPerPathway.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nprefix lipidmaps:      <https://identifiers.org/lipidmaps/> #IRI can be used to create URLs from identifiers in line 7\nselect distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (count(distinct ?lipidID) AS ?LipidsInPWs)\nwhere {\n  ?metabolite a wp:Metabolite ;    #Define what are metabolites\n    dcterms:identifier ?id ;       #Find the identifier of a certain metabolite\n    dcterms:isPartOf ?pathwayRes ; #Define metabolites are part of a pathway\n    wp:bdbLipidMaps ?lipidID .     #Find the LIPID MAPS identifier for a certain metabolite\n  VALUES ?species { \"Homo sapiens\" }\n  ?pathwayRes a wp:Pathway ;       #Define what is a pathway\n              wp:organismName ?species ; #Filter pathways on species Human\n    dcterms:identifier ?wpid ;     #Obtain identifier of pathway\n    dc:title ?title .              #Obtain title of pathway\n}\nGROUP BY ?pathwayRes ?wpid ?title\nORDER BY DESC(?LipidsInPWs)",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Lipids/LipidsCountPerPathway.ttl",
+   "aliases": [
+    "B. Communities/Lipids/LipidsCountPerPathway.rq"
+   ]
+  },
+  {
+   "id": "WPQ027",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ027",
+   "label": "Reactome Pathways",
+   "description": "Lists all pathways tagged with the Reactome Approved curation tag.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Reactome"
+   ],
+   "keywords": [
+    "communities",
+    "Reactome"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/B.%20Communities/Reactome/getPathways.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (str(?titleLit) as ?title)\nWHERE {\n  ?pathway wp:ontologyTag cur:Reactome_Approved ;\n           dc:title ?titleLit .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Reactome/getPathways.ttl",
+   "aliases": [
+    "B. Communities/Reactome/getPathways.rq"
+   ]
+  },
+  {
+   "id": "WPQ028",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ028",
+   "label": "References in Both Reactome and WikiPathways",
+   "description": "Counts publication references that appear in both Reactome-approved and WikiPathways Analysis Collection pathways.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Reactome"
+   ],
+   "keywords": [
+    "communities",
+    "Reactome"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/B.%20Communities/Reactome/refsReactomeAndWP.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (COUNT(DISTINCT ?pubmed) AS ?count)\nWHERE {\n  ?pubmed a       wp:PublicationReference .\n  { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:AnalysisCollection }\n  { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:Reactome_Approved }\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Reactome/refsReactomeAndWP.ttl",
+   "aliases": [
+    "B. Communities/Reactome/refsReactomeAndWP.rq"
+   ]
+  },
+  {
+   "id": "WPQ029",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ029",
+   "label": "References in Reactome but Not WikiPathways",
+   "description": "Counts publication references found in Reactome-approved pathways but not in the WikiPathways Analysis Collection.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Reactome"
+   ],
+   "keywords": [
+    "communities",
+    "Reactome"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/B.%20Communities/Reactome/refsReactomeNotWP.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (COUNT(DISTINCT ?pubmed) AS ?count)\nWHERE {\n  ?pubmed a       wp:PublicationReference .\n  MINUS { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:AnalysisCollection }\n  { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:Reactome_Approved }\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Reactome/refsReactomeNotWP.ttl",
+   "aliases": [
+    "B. Communities/Reactome/refsReactomeNotWP.rq"
+   ]
+  },
+  {
+   "id": "WPQ030",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ030",
+   "label": "References in WikiPathways but Not Reactome",
+   "description": "Counts publication references found in the WikiPathways Analysis Collection but not in Reactome-approved pathways.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Reactome"
+   ],
+   "keywords": [
+    "communities",
+    "Reactome"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/B.%20Communities/Reactome/refsWPNotReactome.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (COUNT(DISTINCT ?pubmed) AS ?count)\nWHERE {\n  ?pubmed a       wp:PublicationReference .\n  { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:AnalysisCollection }\n  MINUS { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:Reactome_Approved }\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/Reactome/refsWPNotReactome.ttl",
+   "aliases": [
+    "B. Communities/Reactome/refsWPNotReactome.rq"
+   ]
+  },
+  {
+   "id": "WPQ031",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ031",
+   "label": "Metabolites in AOP-Wiki",
+   "description": "Finds metabolites in pathways of the chosen species that are linked to stressors in AOP-Wiki, by querying the AOP-Wiki SPARQL endpoint and matching on ChEBI identifiers.",
+   "version": "1.0.0",
+   "created": "2023-08-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/AOPWiki"
+   ],
+   "keywords": [
+    "AOP-Wiki",
+    "collaborations",
+    "metabolite"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://aopwiki.rdf.bigcat-bioinformatics.org/sparql/"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/7a6a9c7bb1c188b1422d851f705492d6c78c49f4/C.%20Collaborations/AOP-Wiki/MetaboliteInAOP-Wiki.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX cheminf:\t<http://semanticscience.org/resource/CHEMINF_>\n\nSELECT DISTINCT (str(?title) as ?pathwayName) ?chemical ?ChEBI ?ChemicalName ?mappedid ?LinkedStressor\n\nWHERE {\n   # Query AOP-Wiki first: it returns its few hundred ChEBI-mapped chemicals in one request,\n   # which are then joined to the local metabolites. With the SERVICE block last, the endpoint\n   # sends one remote request per metabolite and times out.\n   SERVICE <https://aopwiki.rdf.bigcat-bioinformatics.org/sparql/> {\n    ?mappedid a cheminf:000407 ; cheminf:000407 ?ChEBI .\n    ?cheLook a cheminf:000000 ; dc:title ?ChemicalName ; dcterms:isPartOf ?LinkedStressor ; skos:exactMatch ?mappedid .\n   }\n   ?chemical a wp:Metabolite ; dcterms:isPartOf ?pathway ; wp:bdbChEBI ?mappedid .\n   VALUES ?species { \"Homo sapiens\" }\n   ?pathway a wp:Pathway ; wp:organismName ?species ; dc:title ?title .\n}\nORDER BY ?ChemicalName ?pathwayName",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "C. Collaborations/AOP-Wiki/MetaboliteInAOP-Wiki.ttl",
+   "aliases": [
+    "C. Collaborations/AOP-Wiki/MetaboliteInAOP-Wiki.rq"
+   ]
+  },
+  {
+   "id": "WPQ032",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ032",
+   "label": "MetaNetX Reaction ID Mapping",
+   "description": "Maps Rhea reaction IDs from a WikiPathways pathway to MetaNetX reaction identifiers by querying the MetaNetX SPARQL endpoint. May be slower due to external endpoint dependency.",
+   "version": "1.0.0",
+   "created": "2022-11-08",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/MetaNetX"
+   ],
+   "keywords": [
+    "collaborations",
+    "MetaNetX",
+    "reaction"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://rdf.metanetx.org/sparql/"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/769e44d643956539cbb80185e3de0477ad3d4d45/C.%20Collaborations/MetaNetX/reactionID_mapping.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp:      <http://vocabularies.wikipathways.org/wp#>\nPREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dcterms: <http://purl.org/dc/terms/>\n#Prefixes for the MetaNetX RDF:\nPREFIX mnx: <https://rdf.metanetx.org/schema/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rhea: <http://rdf.rhea-db.org/>\n\n#Variable selection\nSELECT DISTINCT (str(?title) as ?pathwayName) ?PWID ?interactionID ?reac\n\nWHERE {\n#Pathway Model IDs of interest\nVALUES ?PWID {\"WP5275\"}\n  \n    ?pathway a wp:Pathway . #Define what a pathway is\n    ?pathway dcterms:identifier ?PWID. #Obtain the ID\n    ?pathway dc:title ?title . #Obtain the title\n  \n    ?interaction wp:bdbRhea ?interactionID . #Find interactions with a Rhea ID\n    ?interaction dcterms:isPartOf ?pathway . #Only those part of PW\n  \n  ##The IRI for Rhea-IDs from WikiPathways starts with https://identifiers.org/rhea/, where the one from MetaNetX starts with \"http://rdf.rhea-db.org/ , so we need to rewrite the IRI\n    # Bind the created IRI into a new variable ?newIRI: take the Rhea IRI from WikiPathways as a string,\n    # remove the first 29 characters and put \"http://rdf.rhea-db.org/\" in front of what is left.\n    BIND(IRI(CONCAT(\"http://rdf.rhea-db.org/\", SUBSTR(STR(?interactionID), 30))) AS ?newIRI)\n   SERVICE <https://rdf.metanetx.org/sparql/>  {\n     SELECT DISTINCT ?reac\n                           WHERE{\n    ?reac mnx:reacXref rhea:17658 .}\n     }\n  \n} ORDER BY ASC(?pathway)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "C. Collaborations/MetaNetX/reactionID_mapping.ttl",
+   "aliases": [
+    "C. Collaborations/MetaNetX/reactionID_mapping.rq"
+   ]
+  },
+  {
+   "id": "WPQ033",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ033",
+   "label": "Pathways for a PubChem Compound (MolMeDB)",
+   "description": "Finds all human pathways containing a specific MolMeDB compound by resolving its PubChem identifier through the MolMeDB SPARQL endpoint. May be slower due to external endpoint dependency.",
+   "version": "1.0.0",
+   "created": "2021-11-12",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/MolMeDB"
+   ],
+   "keywords": [
+    "collaborations",
+    "MolMeDB",
+    "PubChem"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://idsm.elixir-czech.cz/sparql/endpoint/molmedb"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/C.%20Collaborations/MolMeDB/ONEpubchem_MANYpathways.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE\n{\n  SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {\n   <http://identifiers.org/molmedb/MM00431> skos:exactMatch ?COMPOUND.\n   filter (strstarts(str(?COMPOUND), 'http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID'))\n  }\n  \n  ?gene a wp:Metabolite ;\n    dcterms:identifier ?id ;\n    dcterms:isPartOf ?pathwayRes ;\n    wp:bdbPubChem ?COMPOUND .\n  \n  VALUES ?species { \"Homo sapiens\" }\n  ?pathwayRes a wp:Pathway ;\n    wp:organismName ?species;\n    dcterms:identifier ?wpid ;\n    dc:title ?title . \n}",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "C. Collaborations/MolMeDB/ONEpubchem_MANYpathways.ttl",
+   "aliases": [
+    "C. Collaborations/MolMeDB/ONEpubchem_MANYpathways.rq"
+   ]
+  },
+  {
+   "id": "WPQ034",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ034",
+   "label": "PubChem Compound in Pathway Subset (MolMeDB)",
+   "description": "Checks a subset of pathways for the presence of a specific MolMeDB compound by querying the MolMeDB SPARQL endpoint. Uses nested federation with both MolMeDB and WikiPathways endpoints. May be slower due to external endpoint dependency.",
+   "version": "1.0.0",
+   "created": "2021-11-15",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/MolMeDB"
+   ],
+   "keywords": [
+    "collaborations",
+    "MolMeDB",
+    "PubChem"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://idsm.elixir-czech.cz/sparql/endpoint/molmedb",
+    "https://sparql.wikipathways.org/sparql"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/C.%20Collaborations/MolMeDB/SUBSETpathways_ONEpubchem.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE {\n  SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {\n    SERVICE <https://sparql.wikipathways.org/sparql> {\n      VALUES ?wpid {\"WP4224\" \"WP4225\" \"WP4571\"}\n\n    ?gene a wp:Metabolite ;\n      dcterms:identifier ?id ;\n      dcterms:isPartOf ?pathwayRes ;\n      wp:bdbPubChem ?COMPOUND .\n\n    VALUES ?species { \"Homo sapiens\" }\n    ?pathwayRes a wp:Pathway ;\n      wp:organismName ?species ;\n      dcterms:identifier ?wpid ;\n      dc:title ?title .\n    }\n    \n    <http://identifiers.org/molmedb/MM00431> skos:exactMatch ?COMPOUND.\n  }\n}",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "C. Collaborations/MolMeDB/SUBSETpathways_ONEpubchem.ttl",
+   "aliases": [
+    "C. Collaborations/MolMeDB/SUBSETpathways_ONEpubchem.rq"
+   ]
+  },
+  {
+   "id": "WPQ035",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ035",
+   "label": "Molecular Similarity Reactions via Rhea and IDSM",
+   "description": "Finds structurally similar compounds for reaction sources and targets in a pathway by querying the IDSM structure search service for molecular similarity. May be slower due to external endpoint dependency.",
+   "version": "1.0.0",
+   "created": "2022-11-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/RheaIDSM"
+   ],
+   "keywords": [
+    "collaborations",
+    "IDSM",
+    "reaction",
+    "Rhea"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://idsm.elixir-czech.cz/sparql/endpoint/chebi"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/2f50cac7505b9a201527cde7ad60e510508180a9/C.%20Collaborations/smallMolecules_Rhea_IDSM/molecularSimularity_Reactions.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX ebi: <http://ebi.rdf.ac.uk/dataset/>\nPREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>\nPREFIX idsm: <https://idsm.elixir-czech.cz/sparql/endpoint/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX sso: <http://semanticscience.org/resource/>\nPREFIX rh:<http://rdf.rhea-db.org/>\nPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>\n\nSELECT distinct ?chebioSrc ?similarSrc ?chebioTgt ?similarTgt ?reaction WHERE {\n  ?interaction dcterms:isPartOf ?pathway ; a wp:Conversion ;\n      wp:source ?source ;\n      wp:target ?target .\n    ?source wp:bdbChEBI ?chebiSrc .\n    ?target wp:bdbChEBI ?chebiTgt .\n    ?pathway dcterms:identifier \"WP4225\".\n    BIND(iri(concat(\"http://purl.obolibrary.org/obo/CHEBI_\", substr(str(?chebiSrc),37))) AS ?chebioSrc)\n    BIND(iri(concat(\"http://purl.obolibrary.org/obo/CHEBI_\", substr(str(?chebiTgt),37))) AS ?chebioTgt)\n\n\n#IDSM\nSERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/chebi> {\n  \n   ?chebioSrc ^sso:is-attribute-of / sso:has-value ?molfileSrc .\n ?chebioTgt ^sso:is-attribute-of / sso:has-value ?molfileTgt .\n  [ sachem:compound ?similarSrc; sachem:score ?scoreSrc ]\n    sachem:similaritySearch [\n      sachem:query ?molfileSrc ;\n#     sachem:cutoff \"0.98\"^^xsd:double\n    ].\n  [ sachem:compound ?similarTgt; sachem:score ?scoreTgt ]\n    sachem:similaritySearch [\n      sachem:query ?molfileTgt ;\n#      sachem:cutoff \"0.98\"^^xsd:double\n    ].\n  }\n  \n#   SERVICE <https://sparql.rhea-db.org/sparql> {\n#    ?reaction rh:side / rh:contains / rh:compound / rh:chebi ?similarSrc , ?similarTgt .\n#    ?reaction rdfs:subClassOf rh:Reaction .\n#  }  \n  \n }",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "C. Collaborations/smallMolecules_Rhea_IDSM/molecularSimularity_Reactions.ttl",
+   "aliases": [
+    "C. Collaborations/smallMolecules_Rhea_IDSM/molecularSimularity_Reactions.rq"
+   ]
+  },
+  {
+   "id": "WPQ036",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ036",
+   "label": "Genes of a Pathway",
+   "description": "Lists all gene products in a given pathway, returning the pathway identifier and gene product labels.",
+   "version": "1.0.0",
+   "created": "2020-10-11",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    },
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "general"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/D.%20General/GenesofPathway.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nselect distinct ?pathway (str(?label) as ?geneProduct) where {\n    {\n        SELECT ?pathwayRev ?pathway WHERE {\n            VALUES ?pathwayId { \"WP1560\" }\n            ?pathwayRev dcterms:identifier ?pathwayId .\n            ?pathwayRev a wp:Pathway .\n            ?pathwayRev dc:identifier ?pathway .\n        }\n    }\n    ?gene dcterms:isPartOf ?pathwayRev .\n    ?gene a wp:GeneProduct .\n    ?gene rdfs:label ?label .\n}",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathwayId",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "WP1560",
+     "autocomplete": "pathway",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/GenesofPathway.ttl",
+   "aliases": [
+    "D. General/GenesofPathway.rq"
+   ]
+  },
+  {
+   "id": "WPQ037",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ037",
+   "label": "Interactions of a Pathway",
+   "description": "Returns all interactions in a given pathway along with the participating data nodes and their labels.",
+   "version": "1.0.0",
+   "created": "2020-10-11",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "general"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/1366822debc316b6cdaf88354b020008d0d3cb71/D.%20General/InteractionsofPathway.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway ?interaction ?participants ?DataNodeLabel\nWHERE {\n\n   VALUES ?pathwayId { <https://identifiers.org/wikipathways/WP1425> }\n   ?pathway a wp:Pathway ;\n      dc:identifier ?pathwayId .\n   ?interaction dcterms:isPartOf ?pathway ; \n      a wp:Interaction ;\n      wp:participants ?participants .\n   ?participants a wp:DataNode ;\n      rdfs:label ?DataNodeLabel .  \n}",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathwayId",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "https://identifiers.org/wikipathways/{value}",
+     "default": "WP1425",
+     "autocomplete": "pathway",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/InteractionsofPathway.ttl",
+   "aliases": [
+    "D. General/InteractionsofPathway.rq"
+   ]
+  },
+  {
+   "id": "WPQ038",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ038",
+   "label": "Metabolites of a Pathway",
+   "description": "Lists all metabolites in a given pathway, returning the pathway identifier and metabolite labels.",
+   "version": "1.0.0",
+   "created": "2020-10-11",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "general"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/D.%20General/MetabolitesofPathway.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nselect distinct ?pathway (str(?label) as ?Metabolite) where {\n    {\n        SELECT ?pathway WHERE {\n            VALUES ?pathwayId { \"WP1560\" }\n            ?pathway dcterms:identifier ?pathwayId .\n            ?pathway a wp:Pathway .\n        }\n    }\n    ?metabolite a wp:Metabolite ;\n       rdfs:label ?label ;\n       dcterms:isPartOf ?pathway .\n}",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathwayId",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "WP1560",
+     "autocomplete": "pathway",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/MetabolitesofPathway.ttl",
+   "aliases": [
+    "D. General/MetabolitesofPathway.rq"
+   ]
+  },
+  {
+   "id": "WPQ039",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ039",
+   "label": "Ontology Terms of a Pathway",
+   "description": "Retrieves all ontology tags associated with a given pathway, returning the ontology term URI, pathway title, and identifier.",
+   "version": "1.0.0",
+   "created": "2020-10-11",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    },
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "general"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/1366822debc316b6cdaf88354b020008d0d3cb71/D.%20General/OntologyofPathway.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (?o as ?pwOntologyTerm) (str(?titleLit) as ?title) ?pathway\nWHERE {\n  VALUES ?pathwayId { \"WP1560\" }\n  ?pathwayRDF wp:ontologyTag ?o ;\n    dc:identifier ?pathway ;\n    dc:title ?titleLit ;\n    dcterms:identifier ?pathwayId .\n\n  FILTER (! regex(str(?pathway), \"group\"))\n}",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathwayId",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "WP1560",
+     "autocomplete": "pathway",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/OntologyofPathway.ttl",
+   "aliases": [
+    "D. General/OntologyofPathway.rq"
+   ]
+  },
+  {
+   "id": "WPQ040",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ040",
+   "label": "All Pathways with PubMed References",
+   "description": "Lists pathways that have associated PubMed publication references, returning pathway and PubMed identifiers ordered by pathway.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+   ],
+   "keywords": [
+    "literature"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/E.%20Literature/allPathwayswithPubMed.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway ?pubmed\nWHERE\n     {?pubmed a       wp:PublicationReference .\n      ?pubmed dcterms:isPartOf ?pathway }\nORDER BY ?pathway\nLIMIT 50",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "E. Literature/allPathwayswithPubMed.ttl",
+   "aliases": [
+    "E. Literature/allPathwayswithPubMed.rq"
+   ]
+  },
+  {
+   "id": "WPQ041",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ041",
+   "label": "All References for an Interaction",
+   "description": "Returns all publication references for interactions in a given pathway, including references attached to both the interaction itself and its participating data nodes.",
+   "version": "1.0.0",
+   "created": "2022-10-26",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+   ],
+   "keywords": [
+    "literature"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/4431b11d148e0e1bcc3533e90b80225376c80d1a/E.%20Literature/allReferencesForInteraction.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway ?interaction ?pubmed ?partnerref WHERE {\n   VALUES ?pathwayId { <https://identifiers.org/wikipathways/WP5200> }\n   ?pathway a wp:Pathway ;\n            dc:identifier ?pathwayId .\n   ?interaction dcterms:isPartOf ?pathway ;\n                a wp:Interaction ;\n                wp:participants ?partner;\n                dcterms:references ?pubmed .\n   OPTIONAL{?partner dc:identifier ?partnerID ;\n            dcterms:references ?partnerref .}\n} LIMIT 100",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathwayId",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "https://identifiers.org/wikipathways/{value}",
+     "default": "WP5200",
+     "autocomplete": "pathway",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "E. Literature/allReferencesForInteraction.ttl",
+   "aliases": [
+    "E. Literature/allReferencesForInteraction.rq"
+   ]
+  },
+  {
+   "id": "WPQ042",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ042",
+   "label": "Reference Count per Pathway",
+   "description": "Counts the number of PubMed publication references per pathway, sorted by descending reference count.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+   ],
+   "keywords": [
+    "literature"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/E.%20Literature/countRefsPerPW.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (COUNT(?pubmed) AS ?numberOfReferences)\nWHERE\n     {?pubmed a       wp:PublicationReference .\n      ?pubmed dcterms:isPartOf ?pathway }\nGROUP BY ?pathway\nORDER BY DESC(?numberOfReferences)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "E. Literature/countRefsPerPW.ttl",
+   "aliases": [
+    "E. Literature/countRefsPerPW.rq"
+   ]
+  },
+  {
+   "id": "WPQ043",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ043",
+   "label": "References for an Interaction",
+   "description": "Returns publication references directly attached to interactions in a given pathway, along with the participating data node labels.",
+   "version": "1.0.0",
+   "created": "2020-10-11",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+   ],
+   "keywords": [
+    "literature"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/4431b11d148e0e1bcc3533e90b80225376c80d1a/E.%20Literature/referencesForInteraction.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway ?interaction ?pubmed\nWHERE {\n\n   VALUES ?pathwayId { <https://identifiers.org/wikipathways/WP5200> }\n   ?pathway a wp:Pathway ;\n      dc:identifier ?pathwayId . #filter for one pathway\n   ?interaction dcterms:isPartOf ?pathway ; \n      a wp:Interaction ;\n       dcterms:references ?pubmed ;\n      wp:participants ?participants .\n   ?participants a wp:DataNode ;\n      rdfs:label ?DataNodeLabel .  \n}",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathwayId",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "https://identifiers.org/wikipathways/{value}",
+     "default": "WP5200",
+     "autocomplete": "pathway",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "E. Literature/referencesForInteraction.ttl",
+   "aliases": [
+    "E. Literature/referencesForInteraction.rq"
+   ]
+  },
+  {
+   "id": "WPQ044",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ044",
+   "label": "References for a Specific Interaction",
+   "description": "Returns publication references for a single interaction identified by both a pathway and a specific participant URI.",
+   "version": "1.0.0",
+   "created": "2022-10-26",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+   ],
+   "keywords": [
+    "literature"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/4431b11d148e0e1bcc3533e90b80225376c80d1a/E.%20Literature/referencesForSpecificInteraction.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway ?interaction ?pubmed WHERE {\n   ?pathway a wp:Pathway .\n   VALUES ?pathwayId { <https://identifiers.org/wikipathways/WP5200> }\n   ?pathway dc:identifier ?pathwayId . #filter for pathway\n   ?interaction dcterms:isPartOf ?pathway .\n   ?interaction a wp:Interaction .\n   VALUES ?proteinId { <https://identifiers.org/uniprot/P35498> }\n   ?interaction wp:participants ?proteinId. #filter for interaction\n  ?interaction dcterms:references ?pubmed .\n} LIMIT 100",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathwayId",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "https://identifiers.org/wikipathways/{value}",
+     "default": "WP5200",
+     "autocomplete": "pathway",
+     "options": null
+    },
+    {
+     "name": "proteinId",
+     "variable": "proteinId",
+     "label": "UniProt Protein ID",
+     "description": null,
+     "order": 2,
+     "kind": "iri",
+     "valueTemplate": "https://identifiers.org/uniprot/{value}",
+     "default": "P35498",
+     "autocomplete": null,
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "E. Literature/referencesForSpecificInteraction.ttl",
+   "aliases": [
+    "E. Literature/referencesForSpecificInteraction.rq"
+   ]
+  },
+  {
+   "id": "WPQ045",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ045",
+   "label": "CyTargetLinker Linkset Input",
+   "description": "Exports pathway-gene associations formatted as input for CyTargetLinker, a Cytoscape app for link set analysis. Returns pathway names and IDs paired with HGNC gene symbols and Entrez Gene IDs.",
+   "version": "1.0.0",
+   "created": "2021-02-03",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataExport"
+   ],
+   "keywords": [
+    "data export"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/F.%20Datadump/CyTargetLinkerLinksetInput.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX fn: <http://www.w3.org/2005/xpath-functions#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nselect distinct  (str(?title) as ?PathwayName) (str(?wpid) as ?PathwayID) (fn:substring(?genename,37) as ?GeneName) (fn:substring(?ncbiGeneId,34) as ?GeneID) where {\n  ?gene a wp:DataNode ;\n    dcterms:identifier ?id ;\n    dcterms:isPartOf ?pathwayRes ;\n    wp:bdbEntrezGene ?ncbiGeneId ;\n    wp:bdbHgncSymbol ?genename .\n  ?pathwayRes a wp:Pathway ;\n    dcterms:identifier ?wpid ;\n    dc:title ?title .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "F. Datadump/CyTargetLinkerLinksetInput.ttl",
+   "aliases": [
+    "F. Datadump/CyTargetLinkerLinksetInput.rq"
+   ]
+  },
+  {
+   "id": "WPQ046",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ046",
+   "label": "Ontology and Pathway Data Export",
+   "description": "Exports pathway metadata including page URLs, titles, species, identifiers, and associated ontology tags for bulk download.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataExport"
+   ],
+   "keywords": [
+    "data export"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/F.%20Datadump/dumpOntologyAndPW.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?depicts (str(?titleLit) as ?title) (str(?speciesLabelLit) as ?speciesLabel) ?identifier ?ontology\nWHERE {\n\t?pathway foaf:page ?depicts .\n        ?pathway dc:title ?titleLit .\n        ?pathway wp:organism ?species .\n        ?pathway wp:organismName ?speciesLabelLit .\n        ?pathway dc:identifier ?identifier .\n\n        OPTIONAL {?pathway wp:ontologyTag ?ontology .}\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "F. Datadump/dumpOntologyAndPW.ttl",
+   "aliases": [
+    "F. Datadump/dumpOntologyAndPW.rq"
+   ]
+  },
+  {
+   "id": "WPQ047",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ047",
+   "label": "Pathways by Species Data Export",
+   "description": "Exports all pathways for a given species, returning identifiers, titles, and page URLs ordered by pathway ID.",
+   "version": "1.0.0",
+   "created": "2020-10-11",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataExport"
+   ],
+   "keywords": [
+    "data export"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/F.%20Datadump/dumpPWsofSpecies.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?wpIdentifier ?pathway ?title ?page\nWHERE {\n    VALUES ?species { \"Homo sapiens\" }\n    ?pathway dc:title ?title ;\n       foaf:page ?page ;\n       dc:identifier ?wpIdentifier ;\n       wp:organismName ?species .\n }\nORDER BY ?wpIdentifier",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "F. Datadump/dumpPWsofSpecies.ttl",
+   "aliases": [
+    "F. Datadump/dumpPWsofSpecies.rq"
+   ]
+  },
+  {
+   "id": "WPQ048",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ048",
+   "label": "Pathways by Metabolite Occurrence Count",
+   "description": "Counts how many pathways each metabolite appears in, filtered to metabolites without a Wikidata mapping, sorted by descending pathway count.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://github.com/laurent2207",
+     "name": "Laurent Winckers"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+   ],
+   "keywords": [
+    "curation"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/G.%20Curation/countPWsMetabolitesOccurSorted.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?metabolite (count(DISTINCT ?pathwayRes) as ?pathways) WHERE {\n  ?metabolite a wp:Metabolite ;\n    dcterms:identifier ?id ;\n    dcterms:isPartOf ?pathwayRes .\n  ?pathwayRes a wp:Pathway .\n  OPTIONAL { ?metabolite wp:bdbWikidata ?wikidata . }\n  FILTER (!BOUND(?wikidata))\n} GROUP BY ?metabolite ORDER BY DESC(?pathways)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "G. Curation/countPWsMetabolitesOccurSorted.ttl",
+   "aliases": [
+    "G. Curation/countPWsMetabolitesOccurSorted.rq"
+   ]
+  },
+  {
+   "id": "WPQ049",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ049",
+   "label": "Count of Pathways Without References",
+   "description": "Returns the total number of pathways that have no associated publication references.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://github.com/laurent2207",
+     "name": "Laurent Winckers"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+   ],
+   "keywords": [
+    "curation"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/G.%20Curation/countPWsWithoutRef.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (count(DISTINCT ?pathway) AS ?pathwayCount) WHERE {\n  ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .\n  MINUS { ?pubmed a       wp:PublicationReference .\n          ?pubmed dcterms:isPartOf ?pathway }\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "G. Curation/countPWsWithoutRef.ttl",
+   "aliases": [
+    "G. Curation/countPWsWithoutRef.rq"
+   ]
+  },
+  {
+   "id": "WPQ050",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ050",
+   "label": "Metabolites with Duplicate Wikidata Mappings",
+   "description": "Detects metabolites that are mapped to more than one Wikidata identifier, listing all duplicate mappings per metabolite.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://github.com/laurent2207",
+     "name": "Laurent Winckers"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+   ],
+   "keywords": [
+    "curation"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/G.%20Curation/MetabolitesDoubleMappingWikidata.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT DISTINCT ?metaboliteID (GROUP_CONCAT(DISTINCT ?wikidata;separator=\", \") AS ?results) WHERE {\n  ?metaboliteID a wp:Metabolite .\n  ?metaboliteID wp:bdbWikidata ?wikidata .\n  ?metaboliteID wp:bdbWikidata ?wikidata2 .\n  FILTER(?wikidata != ?wikidata2)\n} GROUP BY ?metaboliteID",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "G. Curation/MetabolitesDoubleMappingWikidata.ttl",
+   "aliases": [
+    "G. Curation/MetabolitesDoubleMappingWikidata.rq"
+   ]
+  },
+  {
+   "id": "WPQ051",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ051",
+   "label": "Unclassified Metabolites",
+   "description": "Finds data nodes with a data source annotation that are not classified as metabolites, grouped by data source with counts sorted descending.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://github.com/laurent2207",
+     "name": "Laurent Winckers"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+   ],
+   "keywords": [
+    "curation"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/G.%20Curation/MetabolitesNotClassified.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nprefix wp:      <http://vocabularies.wikipathways.org/wp#>\nprefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>\nprefix dcterms:  <http://purl.org/dc/terms/>\n\nselect (str(?datasourceLit) as ?datasource) (count(?identifier) as ?count)\nwhere {\n  ?mb dc:source ?datasourceLit ;\n    dcterms:identifier ?identifier .\n  FILTER NOT EXISTS { ?mb a wp:Metabolite }\n} group by ?datasourceLit\norder by desc(?count)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "G. Curation/MetabolitesNotClassified.ttl",
+   "aliases": [
+    "G. Curation/MetabolitesNotClassified.rq"
+   ]
+  },
+  {
+   "id": "WPQ052",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ052",
+   "label": "Metabolites Without Wikidata Links",
+   "description": "Lists metabolites that have no Wikidata identifier mapping, useful for identifying gaps in cross-database linkage.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://github.com/laurent2207",
+     "name": "Laurent Winckers"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+   ],
+   "keywords": [
+    "curation"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/G.%20Curation/MetabolitesWithoutLinkWikidata.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT DISTINCT ?metabolite WHERE {\n  ?metabolite a wp:Metabolite .\n  OPTIONAL { ?metabolite wp:bdbWikidata ?wikidata . }\n  FILTER (!BOUND(?wikidata))\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "G. Curation/MetabolitesWithoutLinkWikidata.ttl",
+   "aliases": [
+    "G. Curation/MetabolitesWithoutLinkWikidata.rq"
+   ]
+  },
+  {
+   "id": "WPQ053",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ053",
+   "label": "Pathways Without Data Nodes",
+   "description": "Finds pathways that contain no data nodes, indicating empty or incomplete pathway entries that may need curation.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://github.com/laurent2207",
+     "name": "Laurent Winckers"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    },
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+   ],
+   "keywords": [
+    "curation"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/G.%20Curation/PWsWithoutDatanodes.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nprefix wp:      <http://vocabularies.wikipathways.org/wp#>\nprefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>\nprefix dcterms: <http://purl.org/dc/terms/>\nprefix xsd:     <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?pathway\nWHERE{\n?pathway a wp:Pathway, skos:Collection .\nFILTER NOT EXISTS {?node dcterms:isPartOf ?pathway.\n?node a wp:DataNode}\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "G. Curation/PWsWithoutDatanodes.ttl",
+   "aliases": [
+    "G. Curation/PWsWithoutDatanodes.rq"
+   ]
+  },
+  {
+   "id": "WPQ054",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ054",
+   "label": "Pathways Without References",
+   "description": "Lists pathways that have no associated publication references, returning species, title, and pathway identifier sorted alphabetically.",
+   "version": "1.0.0",
+   "created": "2020-10-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://github.com/laurent2207",
+     "name": "Laurent Winckers"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+   ],
+   "keywords": [
+    "curation"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/G.%20Curation/PWsWithoutRef.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (STR(?speciesLabelLit) AS ?species) (STR(?titleLit) AS ?title) ?pathway WHERE {\n  ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .\n  MINUS { ?pubmed a       wp:PublicationReference .\n          ?pubmed dcterms:isPartOf ?pathway }\n} ORDER BY ASC(?species) ASC(?title)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "G. Curation/PWsWithoutRef.ttl",
+   "aliases": [
+    "G. Curation/PWsWithoutRef.rq"
+   ]
+  },
+  {
+   "id": "WPQ055",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ055",
+   "label": "IDSM Chemical Similarity Search",
+   "description": "Finds structurally similar ChEBI compounds for source and target metabolites in a pathway's directed interactions via the IDSM/ChEBI structure search service (idsm.elixir-czech.cz). May be slower due to external endpoint dependency.",
+   "version": "1.0.0",
+   "created": "2022-11-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Chemistry"
+   ],
+   "keywords": [
+    "chemistry"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://idsm.elixir-czech.cz/sparql/endpoint/chebi"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/2f7566a161f01130c02bd00c981d238c055f8bd6/H.%20Chemistry/IDSM_similaritySearch.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX ebi: <http://ebi.rdf.ac.uk/dataset/>\nPREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>\nPREFIX idsm: <https://idsm.elixir-czech.cz/sparql/endpoint/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX sso: <http://semanticscience.org/resource/>\nPREFIX rh:<http://rdf.rhea-db.org/>\nPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>\nSELECT distinct ((substr(str(?chebioSrc),32)) as ?SourceOrigin) ((substr(str(?similarSrc),32)) as ?SourceSimilar) ((substr(str(?chebioTgt),32)) as ?TargetOrigin) ((substr(str(?similarTgt),32)) as ?TargetSimilar)  #?reaction\nWHERE {\n  ?interaction dcterms:isPartOf ?pathway ; a wp:Conversion ;\n      wp:source ?source ;\n      wp:target ?target .\n    ?source wp:bdbChEBI ?chebiSrc .\n    ?target wp:bdbChEBI ?chebiTgt .\n    VALUES ?pathwayId { \"WP4225\" }\n    ?pathway dcterms:identifier ?pathwayId.\n    BIND(iri(concat(\"http://purl.obolibrary.org/obo/CHEBI_\", substr(str(?chebiSrc),37))) AS ?chebioSrc)\n    BIND(iri(concat(\"http://purl.obolibrary.org/obo/CHEBI_\", substr(str(?chebiTgt),37))) AS ?chebioTgt)\n#IDSM\nSERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/chebi> {\n   ?chebioSrc ^sso:is-attribute-of / sso:has-value ?molfileSrc .\n ?chebioTgt ^sso:is-attribute-of / sso:has-value ?molfileTgt .\n  [ sachem:compound ?similarSrc; sachem:score ?scoreSrc ]\n    sachem:similaritySearch [\n      sachem:query ?molfileSrc ;\n     sachem:cutoff 98e-2\n    ].\n  [ sachem:compound ?similarTgt; sachem:score ?scoreTgt ]\n    sachem:similaritySearch [\n      sachem:query ?molfileTgt ;\n      sachem:cutoff 98e-2 \n    ] .\n  }\n }",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathwayId",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "WP4225",
+     "autocomplete": "pathway",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "H. Chemistry/IDSM_similaritySearch.ttl",
+   "aliases": [
+    "H. Chemistry/IDSM_similaritySearch.rq"
+   ]
+  },
+  {
+   "id": "WPQ056",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ056",
+   "label": "SMILES for Metabolites",
+   "description": "Retrieves SMILES chemical structure notations for metabolites via their Wikidata links.",
+   "version": "1.0.0",
+   "created": "2022-03-14",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Chemistry"
+   ],
+   "keywords": [
+    "chemistry"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/H.%20Chemistry/smiles.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX cheminf: <http://semanticscience.org/resource/>\n\nSELECT ?mol ?smilesDepict WHERE {\n ?mol wp:bdbWikidata/cheminf:CHEMINF_000018 ?smilesDepict .\n} LIMIT 25",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "H. Chemistry/smiles.ttl",
+   "aliases": [
+    "H. Chemistry/smiles.rq"
+   ]
+  },
+  {
+   "id": "WPQ057",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ057",
+   "label": "Controlling Duplicate Mappings from Wikidata",
+   "description": "Detects metabolites mapped to multiple Wikidata identifiers as a quality control step in the DSMN workflow.",
+   "version": "1.0.0",
+   "created": "2023-11-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DSMN"
+   ],
+   "keywords": [
+    "directed small molecules network",
+    "DSMN"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/controlling%20duplicate%20mappings%20from%20Wikidata.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "### Part 1: ###\n#Required prefixes for querying WikiPathways content in Blazegraph\nPREFIX gpml:\t\t<http://vocabularies.wikipathways.org/gpml#>\nPREFIX wp:\t\t<http://vocabularies.wikipathways.org/wp#> \nPREFIX wprdf:\t\t<http://rdf.wikipathways.org/>\nPREFIX biopax:\t\t<http://www.biopax.org/release/biopax-level3.owl#> \nPREFIX cas:\t\t<http://identifiers.org/cas/>\nPREFIX dc:\t\t<http://purl.org/dc/elements/1.1/> \nPREFIX dcterms:\t\t<http://purl.org/dc/terms/>\nPREFIX foaf:\t\t<http://xmlns.com/foaf/0.1/> \nPREFIX ncbigene:\t\t<http://identifiers.org/ncbigene/>\nPREFIX pubmed:\t\t<http://www.ncbi.nlm.nih.gov/pubmed/> \nPREFIX rdf:\t\t<http://www.w3.org/1999/02/22-rdf-syntax-ns#> \nPREFIX rdfs:\t\t<http://www.w3.org/2000/01/rdf-schema#>\nPREFIX skos:\t\t<http://www.w3.org/2004/02/skos/core#>\nPREFIX xsd:\t\t<http://www.w3.org/2001/XMLSchema#> \nPREFIX cur:\t\t<http://vocabularies.wikipathways.org/wp#Curation:>\n\n### Part 2: ###\n#Control for double mappings to Wikidata IDs.\nSELECT DISTINCT ?metaboliteID \n(GROUP_CONCAT(DISTINCT ?wikidata;separator=\", \") AS ?results) \nWHERE {\n  ?metaboliteID a wp:Metabolite .\n  ?metaboliteID wp:bdbWikidata ?wikidata .\n  ?metaboliteID wp:bdbWikidata ?wikidata2 .\nFILTER(?wikidata != ?wikidata2)\n} GROUP BY ?metaboliteID",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "I. DirectedSmallMoleculesNetwork (DSMN)/controlling duplicate mappings from Wikidata.ttl",
+   "aliases": [
+    "I. DirectedSmallMoleculesNetwork (DSMN)/controlling duplicate mappings from Wikidata.rq"
+   ]
+  },
+  {
+   "id": "WPQ058",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ058",
+   "label": "Extracting Directed Metabolic Reactions",
+   "description": "Extracts directed metabolite-to-metabolite interactions from human pathways in the AnalysisCollection, returning source and target identifiers, interaction types, and Rhea IDs as part of the DSMN workflow.",
+   "version": "1.0.0",
+   "created": "2023-11-09",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DSMN"
+   ],
+   "keywords": [
+    "directed small molecules network",
+    "DSMN"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/extracting%20directed%20metabolic%20reactions.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\n### Part 1: ###\nSELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype\n?pathway (str(?titleLit) as ?title)\n?sourceCHEBI ?targetDbCHEBI ?sourceHMDB ?targetDbHMDB ?InteractionID  \nWHERE {  \n\n### Part 2: ###\nVALUES ?species { \"Homo sapiens\" }\n?pathway a wp:Pathway ;\n         wp:organismName ?species ;\n         dc:title ?titleLit . \t\n         \n### Part 3A: ###\nFILTER (EXISTS {?pathway wp:ontologyTag cur:AnalysisCollection})  .\n### Part 3B: ###\n#FILTER (EXISTS {?pathway wp:ontologyTag cur:Reactome_Approved}) .    \n### Part 3C: ###\n#FILTER (EXISTS {?pathway wp:ontologyTag cur:Lipids}) .\n\n### Part 4: ###\n?interaction dcterms:isPartOf ?pathway ;\t\t\t\n             a wp:DirectedInteraction ;\n\t           wp:source ?source ;\n\t           wp:target ?target .  \nOPTIONAL{?interaction a ?mimtype}. \nVALUES ?mimtype {wp:ComplexBinding wp:Conversion wp:Inhibition wp:Catalysis\nwp:Stimulation wp:TranscriptionTranslation wp:DirectedInteraction} .  \n\n### Part 5: ###\n?source a wp:Metabolite . \n?source wp:bdbWikidata ?sourceDb . \nOPTIONAL{?source wp:bdbChEBI ?sourceCHEBI}.\nOPTIONAL{?source wp:bdbHmdb ?sourceHMDB}.\n?target a wp:Metabolite . \n?target wp:bdbWikidata ?targetDb . \nOPTIONAL{?target wp:bdbChEBI ?targetDbCHEBI}. \nOPTIONAL{?target wp:bdbHmdb ?targetDbHMDB}. \n\n### Part 6: ###\nOPTIONAL{?interaction wp:bdbRhea ?InteractionID} .\n} ORDER BY DESC(?InteractionID)",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "I. DirectedSmallMoleculesNetwork (DSMN)/extracting directed metabolic reactions.ttl",
+   "aliases": [
+    "I. DirectedSmallMoleculesNetwork (DSMN)/extracting directed metabolic reactions.rq"
+   ]
+  },
+  {
+   "id": "WPQ059",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ059",
+   "label": "Extracting Ontologies and References for Metabolic Reactions",
+   "description": "Retrieves ontology annotations, curation status, and literature references for directed metabolic reactions in human pathways as part of the DSMN workflow.",
+   "version": "1.0.0",
+   "created": "2023-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DSMN"
+   ],
+   "keywords": [
+    "directed small molecules network",
+    "DSMN"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/extracting%20ontologies%20and%20references%20for%20metabolic%20reactions.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\n### Part 1: ###\nSELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt\n?curationstatus ?InteractionRef ?PWref ?sourceLit ?targetLit \nWHERE {\nVALUES ?species { \"Homo sapiens\" }\n?pathway a wp:Pathway ; \n         \twp:organismName ?species;\n         \tdc:title ?titleLit . \n?interaction dcterms:isPartOf ?pathway ; \n   a wp:DirectedInteraction ; \n   wp:source ?source ;\n   wp:target ?target . \n?source a wp:Metabolite . \n?source wp:bdbWikidata ?sourceDb . \n?target a wp:Metabolite . \n?target wp:bdbWikidata ?targetDb . \n\n### Part 2: ###\n#OPTIONAL{?pathway wp:pathwayOntologyTag ?PWOnt} . \n#OPTIONAL{?pathway wp:diseaseOntologyTag ?DiseaseOnt} . \n\n### Part 3: ###\n#OPTIONAL{?pathway wp:ontologyTag ?curationstatus} . \n\n### Part 4: ###\nOPTIONAL{?interaction dcterms:bibliographicCitation ?InteractionRef} . \nOPTIONAL{?pathway dcterms:references ?PWref} . \nOPTIONAL{?source dcterms:bibliographicCitation ?sourceLit} . \nOPTIONAL{?target dcterms:bibliographicCitation ?targetLit} . \n}",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "I. DirectedSmallMoleculesNetwork (DSMN)/extracting ontologies and references for metabolic reactions.ttl",
+   "aliases": [
+    "I. DirectedSmallMoleculesNetwork (DSMN)/extracting ontologies and references for metabolic reactions.rq"
+   ]
+  },
+  {
+   "id": "WPQ060",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ060",
+   "label": "Extracting Protein Titles and Identifiers for Metabolic Reactions",
+   "description": "Extracts catalyzing proteins for directed metabolic reactions in human AnalysisCollection pathways, returning Ensembl identifiers and protein names as part of the DSMN workflow.",
+   "version": "1.0.0",
+   "created": "2023-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-8449-1318",
+     "name": "Denise Slenter"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DSMN"
+   ],
+   "keywords": [
+    "directed small molecules network",
+    "DSMN"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/extracting%20protein%20titles%20and%20identifiers%20for%20metabolic%20reactions.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\n### Part 1: ###\nSELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName\nWHERE {\n?pathway a wp:Pathway ; \nwp:ontologyTag cur:AnalysisCollection ;\nwp:organismName ?species;\ndc:title ?titleLit . \n?interaction dcterms:isPartOf ?pathway ;\t\t\t\t\n   a wp:DirectedInteraction ; \n   wp:source ?source ; \n \t   wp:target ?target .   \n?source a wp:Metabolite . \n?source wp:bdbWikidata ?sourceDb . \n?target a wp:Metabolite . \n?target wp:bdbWikidata ?targetDb . \n\n### Part 2: ###\n?interactions2 dcterms:isPartOf ?pathway;\n               a wp:Catalysis; \n               wp:source ?sources2;\n               wp:target ?interaction . \nOPTIONAL{?sources2 wp:bdbEnsembl ?proteinDBWPs}.\nOPTIONAL{?sources2 rdfs:label ?proteinName} .\nVALUES ?species { \"Homo sapiens\" }\n}",
+   "params": [
+    {
+     "name": "species",
+     "variable": "species",
+     "label": "Species",
+     "description": null,
+     "order": 1,
+     "kind": "literal",
+     "valueTemplate": null,
+     "default": "Homo sapiens",
+     "autocomplete": "species",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "I. DirectedSmallMoleculesNetwork (DSMN)/extracting protein titles and identifiers for metabolic reactions.ttl",
+   "aliases": [
+    "I. DirectedSmallMoleculesNetwork (DSMN)/extracting protein titles and identifiers for metabolic reactions.rq"
+   ]
+  },
+  {
+   "id": "WPQ061",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ061",
+   "label": "Authors of a Pathway",
+   "description": "Lists all authors of a given pathway in ordinal order, returning name, ORCID, homepage, and pathway version.",
+   "version": "1.0.0",
+   "created": "2026-02-14",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Authors"
+   ],
+   "keywords": [
+    "authors"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/4431b11d148e0e1bcc3533e90b80225376c80d1a/J.%20Authors/authorsOfAPathway.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX gpml: <http://vocabularies.wikipathways.org/gpml#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX dc:    <http://purl.org/dc/elements/1.1/>\nPREFIX foaf:  <http://xmlns.com/foaf/0.1/>\nPREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>\nPREFIX pav:   <http://purl.org/pav/>\n\nSELECT ?pathway ?version ?ordinal ?author_ ?name ?orcid ?page WHERE {\n  VALUES ?pathway { <https://identifiers.org/wikipathways/WP4846> }\n  ?author_ a foaf:Person ;\n    wp:hasAuthorship ?authorship .\n  ?authorship ^wp:hasAuthorship ?pathway ;\n    wpq:series_ordinal ?ordinal .\n  ?pathway pav:hasVersion ?pathway_ .\n  ?pathway_ a wp:Pathway ; wp:isAbout / gpml:version ?version .\n  OPTIONAL { ?author_ foaf:homepage ?page }\n  OPTIONAL { ?author_ foaf:name ?name }\n  OPTIONAL { ?author_ dc:identifier ?orcid }\n} ORDER BY ASC(?pathway) ASC(?ordinal)",
+   "params": [
+    {
+     "name": "pathwayId",
+     "variable": "pathway",
+     "label": "Pathway ID",
+     "description": null,
+     "order": 1,
+     "kind": "iri",
+     "valueTemplate": "https://identifiers.org/wikipathways/{value}",
+     "default": "WP4846",
+     "autocomplete": "pathway",
+     "options": null
+    }
+   ],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "J. Authors/authorsOfAPathway.ttl",
+   "aliases": [
+    "J. Authors/authorsOfAPathway.rq"
+   ]
+  },
+  {
+   "id": "WPQ062",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ062",
+   "label": "All Contributors",
+   "description": "Counts the number of pathways each first author (ordinal 1) contributes to, sorted by descending pathway count.",
+   "version": "1.0.0",
+   "created": "2026-02-14",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Authors"
+   ],
+   "keywords": [
+    "authors"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/J.%20Authors/contributors.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX dc:    <http://purl.org/dc/elements/1.1/>\nPREFIX foaf:  <http://xmlns.com/foaf/0.1/>\nPREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>\nPREFIX pav:   <http://purl.org/pav/>\n\nSELECT (COUNT(DISTINCT ?pathway) AS ?count) ?name ?orcid ?page WHERE {\n  VALUES ?ordinal { \"1\" }\n  ?author_ a foaf:Person ;\n    wp:hasAuthorship ?authorship .\n  ?authorship ^wp:hasAuthorship ?pathway ;\n    wpq:series_ordinal ?ordinal .\n  ?pathway pav:hasVersion ?pathway_ .\n  ?pathway_ a wp:Pathway ; dcterms:identifier ?version .\n  OPTIONAL { ?author_ foaf:homepage ?page }\n  OPTIONAL { ?author_ foaf:name ?name }\n  OPTIONAL { ?author_ dc:identifier ?orcid }\n} GROUP BY ?ordinal ?name ?orcid ?page\n  ORDER BY DESC(?count)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "J. Authors/contributors.ttl",
+   "aliases": [
+    "J. Authors/contributors.rq"
+   ]
+  },
+  {
+   "id": "WPQ063",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ063",
+   "label": "First Authors of Pathways",
+   "description": "Lists the first author (ordinal 1) of each pathway, ordered by pathway version number.",
+   "version": "1.0.0",
+   "created": "2026-02-14",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Authors"
+   ],
+   "keywords": [
+    "authors"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/J.%20Authors/firstAuthors.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dc:    <http://purl.org/dc/elements/1.1/>\nPREFIX foaf:  <http://xmlns.com/foaf/0.1/>\nPREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>\nPREFIX pav:   <http://purl.org/pav/>\n\nSELECT ?pathway ?version ?ordinal ?name ?orcid ?page WHERE {\n  VALUES ?ordinal { \"1\" }\n  ?author_ a foaf:Person ;\n    wp:hasAuthorship ?authorship .\n  ?authorship ^wp:hasAuthorship ?pathway ;\n    wpq:series_ordinal ?ordinal .\n  ?pathway pav:hasVersion ?pathway_ .\n  ?pathway_ a wp:Pathway ; dcterms:identifier ?version .\n  OPTIONAL { ?author_ foaf:homepage ?page }\n  OPTIONAL { ?author_ foaf:name ?name }\n  OPTIONAL { ?author_ dc:identifier ?orcid }\n} ORDER BY ASC(xsd:integer(SUBSTR(str(?version),3))) ASC(?ordinal)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "J. Authors/firstAuthors.ttl",
+   "aliases": [
+    "J. Authors/firstAuthors.rq"
+   ]
+  },
+  {
+   "id": "WPQ064",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ064",
+   "label": "Pathways with Multiple Authors",
+   "description": "Counts how many pathways have at least N authors for each author ordinal position, showing the distribution of author counts across pathways.",
+   "version": "1.0.0",
+   "created": "2026-02-14",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Authors"
+   ],
+   "keywords": [
+    "authors"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/J.%20Authors/pathwayCountWithAtLeastXAuthors.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX dc:    <http://purl.org/dc/elements/1.1/>\nPREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>\n\nSELECT ?atLeast (COUNT(DISTINCT ?pathway) AS ?count) WHERE {\n  ?author_ a foaf:Person ;\n    wp:hasAuthorship ?authorship .\n  ?authorship ^wp:hasAuthorship ?pathway ;\n    wpq:series_ordinal ?atLeast .\n} GROUP BY ?atLeast\n  ORDER BY ASC(xsd:integer(?atLeast))",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "J. Authors/pathwayCountWithAtLeastXAuthors.ttl",
+   "aliases": [
+    "J. Authors/pathwayCountWithAtLeastXAuthors.rq"
+   ]
+  },
+  {
+   "id": "WPQ065",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ065",
+   "label": "Pathways with a Particular Gene",
+   "description": "Lists all pathways per instance of a particular gene or protein (wp:GeneProduct), here all gene products whose label contains \"CYP\".",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "gene",
+    "pathway"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/065.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (str(?label) as ?geneProduct)\nWHERE {\n    ?gene a wp:GeneProduct .\n    ?gene rdfs:label ?label .\n    ?gene dcterms:isPartOf ?pathway .\n    ?pathway a wp:Pathway .\n\n    FILTER regex(str(?label), \"CYP\").\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/PathwaysWithGene.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ066",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ066",
+   "label": "Groups and Complexes with a Particular Gene",
+   "description": "Lists all groups and complexes that contain a particular gene or protein (wp:GeneProduct), here gene products whose label contains \"CYP\".",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "complex",
+    "gene",
+    "group"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/066.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (str(?label) as ?geneProduct)\nWHERE {\n    ?gene a wp:GeneProduct .\n    ?gene rdfs:label ?label .\n    ?gene dcterms:isPartOf ?pathway .\n\n    FILTER NOT EXISTS { ?pathway a wp:Interaction } .\n    FILTER NOT EXISTS { ?pathway a wp:Pathway } .\n    FILTER regex(str(?label), \"CYP\").\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/GroupsAndComplexesWithGene.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ067",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ067",
+   "label": "Pathway Count per Ontology Term",
+   "description": "Counts the pathways tagged with each ontology term. Pathways can be tagged with terms from the Pathway, Cell Line and Disease ontologies; wp:ontologyTag covers all of them, as well as the curation and community tags.",
+   "version": "1.0.0",
+   "created": "2024-10-20",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+   ],
+   "keywords": [
+    "counts",
+    "ontology"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/067.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pwOntologyTerm (count(?pwOntologyTerm) as ?pathwayCount)\nWHERE {\n  ?pathwayRDF wp:ontologyTag ?pwOntologyTerm .\n}\nGROUP BY ?pwOntologyTerm\nORDER BY DESC(?pathwayCount)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datacounts/PathwayCountPerOntologyTerm.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ068",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ068",
+   "label": "Pathway Count per Curation Tag",
+   "description": "Counts the pathways per curation and community tag.",
+   "version": "1.0.0",
+   "created": "2024-10-20",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Communities"
+   ],
+   "keywords": [
+    "community",
+    "counts",
+    "curation"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/068.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT ?curationTag (count(DISTINCT ?pathway) as ?pathwayCount)\nWHERE {\n  ?pathway wp:ontologyTag ?curationTag .\n  FILTER contains(STR(?curationTag), \"Curation:\")\n}\nGROUP BY ?curationTag\nORDER BY DESC(?pathwayCount)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "B. Communities/PathwayCountPerCurationTag.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ069",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ069",
+   "label": "Pathways with a Particular Ontology Term",
+   "description": "Lists the pathways tagged with a particular ontology term, here PW_0000296 from the Pathway Ontology.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "ontology",
+    "pathway"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/069.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\n\nSELECT ?pathway (str(?titleLit) AS ?title)\nWHERE {\n  ?pathwayRDF wp:ontologyTag obo:PW_0000296 ;\n              foaf:page ?pathway ;\n              dc:title ?titleLit .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/PathwaysWithOntologyTerm.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ070",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ070",
+   "label": "Metabolite Count per Species",
+   "description": "Counts the metabolites per species. The RDF generation normalises identifiers, so metabolites with identifiers from different databases are not counted twice, but metabolites with different charge states are still counted separately.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species"
+   ],
+   "keywords": [
+    "counts",
+    "metabolite",
+    "organism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/070.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (count(distinct ?metabolite) as ?count) (str(?label) as ?species) WHERE {\n  ?metabolite a wp:Metabolite ;\n    dcterms:isPartOf ?pw .\n  ?pw dc:title ?title ;\n    wp:organism ?organism ;\n    wp:organismName ?label .\n} GROUP BY ?label ORDER BY DESC(?count)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/species/MetaboliteCountPerSpecies.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ071",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ071",
+   "label": "Interactions for a Particular Data Node",
+   "description": "Finds all interactions (wp:Interaction) connected to a particular data node, here the Ensembl gene ENSG00000125845.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+   ],
+   "keywords": [
+    "gene",
+    "interaction"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/071.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?interaction ?pathway WHERE {\n   ?pathway a wp:Pathway .\n   ?interaction dcterms:isPartOf ?pathway .\n   ?interaction a wp:Interaction .\n   ?interaction wp:participants <https://identifiers.org/ensembl/ENSG00000125845> .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "D. General/InteractionsOfDataNode.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ072",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ072",
+   "label": "All Data Sources",
+   "description": "Lists all data sources currently used for identifiers in WikiPathways.",
+   "version": "1.0.0",
+   "created": "2024-10-20",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0001-7542-0286",
+     "name": "Egon Willighagen"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataSources"
+   ],
+   "keywords": [
+    "data sources"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/072.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\n\nSELECT DISTINCT (str(?datasourceLit) as ?datasource)\nWHERE {\n  ?concept dc:source ?datasourceLit\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datasources/AllDataSources.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ073",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ073",
+   "label": "Entry Count per Data Source",
+   "description": "Counts the data nodes per data source in WikiPathways.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataSources"
+   ],
+   "keywords": [
+    "counts",
+    "data sources"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/073.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (str(?datasourceLit) as ?datasource)\n       (count(DISTINCT ?dataNode) as ?numberEntries)\nWHERE {\n  ?concept dc:source ?datasourceLit ;\n    wp:isAbout ?dataNode .\n}\nGROUP BY ?datasourceLit\nORDER BY DESC(?numberEntries)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "A. Metadata/datasources/EntryCountPerDataSource.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ074",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ074",
+   "label": "ChEMBL Compounds and Their Pathways",
+   "description": "Returns all compounds annotated with \"ChEMBL compound\" as data source, and the pathways they are in.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Chemistry"
+   ],
+   "keywords": [
+    "ChEMBL",
+    "data sources",
+    "metabolite"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/074.ttl",
+    "https://www.wikipathways.org/sparql.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?identifier ?pathway\nWHERE {\n  ?concept dcterms:isPartOf ?pathway . ?pathway a wp:Pathway .\n  ?concept dc:source \"ChEMBL compound\" .\n  ?concept dc:identifier ?identifier .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "H. Chemistry/ChEMBLCompoundsAndPathways.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ075",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ075",
+   "label": "Metabolites with InChIKeys from Wikidata",
+   "description": "Lists metabolites in WikiPathways with their Wikidata identifier and fetches their InChIKey from Wikidata. Limited to 50 metabolites. Uses a federated SERVICE call; may be slow depending on endpoint availability.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Chemistry"
+   ],
+   "keywords": [
+    "InChIKey",
+    "metabolite",
+    "Wikidata"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://query.wikidata.org/sparql"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/075.ttl",
+    "https://www.wikipathways.org/federated.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?metabolite ?wikidata ?inchikey WHERE {\n  {\n    SELECT ?metabolite ?wikidata WHERE {\n      ?metabolite a wp:Metabolite ;\n        wp:bdbWikidata ?wikidata .\n    } LIMIT 50\n  }\n  SERVICE <https://query.wikidata.org/sparql> {\n    ?wikidata wdt:P235 ?inchikey .\n  }\n} LIMIT 50",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "H. Chemistry/MetabolitesWithInChIKeysFromWikidata.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ076",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ076",
+   "label": "All Metabolites",
+   "description": "Lists all metabolite data nodes with their labels.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+   ],
+   "keywords": [
+    "metabolite"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/076.ttl",
+    "https://www.wikipathways.org/metabolome.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?mb ?label WHERE {\n  ?mb a wp:Metabolite ;\n     rdfs:label ?label .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "K. Metabolites/AllMetabolites.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ077",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ077",
+   "label": "Metabolites in Zebrafish Pathways",
+   "description": "Lists the metabolites in Danio rerio (zebrafish) pathways, with the pathway title.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+   ],
+   "keywords": [
+    "metabolite",
+    "organism",
+    "zebrafish"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/077.ttl",
+    "https://www.wikipathways.org/metabolome.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?metabolite (str(?titleLit) as ?title) WHERE {\n  ?metabolite a wp:Metabolite ;\n    dcterms:isPartOf ?pw .\n  ?pw dc:title ?titleLit ;\n    wp:organismName \"Danio rerio\" .\n}",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "K. Metabolites/MetabolitesInZebrafishPathways.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ078",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ078",
+   "label": "Metabolite Identifier Count per Data Source",
+   "description": "Counts the distinct metabolite identifiers per data source. ChEBI, HMDB and LIPID MAPS are the main data sources for metabolite identifiers.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+   ],
+   "keywords": [
+    "counts",
+    "data sources",
+    "metabolite"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/078.ttl",
+    "https://www.wikipathways.org/metabolome.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (str(?datasource) as ?source) (count(distinct ?identifier) as ?count)\nWHERE {\n  ?mb a wp:Metabolite ;\n    dc:source ?datasource ;\n    dc:identifier ?identifier .\n}\nGROUP BY ?datasource\nORDER BY DESC(?count)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "K. Metabolites/MetaboliteIdentifierCountPerDataSource.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ079",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ079",
+   "label": "Metabolites with a KEGG Identifier",
+   "description": "Lists all KEGG Compound identifiers used for metabolite data nodes. Change the data source, for example to \"HMDB\", to list the identifiers from another database.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+   ],
+   "keywords": [
+    "data sources",
+    "KEGG",
+    "metabolite"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/079.ttl",
+    "https://www.wikipathways.org/metabolome.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?identifier\nWHERE {\n  ?mb a wp:Metabolite ;\n    dc:source \"KEGG Compound\" ;\n    dc:identifier ?identifier .\n} ORDER BY ?identifier",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "K. Metabolites/MetabolitesWithKEGGIdentifier.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ080",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ080",
+   "label": "Human Metabolome",
+   "description": "Lists all metabolite data nodes in human pathways (NCBI Taxonomy 9606). Change the taxon, for example to 3702 for Arabidopsis thaliana, to get the metabolome of another species.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+   ],
+   "keywords": [
+    "human",
+    "metabolite",
+    "organism"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/080.ttl",
+    "https://www.wikipathways.org/metabolome.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX ncbi: <http://purl.obolibrary.org/obo/NCBITaxon_>\n\nSELECT DISTINCT ?mb WHERE {\n  ?mb a wp:Metabolite ;\n    dcterms:isPartOf ?pw .\n  ?pw wp:organism ncbi:9606 .\n} ORDER BY ?mb",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "K. Metabolites/HumanMetabolome.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ081",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ081",
+   "label": "Pathways with the Most Metabolites",
+   "description": "Counts the metabolite data nodes per pathway, with the pathways with the most metabolites first.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+   ],
+   "keywords": [
+    "counts",
+    "metabolite"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/081.ttl",
+    "https://www.wikipathways.org/metabolome.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT ?pathway (count(distinct ?mb) as ?mbCount)\nWHERE {\n  ?mb a wp:Metabolite ;\n    dcterms:isPartOf ?pathway .\n}\nGROUP BY ?pathway\nORDER BY DESC(?mbCount)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "K. Metabolites/PathwaysWithMostMetabolites.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ082",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ082",
+   "label": "Metabolites in the Most Pathways",
+   "description": "Counts in how many pathways each metabolite data node occurs. The results are per data node, not per unique metabolite, because no identifier mapping is applied.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+   ],
+   "keywords": [
+    "counts",
+    "metabolite"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/082.ttl",
+    "https://www.wikipathways.org/metabolome.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT ?mb (count(distinct ?pathway) as ?pwCount)\nWHERE {\n  ?mb a wp:Metabolite ;\n    dcterms:isPartOf ?pathway .\n}\nGROUP BY ?mb\nORDER BY DESC(?pwCount)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "K. Metabolites/MetabolitesInMostPathways.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ083",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ083",
+   "label": "Enzymatic Reactions between Metabolites",
+   "description": "Lists catalysed reactions between two metabolites, with the pathway, the label of the catalyst, the source and target metabolites, and their Wikidata identifiers.",
+   "version": "1.0.0",
+   "created": "2026-11-10",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://www.wikipathways.org/",
+     "name": "WikiPathways team"
+    }
+   ],
+   "contributors": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+   ],
+   "keywords": [
+    "catalysis",
+    "metabolite",
+    "reaction"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/083.ttl",
+    "https://www.wikipathways.org/metabolome.html"
+   ],
+   "testedAgainst": null,
+   "deprecated": false,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?wpid ?catalyst ?source ?sourceDb ?target ?targetDb WHERE {\n  ?pathway a wp:Pathway ;\n      dc:identifier / dcterms:identifier ?wpid .\n  ?catalysis dcterms:isPartOf ?pathway ;\n    wp:source / rdfs:label ?catalyst ;\n    wp:participants ?reaction .\n  ?reaction a wp:Interaction .\n  ?reaction wp:source ?source .\n  ?source a wp:Metabolite .\n  OPTIONAL{?source wp:bdbWikidata ?sourceDb .}\n\n  ?reaction wp:target ?target .\n  ?target a wp:Metabolite .\n  OPTIONAL{?target wp:bdbWikidata ?targetDb .}\n} ORDER BY ASC(?source)",
+   "params": [],
+   "expect": {
+    "minResults": 1
+   },
+   "path": "K. Metabolites/EnzymaticReactionsBetweenMetabolites.ttl",
+   "aliases": []
+  },
+  {
+   "id": "WPQ084",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ084",
+   "label": "Protein Cellular Location via neXtProt",
+   "description": "Retrieves subcellular locations for proteins in Rett syndrome pathways by querying the neXtProt SPARQL endpoint for gold-quality cellular component annotations. May be slower due to external endpoint dependency. The neXtProt SPARQL endpoint has been archived (it redirects to expasy.org/archives/nextprot), so this query no longer works.",
+   "version": "1.0.0",
+   "created": "2020-10-06",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/neXtProt"
+   ],
+   "keywords": [
+    "collaborations",
+    "neXtProt",
+    "protein"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://api.nextprot.org/sparql"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/C.%20Collaborations/neXtProt/ProteinCellularLocation.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": true,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX : <http://nextprot.org/rdf#>\nselect distinct  ?pathwayname ?entry (str(?gen) as ?gene) (group_concat(distinct str(?loclab); SEPARATOR = \",\") as ?locations) where {\n  {?geneProduct a wp:Protein}\n   union\n  {?geneProduct a wp:GeneProduct}\n  ?geneProduct rdfs:label ?gen .\n  filter(!regex(?gen,\"[ a-z-]\")).\n  ?geneProduct dcterms:isPartOf ?pathway .\n  ?pathway a wp:Pathway .\n  ?pathway wp:organism ?organism .\n  filter(contains(str(?organism),\"9606\")) \n  ?pathway dc:title ?pathwayname .\n  filter(regex(?pathwayname,\"Rett\")).\n  service <https://api.nextprot.org/sparql> {\n    ?entry a :Entry ;\n     :gene / :name ?gen ;\n     :isoform ?iso.\n    ?iso :cellularComponent ?locannot .\n    ?locannot :term ?locterm .\n    ?locterm rdfs:label ?loclab .\n    ?locannot :evidence ?locev .\n    ?locev :quality :GOLD .\n  }}\ngroup by ?pathwayname ?entry ?gen\norder by ?pathwayname",
+   "params": [],
+   "expect": null,
+   "path": "C. Collaborations/neXtProt/ProteinCellularLocation.ttl",
+   "aliases": [
+    "C. Collaborations/neXtProt/ProteinCellularLocation.rq"
+   ]
+  },
+  {
+   "id": "WPQ085",
+   "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ085",
+   "label": "Mitochondrial Proteins via neXtProt",
+   "description": "Identifies mitochondrial proteins in Rett syndrome pathways by querying the neXtProt SPARQL endpoint for gold-quality mitochondrion localization annotations. May be slower due to external endpoint dependency. The neXtProt SPARQL endpoint has been archived (it redirects to expasy.org/archives/nextprot), so this query no longer works.",
+   "version": "1.0.0",
+   "created": "2020-10-06",
+   "modified": "2026-11-11",
+   "creators": [
+    {
+     "iri": "https://orcid.org/0000-0003-2230-0840",
+     "name": "Marvin Martens"
+    }
+   ],
+   "contributors": [],
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "categories": [
+    "https://sparql.wikipathways.org/.well-known/sparql-examples/category/neXtProt"
+   ],
+   "keywords": [
+    "collaborations",
+    "neXtProt",
+    "protein"
+   ],
+   "level": null,
+   "target": "https://sparql.wikipathways.org/sparql",
+   "federatesWith": [
+    "https://api.nextprot.org/sparql"
+   ],
+   "references": [],
+   "derivedFrom": [
+    "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/C.%20Collaborations/neXtProt/ProteinMitochondria.rq"
+   ],
+   "testedAgainst": null,
+   "deprecated": true,
+   "replacedBy": null,
+   "queryType": "select",
+   "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX : <http://nextprot.org/rdf#>\nPREFIX cv: <http://nextprot.org/rdf/terminology/>\n\nselect distinct  ?pathwayname (group_concat(distinct ?gen; separator=\",\") as ?genes) where {\n  {?geneProduct a wp:Protein}\n   union\n  {?geneProduct a wp:GeneProduct}\n  ?geneProduct rdfs:label ?gen .\n  filter(!regex(?gen,\"[ a-z-]\")).\n  ?geneProduct dcterms:isPartOf ?pathway .\n  ?pathway a wp:Pathway .\n  ?pathway wp:organism ?organism .\n  filter(contains(str(?organism),\"9606\")) \n  ?pathway dc:title ?pathwayname .\n  filter(regex(?pathwayname,\"Rett\")).\n  service <https://api.nextprot.org/sparql> {\n    ?entry a :Entry .\n    ?entry :gene / :name ?gen .\n    ?entry :isoform / :cellularComponent ?loc .\n    values ?mitoloc {cv:SL-0173 cv:GO_0005739 } # SL and GO values for mitochondrion\n    ?loc :term / :childOf ?mitoloc.  # mitochondrion\n    ?loc :evidence / :quality :GOLD .\n  }}\ngroup by ?pathwayname\norder by ?pathwayname",
+   "params": [],
+   "expect": null,
+   "path": "C. Collaborations/neXtProt/ProteinMitochondria.ttl",
+   "aliases": [
+    "C. Collaborations/neXtProt/ProteinMitochondria.rq"
+   ]
+  }
+ ]
+}

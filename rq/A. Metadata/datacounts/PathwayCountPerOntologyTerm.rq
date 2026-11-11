@@ -1,0 +1,15 @@
+# title: Pathway Count per Ontology Term
+# category: Data counts
+# description: Counts the pathways tagged with each ontology term. Pathways can be tagged with terms from the Pathway, Cell Line and Disease ontologies; wp:ontologyTag covers all of them, as well as the curation and community tags.
+#
+# WPQ067 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ067
+# Generated from A. Metadata/datacounts/PathwayCountPerOntologyTerm.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pwOntologyTerm (count(?pwOntologyTerm) as ?pathwayCount)
+WHERE {
+  ?pathwayRDF wp:ontologyTag ?pwOntologyTerm .
+}
+GROUP BY ?pwOntologyTerm
+ORDER BY DESC(?pathwayCount)

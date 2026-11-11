@@ -1,0 +1,42 @@
+{
+ "id": "WPQ005",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ005",
+ "label": "Pathway Count per Disease",
+ "description": "List all diseases and the number of pathways they are linked to, in decreasing order.",
+ "version": "1.0.0",
+ "created": "2024-10-20",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+ ],
+ "keywords": [
+  "disease"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/005.ttl"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?diseaseLabel ?disease (COUNT(DISTINCT ?pathway) AS ?count)\nWHERE {\n  ?pathway wp:diseaseOntologyTag ?disease ; \n           a wp:Pathway .\n  ?disease rdfs:label ?diseaseLabel .\n} GROUP BY ?diseaseLabel ?disease\n  ORDER BY DESC(?count)",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "D. General/PathwayCountPerDisease.ttl",
+ "aliases": [],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

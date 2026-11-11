@@ -1,0 +1,13 @@
+# title: Count of Entity Type
+# category: Data counts
+# description: Counts the total number of a selected entity type in WikiPathways.
+# param: entityType|enum:DataNode=Data Nodes,GeneProduct=Gene Products,Interaction=Interactions,Metabolite=Metabolites,Protein=Proteins|DataNode|Entity Type
+#
+# WPQ013 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ013
+# Generated from A. Metadata/datacounts/countOfEntityType.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+SELECT DISTINCT (COUNT(?entity) AS ?count)
+WHERE {
+    VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#{{entityType}}> }
+    ?entity a ?entityType .
+}

@@ -1,0 +1,33 @@
+# title: PubChem Compound in Pathway Subset (MolMeDB)
+# category: MolMeDB
+# description: Checks a subset of pathways for the presence of a specific MolMeDB compound by querying the MolMeDB SPARQL endpoint. Uses nested federation with both MolMeDB and WikiPathways endpoints. May be slower due to external endpoint dependency.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ034 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ034
+# Generated from C. Collaborations/MolMeDB/SUBSETpathways_ONEpubchem.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE {
+  SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {
+    SERVICE <https://sparql.wikipathways.org/sparql> {
+      VALUES ?wpid {"WP4224" "WP4225" "WP4571"}
+
+    ?gene a wp:Metabolite ;
+      dcterms:identifier ?id ;
+      dcterms:isPartOf ?pathwayRes ;
+      wp:bdbPubChem ?COMPOUND .
+
+    VALUES ?species { "{{species}}" }
+    ?pathwayRes a wp:Pathway ;
+      wp:organismName ?species ;
+      dcterms:identifier ?wpid ;
+      dc:title ?title .
+    }
+    
+    <http://identifiers.org/molmedb/MM00431> skos:exactMatch ?COMPOUND.
+  }
+}

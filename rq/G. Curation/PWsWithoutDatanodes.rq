@@ -1,0 +1,19 @@
+# title: Pathways Without Data Nodes
+# category: Curation
+# description: Finds pathways that contain no data nodes, indicating empty or incomplete pathway entries that may need curation.
+#
+# WPQ053 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ053
+# Generated from G. Curation/PWsWithoutDatanodes.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+prefix wp:      <http://vocabularies.wikipathways.org/wp#>
+prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?pathway
+WHERE{
+?pathway a wp:Pathway, skos:Collection .
+FILTER NOT EXISTS {?node dcterms:isPartOf ?pathway.
+?node a wp:DataNode}
+}

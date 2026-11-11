@@ -1,0 +1,17 @@
+# title: ChEMBL Compounds and Their Pathways
+# category: Chemistry
+# description: Returns all compounds annotated with "ChEMBL compound" as data source, and the pathways they are in.
+#
+# WPQ074 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ074
+# Generated from H. Chemistry/ChEMBLCompoundsAndPathways.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?identifier ?pathway
+WHERE {
+  ?concept dcterms:isPartOf ?pathway . ?pathway a wp:Pathway .
+  ?concept dc:source "ChEMBL compound" .
+  ?concept dc:identifier ?identifier .
+}

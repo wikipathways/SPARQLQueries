@@ -1,0 +1,16 @@
+# title: Pathway Count per Curation Tag
+# category: Communities
+# description: Counts the pathways per curation and community tag.
+#
+# WPQ068 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ068
+# Generated from B. Communities/PathwayCountPerCurationTag.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT ?curationTag (count(DISTINCT ?pathway) as ?pathwayCount)
+WHERE {
+  ?pathway wp:ontologyTag ?curationTag .
+  FILTER contains(STR(?curationTag), "Curation:")
+}
+GROUP BY ?curationTag
+ORDER BY DESC(?pathwayCount)

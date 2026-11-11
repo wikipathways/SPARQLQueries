@@ -1,0 +1,13 @@
+# title: All Data Sources
+# category: Data Sources
+# description: Lists all data sources currently used for identifiers in WikiPathways.
+#
+# WPQ072 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ072
+# Generated from A. Metadata/datasources/AllDataSources.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT (str(?datasourceLit) as ?datasource)
+WHERE {
+  ?concept dc:source ?datasourceLit
+}

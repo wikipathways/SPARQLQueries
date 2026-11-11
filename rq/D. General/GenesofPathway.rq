@@ -1,0 +1,26 @@
+# title: Genes of a Pathway
+# category: General
+# description: Lists all gene products in a given pathway, returning the pathway identifier and gene product labels.
+# param: pathwayId|autocomplete:pathway|WP1560|Pathway ID
+#
+# WPQ036 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ036
+# Generated from D. General/GenesofPathway.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+select distinct ?pathway (str(?label) as ?geneProduct) where {
+    {
+        SELECT ?pathwayRev ?pathway WHERE {
+            VALUES ?pathwayId { "{{pathwayId}}" }
+            ?pathwayRev dcterms:identifier ?pathwayId .
+            ?pathwayRev a wp:Pathway .
+            ?pathwayRev dc:identifier ?pathway .
+        }
+    }
+    ?gene dcterms:isPartOf ?pathwayRev .
+    ?gene a wp:GeneProduct .
+    ?gene rdfs:label ?label .
+}

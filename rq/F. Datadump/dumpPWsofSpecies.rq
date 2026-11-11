@@ -1,0 +1,21 @@
+# title: Pathways by Species Data Export
+# category: Data Export
+# description: Exports all pathways for a given species, returning identifiers, titles, and page URLs ordered by pathway ID.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ047 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ047
+# Generated from F. Datadump/dumpPWsofSpecies.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?wpIdentifier ?pathway ?title ?page
+WHERE {
+    VALUES ?species { "{{species}}" }
+    ?pathway dc:title ?title ;
+       foaf:page ?page ;
+       dc:identifier ?wpIdentifier ;
+       wp:organismName ?species .
+ }
+ORDER BY ?wpIdentifier

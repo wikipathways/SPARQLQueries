@@ -1,0 +1,18 @@
+# title: Entry Count per Data Source
+# category: Data Sources
+# description: Counts the data nodes per data source in WikiPathways.
+#
+# WPQ073 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ073
+# Generated from A. Metadata/datasources/EntryCountPerDataSource.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (str(?datasourceLit) as ?datasource)
+       (count(DISTINCT ?dataNode) as ?numberEntries)
+WHERE {
+  ?concept dc:source ?datasourceLit ;
+    wp:isAbout ?dataNode .
+}
+GROUP BY ?datasourceLit
+ORDER BY DESC(?numberEntries)

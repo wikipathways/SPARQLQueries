@@ -1,0 +1,16 @@
+# title: Count of Pathways Without References
+# category: Curation
+# description: Returns the total number of pathways that have no associated publication references.
+#
+# WPQ049 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ049
+# Generated from G. Curation/countPWsWithoutRef.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (count(DISTINCT ?pathway) AS ?pathwayCount) WHERE {
+  ?pathway a wp:Pathway ; dc:title ?titleLit ; wp:organismName ?speciesLabelLit .
+  MINUS { ?pubmed a       wp:PublicationReference .
+          ?pubmed dcterms:isPartOf ?pathway }
+}

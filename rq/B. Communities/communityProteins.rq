@@ -1,0 +1,21 @@
+# title: Community Proteins
+# category: Communities
+# description: Lists all proteins found in pathways tagged with a selected community.
+# param: community|autocomplete:community|AOP|Community
+#
+# WPQ019 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ019
+# Generated from B. Communities/communityProteins.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway (str(?label) AS ?Protein)
+WHERE {
+  VALUES ?community { <http://vocabularies.wikipathways.org/wp#Curation:{{community}}> }
+  ?pathway wp:ontologyTag ?community ;
+    a wp:Pathway .
+  ?protein a wp:Protein ;
+    rdfs:label ?label ;
+    dcterms:isPartOf ?pathway .
+}

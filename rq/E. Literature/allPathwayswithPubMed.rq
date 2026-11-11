@@ -1,0 +1,16 @@
+# title: All Pathways with PubMed References
+# category: Literature
+# description: Lists pathways that have associated PubMed publication references, returning pathway and PubMed identifiers ordered by pathway.
+#
+# WPQ040 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ040
+# Generated from E. Literature/allPathwayswithPubMed.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway ?pubmed
+WHERE
+     {?pubmed a       wp:PublicationReference .
+      ?pubmed dcterms:isPartOf ?pathway }
+ORDER BY ?pathway
+LIMIT 50

@@ -1,0 +1,69 @@
+{
+ "id": "WPQ044",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ044",
+ "label": "References for a Specific Interaction",
+ "description": "Returns publication references for a single interaction identified by both a pathway and a specific participant URI.",
+ "version": "1.0.0",
+ "created": "2022-10-26",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+ ],
+ "keywords": [
+  "literature"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/4431b11d148e0e1bcc3533e90b80225376c80d1a/E.%20Literature/referencesForSpecificInteraction.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway ?interaction ?pubmed WHERE {\n   ?pathway a wp:Pathway .\n   VALUES ?pathwayId { <https://identifiers.org/wikipathways/WP5200> }\n   ?pathway dc:identifier ?pathwayId . #filter for pathway\n   ?interaction dcterms:isPartOf ?pathway .\n   ?interaction a wp:Interaction .\n   VALUES ?proteinId { <https://identifiers.org/uniprot/P35498> }\n   ?interaction wp:participants ?proteinId. #filter for interaction\n  ?interaction dcterms:references ?pubmed .\n} LIMIT 100",
+ "params": [
+  {
+   "name": "pathwayId",
+   "variable": "pathwayId",
+   "label": "Pathway ID",
+   "description": null,
+   "order": 1,
+   "kind": "iri",
+   "valueTemplate": "https://identifiers.org/wikipathways/{value}",
+   "default": "WP5200",
+   "autocomplete": "pathway",
+   "options": null
+  },
+  {
+   "name": "proteinId",
+   "variable": "proteinId",
+   "label": "UniProt Protein ID",
+   "description": null,
+   "order": 2,
+   "kind": "iri",
+   "valueTemplate": "https://identifiers.org/uniprot/{value}",
+   "default": "P35498",
+   "autocomplete": null,
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "E. Literature/referencesForSpecificInteraction.ttl",
+ "aliases": [
+  "E. Literature/referencesForSpecificInteraction.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

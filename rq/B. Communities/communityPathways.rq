@@ -1,0 +1,18 @@
+# title: Community Pathways
+# category: Communities
+# description: Lists all pathways tagged with a selected community curation tag.
+# param: community|autocomplete:community|AOP|Community
+#
+# WPQ004 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ004
+# Generated from B. Communities/communityPathways.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway (str(?title) AS ?PathwayTitle)
+WHERE {
+  VALUES ?community { <http://vocabularies.wikipathways.org/wp#Curation:{{community}}> }
+  ?pathway wp:ontologyTag ?community ;
+    a wp:Pathway ;
+    dc:title ?title .
+}

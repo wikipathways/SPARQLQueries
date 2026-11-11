@@ -1,0 +1,27 @@
+# title: LIPID MAPS Federated Query
+# category: Lipids
+# description: Retrieves lipid names, formulas, and associated pathways for a specific LIPID MAPS category by querying the LIPID MAPS SPARQL endpoint. May be slower due to external endpoint dependency.
+#
+# WPQ024 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ024
+# Generated from B. Communities/Lipids/LIPIDMAPS_Federated.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX chebi: <http://purl.obolibrary.org/obo/chebi/>
+
+SELECT ?lipid ?name ?formula ?lmid (GROUP_CONCAT(?wpid_;separator=", ") AS ?pathway)
+WHERE {
+  SERVICE <https://lipidmaps.org/sparql> {
+    VALUES ?category { <https://www.lipidmaps.org/rdf/category/112> <https://www.lipidmaps.org/rdf/category/11200> } 
+    ?lipidmaps rdfs:label ?name ;
+      rdfs:subClassOf* ?category ;
+      chebi:formula ?formula .
+  }
+  BIND (IRI(CONCAT("https://identifiers.org/lipidmaps/",
+               SUBSTR(STR(?lipidmaps), 31))) AS ?lmid)
+  ?lipid wp:bdbLipidMaps ?lmid ;
+         dcterms:isPartOf ?pw .
+  ?pw a wp:Pathway ; dcterms:identifier ?wpid_ .
+}
+GROUP BY ?lipid ?name ?formula ?lmid

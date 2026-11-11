@@ -1,0 +1,23 @@
+# title: Average Entity Type per Pathway
+# category: Data counts
+# description: Calculates the average, minimum, and maximum number of a selected entity type per pathway in WikiPathways.
+# param: entityType|enum:DataNode=Data Nodes,GeneProduct=Gene Products,Interaction=Interactions,Metabolite=Metabolites,Protein=Proteins|DataNode|Entity Type
+#
+# WPQ012 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ012
+# Generated from A. Metadata/datacounts/averagePerPathway.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (AVG(?no) AS ?avg)
+       (MIN(?no) AS ?min)
+       (MAX(?no) AS ?max)
+WHERE {
+    SELECT ?Pathway (COUNT(?entity) AS ?no)
+    WHERE {
+    VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#{{entityType}}> }
+    ?entity a ?entityType ;
+       dcterms:isPartOf ?Pathway .
+    ?Pathway a wp:Pathway .}
+    GROUP BY ?Pathway
+}

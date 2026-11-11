@@ -1,0 +1,15 @@
+# title: Pathways and Their Species
+# category: Species
+# description: List pathways and their species.
+#
+# WPQ007 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ007
+# Generated from A. Metadata/species/PathwaysAndSpecies.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT (str(?title) as ?pathway) (str(?label) as ?organism)
+WHERE {
+    ?pw dc:title ?title ;
+      wp:organismName ?label .
+}

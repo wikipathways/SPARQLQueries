@@ -1,0 +1,42 @@
+# title: MetaNetX Reaction ID Mapping
+# category: MetaNetX
+# description: Maps Rhea reaction IDs from a WikiPathways pathway to MetaNetX reaction identifiers by querying the MetaNetX SPARQL endpoint. May be slower due to external endpoint dependency.
+#
+# WPQ032 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ032
+# Generated from C. Collaborations/MetaNetX/reactionID_mapping.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX wp:      <http://vocabularies.wikipathways.org/wp#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+#Prefixes for the MetaNetX RDF:
+PREFIX mnx: <https://rdf.metanetx.org/schema/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rhea: <http://rdf.rhea-db.org/>
+
+#Variable selection
+SELECT DISTINCT (str(?title) as ?pathwayName) ?PWID ?interactionID ?reac
+
+WHERE {
+#Pathway Model IDs of interest
+VALUES ?PWID {"WP5275"}
+  
+    ?pathway a wp:Pathway . #Define what a pathway is
+    ?pathway dcterms:identifier ?PWID. #Obtain the ID
+    ?pathway dc:title ?title . #Obtain the title
+  
+    ?interaction wp:bdbRhea ?interactionID . #Find interactions with a Rhea ID
+    ?interaction dcterms:isPartOf ?pathway . #Only those part of PW
+  
+  ##The IRI for Rhea-IDs from WikiPathways starts with https://identifiers.org/rhea/, where the one from MetaNetX starts with "http://rdf.rhea-db.org/ , so we need to rewrite the IRI
+    # Bind the created IRI into a new variable ?newIRI: take the Rhea IRI from WikiPathways as a string,
+    # remove the first 29 characters and put "http://rdf.rhea-db.org/" in front of what is left.
+    BIND(IRI(CONCAT("http://rdf.rhea-db.org/", SUBSTR(STR(?interactionID), 30))) AS ?newIRI)
+   SERVICE <https://rdf.metanetx.org/sparql/>  {
+     SELECT DISTINCT ?reac
+                           WHERE{
+    ?reac mnx:reacXref rhea:17658 .}
+     }
+  
+} ORDER BY ASC(?pathway)

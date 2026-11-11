@@ -1,0 +1,36 @@
+# title: Mitochondrial Proteins via neXtProt
+# category: neXtProt
+# description: Identifies mitochondrial proteins in Rett syndrome pathways by querying the neXtProt SPARQL endpoint for gold-quality mitochondrion localization annotations. May be slower due to external endpoint dependency. The neXtProt SPARQL endpoint has been archived (it redirects to expasy.org/archives/nextprot), so this query no longer works.
+#
+# WPQ085 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ085
+# Generated from C. Collaborations/neXtProt/ProteinMitochondria.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX : <http://nextprot.org/rdf#>
+PREFIX cv: <http://nextprot.org/rdf/terminology/>
+
+select distinct  ?pathwayname (group_concat(distinct ?gen; separator=",") as ?genes) where {
+  {?geneProduct a wp:Protein}
+   union
+  {?geneProduct a wp:GeneProduct}
+  ?geneProduct rdfs:label ?gen .
+  filter(!regex(?gen,"[ a-z-]")).
+  ?geneProduct dcterms:isPartOf ?pathway .
+  ?pathway a wp:Pathway .
+  ?pathway wp:organism ?organism .
+  filter(contains(str(?organism),"9606")) 
+  ?pathway dc:title ?pathwayname .
+  filter(regex(?pathwayname,"Rett")).
+  service <https://api.nextprot.org/sparql> {
+    ?entry a :Entry .
+    ?entry :gene / :name ?gen .
+    ?entry :isoform / :cellularComponent ?loc .
+    values ?mitoloc {cv:SL-0173 cv:GO_0005739 } # SL and GO values for mitochondrion
+    ?loc :term / :childOf ?mitoloc.  # mitochondrion
+    ?loc :evidence / :quality :GOLD .
+  }}
+group by ?pathwayname
+order by ?pathwayname

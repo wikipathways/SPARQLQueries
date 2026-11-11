@@ -1,0 +1,57 @@
+{
+ "id": "WPQ019",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ019",
+ "label": "Community Proteins",
+ "description": "Lists all proteins found in pathways tagged with a selected community.",
+ "version": "1.0.0",
+ "created": "2026-03-30",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Communities"
+ ],
+ "keywords": [
+  "communities"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/B.%20Communities/communityProteins.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (str(?label) AS ?Protein)\nWHERE {\n  VALUES ?community { <http://vocabularies.wikipathways.org/wp#Curation:AOP> }\n  ?pathway wp:ontologyTag ?community ;\n    a wp:Pathway .\n  ?protein a wp:Protein ;\n    rdfs:label ?label ;\n    dcterms:isPartOf ?pathway .\n}",
+ "params": [
+  {
+   "name": "community",
+   "variable": "community",
+   "label": "Community",
+   "description": null,
+   "order": 1,
+   "kind": "iri",
+   "valueTemplate": "http://vocabularies.wikipathways.org/wp#Curation:{value}",
+   "default": "AOP",
+   "autocomplete": "community",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "B. Communities/communityProteins.ttl",
+ "aliases": [
+  "B. Communities/communityProteins.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

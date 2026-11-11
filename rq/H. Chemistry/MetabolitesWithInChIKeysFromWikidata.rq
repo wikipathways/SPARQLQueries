@@ -1,0 +1,21 @@
+# title: Metabolites with InChIKeys from Wikidata
+# category: Chemistry
+# description: Lists metabolites in WikiPathways with their Wikidata identifier and fetches their InChIKey from Wikidata. Limited to 50 metabolites. Uses a federated SERVICE call; may be slow depending on endpoint availability.
+#
+# WPQ075 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ075
+# Generated from H. Chemistry/MetabolitesWithInChIKeysFromWikidata.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?metabolite ?wikidata ?inchikey WHERE {
+  {
+    SELECT ?metabolite ?wikidata WHERE {
+      ?metabolite a wp:Metabolite ;
+        wp:bdbWikidata ?wikidata .
+    } LIMIT 50
+  }
+  SERVICE <https://query.wikidata.org/sparql> {
+    ?wikidata wdt:P235 ?inchikey .
+  }
+} LIMIT 50

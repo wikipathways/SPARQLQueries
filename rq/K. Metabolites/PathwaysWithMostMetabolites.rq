@@ -1,0 +1,17 @@
+# title: Pathways with the Most Metabolites
+# category: Metabolites
+# description: Counts the metabolite data nodes per pathway, with the pathways with the most metabolites first.
+#
+# WPQ081 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ081
+# Generated from K. Metabolites/PathwaysWithMostMetabolites.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT ?pathway (count(distinct ?mb) as ?mbCount)
+WHERE {
+  ?mb a wp:Metabolite ;
+    dcterms:isPartOf ?pathway .
+}
+GROUP BY ?pathway
+ORDER BY DESC(?mbCount)

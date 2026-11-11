@@ -1,0 +1,13 @@
+# title: SMILES for Metabolites
+# category: Chemistry
+# description: Retrieves SMILES chemical structure notations for metabolites via their Wikidata links.
+#
+# WPQ056 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ056
+# Generated from H. Chemistry/smiles.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX cheminf: <http://semanticscience.org/resource/>
+
+SELECT ?mol ?smilesDepict WHERE {
+ ?mol wp:bdbWikidata/cheminf:CHEMINF_000018 ?smilesDepict .
+} LIMIT 25

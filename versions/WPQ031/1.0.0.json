@@ -1,0 +1,61 @@
+{
+ "id": "WPQ031",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ031",
+ "label": "Metabolites in AOP-Wiki",
+ "description": "Finds metabolites in pathways of the chosen species that are linked to stressors in AOP-Wiki, by querying the AOP-Wiki SPARQL endpoint and matching on ChEBI identifiers.",
+ "version": "1.0.0",
+ "created": "2023-08-10",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/AOPWiki"
+ ],
+ "keywords": [
+  "AOP-Wiki",
+  "collaborations",
+  "metabolite"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [
+  "https://aopwiki.rdf.bigcat-bioinformatics.org/sparql/"
+ ],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/7a6a9c7bb1c188b1422d851f705492d6c78c49f4/C.%20Collaborations/AOP-Wiki/MetaboliteInAOP-Wiki.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX cheminf:\t<http://semanticscience.org/resource/CHEMINF_>\n\nSELECT DISTINCT (str(?title) as ?pathwayName) ?chemical ?ChEBI ?ChemicalName ?mappedid ?LinkedStressor\n\nWHERE {\n   # Query AOP-Wiki first: it returns its few hundred ChEBI-mapped chemicals in one request,\n   # which are then joined to the local metabolites. With the SERVICE block last, the endpoint\n   # sends one remote request per metabolite and times out.\n   SERVICE <https://aopwiki.rdf.bigcat-bioinformatics.org/sparql/> {\n    ?mappedid a cheminf:000407 ; cheminf:000407 ?ChEBI .\n    ?cheLook a cheminf:000000 ; dc:title ?ChemicalName ; dcterms:isPartOf ?LinkedStressor ; skos:exactMatch ?mappedid .\n   }\n   ?chemical a wp:Metabolite ; dcterms:isPartOf ?pathway ; wp:bdbChEBI ?mappedid .\n   VALUES ?species { \"Homo sapiens\" }\n   ?pathway a wp:Pathway ; wp:organismName ?species ; dc:title ?title .\n}\nORDER BY ?ChemicalName ?pathwayName",
+ "params": [
+  {
+   "name": "species",
+   "variable": "species",
+   "label": "Species",
+   "description": null,
+   "order": 1,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "Homo sapiens",
+   "autocomplete": "species",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "C. Collaborations/AOP-Wiki/MetaboliteInAOP-Wiki.ttl",
+ "aliases": [
+  "C. Collaborations/AOP-Wiki/MetaboliteInAOP-Wiki.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

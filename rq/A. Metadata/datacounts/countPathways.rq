@@ -1,0 +1,14 @@
+# title: Count of Pathways
+# category: Data counts
+# description: Counts the total number of pathways in WikiPathways.
+#
+# WPQ014 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ014
+# Generated from A. Metadata/datacounts/countPathways.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT (count(?Pathway) as ?PathwayCount)
+WHERE {
+    ?Pathway a wp:Pathway, skos:Collection .
+}

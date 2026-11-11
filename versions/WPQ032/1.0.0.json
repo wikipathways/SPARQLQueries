@@ -1,0 +1,53 @@
+{
+ "id": "WPQ032",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ032",
+ "label": "MetaNetX Reaction ID Mapping",
+ "description": "Maps Rhea reaction IDs from a WikiPathways pathway to MetaNetX reaction identifiers by querying the MetaNetX SPARQL endpoint. May be slower due to external endpoint dependency.",
+ "version": "1.0.0",
+ "created": "2022-11-08",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/MetaNetX"
+ ],
+ "keywords": [
+  "collaborations",
+  "MetaNetX",
+  "reaction"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [
+  "https://rdf.metanetx.org/sparql/"
+ ],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/769e44d643956539cbb80185e3de0477ad3d4d45/C.%20Collaborations/MetaNetX/reactionID_mapping.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp:      <http://vocabularies.wikipathways.org/wp#>\nPREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dcterms: <http://purl.org/dc/terms/>\n#Prefixes for the MetaNetX RDF:\nPREFIX mnx: <https://rdf.metanetx.org/schema/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rhea: <http://rdf.rhea-db.org/>\n\n#Variable selection\nSELECT DISTINCT (str(?title) as ?pathwayName) ?PWID ?interactionID ?reac\n\nWHERE {\n#Pathway Model IDs of interest\nVALUES ?PWID {\"WP5275\"}\n  \n    ?pathway a wp:Pathway . #Define what a pathway is\n    ?pathway dcterms:identifier ?PWID. #Obtain the ID\n    ?pathway dc:title ?title . #Obtain the title\n  \n    ?interaction wp:bdbRhea ?interactionID . #Find interactions with a Rhea ID\n    ?interaction dcterms:isPartOf ?pathway . #Only those part of PW\n  \n  ##The IRI for Rhea-IDs from WikiPathways starts with https://identifiers.org/rhea/, where the one from MetaNetX starts with \"http://rdf.rhea-db.org/ , so we need to rewrite the IRI\n    # Bind the created IRI into a new variable ?newIRI: take the Rhea IRI from WikiPathways as a string,\n    # remove the first 29 characters and put \"http://rdf.rhea-db.org/\" in front of what is left.\n    BIND(IRI(CONCAT(\"http://rdf.rhea-db.org/\", SUBSTR(STR(?interactionID), 30))) AS ?newIRI)\n   SERVICE <https://rdf.metanetx.org/sparql/>  {\n     SELECT DISTINCT ?reac\n                           WHERE{\n    ?reac mnx:reacXref rhea:17658 .}\n     }\n  \n} ORDER BY ASC(?pathway)",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "C. Collaborations/MetaNetX/reactionID_mapping.ttl",
+ "aliases": [
+  "C. Collaborations/MetaNetX/reactionID_mapping.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

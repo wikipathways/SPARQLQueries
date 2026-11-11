@@ -1,0 +1,17 @@
+# title: Metabolites in the Most Pathways
+# category: Metabolites
+# description: Counts in how many pathways each metabolite data node occurs. The results are per data node, not per unique metabolite, because no identifier mapping is applied.
+#
+# WPQ082 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ082
+# Generated from K. Metabolites/MetabolitesInMostPathways.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT ?mb (count(distinct ?pathway) as ?pwCount)
+WHERE {
+  ?mb a wp:Metabolite ;
+    dcterms:isPartOf ?pathway .
+}
+GROUP BY ?mb
+ORDER BY DESC(?pwCount)

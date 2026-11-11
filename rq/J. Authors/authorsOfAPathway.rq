@@ -1,0 +1,27 @@
+# title: Authors of a Pathway
+# category: Authors
+# description: Lists all authors of a given pathway in ordinal order, returning name, ORCID, homepage, and pathway version.
+# param: pathwayId|autocomplete:pathway|WP4846|Pathway ID
+#
+# WPQ061 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ061
+# Generated from J. Authors/authorsOfAPathway.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX gpml: <http://vocabularies.wikipathways.org/gpml#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX dc:    <http://purl.org/dc/elements/1.1/>
+PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+PREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>
+PREFIX pav:   <http://purl.org/pav/>
+
+SELECT ?pathway ?version ?ordinal ?author_ ?name ?orcid ?page WHERE {
+  VALUES ?pathway { <https://identifiers.org/wikipathways/{{pathwayId}}> }
+  ?author_ a foaf:Person ;
+    wp:hasAuthorship ?authorship .
+  ?authorship ^wp:hasAuthorship ?pathway ;
+    wpq:series_ordinal ?ordinal .
+  ?pathway pav:hasVersion ?pathway_ .
+  ?pathway_ a wp:Pathway ; wp:isAbout / gpml:version ?version .
+  OPTIONAL { ?author_ foaf:homepage ?page }
+  OPTIONAL { ?author_ foaf:name ?name }
+  OPTIONAL { ?author_ dc:identifier ?orcid }
+} ORDER BY ASC(?pathway) ASC(?ordinal)

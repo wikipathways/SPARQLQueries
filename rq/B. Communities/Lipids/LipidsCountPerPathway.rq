@@ -1,0 +1,26 @@
+# title: Lipids Count per Pathway
+# category: Lipids
+# description: Counts the total number of lipids with LIPID MAPS identifiers per human pathway, ordered by count.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ026 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ026
+# Generated from B. Communities/Lipids/LipidsCountPerPathway.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+prefix lipidmaps:      <https://identifiers.org/lipidmaps/> #IRI can be used to create URLs from identifiers in line 7
+select distinct ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) (count(distinct ?lipidID) AS ?LipidsInPWs)
+where {
+  ?metabolite a wp:Metabolite ;    #Define what are metabolites
+    dcterms:identifier ?id ;       #Find the identifier of a certain metabolite
+    dcterms:isPartOf ?pathwayRes ; #Define metabolites are part of a pathway
+    wp:bdbLipidMaps ?lipidID .     #Find the LIPID MAPS identifier for a certain metabolite
+  VALUES ?species { "{{species}}" }
+  ?pathwayRes a wp:Pathway ;       #Define what is a pathway
+              wp:organismName ?species ; #Filter pathways on species Human
+    dcterms:identifier ?wpid ;     #Obtain identifier of pathway
+    dc:title ?title .              #Obtain title of pathway
+}
+GROUP BY ?pathwayRes ?wpid ?title
+ORDER BY DESC(?LipidsInPWs)

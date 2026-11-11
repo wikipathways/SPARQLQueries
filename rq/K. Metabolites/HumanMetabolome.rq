@@ -1,0 +1,16 @@
+# title: Human Metabolome
+# category: Metabolites
+# description: Lists all metabolite data nodes in human pathways (NCBI Taxonomy 9606). Change the taxon, for example to 3702 for Arabidopsis thaliana, to get the metabolome of another species.
+#
+# WPQ080 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ080
+# Generated from K. Metabolites/HumanMetabolome.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX ncbi: <http://purl.obolibrary.org/obo/NCBITaxon_>
+
+SELECT DISTINCT ?mb WHERE {
+  ?mb a wp:Metabolite ;
+    dcterms:isPartOf ?pw .
+  ?pw wp:organism ncbi:9606 .
+} ORDER BY ?mb

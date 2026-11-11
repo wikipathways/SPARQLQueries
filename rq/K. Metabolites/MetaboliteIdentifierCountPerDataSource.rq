@@ -1,0 +1,18 @@
+# title: Metabolite Identifier Count per Data Source
+# category: Metabolites
+# description: Counts the distinct metabolite identifiers per data source. ChEBI, HMDB and LIPID MAPS are the main data sources for metabolite identifiers.
+#
+# WPQ078 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ078
+# Generated from K. Metabolites/MetaboliteIdentifierCountPerDataSource.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (str(?datasource) as ?source) (count(distinct ?identifier) as ?count)
+WHERE {
+  ?mb a wp:Metabolite ;
+    dc:source ?datasource ;
+    dc:identifier ?identifier .
+}
+GROUP BY ?datasource
+ORDER BY DESC(?count)

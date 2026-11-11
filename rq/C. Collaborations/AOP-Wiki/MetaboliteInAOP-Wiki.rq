@@ -1,0 +1,29 @@
+# title: Metabolites in AOP-Wiki
+# category: AOP-Wiki
+# description: Finds metabolites in pathways of the chosen species that are linked to stressors in AOP-Wiki, by querying the AOP-Wiki SPARQL endpoint and matching on ChEBI identifiers.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ031 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ031
+# Generated from C. Collaborations/AOP-Wiki/MetaboliteInAOP-Wiki.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX cheminf:	<http://semanticscience.org/resource/CHEMINF_>
+
+SELECT DISTINCT (str(?title) as ?pathwayName) ?chemical ?ChEBI ?ChemicalName ?mappedid ?LinkedStressor
+
+WHERE {
+   # Query AOP-Wiki first: it returns its few hundred ChEBI-mapped chemicals in one request,
+   # which are then joined to the local metabolites. With the SERVICE block last, the endpoint
+   # sends one remote request per metabolite and times out.
+   SERVICE <https://aopwiki.rdf.bigcat-bioinformatics.org/sparql/> {
+    ?mappedid a cheminf:000407 ; cheminf:000407 ?ChEBI .
+    ?cheLook a cheminf:000000 ; dc:title ?ChemicalName ; dcterms:isPartOf ?LinkedStressor ; skos:exactMatch ?mappedid .
+   }
+   ?chemical a wp:Metabolite ; dcterms:isPartOf ?pathway ; wp:bdbChEBI ?mappedid .
+   VALUES ?species { "{{species}}" }
+   ?pathway a wp:Pathway ; wp:organismName ?species ; dc:title ?title .
+}
+ORDER BY ?ChemicalName ?pathwayName

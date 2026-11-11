@@ -1,0 +1,21 @@
+# title: Pathways for a Species
+# category: Species
+# description: Lists all pathways for a given species, returning the WikiPathways identifier and page URL.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ009 version 1.0.1, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ009
+# Generated from A. Metadata/species/PWsforSpecies.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?wpIdentifier ?pathway ?page
+WHERE {
+    ?pathway dc:title ?title .
+    ?pathway foaf:page ?page .
+    ?pathway dc:identifier ?wpIdentifier .
+    VALUES ?species { "{{species}}" }
+    ?pathway wp:organismName ?species .
+ }
+ORDER BY ?wpIdentifier

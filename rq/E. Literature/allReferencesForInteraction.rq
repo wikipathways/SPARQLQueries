@@ -1,0 +1,23 @@
+# title: All References for an Interaction
+# category: Literature
+# description: Returns all publication references for interactions in a given pathway, including references attached to both the interaction itself and its participating data nodes.
+# param: pathwayId|autocomplete:pathway|WP5200|Pathway ID
+#
+# WPQ041 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ041
+# Generated from E. Literature/allReferencesForInteraction.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway ?interaction ?pubmed ?partnerref WHERE {
+   VALUES ?pathwayId { <https://identifiers.org/wikipathways/{{pathwayId}}> }
+   ?pathway a wp:Pathway ;
+            dc:identifier ?pathwayId .
+   ?interaction dcterms:isPartOf ?pathway ;
+                a wp:Interaction ;
+                wp:participants ?partner;
+                dcterms:references ?pubmed .
+   OPTIONAL{?partner dc:identifier ?partnerID ;
+            dcterms:references ?partnerref .}
+} LIMIT 100

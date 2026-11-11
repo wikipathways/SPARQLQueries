@@ -1,0 +1,18 @@
+# title: Dataset Metadata
+# category: Metadata
+# description: Returns all VoID datasets in the WikiPathways RDF with their title, creation date, and license information.
+#
+# WPQ001 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ001
+# Generated from A. Metadata/metadata.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT DISTINCT ?dataset (str(?titleLit) as ?title) ?date ?license 
+WHERE {
+   ?dataset a void:Dataset ;
+   dcterms:title ?titleLit ;
+   dcterms:license ?license ;
+   pav:createdOn ?date .
+}

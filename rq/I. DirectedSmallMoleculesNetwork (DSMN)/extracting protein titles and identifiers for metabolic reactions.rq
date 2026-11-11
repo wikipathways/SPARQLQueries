@@ -1,0 +1,39 @@
+# title: Extracting Protein Titles and Identifiers for Metabolic Reactions
+# category: Directed Small Molecules Network (DSMN)
+# description: Extracts catalyzing proteins for directed metabolic reactions in human AnalysisCollection pathways, returning Ensembl identifiers and protein names as part of the DSMN workflow.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ060 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ060
+# Generated from I. DirectedSmallMoleculesNetwork (DSMN)/extracting protein titles and identifiers for metabolic reactions.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+### Part 1: ###
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName
+WHERE {
+?pathway a wp:Pathway ; 
+wp:ontologyTag cur:AnalysisCollection ;
+wp:organismName ?species;
+dc:title ?titleLit . 
+?interaction dcterms:isPartOf ?pathway ;				
+   a wp:DirectedInteraction ; 
+   wp:source ?source ; 
+ 	   wp:target ?target .   
+?source a wp:Metabolite . 
+?source wp:bdbWikidata ?sourceDb . 
+?target a wp:Metabolite . 
+?target wp:bdbWikidata ?targetDb . 
+
+### Part 2: ###
+?interactions2 dcterms:isPartOf ?pathway;
+               a wp:Catalysis; 
+               wp:source ?sources2;
+               wp:target ?interaction . 
+OPTIONAL{?sources2 wp:bdbEnsembl ?proteinDBWPs}.
+OPTIONAL{?sources2 rdfs:label ?proteinName} .
+VALUES ?species { "{{species}}" }
+}

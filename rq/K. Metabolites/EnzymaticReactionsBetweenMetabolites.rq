@@ -1,0 +1,27 @@
+# title: Enzymatic Reactions between Metabolites
+# category: Metabolites
+# description: Lists catalysed reactions between two metabolites, with the pathway, the label of the catalyst, the source and target metabolites, and their Wikidata identifiers.
+#
+# WPQ083 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ083
+# Generated from K. Metabolites/EnzymaticReactionsBetweenMetabolites.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?wpid ?catalyst ?source ?sourceDb ?target ?targetDb WHERE {
+  ?pathway a wp:Pathway ;
+      dc:identifier / dcterms:identifier ?wpid .
+  ?catalysis dcterms:isPartOf ?pathway ;
+    wp:source / rdfs:label ?catalyst ;
+    wp:participants ?reaction .
+  ?reaction a wp:Interaction .
+  ?reaction wp:source ?source .
+  ?source a wp:Metabolite .
+  OPTIONAL{?source wp:bdbWikidata ?sourceDb .}
+
+  ?reaction wp:target ?target .
+  ?target a wp:Metabolite .
+  OPTIONAL{?target wp:bdbWikidata ?targetDb .}
+} ORDER BY ASC(?source)

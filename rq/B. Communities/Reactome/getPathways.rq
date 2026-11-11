@@ -1,0 +1,16 @@
+# title: Reactome Pathways
+# category: Reactome
+# description: Lists all pathways tagged with the Reactome Approved curation tag.
+#
+# WPQ027 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ027
+# Generated from B. Communities/Reactome/getPathways.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway (str(?titleLit) as ?title)
+WHERE {
+  ?pathway wp:ontologyTag cur:Reactome_Approved ;
+           dc:title ?titleLit .
+}

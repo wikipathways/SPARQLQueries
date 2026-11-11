@@ -1,0 +1,19 @@
+# title: Count of IEM Metabolic Pathways
+# category: Inborn Errors of Metabolism
+# description: Counts the total number of pathways classified under metabolic pathway ontology terms.
+#
+# WPQ021 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ021
+# Generated from B. Communities/Inborn Errors of Metabolism/countMetabolicPWs.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (count(distinct ?pathway) as ?pathwaycount)
+WHERE {
+  ?tag1 a owl:Class ;
+  rdfs:label ?label .
+  ?tag rdfs:subClassOf* ?tag1.
+  ?pathway a wp:Pathway; wp:ontologyTag ?tag.
+FILTER regex(str(?label), "metabolic pathway")
+}

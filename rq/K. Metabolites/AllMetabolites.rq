@@ -1,0 +1,14 @@
+# title: All Metabolites
+# category: Metabolites
+# description: Lists all metabolite data nodes with their labels.
+#
+# WPQ076 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ076
+# Generated from K. Metabolites/AllMetabolites.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?mb ?label WHERE {
+  ?mb a wp:Metabolite ;
+     rdfs:label ?label .
+}

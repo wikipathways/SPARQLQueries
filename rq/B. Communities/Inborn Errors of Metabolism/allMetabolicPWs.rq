@@ -1,0 +1,19 @@
+# title: Inborn Errors of Metabolism Metabolic Pathways
+# category: Inborn Errors of Metabolism
+# description: Retrieves pathways classified under metabolic pathway ontology terms, filtering by label to find metabolic pathway annotations.
+#
+# WPQ020 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ020
+# Generated from B. Communities/Inborn Errors of Metabolism/allMetabolicPWs.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT distinct ?pathway ?label ?tag
+WHERE {
+  ?tag1 a owl:Class ;
+  rdfs:label ?label .
+  ?tag rdfs:subClassOf* ?tag1.
+  ?pathway a wp:Pathway; wp:ontologyTag ?tag.
+FILTER regex(str(?label), "metabolic pathway")
+}

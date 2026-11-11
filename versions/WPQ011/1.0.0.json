@@ -1,0 +1,49 @@
+{
+ "id": "WPQ011",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ011",
+ "label": "Authors of All Pathways",
+ "description": "Lists all pathway authors with their name, homepage, and ORCID, along with the number of pathways each author created.",
+ "version": "1.0.0",
+ "created": "2026-01-13",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+ ],
+ "keywords": [
+  "metadata"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/56af22ea28b931bcc0f93575c2e65a5c585b8a12/A.%20Metadata/authors.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc:    <http://purl.org/dc/elements/1.1/>\nPREFIX foaf:  <http://xmlns.com/foaf/0.1/>\n\nSELECT (COUNT(DISTINCT ?pathway) AS ?count) ?page ?name ?orcid WHERE {\n  ?author_ ^dc:creator ?pathway ;\n    a foaf:Person .\n  OPTIONAL { ?author_ foaf:homepage ?page }\n  OPTIONAL { ?author_ foaf:name ?name }\n  OPTIONAL { ?author_ dc:identifier ?orcid }\n} GROUP BY ?page ?name ?orcid\n  ORDER BY DESC(?count)",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "A. Metadata/authors.ttl",
+ "aliases": [
+  "A. Metadata/authors.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

@@ -1,0 +1,26 @@
+# title: References for an Interaction
+# category: Literature
+# description: Returns publication references directly attached to interactions in a given pathway, along with the participating data node labels.
+# param: pathwayId|autocomplete:pathway|WP5200|Pathway ID
+#
+# WPQ043 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ043
+# Generated from E. Literature/referencesForInteraction.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathway ?interaction ?pubmed
+WHERE {
+
+   VALUES ?pathwayId { <https://identifiers.org/wikipathways/{{pathwayId}}> }
+   ?pathway a wp:Pathway ;
+      dc:identifier ?pathwayId . #filter for one pathway
+   ?interaction dcterms:isPartOf ?pathway ; 
+      a wp:Interaction ;
+       dcterms:references ?pubmed ;
+      wp:participants ?participants .
+   ?participants a wp:DataNode ;
+      rdfs:label ?DataNodeLabel .  
+}

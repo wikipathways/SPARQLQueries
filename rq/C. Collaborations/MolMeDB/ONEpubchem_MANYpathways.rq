@@ -1,0 +1,31 @@
+# title: Pathways for a PubChem Compound (MolMeDB)
+# category: MolMeDB
+# description: Finds all human pathways containing a specific MolMeDB compound by resolving its PubChem identifier through the MolMeDB SPARQL endpoint. May be slower due to external endpoint dependency.
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ033 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ033
+# Generated from C. Collaborations/MolMeDB/ONEpubchem_MANYpathways.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE
+{
+  SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {
+   <http://identifiers.org/molmedb/MM00431> skos:exactMatch ?COMPOUND.
+   filter (strstarts(str(?COMPOUND), 'http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID'))
+  }
+  
+  ?gene a wp:Metabolite ;
+    dcterms:identifier ?id ;
+    dcterms:isPartOf ?pathwayRes ;
+    wp:bdbPubChem ?COMPOUND .
+  
+  VALUES ?species { "{{species}}" }
+  ?pathwayRes a wp:Pathway ;
+    wp:organismName ?species;
+    dcterms:identifier ?wpid ;
+    dc:title ?title . 
+}

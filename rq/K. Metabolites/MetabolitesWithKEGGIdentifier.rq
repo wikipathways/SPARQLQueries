@@ -1,0 +1,16 @@
+# title: Metabolites with a KEGG Identifier
+# category: Metabolites
+# description: Lists all KEGG Compound identifiers used for metabolite data nodes. Change the data source, for example to "HMDB", to list the identifiers from another database.
+#
+# WPQ079 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ079
+# Generated from K. Metabolites/MetabolitesWithKEGGIdentifier.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT DISTINCT ?identifier
+WHERE {
+  ?mb a wp:Metabolite ;
+    dc:source "KEGG Compound" ;
+    dc:identifier ?identifier .
+} ORDER BY ?identifier

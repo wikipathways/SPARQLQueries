@@ -1,0 +1,18 @@
+# title: Homology-Converted Pathways
+# category: Metadata
+# description: List all homology converted pathways.
+#
+# WPQ010 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ010
+# Generated from A. Metadata/HomologyConvertedPathways.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+
+SELECT DISTINCT ?pathway (str(?title) as ?PathwayTitle) ?organism
+WHERE {
+  ?pathway wp:ontologyTag cur:Homology_Converted ;
+  a wp:Pathway ; 
+  dc:title ?title ;
+  wp:organismName ?organism .
+} ORDER BY ASC(?organism) ASC(?PathwayTitle)

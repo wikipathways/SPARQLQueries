@@ -1,0 +1,49 @@
+{
+ "id": "WPQ056",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ056",
+ "label": "SMILES for Metabolites",
+ "description": "Retrieves SMILES chemical structure notations for metabolites via their Wikidata links.",
+ "version": "1.0.0",
+ "created": "2022-03-14",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Chemistry"
+ ],
+ "keywords": [
+  "chemistry"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/H.%20Chemistry/smiles.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX cheminf: <http://semanticscience.org/resource/>\n\nSELECT ?mol ?smilesDepict WHERE {\n ?mol wp:bdbWikidata/cheminf:CHEMINF_000018 ?smilesDepict .\n} LIMIT 25",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "H. Chemistry/smiles.ttl",
+ "aliases": [
+  "H. Chemistry/smiles.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

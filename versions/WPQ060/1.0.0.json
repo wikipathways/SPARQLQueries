@@ -1,0 +1,63 @@
+{
+ "id": "WPQ060",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ060",
+ "label": "Extracting Protein Titles and Identifiers for Metabolic Reactions",
+ "description": "Extracts catalyzing proteins for directed metabolic reactions in human AnalysisCollection pathways, returning Ensembl identifiers and protein names as part of the DSMN workflow.",
+ "version": "1.0.0",
+ "created": "2023-11-10",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DSMN"
+ ],
+ "keywords": [
+  "directed small molecules network",
+  "DSMN"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/extracting%20protein%20titles%20and%20identifiers%20for%20metabolic%20reactions.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\n### Part 1: ###\nSELECT DISTINCT ?interaction ?sourceDb ?targetDb ?proteinDBWPs ?proteinName\nWHERE {\n?pathway a wp:Pathway ; \nwp:ontologyTag cur:AnalysisCollection ;\nwp:organismName ?species;\ndc:title ?titleLit . \n?interaction dcterms:isPartOf ?pathway ;\t\t\t\t\n   a wp:DirectedInteraction ; \n   wp:source ?source ; \n \t   wp:target ?target .   \n?source a wp:Metabolite . \n?source wp:bdbWikidata ?sourceDb . \n?target a wp:Metabolite . \n?target wp:bdbWikidata ?targetDb . \n\n### Part 2: ###\n?interactions2 dcterms:isPartOf ?pathway;\n               a wp:Catalysis; \n               wp:source ?sources2;\n               wp:target ?interaction . \nOPTIONAL{?sources2 wp:bdbEnsembl ?proteinDBWPs}.\nOPTIONAL{?sources2 rdfs:label ?proteinName} .\nVALUES ?species { \"Homo sapiens\" }\n}",
+ "params": [
+  {
+   "name": "species",
+   "variable": "species",
+   "label": "Species",
+   "description": null,
+   "order": 1,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "Homo sapiens",
+   "autocomplete": "species",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "I. DirectedSmallMoleculesNetwork (DSMN)/extracting protein titles and identifiers for metabolic reactions.ttl",
+ "aliases": [
+  "I. DirectedSmallMoleculesNetwork (DSMN)/extracting protein titles and identifiers for metabolic reactions.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

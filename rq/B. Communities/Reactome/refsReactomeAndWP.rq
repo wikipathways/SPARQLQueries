@@ -1,0 +1,17 @@
+# title: References in Both Reactome and WikiPathways
+# category: Reactome
+# description: Counts publication references that appear in both Reactome-approved and WikiPathways Analysis Collection pathways.
+#
+# WPQ028 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ028
+# Generated from B. Communities/Reactome/refsReactomeAndWP.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT (COUNT(DISTINCT ?pubmed) AS ?count)
+WHERE {
+  ?pubmed a       wp:PublicationReference .
+  { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:AnalysisCollection }
+  { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:Reactome_Approved }
+}

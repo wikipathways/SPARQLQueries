@@ -1,0 +1,46 @@
+{
+ "id": "WPQ021",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ021",
+ "label": "Count of IEM Metabolic Pathways",
+ "description": "Counts the total number of pathways classified under metabolic pathway ontology terms.",
+ "version": "1.0.0",
+ "created": "2020-08-12",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/InbornErrorsOfMetabolism"
+ ],
+ "keywords": [
+  "communities",
+  "inborn errors of metabolism",
+  "metabolism"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/B.%20Communities/Inborn%20Errors%20of%20Metabolism/countMetabolicPWs.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (count(distinct ?pathway) as ?pathwaycount)\nWHERE {\n  ?tag1 a owl:Class ;\n  rdfs:label ?label .\n  ?tag rdfs:subClassOf* ?tag1.\n  ?pathway a wp:Pathway; wp:ontologyTag ?tag.\nFILTER regex(str(?label), \"metabolic pathway\")\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "B. Communities/Inborn Errors of Metabolism/countMetabolicPWs.ttl",
+ "aliases": [
+  "B. Communities/Inborn Errors of Metabolism/countMetabolicPWs.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

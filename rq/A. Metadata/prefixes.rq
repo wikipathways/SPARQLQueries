@@ -1,0 +1,16 @@
+# title: SPARQL Prefixes
+# category: Metadata
+# description: Lists all namespace prefixes declared in the WikiPathways SPARQL endpoint via SHACL prefix declarations.
+#
+# WPQ003 version 1.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ003
+# Generated from A. Metadata/prefixes.ttl in wikipathways/SPARQLQueries at a62284fbc6af; edit the .ttl file, not this one.
+
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?prefix ?namespace WHERE {
+  [] sh:declare [
+    sh:prefix ?prefix ;
+    sh:namespace ?namespace
+  ] .
+}

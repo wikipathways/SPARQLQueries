@@ -1,0 +1,66 @@
+{
+ "id": "WPQ039",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ039",
+ "label": "Ontology Terms of a Pathway",
+ "description": "Retrieves all ontology tags associated with a given pathway, returning the ontology term URI, pathway title, and identifier.",
+ "version": "1.0.0",
+ "created": "2020-10-11",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  },
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+ ],
+ "keywords": [
+  "general"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/1366822debc316b6cdaf88354b020008d0d3cb71/D.%20General/OntologyofPathway.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (?o as ?pwOntologyTerm) (str(?titleLit) as ?title) ?pathway\nWHERE {\n  VALUES ?pathwayId { \"WP1560\" }\n  ?pathwayRDF wp:ontologyTag ?o ;\n    dc:identifier ?pathway ;\n    dc:title ?titleLit ;\n    dcterms:identifier ?pathwayId .\n\n  FILTER (! regex(str(?pathway), \"group\"))\n}",
+ "params": [
+  {
+   "name": "pathwayId",
+   "variable": "pathwayId",
+   "label": "Pathway ID",
+   "description": null,
+   "order": 1,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "WP1560",
+   "autocomplete": "pathway",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "D. General/OntologyofPathway.ttl",
+ "aliases": [
+  "D. General/OntologyofPathway.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

@@ -1,0 +1,50 @@
+{
+ "id": "WPQ079",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ079",
+ "label": "Metabolites with a KEGG Identifier",
+ "description": "Lists all KEGG Compound identifiers used for metabolite data nodes. Change the data source, for example to \"HMDB\", to list the identifiers from another database.",
+ "version": "1.0.0",
+ "created": "2026-11-10",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://www.wikipathways.org/",
+   "name": "WikiPathways team"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metabolites"
+ ],
+ "keywords": [
+  "data sources",
+  "KEGG",
+  "metabolite"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/079.ttl",
+  "https://www.wikipathways.org/metabolome.html"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?identifier\nWHERE {\n  ?mb a wp:Metabolite ;\n    dc:source \"KEGG Compound\" ;\n    dc:identifier ?identifier .\n} ORDER BY ?identifier",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "K. Metabolites/MetabolitesWithKEGGIdentifier.ttl",
+ "aliases": [],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}
