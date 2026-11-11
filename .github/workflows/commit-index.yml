@@ -8,10 +8,6 @@ on:
   push:
     branches: [master]
     tags: ['*']
-  # Commits pushed by "Process SPARQL TTL files" do not trigger push workflows.
-  workflow_run:
-    workflows: ["Process SPARQL TTL files"]
-    types: [completed]
   workflow_dispatch:
 
 permissions:

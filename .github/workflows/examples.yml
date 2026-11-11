@@ -1,0 +1,23 @@
+name: Examples
+
+# Checks the example .ttl files on every pull request and push. On master it also
+# publishes the examples-index branch that the SPARQL editor reads: index.json,
+# history.json, a snapshot per version, the combined Turtle file and .rq exports.
+# The tools come from wikipathways/Snorql-UI (tools/examples).
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+    tags: ['*']
+  workflow_dispatch:
+
+jobs:
+  examples:
+    uses: wikipathways/Snorql-UI/.github/workflows/examples-index.yml@feat/ttl-examples-index
+    with:
+      tools-ref: feat/ttl-examples-index
+      publish: ${{ github.event_name != 'pull_request' }}
+      sib-project: WikiPathways
+    permissions:
+      contents: write
