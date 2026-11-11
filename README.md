@@ -19,8 +19,10 @@ and renamed without breaking links.
 On every push to `master`, CI publishes the `examples-index` branch, which the editor
 reads; it also holds every past version of every example and plain `.rq` copies.
 
-The `.rq` files next to the `.ttl` files are the old format. They are kept only until the
-editor reads the new index, and are no longer edited.
+The examples used to be `.rq` files; the last commit with them is `fed6a2d`, which also has
+the scripts that converted them. Old links to an `.rq` path still open the right example, and
+the `rq/` folder of the `examples-index` branch has generated `.rq` copies for tools that read
+that format.
 
 ## License
 
