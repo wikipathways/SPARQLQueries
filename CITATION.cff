@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use these example queries, please cite them as below."
+title: "WikiPathways SPARQL examples"
+type: dataset
+abstract: >-
+  Example SPARQL queries for the WikiPathways SPARQL endpoint, each with a permanent
+  identifier, a version and metadata, in the format of SIB's sparql-examples.
+authors:
+  - family-names: Slenter
+    given-names: Denise
+    orcid: "https://orcid.org/0000-0001-8449-1318"
+  - family-names: Willighagen
+    given-names: Egon
+    orcid: "https://orcid.org/0000-0001-7542-0286"
+  - family-names: Winckers
+    given-names: Laurent
+  - family-names: Martens
+    given-names: Marvin
+    orcid: "https://orcid.org/0000-0003-2230-0840"
+  - name: "WikiPathways team"
+license: GPL-3.0-only
+repository-code: "https://github.com/wikipathways/SPARQLQueries"
+url: "https://sparql.wikipathways.org/"
+keywords:
+  - SPARQL
+  - WikiPathways
+  - RDF
+  - example queries
