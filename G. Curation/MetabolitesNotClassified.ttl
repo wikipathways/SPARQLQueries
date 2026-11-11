@@ -1,0 +1,41 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ051 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ051" ;
+    rdfs:label "Unclassified Metabolites"@en ;
+    rdfs:comment "Finds data nodes with a data source annotation that are not classified as metabolites, grouped by data source with counts sorted descending."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2020-10-09"^^xsd:date ;
+    dcterms:creator <https://github.com/laurent2207> ;
+    dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:Curation ;
+    schema:keywords "curation" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "G. Curation/MetabolitesNotClassified.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/G.%20Curation/MetabolitesNotClassified.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+prefix wp:      <http://vocabularies.wikipathways.org/wp#>
+prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+prefix dcterms:  <http://purl.org/dc/terms/>
+
+select (str(?datasourceLit) as ?datasource) (count(?identifier) as ?count)
+where {
+  ?mb dc:source ?datasourceLit ;
+    dcterms:identifier ?identifier .
+  FILTER NOT EXISTS { ?mb a wp:Metabolite }
+} group by ?datasourceLit
+order by desc(?count)""" .

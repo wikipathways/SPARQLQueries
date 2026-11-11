@@ -1,0 +1,72 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix spex: <https://purl.expasy.org/sparql-examples/ontology#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ059 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ059" ;
+    rdfs:label "Extracting Ontologies and References for Metabolic Reactions"@en ;
+    rdfs:comment "Retrieves ontology annotations, curation status, and literature references for directed metabolic reactions in human pathways as part of the DSMN workflow."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2023-11-10"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
+    dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:DSMN ;
+    schema:keywords "DSMN", "directed small molecules network" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:alias "I. DirectedSmallMoleculesNetwork (DSMN)/extracting ontologies and references for metabolic reactions.rq" ;
+    prov:wasDerivedFrom <https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/extracting%20ontologies%20and%20references%20for%20metabolic%20reactions.rq> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:parameter [
+        a sh:Parameter ;
+        sh:path param:species ;
+        sh:name "Species" ;
+        sh:defaultValue "Homo sapiens" ;
+        sh:datatype xsd:string ;
+        snorql:autocomplete "species" ;
+        sh:order 1
+    ] ;
+    sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+### Part 1: ###
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?PWOnt ?DiseaseOnt
+?curationstatus ?InteractionRef ?PWref ?sourceLit ?targetLit 
+WHERE {
+VALUES ?species { "Homo sapiens" }
+?pathway a wp:Pathway ; 
+         	wp:organismName ?species;
+         	dc:title ?titleLit . 
+?interaction dcterms:isPartOf ?pathway ; 
+   a wp:DirectedInteraction ; 
+   wp:source ?source ;
+   wp:target ?target . 
+?source a wp:Metabolite . 
+?source wp:bdbWikidata ?sourceDb . 
+?target a wp:Metabolite . 
+?target wp:bdbWikidata ?targetDb . 
+
+### Part 2: ###
+#OPTIONAL{?pathway wp:pathwayOntologyTag ?PWOnt} . 
+#OPTIONAL{?pathway wp:diseaseOntologyTag ?DiseaseOnt} . 
+
+### Part 3: ###
+#OPTIONAL{?pathway wp:ontologyTag ?curationstatus} . 
+
+### Part 4: ###
+OPTIONAL{?interaction dcterms:bibliographicCitation ?InteractionRef} . 
+OPTIONAL{?pathway dcterms:references ?PWref} . 
+OPTIONAL{?source dcterms:bibliographicCitation ?sourceLit} . 
+OPTIONAL{?target dcterms:bibliographicCitation ?targetLit} . 
+}""" .
