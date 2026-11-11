@@ -1,0 +1,24 @@
+@prefix schema: <https://schema.org/> .
+
+# Names for the creators and contributors of the examples (dcterms:creator and
+# dcterms:contributor). Use the ORCID IRI when the person has one, otherwise a
+# profile page such as their GitHub page. Add yourself here in the same pull
+# request as your first example.
+
+<https://orcid.org/0000-0001-8449-1318> a schema:Person ;
+    schema:name "Denise Slenter" ;
+    schema:sameAs <https://github.com/DeniseSl22> .
+
+<https://orcid.org/0000-0001-7542-0286> a schema:Person ;
+    schema:name "Egon Willighagen" ;
+    schema:sameAs <https://github.com/egonw> .
+
+<https://github.com/laurent2207> a schema:Person ;
+    schema:name "Laurent Winckers" .
+
+<https://orcid.org/0000-0003-2230-0840> a schema:Person ;
+    schema:name "Marvin Martens" ;
+    schema:sameAs <https://github.com/marvinm2> .
+
+<https://www.wikipathways.org/> a schema:Organization ;
+    schema:name "WikiPathways team" .

@@ -1,0 +1,67 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+
+# Categories of the examples. The query editor builds its tree of examples from
+# these: top-level categories in sh:order, subcategories through skos:broader.
+# An example names its category with dcterms:subject (more than one is fine).
+# Folders in this repository are only for keeping the files tidy.
+
+wpcat: a skos:ConceptScheme ;
+    skos:prefLabel "Categories of WikiPathways SPARQL examples"@en .
+
+wpcat:Metadata a skos:Concept ; skos:inScheme wpcat: ; sh:order 1 ;
+    skos:prefLabel "Metadata"@en .
+wpcat:DataCounts a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Metadata ; sh:order 1 ;
+    skos:prefLabel "Data counts"@en .
+wpcat:Species a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Metadata ; sh:order 2 ;
+    skos:prefLabel "Species"@en .
+
+wpcat:DataSources a skos:Concept ; skos:inScheme wpcat: ; sh:order 2 ;
+    skos:prefLabel "Data Sources"@en .
+
+wpcat:Communities a skos:Concept ; skos:inScheme wpcat: ; sh:order 3 ;
+    skos:prefLabel "Communities"@en .
+wpcat:InbornErrorsOfMetabolism a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Communities ; sh:order 1 ;
+    skos:prefLabel "Inborn Errors of Metabolism"@en .
+wpcat:Lipids a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Communities ; sh:order 2 ;
+    skos:prefLabel "Lipids"@en .
+wpcat:Reactome a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Communities ; sh:order 3 ;
+    skos:prefLabel "Reactome"@en .
+
+wpcat:Collaborations a skos:Concept ; skos:inScheme wpcat: ; sh:order 4 ;
+    skos:prefLabel "Collaborations"@en .
+wpcat:AOPWiki a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Collaborations ; sh:order 1 ;
+    skos:prefLabel "AOP-Wiki"@en .
+wpcat:MetaNetX a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Collaborations ; sh:order 2 ;
+    skos:prefLabel "MetaNetX"@en .
+wpcat:MolMeDB a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Collaborations ; sh:order 3 ;
+    skos:prefLabel "MolMeDB"@en .
+wpcat:neXtProt a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Collaborations ; sh:order 4 ;
+    skos:prefLabel "neXtProt"@en .
+wpcat:RheaIDSM a skos:Concept ; skos:inScheme wpcat: ; skos:broader wpcat:Collaborations ; sh:order 5 ;
+    skos:prefLabel "Rhea and IDSM"@en .
+
+wpcat:General a skos:Concept ; skos:inScheme wpcat: ; sh:order 5 ;
+    skos:prefLabel "General"@en .
+
+wpcat:Literature a skos:Concept ; skos:inScheme wpcat: ; sh:order 6 ;
+    skos:prefLabel "Literature"@en .
+
+wpcat:DataExport a skos:Concept ; skos:inScheme wpcat: ; sh:order 7 ;
+    skos:prefLabel "Data Export"@en .
+
+wpcat:Curation a skos:Concept ; skos:inScheme wpcat: ; sh:order 8 ;
+    skos:prefLabel "Curation"@en .
+
+wpcat:Chemistry a skos:Concept ; skos:inScheme wpcat: ; sh:order 9 ;
+    skos:prefLabel "Chemistry"@en .
+
+wpcat:Metabolites a skos:Concept ; skos:inScheme wpcat: ; sh:order 10 ;
+    skos:prefLabel "Metabolites"@en .
+
+wpcat:DSMN a skos:Concept ; skos:inScheme wpcat: ; sh:order 11 ;
+    skos:prefLabel "Directed Small Molecules Network (DSMN)"@en .
+
+wpcat:Authors a skos:Concept ; skos:inScheme wpcat: ; sh:order 12 ;
+    skos:prefLabel "Authors"@en .
