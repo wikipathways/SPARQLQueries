@@ -1,0 +1,46 @@
+name: Publish commit index
+
+# Publishes commits.json on the commit-index branch: the commits and tags on
+# master. The SPARQL editor uses it to check pinned example links (&ref=)
+# without GitHub's API rate limit.
+
+on:
+  push:
+    branches: [master]
+    tags: ['*']
+  # Commits pushed by "Process SPARQL TTL files" do not trigger push workflows.
+  workflow_run:
+    workflows: ["Process SPARQL TTL files"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: commit-index
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Write commits.json
+        run: |
+          git fetch --tags --force origin
+          python3 scripts/commit_index.py master "${{ github.repository }}" > "$RUNNER_TEMP/commits.json"
+          python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print(len(d['commits']), 'commits,', len(d['tags']), 'tags, head', d['head'])" "$RUNNER_TEMP/commits.json"
+      - name: Replace the commit-index branch
+        run: |
+          git config user.name 'GitHub Action'
+          git config user.email 'action@github.com'
+          git checkout --orphan commit-index
+          git rm -rfq .
+          cp "$RUNNER_TEMP/commits.json" commits.json
+          git add commits.json
+          git commit -qm "Commit index for master"
+          git push --force origin commit-index
