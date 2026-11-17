@@ -16,7 +16,7 @@ wpq:WPQ033 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:identifier "WPQ033" ;
     rdfs:label "Pathways for a PubChem Compound (MolMeDB)"@en ;
     rdfs:comment "Finds all human pathways containing a specific MolMeDB compound by resolving its PubChem identifier through the MolMeDB SPARQL endpoint. May be slower due to external endpoint dependency."@en ;
-    schema:version "1.0.0" ;
+    schema:version "1.1.0" ;
     dcterms:created "2021-11-12"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
     dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
@@ -45,7 +45,7 @@ PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
 SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE
 {
   SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {
-   <http://identifiers.org/molmedb/MM00431> skos:exactMatch ?COMPOUND.
+   <https://identifiers.org/molmedb/MM00431> skos:closeMatch ?COMPOUND.
    filter (strstarts(str(?COMPOUND), 'http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID'))
   }
   
