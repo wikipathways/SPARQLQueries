@@ -1,0 +1,45 @@
+{
+ "id": "WPQ027",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ027",
+ "label": "Reactome Pathways",
+ "description": "Lists all pathways tagged with the Reactome Approved curation tag.",
+ "version": "1.0.0",
+ "created": "2020-10-09",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Reactome"
+ ],
+ "keywords": [
+  "communities",
+  "Reactome"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/B.%20Communities/Reactome/getPathways.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway (str(?titleLit) as ?title)\nWHERE {\n  ?pathway wp:ontologyTag cur:Reactome_Approved ;\n           dc:title ?titleLit .\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "B. Communities/Reactome/getPathways.ttl",
+ "aliases": [
+  "B. Communities/Reactome/getPathways.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

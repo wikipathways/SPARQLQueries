@@ -1,0 +1,45 @@
+{
+ "id": "WPQ030",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ030",
+ "label": "References in WikiPathways but Not Reactome",
+ "description": "Counts publication references found in the WikiPathways Analysis Collection but not in Reactome-approved pathways.",
+ "version": "1.0.0",
+ "created": "2020-10-09",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Reactome"
+ ],
+ "keywords": [
+  "communities",
+  "Reactome"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/B.%20Communities/Reactome/refsWPNotReactome.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (COUNT(DISTINCT ?pubmed) AS ?count)\nWHERE {\n  ?pubmed a       wp:PublicationReference .\n  { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:AnalysisCollection }\n  MINUS { ?pubmed dcterms:isPartOf/wp:ontologyTag cur:Reactome_Approved }\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "B. Communities/Reactome/refsWPNotReactome.ttl",
+ "aliases": [
+  "B. Communities/Reactome/refsWPNotReactome.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

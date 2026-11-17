@@ -1,0 +1,50 @@
+{
+ "id": "WPQ016",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ016",
+ "label": "External Linkout Counts",
+ "description": "Counts the number of distinct entities linked to each external database (ChEBI, ChemSpider, HMDB, PubChem, Ensembl, NCBI Gene, HGNC, Rhea, UniProt).",
+ "version": "1.0.0",
+ "created": "2024-01-07",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+ ],
+ "keywords": [
+  "counts",
+  "metadata"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/56af22ea28b931bcc0f93575c2e65a5c585b8a12/A.%20Metadata/datacounts/linkoutCounts.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT ?pred (COUNT(DISTINCT ?entity) AS ?count) WHERE {\n  VALUES ?pred {\n    # metabolites\n    wp:bdbChEBI wp:bdbChemspider wp:bdbHmdb wp:bdbPubChem\n    # gene products\n    wp:bdbEnsembl wp:bdbEntrezGene wp:bdbHgncSymbol\n    # interactions\n    wp:bdbRhea wp:bdbUniprot\n  }\n  ?entity ?pred []\n} GROUP BY ?pred\n  ORDER BY DESC(?count)",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "A. Metadata/datacounts/linkoutCounts.ttl",
+ "aliases": [
+  "A. Metadata/datacounts/linkoutCounts.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

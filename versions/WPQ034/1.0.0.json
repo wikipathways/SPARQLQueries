@@ -1,0 +1,67 @@
+{
+ "id": "WPQ034",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ034",
+ "label": "PubChem Compound in Pathway Subset (MolMeDB)",
+ "description": "Checks a subset of pathways for the presence of a specific MolMeDB compound by querying the MolMeDB SPARQL endpoint. Uses nested federation with both MolMeDB and WikiPathways endpoints. May be slower due to external endpoint dependency.",
+ "version": "1.0.0",
+ "created": "2021-11-15",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/MolMeDB"
+ ],
+ "keywords": [
+  "collaborations",
+  "MolMeDB",
+  "PubChem"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [
+  "https://idsm.elixir-czech.cz/sparql/endpoint/molmedb",
+  "https://sparql.wikipathways.org/sparql"
+ ],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/C.%20Collaborations/MolMeDB/SUBSETpathways_ONEpubchem.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTitle) ((substr(str(?COMPOUND),46)) as ?PubChem) WHERE {\n  SERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/molmedb> {\n    SERVICE <https://sparql.wikipathways.org/sparql> {\n      VALUES ?wpid {\"WP4224\" \"WP4225\" \"WP4571\"}\n\n    ?gene a wp:Metabolite ;\n      dcterms:identifier ?id ;\n      dcterms:isPartOf ?pathwayRes ;\n      wp:bdbPubChem ?COMPOUND .\n\n    VALUES ?species { \"Homo sapiens\" }\n    ?pathwayRes a wp:Pathway ;\n      wp:organismName ?species ;\n      dcterms:identifier ?wpid ;\n      dc:title ?title .\n    }\n    \n    <http://identifiers.org/molmedb/MM00431> skos:exactMatch ?COMPOUND.\n  }\n}",
+ "params": [
+  {
+   "name": "species",
+   "variable": "species",
+   "label": "Species",
+   "description": null,
+   "order": 1,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "Homo sapiens",
+   "autocomplete": "species",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "C. Collaborations/MolMeDB/SUBSETpathways_ONEpubchem.ttl",
+ "aliases": [
+  "C. Collaborations/MolMeDB/SUBSETpathways_ONEpubchem.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

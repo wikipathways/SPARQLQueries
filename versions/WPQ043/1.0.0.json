@@ -1,0 +1,62 @@
+{
+ "id": "WPQ043",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ043",
+ "label": "References for an Interaction",
+ "description": "Returns publication references directly attached to interactions in a given pathway, along with the participating data node labels.",
+ "version": "1.0.0",
+ "created": "2020-10-11",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+ ],
+ "keywords": [
+  "literature"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/4431b11d148e0e1bcc3533e90b80225376c80d1a/E.%20Literature/referencesForInteraction.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway ?interaction ?pubmed\nWHERE {\n\n   VALUES ?pathwayId { <https://identifiers.org/wikipathways/WP5200> }\n   ?pathway a wp:Pathway ;\n      dc:identifier ?pathwayId . #filter for one pathway\n   ?interaction dcterms:isPartOf ?pathway ; \n      a wp:Interaction ;\n       dcterms:references ?pubmed ;\n      wp:participants ?participants .\n   ?participants a wp:DataNode ;\n      rdfs:label ?DataNodeLabel .  \n}",
+ "params": [
+  {
+   "name": "pathwayId",
+   "variable": "pathwayId",
+   "label": "Pathway ID",
+   "description": null,
+   "order": 1,
+   "kind": "iri",
+   "valueTemplate": "https://identifiers.org/wikipathways/{value}",
+   "default": "WP5200",
+   "autocomplete": "pathway",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "E. Literature/referencesForInteraction.ttl",
+ "aliases": [
+  "E. Literature/referencesForInteraction.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

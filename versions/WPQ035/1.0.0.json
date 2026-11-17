@@ -1,0 +1,54 @@
+{
+ "id": "WPQ035",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ035",
+ "label": "Molecular Similarity Reactions via Rhea and IDSM",
+ "description": "Finds structurally similar compounds for reaction sources and targets in a pathway by querying the IDSM structure search service for molecular similarity. May be slower due to external endpoint dependency.",
+ "version": "1.0.0",
+ "created": "2022-11-09",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/RheaIDSM"
+ ],
+ "keywords": [
+  "collaborations",
+  "IDSM",
+  "reaction",
+  "Rhea"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [
+  "https://idsm.elixir-czech.cz/sparql/endpoint/chebi"
+ ],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/2f50cac7505b9a201527cde7ad60e510508180a9/C.%20Collaborations/smallMolecules_Rhea_IDSM/molecularSimularity_Reactions.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX ebi: <http://ebi.rdf.ac.uk/dataset/>\nPREFIX sachem: <http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#>\nPREFIX idsm: <https://idsm.elixir-czech.cz/sparql/endpoint/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX sso: <http://semanticscience.org/resource/>\nPREFIX rh:<http://rdf.rhea-db.org/>\nPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>\n\nSELECT distinct ?chebioSrc ?similarSrc ?chebioTgt ?similarTgt ?reaction WHERE {\n  ?interaction dcterms:isPartOf ?pathway ; a wp:Conversion ;\n      wp:source ?source ;\n      wp:target ?target .\n    ?source wp:bdbChEBI ?chebiSrc .\n    ?target wp:bdbChEBI ?chebiTgt .\n    ?pathway dcterms:identifier \"WP4225\".\n    BIND(iri(concat(\"http://purl.obolibrary.org/obo/CHEBI_\", substr(str(?chebiSrc),37))) AS ?chebioSrc)\n    BIND(iri(concat(\"http://purl.obolibrary.org/obo/CHEBI_\", substr(str(?chebiTgt),37))) AS ?chebioTgt)\n\n\n#IDSM\nSERVICE <https://idsm.elixir-czech.cz/sparql/endpoint/chebi> {\n  \n   ?chebioSrc ^sso:is-attribute-of / sso:has-value ?molfileSrc .\n ?chebioTgt ^sso:is-attribute-of / sso:has-value ?molfileTgt .\n  [ sachem:compound ?similarSrc; sachem:score ?scoreSrc ]\n    sachem:similaritySearch [\n      sachem:query ?molfileSrc ;\n#     sachem:cutoff \"0.98\"^^xsd:double\n    ].\n  [ sachem:compound ?similarTgt; sachem:score ?scoreTgt ]\n    sachem:similaritySearch [\n      sachem:query ?molfileTgt ;\n#      sachem:cutoff \"0.98\"^^xsd:double\n    ].\n  }\n  \n#   SERVICE <https://sparql.rhea-db.org/sparql> {\n#    ?reaction rh:side / rh:contains / rh:compound / rh:chebi ?similarSrc , ?similarTgt .\n#    ?reaction rdfs:subClassOf rh:Reaction .\n#  }  \n  \n }",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "C. Collaborations/smallMolecules_Rhea_IDSM/molecularSimularity_Reactions.ttl",
+ "aliases": [
+  "C. Collaborations/smallMolecules_Rhea_IDSM/molecularSimularity_Reactions.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

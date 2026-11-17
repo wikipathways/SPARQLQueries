@@ -1,0 +1,43 @@
+{
+ "id": "WPQ007",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ007",
+ "label": "Pathways and Their Species",
+ "description": "List pathways and their species.",
+ "version": "1.0.0",
+ "created": "2024-10-20",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species"
+ ],
+ "keywords": [
+  "organism"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/007.ttl",
+  "https://www.wikipathways.org/sparql.html"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\n\nSELECT DISTINCT (str(?title) as ?pathway) (str(?label) as ?organism)\nWHERE {\n    ?pw dc:title ?title ;\n      wp:organismName ?label .\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "A. Metadata/species/PathwaysAndSpecies.ttl",
+ "aliases": [],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

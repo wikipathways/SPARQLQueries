@@ -1,0 +1,53 @@
+{
+ "id": "WPQ053",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ053",
+ "label": "Pathways Without Data Nodes",
+ "description": "Finds pathways that contain no data nodes, indicating empty or incomplete pathway entries that may need curation.",
+ "version": "1.0.0",
+ "created": "2020-10-09",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://github.com/laurent2207",
+   "name": "Laurent Winckers"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  },
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+ ],
+ "keywords": [
+  "curation"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/G.%20Curation/PWsWithoutDatanodes.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nprefix wp:      <http://vocabularies.wikipathways.org/wp#>\nprefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>\nprefix dcterms: <http://purl.org/dc/terms/>\nprefix xsd:     <http://www.w3.org/2001/XMLSchema#>\n\nSELECT DISTINCT ?pathway\nWHERE{\n?pathway a wp:Pathway, skos:Collection .\nFILTER NOT EXISTS {?node dcterms:isPartOf ?pathway.\n?node a wp:DataNode}\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "G. Curation/PWsWithoutDatanodes.ttl",
+ "aliases": [
+  "G. Curation/PWsWithoutDatanodes.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

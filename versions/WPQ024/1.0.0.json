@@ -1,0 +1,53 @@
+{
+ "id": "WPQ024",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ024",
+ "label": "LIPID MAPS Federated Query",
+ "description": "Retrieves lipid names, formulas, and associated pathways for a specific LIPID MAPS category by querying the LIPID MAPS SPARQL endpoint. May be slower due to external endpoint dependency.",
+ "version": "1.0.0",
+ "created": "2023-02-13",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Lipids"
+ ],
+ "keywords": [
+  "communities",
+  "LIPID MAPS",
+  "lipids"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [
+  "https://lipidmaps.org/sparql"
+ ],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/769e44d643956539cbb80185e3de0477ad3d4d45/B.%20Communities/Lipids/LIPIDMAPS_Federated.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX chebi: <http://purl.obolibrary.org/obo/chebi/>\n\nSELECT ?lipid ?name ?formula ?lmid (GROUP_CONCAT(?wpid_;separator=\", \") AS ?pathway)\nWHERE {\n  SERVICE <https://lipidmaps.org/sparql> {\n    VALUES ?category { <https://www.lipidmaps.org/rdf/category/112> <https://www.lipidmaps.org/rdf/category/11200> } \n    ?lipidmaps rdfs:label ?name ;\n      rdfs:subClassOf* ?category ;\n      chebi:formula ?formula .\n  }\n  BIND (IRI(CONCAT(\"https://identifiers.org/lipidmaps/\",\n               SUBSTR(STR(?lipidmaps), 31))) AS ?lmid)\n  ?lipid wp:bdbLipidMaps ?lmid ;\n         dcterms:isPartOf ?pw .\n  ?pw a wp:Pathway ; dcterms:identifier ?wpid_ .\n}\nGROUP BY ?lipid ?name ?formula ?lmid",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "B. Communities/Lipids/LIPIDMAPS_Federated.ttl",
+ "aliases": [
+  "B. Communities/Lipids/LIPIDMAPS_Federated.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

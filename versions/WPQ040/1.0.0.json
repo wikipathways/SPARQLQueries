@@ -1,0 +1,49 @@
+{
+ "id": "WPQ040",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ040",
+ "label": "All Pathways with PubMed References",
+ "description": "Lists pathways that have associated PubMed publication references, returning pathway and PubMed identifiers ordered by pathway.",
+ "version": "1.0.0",
+ "created": "2020-10-09",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Literature"
+ ],
+ "keywords": [
+  "literature"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/E.%20Literature/allPathwayswithPubMed.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathway ?pubmed\nWHERE\n     {?pubmed a       wp:PublicationReference .\n      ?pubmed dcterms:isPartOf ?pathway }\nORDER BY ?pathway\nLIMIT 50",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "E. Literature/allPathwayswithPubMed.ttl",
+ "aliases": [
+  "E. Literature/allPathwayswithPubMed.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}
