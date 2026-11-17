@@ -2,6 +2,9 @@
 @prefix schema: <https://schema.org/> .
 @prefix snorql: <https://w3id.org/snorql/ns#> .
 @prefix void: <http://rdfs.org/ns/void#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # The collection of WikiPathways SPARQL examples in this repository. Every example
 # has a permanent identifier WPQnnn; its IRI is the uriSpace below followed by the
@@ -15,3 +18,18 @@
     dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
     void:uriSpace "https://sparql.wikipathways.org/.well-known/sparql-examples/" ;
     snorql:identifierPrefix "WPQ" .
+
+# Labels for the classes the examples graph uses. Rating services such as YummyData score
+# every named graph of the endpoint and count a graph as described only when its classes
+# carry an rdfs:label somewhere on the endpoint.
+sh:SPARQLExecutable rdfs:label "SPARQL executable"@en .
+sh:SPARQLSelectExecutable rdfs:label "SPARQL SELECT executable"@en .
+sh:SPARQLAskExecutable rdfs:label "SPARQL ASK executable"@en .
+sh:SPARQLConstructExecutable rdfs:label "SPARQL CONSTRUCT executable"@en .
+sh:Parameter rdfs:label "parameter"@en .
+skos:Concept rdfs:label "concept"@en .
+skos:ConceptScheme rdfs:label "concept scheme"@en .
+schema:Dataset rdfs:label "dataset"@en .
+schema:Person rdfs:label "person"@en .
+schema:Organization rdfs:label "organization"@en .
+snorql:ExampleCollection rdfs:label "example collection"@en .
