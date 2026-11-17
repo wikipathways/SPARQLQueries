@@ -16,7 +16,7 @@ wpq:WPQ019 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:identifier "WPQ019" ;
     rdfs:label "Community Proteins"@en ;
     rdfs:comment "Lists all proteins found in pathways tagged with a selected community."@en ;
-    schema:version "1.0.0" ;
+    schema:version "1.1.0" ;
     dcterms:created "2026-03-30"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0003-2230-0840> ;
     dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
@@ -30,7 +30,7 @@ wpq:WPQ019 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
         a sh:Parameter ;
         sh:path param:community ;
         sh:name "Community" ;
-        sh:defaultValue "AOP" ;
+        sh:defaultValue "CPTAC" ;
         sh:nodeKind sh:IRI ;
         snorql:valueTemplate "http://vocabularies.wikipathways.org/wp#Curation:{value}" ;
         snorql:autocomplete "community" ;
@@ -42,7 +42,7 @@ PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
 
 SELECT DISTINCT ?pathway (str(?label) AS ?Protein)
 WHERE {
-  VALUES ?community { <http://vocabularies.wikipathways.org/wp#Curation:AOP> }
+  VALUES ?community { <http://vocabularies.wikipathways.org/wp#Curation:CPTAC> }
   ?pathway wp:ontologyTag ?community ;
     a wp:Pathway .
   ?protein a wp:Protein ;

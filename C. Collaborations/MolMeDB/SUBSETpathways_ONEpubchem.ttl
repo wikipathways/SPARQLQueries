@@ -16,7 +16,7 @@ wpq:WPQ034 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:identifier "WPQ034" ;
     rdfs:label "PubChem Compound in Pathway Subset (MolMeDB)"@en ;
     rdfs:comment "Checks a subset of pathways for the presence of a specific MolMeDB compound by querying the MolMeDB SPARQL endpoint. Uses nested federation with both MolMeDB and WikiPathways endpoints. May be slower due to external endpoint dependency."@en ;
-    schema:version "1.0.0" ;
+    schema:version "1.1.0" ;
     dcterms:created "2021-11-15"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
     dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
@@ -60,6 +60,6 @@ SELECT DISTINCT ?pathwayRes (str(?wpid) as ?pathway) (str(?title) as ?pathwayTit
       dc:title ?title .
     }
     
-    <http://identifiers.org/molmedb/MM00431> skos:exactMatch ?COMPOUND.
+    <https://identifiers.org/molmedb/MM00431> skos:closeMatch ?COMPOUND.
   }
 }""" .
