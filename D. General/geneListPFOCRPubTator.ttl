@@ -27,9 +27,6 @@ wpq:WPQ086 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
         sh:name "Species" ;
         sh:defaultValue "Homo sapiens" ;
         sh:datatype xsd:string ;
-        snorql:variable "organism" ;
-        snorql:valueTemplate "http://purl.obolibrary.org/obo/NCBITaxon_9606" ;
-        sh:nodeKind sh:IRI ;
         snorql:autocomplete "species" ;
         sh:order 1
     ] ;
@@ -46,12 +43,12 @@ SELECT
   (GROUP_CONCAT(DISTINCT ?symbol; separator=", ") AS ?hgncSymbols)
   (GROUP_CONCAT(DISTINCT ?ncbiId; separator=", ") AS ?ncbiGeneIds)
 WHERE {
-  VALUES ?organism { <http://purl.obolibrary.org/obo/NCBITaxon_9606> }
+  VALUES ?species { "Homo sapiens" }
 
   ?pathwayRDF a wp:Pathway ;
       dcterms:identifier ?wpid ;
       dc:title ?titleLit ;
-      wp:organism ?organism .
+      wp:organismName ?species .
 
   OPTIONAL {
     ?gene a wp:GeneProduct ;
