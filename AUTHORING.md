@@ -119,11 +119,19 @@ and in the query `VALUES ?species { "Homo sapiens" }` next to the triple pattern
 - **IRI values:** use `sh:nodeKind sh:IRI` and a template, e.g.
   `snorql:valueTemplate "https://identifiers.org/wikipathways/{value}"`. The user types
   `WP1560`; the `VALUES` block holds `<https://identifiers.org/wikipathways/WP1560>`.
+  The template must contain `{value}` exactly once, and CI rejects it otherwise: without the
+  placeholder every value substitutes to the same IRI, so the parameter does nothing.
 - **A fixed list:** one `snorql:option [ rdf:value "DataNode" ; rdfs:label "Data Nodes" ; sh:order 1 ]`
   per allowed value (combine with a template for class or property names, e.g.
   `"http://vocabularies.wikipathways.org/wp#{value}"`).
 - **A different variable name:** `snorql:variable "pathway"` when the `VALUES` block binds
   `?pathway` but the parameter is called `pathwayId`.
+- **An autocomplete list decides the shape of the value.** `snorql:autocomplete "species"`
+  offers organism names from `wp:organismName`, not taxon identifiers, so a species parameter
+  is a plain string matched with `wp:organismName ?species`; there is no template that turns
+  `Homo sapiens` into `NCBITaxon_9606`. `"pathway"` offers `WPnnnn` identifiers, which a
+  template can turn into an IRI. Check what the list returns (Snorql-UI
+  `assets/js/config.js`, `autocompleteTypes`) before choosing `sh:nodeKind` and a template.
 - Names `example`, `ref`, `version`, `endpoint` and `q` are taken by the editor's links.
 - Where the `VALUES` block sits matters to Virtuoso: put it next to the patterns that use the
   variable, after any `SERVICE` call in the same group (Virtuoso rejects a `VALUES` block
@@ -131,8 +139,9 @@ and in the query `VALUES ?species { "Homo sapiens" }` next to the triple pattern
 
 ## Versions
 
-Each example has its own version. Raise it in every pull request that changes the example;
-CI checks this.
+Each example has its own version. A new example starts at `1.0.0` (CI does not check this, so
+it is easy to publish a first version as something else). Raise the version in every pull
+request that changes the example; CI checks that.
 
 - **PATCH** (1.0.0 → 1.0.1): metadata only (title, description, keywords, category, ...).
 - **MINOR** (1.0.1 → 1.1.0): the query or its parameters changed, same result columns.
