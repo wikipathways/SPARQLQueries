@@ -1,0 +1,76 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ086 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ086" ;
+    rdfs:label "Genes as HGNC symbol and NCBI gene IDs per pathway"@en ;
+    rdfs:comment "Lists, for every pathway of a species, the HGNC symbols and NCBI gene identifiers of its gene products as two comma-separated sets. This output can be used to compare against existing gene list, e.g. from PubTator or PFOCR. The query also retrieves a count of each database and of the gene product nodes that carry neither cross-reference. The symbols and identifiers are independent sets, not aligned pairs, because a node may carry one cross-reference and not the other. There is deliberately no ORDER BY: sorting makes Virtuoso store the concatenated lists in a temporary column capped at about 2000 characters, which the largest pathways exceed (SR319)."@en ;
+    schema:version "3.0.0" ;
+    dcterms:created "2026-11-26"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:DataExport ;
+    schema:keywords "gene", "pathway", "HGNC", "NCBI gene", "cross-reference", "PFOCR", "PubTator", "genelist" ;
+    schema:educationalLevel "intermediate" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:parameter [
+        a sh:Parameter ;
+        sh:path param:species ;
+        sh:name "Species" ;
+        sh:defaultValue "Homo sapiens" ;
+        sh:datatype xsd:string ;
+        snorql:variable "organism" ;
+        snorql:valueTemplate "http://purl.obolibrary.org/obo/NCBITaxon_9606" ;
+        sh:nodeKind sh:IRI ;
+        snorql:autocomplete "species" ;
+        sh:order 1
+    ] ;
+    sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT
+  ?wpid
+  (STR(?titleLit) AS ?title)
+  (COUNT(DISTINCT ?unannotated) AS ?unannotatedNodeCount)
+  (COUNT(DISTINCT ?symbol) AS ?hgncCount)
+  (COUNT(DISTINCT ?ncbiId) AS ?ncbiCount)
+  (GROUP_CONCAT(DISTINCT ?symbol; separator=", ") AS ?hgncSymbols)
+  (GROUP_CONCAT(DISTINCT ?ncbiId; separator=", ") AS ?ncbiGeneIds)
+WHERE {
+  VALUES ?organism { <http://purl.obolibrary.org/obo/NCBITaxon_9606> }
+
+  ?pathwayRDF a wp:Pathway ;
+      dcterms:identifier ?wpid ;
+      dc:title ?titleLit ;
+      wp:organism ?organism .
+
+  OPTIONAL {
+    ?gene a wp:GeneProduct ;
+        dcterms:isPartOf ?pathwayRDF .
+    OPTIONAL {
+      ?gene wp:bdbHgncSymbol ?symbolIri .
+      BIND(REPLACE(STR(?symbolIri), "^.*[/#:]", "") AS ?symbol)
+    }
+    OPTIONAL {
+      ?gene wp:bdbEntrezGene ?ncbiIri .
+      BIND(REPLACE(STR(?ncbiIri), "^.*[/#:]", "") AS ?ncbiId)
+    }
+  }
+
+  OPTIONAL {
+    ?unannotated a wp:GeneProduct ;
+        dcterms:isPartOf ?pathwayRDF .
+    FILTER NOT EXISTS { ?unannotated wp:bdbHgncSymbol [] }
+    FILTER NOT EXISTS { ?unannotated wp:bdbEntrezGene [] }
+  }
+}
+GROUP BY ?wpid ?titleLit""" .
