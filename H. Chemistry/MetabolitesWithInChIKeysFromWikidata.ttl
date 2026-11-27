@@ -20,6 +20,7 @@ wpq:WPQ075 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:created "2026-11-10"^^xsd:date ;
     dcterms:creator <https://www.wikipathways.org/> ;
     dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:contributor <https://orcid.org/0000-0001-8449-1318> ;
     dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
     dcterms:subject wpcat:Chemistry ;
     schema:keywords "InChIKey", "metabolite", "Wikidata" ;
