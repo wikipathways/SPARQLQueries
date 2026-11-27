@@ -15,8 +15,8 @@
 wpq:WPQ075 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:identifier "WPQ075" ;
     rdfs:label "Metabolites with InChIKeys from Wikidata"@en ;
-    rdfs:comment "Lists metabolites in WikiPathways with their Wikidata identifier and fetches their InChIKey from Wikidata. Limited to 50 metabolites. Uses a federated SERVICE call; may be slow depending on endpoint availability."@en ;
-    schema:version "1.0.0" ;
+    rdfs:comment "Lists metabolites in WikiPathways with their Wikidata identifier and fetches their InChIKey from Wikidata, through the QLever Wikidata endpoint. Limited to 10 metabolites. Uses a federated SERVICE call; may be slow depending on endpoint availability."@en ;
+    schema:version "1.1.0" ;
     dcterms:created "2026-11-10"^^xsd:date ;
     dcterms:creator <https://www.wikipathways.org/> ;
     dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
