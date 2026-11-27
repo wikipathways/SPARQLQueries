@@ -12,8 +12,8 @@
 wpq:WPQ087 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:identifier "WPQ087" ;
     rdfs:label "Ontology terms and their ancestors per pathway"@en ;
-    rdfs:comment "List for every pathway of one species (to avoid timeouts) its ontology annotations as comma-separated sets. Results are split by ontology and retrieve IDs, labels, and upstream terms for the Pathway Ontology (PW), Human Disease Ontology (DOID), and Cell Type Ontology (CL)."@en ;
-    schema:version "5.0.0" ;
+    rdfs:comment "Lists for every pathway of one species (to avoid timeouts) its ontology annotations, each column a set of values separated by a vertical bar (labels can contain commas). Results are split by ontology and retrieve IDs, labels, and upstream terms for the Pathway Ontology (PW), Human Disease Ontology (DOID), and Cell Ontology (CL)."@en ;
+    schema:version "1.0.0" ;
     dcterms:created "2026-11-26"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
     dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
@@ -41,15 +41,15 @@ PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
 SELECT
   ?wpid
   (STR(?titleLit) AS ?title)
-  (GROUP_CONCAT(DISTINCT ?pwTerm;       separator=",") AS ?pathwayOntologyIds)
-  (GROUP_CONCAT(DISTINCT ?pwLabel;      separator=",") AS ?pathwayOntologyLabels)
-  (GROUP_CONCAT(DISTINCT ?pwAncestor;   separator=",") AS ?pathwayOntologyAncestors)
-  (GROUP_CONCAT(DISTINCT ?doidTerm;     separator=",") AS ?diseaseOntologyIds)
-  (GROUP_CONCAT(DISTINCT ?doidLabel;    separator=",") AS ?diseaseOntologyLabels)
-  (GROUP_CONCAT(DISTINCT ?doidAncestor; separator=",") AS ?diseaseOntologyAncestors)
-  (GROUP_CONCAT(DISTINCT ?clTerm;       separator=",") AS ?cellTypeOntologyIds)
-  (GROUP_CONCAT(DISTINCT ?clLabel;      separator=",") AS ?cellTypeOntologyLabels)
-  (GROUP_CONCAT(DISTINCT ?clAncestor;   separator=",") AS ?cellTypeOntologyAncestors)
+  (GROUP_CONCAT(DISTINCT ?pwTerm;       separator=" | ") AS ?pathwayOntologyIds)
+  (GROUP_CONCAT(DISTINCT ?pwLabel;      separator=" | ") AS ?pathwayOntologyLabels)
+  (GROUP_CONCAT(DISTINCT ?pwAncestor;   separator=" | ") AS ?pathwayOntologyAncestors)
+  (GROUP_CONCAT(DISTINCT ?doidTerm;     separator=" | ") AS ?diseaseOntologyIds)
+  (GROUP_CONCAT(DISTINCT ?doidLabel;    separator=" | ") AS ?diseaseOntologyLabels)
+  (GROUP_CONCAT(DISTINCT ?doidAncestor; separator=" | ") AS ?diseaseOntologyAncestors)
+  (GROUP_CONCAT(DISTINCT ?clTerm;       separator=" | ") AS ?cellTypeOntologyIds)
+  (GROUP_CONCAT(DISTINCT ?clLabel;      separator=" | ") AS ?cellTypeOntologyLabels)
+  (GROUP_CONCAT(DISTINCT ?clAncestor;   separator=" | ") AS ?cellTypeOntologyAncestors)
 
 WHERE {
   VALUES ?species { "Homo sapiens" }
@@ -63,7 +63,7 @@ WHERE {
     VALUES ?ontologyPrefix {
       "http://purl.obolibrary.org/obo/PW_"      # Pathway Ontology
       "http://purl.obolibrary.org/obo/DOID_"    # Human Disease Ontology
-      "http://purl.obolibrary.org/obo/CL_"      # Cell Type Ontology
+      "http://purl.obolibrary.org/obo/CL_"      # Cell Ontology
     }
 
     ?pathwayRDF wp:ontologyTag ?ontoTag .
