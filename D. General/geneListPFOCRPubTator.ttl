@@ -16,7 +16,7 @@ wpq:WPQ086 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:created "2026-11-26"^^xsd:date ;
     dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
     dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
-    dcterms:subject wpcat:DataExport ;
+    dcterms:subject wpcat:General ;
     schema:keywords "gene", "pathway", "HGNC", "NCBI gene", "cross-reference", "PFOCR", "PubTator", "genelist" ;
     schema:educationalLevel "intermediate" ;
     schema:target <https://sparql.wikipathways.org/sparql> ;
