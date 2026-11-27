@@ -25,7 +25,7 @@ wpq:WPQ075 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:subject wpcat:Chemistry ;
     schema:keywords "InChIKey", "metabolite", "Wikidata" ;
     schema:target <https://sparql.wikipathways.org/sparql> ;
-    spex:federatesWith <https://query.wikidata.org/sparql> ;
+    spex:federatesWith <https://qlever.cs.uni-freiburg.de/api/wikidata> ;
     prov:wasDerivedFrom <https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/075.ttl> ;
     prov:wasDerivedFrom <https://www.wikipathways.org/federated.html> ;
     snorql:expect [ snorql:minResults 1 ] ;
