@@ -1,0 +1,56 @@
+{
+ "id": "WPQ075",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ075",
+ "label": "Metabolites with InChIKeys from Wikidata",
+ "description": "Lists metabolites in WikiPathways with their Wikidata identifier and fetches their InChIKey from Wikidata, through the QLever Wikidata endpoint. Limited to 10 metabolites. Uses a federated SERVICE call; may be slow depending on endpoint availability.",
+ "version": "1.1.0",
+ "created": "2026-11-10",
+ "modified": "2026-11-27",
+ "creators": [
+  {
+   "iri": "https://www.wikipathways.org/",
+   "name": "WikiPathways team"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  },
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Chemistry"
+ ],
+ "keywords": [
+  "InChIKey",
+  "metabolite",
+  "Wikidata"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [
+  "https://qlever.cs.uni-freiburg.de/api/wikidata"
+ ],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/075.ttl",
+  "https://www.wikipathways.org/federated.html"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?metabolite ?wikidata ?inchikey WHERE {\n  {\n    SELECT ?metabolite ?wikidata WHERE {\n      ?metabolite a wp:Metabolite ;\n        wp:bdbWikidata ?wikidata .\n    } LIMIT 10\n  }\n  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {\n    ?wikidata wdt:P235 ?inchikey .\n  }\n} ",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "H. Chemistry/MetabolitesWithInChIKeysFromWikidata.ttl",
+ "aliases": [],
+ "commit": "a9213f03bc329eb8b4895b43ebd226250bf5e319"
+}

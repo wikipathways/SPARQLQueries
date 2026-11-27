@@ -1,0 +1,46 @@
+{
+ "id": "WPQ084",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ084",
+ "label": "Protein Cellular Location via neXtProt",
+ "description": "Retrieves subcellular locations for proteins in Rett syndrome pathways by querying the neXtProt SPARQL endpoint for gold-quality cellular component annotations. May be slower due to external endpoint dependency. The neXtProt SPARQL endpoint has been archived (it redirects to expasy.org/archives/nextprot), so this query no longer works.",
+ "version": "1.0.0",
+ "created": "2020-10-06",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/neXtProt"
+ ],
+ "keywords": [
+  "collaborations",
+  "neXtProt",
+  "protein"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [
+  "https://api.nextprot.org/sparql"
+ ],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/C.%20Collaborations/neXtProt/ProteinCellularLocation.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": true,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX : <http://nextprot.org/rdf#>\nselect distinct  ?pathwayname ?entry (str(?gen) as ?gene) (group_concat(distinct str(?loclab); SEPARATOR = \",\") as ?locations) where {\n  {?geneProduct a wp:Protein}\n   union\n  {?geneProduct a wp:GeneProduct}\n  ?geneProduct rdfs:label ?gen .\n  filter(!regex(?gen,\"[ a-z-]\")).\n  ?geneProduct dcterms:isPartOf ?pathway .\n  ?pathway a wp:Pathway .\n  ?pathway wp:organism ?organism .\n  filter(contains(str(?organism),\"9606\")) \n  ?pathway dc:title ?pathwayname .\n  filter(regex(?pathwayname,\"Rett\")).\n  service <https://api.nextprot.org/sparql> {\n    ?entry a :Entry ;\n     :gene / :name ?gen ;\n     :isoform ?iso.\n    ?iso :cellularComponent ?locannot .\n    ?locannot :term ?locterm .\n    ?locterm rdfs:label ?loclab .\n    ?locannot :evidence ?locev .\n    ?locev :quality :GOLD .\n  }}\ngroup by ?pathwayname ?entry ?gen\norder by ?pathwayname",
+ "params": [],
+ "expect": null,
+ "path": "C. Collaborations/neXtProt/ProteinCellularLocation.ttl",
+ "aliases": [
+  "C. Collaborations/neXtProt/ProteinCellularLocation.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

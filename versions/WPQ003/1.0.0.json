@@ -1,0 +1,49 @@
+{
+ "id": "WPQ003",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ003",
+ "label": "SPARQL Prefixes",
+ "description": "Lists all namespace prefixes declared in the WikiPathways SPARQL endpoint via SHACL prefix declarations.",
+ "version": "1.0.0",
+ "created": "2024-11-12",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Metadata"
+ ],
+ "keywords": [
+  "metadata"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/e7888dc71b1cb7fb1540decc7e1f8f8a29848bfa/A.%20Metadata/prefixes.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX sh: <http://www.w3.org/ns/shacl#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?prefix ?namespace WHERE {\n  [] sh:declare [\n    sh:prefix ?prefix ;\n    sh:namespace ?namespace\n  ] .\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "A. Metadata/prefixes.ttl",
+ "aliases": [
+  "A. Metadata/prefixes.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

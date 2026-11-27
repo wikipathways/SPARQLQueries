@@ -1,0 +1,51 @@
+{
+ "id": "WPQ022",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ022",
+ "label": "IEM Proteins, Metabolites, Rhea, and Diseases",
+ "description": "Summarizes IEM community pathways with counts of proteins, metabolites, Rhea reaction annotations, missing Rhea IDs, and linked OMIM disease identifiers per pathway.",
+ "version": "1.0.0",
+ "created": "2022-11-08",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/InbornErrorsOfMetabolism"
+ ],
+ "keywords": [
+  "communities",
+  "inborn errors of metabolism",
+  "metabolism"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/B.%20Communities/Inborn%20Errors%20of%20Metabolism/countProteinsMetabolitesRheaDiseases.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX gpml: <http://vocabularies.wikipathways.org/gpml#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX wp:      <http://vocabularies.wikipathways.org/wp#>\nPREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX dcterms: <http://purl.org/dc/terms/>\n\n#Variable selection\nSELECT DISTINCT (str(?title) as ?pathwayName) ?PWID \n(count(distinct ?geneProduct) AS ?ProteinsInPWs) (count(distinct ?metaboliteNode) AS ?MetabolitesInPWs) \n(count(distinct ?interactionID) AS ?RheaInPWs) (count(distinct ?interactionMissing) AS ?NoRheaInPWs)\n(count(distinct ?omim) as ?diseaseIDs)\n\nWHERE {\n\n    ?pathway wp:ontologyTag cur:IEM . \n    ?pathway dcterms:identifier ?PWID. #Obtain the ID\n    ?pathway wp:isAbout ?gpmlRDF_ID . #find the corresponding GPML link     \n    ?pathway dc:title ?title . #Obtain the title   \n\n    {\n    ?geneProduct dcterms:isPartOf ?pathway . #Only those part of PW             \n    ?geneProduct a wp:Protein . #Filter for Protein DataNodes    \n    } \n    UNION\n    { \n    ?metaboliteNode a wp:Metabolite . #Filter for Metabolite DataNodes\n    ?metaboliteNode dcterms:isPartOf ?pathway . #Only those part of PW\n    }\n    UNION \n    { \n    OPTIONAL{?interaction wp:bdbRhea ?interactionID . #Find interactions with a Rhea ID\n    ?interaction dcterms:isPartOf ?pathway .} #Only those part of PW\n    }\n    UNION\n    {\n    OPTIONAL{?interactionMissing dcterms:isPartOf ?pathway . #Find additional interactions\n    ?interactionMissing rdf:type wp:Conversion . #That are of type 'metabolic conversion'\n    FILTER NOT EXISTS {?interactionMissing wp:bdbRhea ?interactionID . } #Without a Rhea ID   \n    }  \n    }\n    UNION {\n    ?diseaseNode dcterms:isPartOf ?gpmlRDF_ID . #Only check for matching pathways \n    ?diseaseNode rdf:type gpml:Label . #Only include textLabels\n    ?diseaseNode gpml:href ?omim . #That have an href attribute  \n    FILTER regex(?omim, \"omim.org\", \"i\") #Only keep hrefs if they contain 'omim.org'\n    }\n      \n} GROUP BY ?pathway ?title ?PWID\nORDER BY ASC(?pathway)",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "B. Communities/Inborn Errors of Metabolism/countProteinsMetabolitesRheaDiseases.ttl",
+ "aliases": [
+  "B. Communities/Inborn Errors of Metabolism/countProteinsMetabolitesRheaDiseases.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

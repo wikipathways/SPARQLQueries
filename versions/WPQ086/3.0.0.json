@@ -1,0 +1,60 @@
+{
+ "id": "WPQ086",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ086",
+ "label": "Genes as HGNC symbol and NCBI gene IDs per pathway",
+ "description": "Lists, for every pathway of a species, the HGNC symbols and NCBI gene identifiers of its gene products as two comma-separated sets. This output can be used to compare against existing gene list, e.g. from PubTator or PFOCR. The query also retrieves a count of each database and of the gene product nodes that carry neither cross-reference. The symbols and identifiers are independent sets, not aligned pairs, because a node may carry one cross-reference and not the other. There is deliberately no ORDER BY: sorting makes Virtuoso store the concatenated lists in a temporary column capped at about 2000 characters, which the largest pathways exceed (SR319).",
+ "version": "3.0.0",
+ "created": "2026-11-26",
+ "modified": "2026-11-26",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataExport"
+ ],
+ "keywords": [
+  "cross-reference",
+  "gene",
+  "genelist",
+  "HGNC",
+  "NCBI gene",
+  "pathway",
+  "PFOCR",
+  "PubTator"
+ ],
+ "level": "intermediate",
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT\n  ?wpid\n  (STR(?titleLit) AS ?title)\n  (COUNT(DISTINCT ?unannotated) AS ?unannotatedNodeCount)\n  (COUNT(DISTINCT ?symbol) AS ?hgncCount)\n  (COUNT(DISTINCT ?ncbiId) AS ?ncbiCount)\n  (GROUP_CONCAT(DISTINCT ?symbol; separator=\", \") AS ?hgncSymbols)\n  (GROUP_CONCAT(DISTINCT ?ncbiId; separator=\", \") AS ?ncbiGeneIds)\nWHERE {\n  VALUES ?species { \"Homo sapiens\" }\n\n  ?pathwayRDF a wp:Pathway ;\n      dcterms:identifier ?wpid ;\n      dc:title ?titleLit ;\n      wp:organismName ?species .\n\n  OPTIONAL {\n    ?gene a wp:GeneProduct ;\n        dcterms:isPartOf ?pathwayRDF .\n    OPTIONAL {\n      ?gene wp:bdbHgncSymbol ?symbolIri .\n      BIND(REPLACE(STR(?symbolIri), \"^.*[/#:]\", \"\") AS ?symbol)\n    }\n    OPTIONAL {\n      ?gene wp:bdbEntrezGene ?ncbiIri .\n      BIND(REPLACE(STR(?ncbiIri), \"^.*[/#:]\", \"\") AS ?ncbiId)\n    }\n  }\n\n  OPTIONAL {\n    ?unannotated a wp:GeneProduct ;\n        dcterms:isPartOf ?pathwayRDF .\n    FILTER NOT EXISTS { ?unannotated wp:bdbHgncSymbol [] }\n    FILTER NOT EXISTS { ?unannotated wp:bdbEntrezGene [] }\n  }\n}\nGROUP BY ?wpid ?titleLit",
+ "params": [
+  {
+   "name": "species",
+   "variable": "species",
+   "label": "Species",
+   "description": null,
+   "order": 1,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "Homo sapiens",
+   "autocomplete": "species",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "D. General/geneListPFOCRPubTator.ttl",
+ "aliases": [],
+ "commit": "1c3bea3115f73b95ee62fb842753e7fd7b1147be"
+}

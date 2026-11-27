@@ -1,0 +1,59 @@
+{
+ "id": "WPQ087",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ087",
+ "label": "Ontology terms and their ancestors per pathway",
+ "description": "Lists for every pathway of one species (to avoid timeouts) its ontology annotations, each column a set of values separated by a vertical bar (labels can contain commas). Results are split by ontology and retrieve IDs, labels, and upstream terms for the Pathway Ontology (PW), Human Disease Ontology (DOID), and Cell Ontology (CL).",
+ "version": "1.0.0",
+ "created": "2026-11-26",
+ "modified": "2026-11-27",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/General"
+ ],
+ "keywords": [
+  "ancestors",
+  "cell type ontology",
+  "disease ontology",
+  "ontology",
+  "pathway ontology"
+ ],
+ "level": "intermediate",
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ015"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT\n  ?wpid\n  (STR(?titleLit) AS ?title)\n  (GROUP_CONCAT(DISTINCT ?pwTerm;       separator=\" | \") AS ?pathwayOntologyIds)\n  (GROUP_CONCAT(DISTINCT ?pwLabel;      separator=\" | \") AS ?pathwayOntologyLabels)\n  (GROUP_CONCAT(DISTINCT ?pwAncestor;   separator=\" | \") AS ?pathwayOntologyAncestors)\n  (GROUP_CONCAT(DISTINCT ?doidTerm;     separator=\" | \") AS ?diseaseOntologyIds)\n  (GROUP_CONCAT(DISTINCT ?doidLabel;    separator=\" | \") AS ?diseaseOntologyLabels)\n  (GROUP_CONCAT(DISTINCT ?doidAncestor; separator=\" | \") AS ?diseaseOntologyAncestors)\n  (GROUP_CONCAT(DISTINCT ?clTerm;       separator=\" | \") AS ?cellTypeOntologyIds)\n  (GROUP_CONCAT(DISTINCT ?clLabel;      separator=\" | \") AS ?cellTypeOntologyLabels)\n  (GROUP_CONCAT(DISTINCT ?clAncestor;   separator=\" | \") AS ?cellTypeOntologyAncestors)\n\nWHERE {\n  VALUES ?species { \"Homo sapiens\" }\n\n  ?pathwayRDF a wp:Pathway ;\n      dcterms:identifier ?wpid ;\n      dc:title ?titleLit ;\n      wp:organismName ?species .\n\n  OPTIONAL {\n    VALUES ?ontologyPrefix {\n      \"http://purl.obolibrary.org/obo/PW_\"      # Pathway Ontology\n      \"http://purl.obolibrary.org/obo/DOID_\"    # Human Disease Ontology\n      \"http://purl.obolibrary.org/obo/CL_\"      # Cell Ontology\n    }\n\n    ?pathwayRDF wp:ontologyTag ?ontoTag .\n    FILTER(STRSTARTS(STR(?ontoTag), STR(?ontologyPrefix)))\n    ?ontoTag a owl:Class ; rdfs:label ?ontoLabel .\n    BIND(REPLACE(STR(?ontoTag), \"^.*/\", \"\") AS ?ontoTerm)\n\n    OPTIONAL {\n      ?ontoTag rdfs:subClassOf* ?ancestor .\n      ?ancestor a owl:Class ; rdfs:label ?ancestorName .\n    }\n\n    BIND(IF(STRSTARTS(?ontoTerm, \"PW_\"),   ?ontoTerm,     ?unbound) AS ?pwTerm)\n    BIND(IF(STRSTARTS(?ontoTerm, \"PW_\"),   ?ontoLabel,    ?unbound) AS ?pwLabel)\n    BIND(IF(STRSTARTS(?ontoTerm, \"PW_\"),   ?ancestorName, ?unbound) AS ?pwAncestor)\n    BIND(IF(STRSTARTS(?ontoTerm, \"DOID_\"), ?ontoTerm,     ?unbound) AS ?doidTerm)\n    BIND(IF(STRSTARTS(?ontoTerm, \"DOID_\"), ?ontoLabel,    ?unbound) AS ?doidLabel)\n    BIND(IF(STRSTARTS(?ontoTerm, \"DOID_\"), ?ancestorName, ?unbound) AS ?doidAncestor)\n    BIND(IF(STRSTARTS(?ontoTerm, \"CL_\"),   ?ontoTerm,     ?unbound) AS ?clTerm)\n    BIND(IF(STRSTARTS(?ontoTerm, \"CL_\"),   ?ontoLabel,    ?unbound) AS ?clLabel)\n    BIND(IF(STRSTARTS(?ontoTerm, \"CL_\"),   ?ancestorName, ?unbound) AS ?clAncestor)\n  }\n}\nGROUP BY ?wpid ?titleLit",
+ "params": [
+  {
+   "name": "species",
+   "variable": "species",
+   "label": "Species",
+   "description": null,
+   "order": 1,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "Homo sapiens",
+   "autocomplete": "species",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "D. General/OntologyDeepDive.ttl",
+ "aliases": [],
+ "commit": "a12aa99e7f120a708c25123b1d1b6cb68bb60e78"
+}

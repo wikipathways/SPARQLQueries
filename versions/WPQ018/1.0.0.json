@@ -1,0 +1,75 @@
+{
+ "id": "WPQ018",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ018",
+ "label": "Entity Type per Species",
+ "description": "Counts the number of distinct entities of a selected type per species in WikiPathways, ordered by count descending.",
+ "version": "1.0.0",
+ "created": "2026-03-30",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Species"
+ ],
+ "keywords": [
+  "metadata",
+  "organism"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/A.%20Metadata/species/countEntityPerSpecies.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT (COUNT(DISTINCT ?entity) AS ?count) (str(?label) AS ?species)\nWHERE {\n  VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#DataNode> }\n  ?entity a ?entityType ;\n    dcterms:isPartOf ?pw .\n  ?pw dc:title ?title ;\n    wp:organism ?organism ;\n    wp:organismName ?label .\n} GROUP BY ?label ORDER BY DESC(?count)",
+ "params": [
+  {
+   "name": "entityType",
+   "variable": "entityType",
+   "label": "Entity Type",
+   "description": null,
+   "order": 1,
+   "kind": "iri",
+   "valueTemplate": "http://vocabularies.wikipathways.org/wp#{value}",
+   "default": "DataNode",
+   "autocomplete": null,
+   "options": [
+    {
+     "value": "DataNode",
+     "label": "Data Nodes"
+    },
+    {
+     "value": "GeneProduct",
+     "label": "Gene Products"
+    },
+    {
+     "value": "Metabolite",
+     "label": "Metabolites"
+    },
+    {
+     "value": "Protein",
+     "label": "Proteins"
+    }
+   ]
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "A. Metadata/species/countEntityPerSpecies.ttl",
+ "aliases": [
+  "A. Metadata/species/countEntityPerSpecies.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

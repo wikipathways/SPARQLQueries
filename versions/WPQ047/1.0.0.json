@@ -1,0 +1,62 @@
+{
+ "id": "WPQ047",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ047",
+ "label": "Pathways by Species Data Export",
+ "description": "Exports all pathways for a given species, returning identifiers, titles, and page URLs ordered by pathway ID.",
+ "version": "1.0.0",
+ "created": "2020-10-11",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataExport"
+ ],
+ "keywords": [
+  "data export"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/c42d381565e5c49c7c754d037d6f253b3214601f/F.%20Datadump/dumpPWsofSpecies.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?wpIdentifier ?pathway ?title ?page\nWHERE {\n    VALUES ?species { \"Homo sapiens\" }\n    ?pathway dc:title ?title ;\n       foaf:page ?page ;\n       dc:identifier ?wpIdentifier ;\n       wp:organismName ?species .\n }\nORDER BY ?wpIdentifier",
+ "params": [
+  {
+   "name": "species",
+   "variable": "species",
+   "label": "Species",
+   "description": null,
+   "order": 1,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "Homo sapiens",
+   "autocomplete": "species",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "F. Datadump/dumpPWsofSpecies.ttl",
+ "aliases": [
+  "F. Datadump/dumpPWsofSpecies.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

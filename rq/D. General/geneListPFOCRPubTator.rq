@@ -1,0 +1,49 @@
+# title: Genes as HGNC symbol and NCBI gene IDs per pathway
+# category: General
+# description: Lists, for every pathway of a species, the HGNC symbols and NCBI gene identifiers of its gene products as two comma-separated sets. This output can be used to compare against existing gene list, e.g. from PubTator or PFOCR. The query also retrieves a count of each database and of the gene product nodes that carry neither cross-reference. The symbols and identifiers are independent sets, not aligned pairs, because a node may carry one cross-reference and not the other. There is deliberately no ORDER BY: sorting makes Virtuoso store the concatenated lists in a temporary column capped at about 2000 characters, which the largest pathways exceed (SR319).
+# param: species|autocomplete:species|Homo sapiens|Species
+#
+# WPQ086 version 3.0.0, https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ086
+# Generated from D. General/geneListPFOCRPubTator.ttl in wikipathways/SPARQLQueries at a12aa99e7f12; edit the .ttl file, not this one.
+
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT
+  ?wpid
+  (STR(?titleLit) AS ?title)
+  (COUNT(DISTINCT ?unannotated) AS ?unannotatedNodeCount)
+  (COUNT(DISTINCT ?symbol) AS ?hgncCount)
+  (COUNT(DISTINCT ?ncbiId) AS ?ncbiCount)
+  (GROUP_CONCAT(DISTINCT ?symbol; separator=", ") AS ?hgncSymbols)
+  (GROUP_CONCAT(DISTINCT ?ncbiId; separator=", ") AS ?ncbiGeneIds)
+WHERE {
+  VALUES ?species { "{{species}}" }
+
+  ?pathwayRDF a wp:Pathway ;
+      dcterms:identifier ?wpid ;
+      dc:title ?titleLit ;
+      wp:organismName ?species .
+
+  OPTIONAL {
+    ?gene a wp:GeneProduct ;
+        dcterms:isPartOf ?pathwayRDF .
+    OPTIONAL {
+      ?gene wp:bdbHgncSymbol ?symbolIri .
+      BIND(REPLACE(STR(?symbolIri), "^.*[/#:]", "") AS ?symbol)
+    }
+    OPTIONAL {
+      ?gene wp:bdbEntrezGene ?ncbiIri .
+      BIND(REPLACE(STR(?ncbiIri), "^.*[/#:]", "") AS ?ncbiId)
+    }
+  }
+
+  OPTIONAL {
+    ?unannotated a wp:GeneProduct ;
+        dcterms:isPartOf ?pathwayRDF .
+    FILTER NOT EXISTS { ?unannotated wp:bdbHgncSymbol [] }
+    FILTER NOT EXISTS { ?unannotated wp:bdbEntrezGene [] }
+  }
+}
+GROUP BY ?wpid ?titleLit

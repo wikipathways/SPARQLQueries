@@ -1,0 +1,62 @@
+{
+ "id": "WPQ061",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ061",
+ "label": "Authors of a Pathway",
+ "description": "Lists all authors of a given pathway in ordinal order, returning name, ORCID, homepage, and pathway version.",
+ "version": "1.0.0",
+ "created": "2026-02-14",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Authors"
+ ],
+ "keywords": [
+  "authors"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/4431b11d148e0e1bcc3533e90b80225376c80d1a/J.%20Authors/authorsOfAPathway.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX gpml: <http://vocabularies.wikipathways.org/gpml#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX dc:    <http://purl.org/dc/elements/1.1/>\nPREFIX foaf:  <http://xmlns.com/foaf/0.1/>\nPREFIX wpq:   <http://www.wikidata.org/prop/qualifier/>\nPREFIX pav:   <http://purl.org/pav/>\n\nSELECT ?pathway ?version ?ordinal ?author_ ?name ?orcid ?page WHERE {\n  VALUES ?pathway { <https://identifiers.org/wikipathways/WP4846> }\n  ?author_ a foaf:Person ;\n    wp:hasAuthorship ?authorship .\n  ?authorship ^wp:hasAuthorship ?pathway ;\n    wpq:series_ordinal ?ordinal .\n  ?pathway pav:hasVersion ?pathway_ .\n  ?pathway_ a wp:Pathway ; wp:isAbout / gpml:version ?version .\n  OPTIONAL { ?author_ foaf:homepage ?page }\n  OPTIONAL { ?author_ foaf:name ?name }\n  OPTIONAL { ?author_ dc:identifier ?orcid }\n} ORDER BY ASC(?pathway) ASC(?ordinal)",
+ "params": [
+  {
+   "name": "pathwayId",
+   "variable": "pathway",
+   "label": "Pathway ID",
+   "description": null,
+   "order": 1,
+   "kind": "iri",
+   "valueTemplate": "https://identifiers.org/wikipathways/{value}",
+   "default": "WP4846",
+   "autocomplete": "pathway",
+   "options": null
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "J. Authors/authorsOfAPathway.ttl",
+ "aliases": [
+  "J. Authors/authorsOfAPathway.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

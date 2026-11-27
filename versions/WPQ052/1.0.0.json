@@ -1,0 +1,49 @@
+{
+ "id": "WPQ052",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ052",
+ "label": "Metabolites Without Wikidata Links",
+ "description": "Lists metabolites that have no Wikidata identifier mapping, useful for identifying gaps in cross-database linkage.",
+ "version": "1.0.0",
+ "created": "2020-10-09",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://github.com/laurent2207",
+   "name": "Laurent Winckers"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Curation"
+ ],
+ "keywords": [
+  "curation"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/fa9e83ba0da9ac61f188219e5b7d91ea73f7a5cc/G.%20Curation/MetabolitesWithoutLinkWikidata.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\nPREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT DISTINCT ?metabolite WHERE {\n  ?metabolite a wp:Metabolite .\n  OPTIONAL { ?metabolite wp:bdbWikidata ?wikidata . }\n  FILTER (!BOUND(?wikidata))\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "G. Curation/MetabolitesWithoutLinkWikidata.ttl",
+ "aliases": [
+  "G. Curation/MetabolitesWithoutLinkWikidata.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

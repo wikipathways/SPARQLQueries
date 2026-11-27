@@ -1,0 +1,50 @@
+{
+ "id": "WPQ057",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ057",
+ "label": "Controlling Duplicate Mappings from Wikidata",
+ "description": "Detects metabolites mapped to multiple Wikidata identifiers as a quality control step in the DSMN workflow.",
+ "version": "1.0.0",
+ "created": "2023-11-09",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DSMN"
+ ],
+ "keywords": [
+  "directed small molecules network",
+  "DSMN"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/85c9912c600413a9ae0f5f9a3529420e38747f04/I.%20DirectedSmallMoleculesNetwork%20%28DSMN%29/controlling%20duplicate%20mappings%20from%20Wikidata.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "### Part 1: ###\n#Required prefixes for querying WikiPathways content in Blazegraph\nPREFIX gpml:\t\t<http://vocabularies.wikipathways.org/gpml#>\nPREFIX wp:\t\t<http://vocabularies.wikipathways.org/wp#> \nPREFIX wprdf:\t\t<http://rdf.wikipathways.org/>\nPREFIX biopax:\t\t<http://www.biopax.org/release/biopax-level3.owl#> \nPREFIX cas:\t\t<http://identifiers.org/cas/>\nPREFIX dc:\t\t<http://purl.org/dc/elements/1.1/> \nPREFIX dcterms:\t\t<http://purl.org/dc/terms/>\nPREFIX foaf:\t\t<http://xmlns.com/foaf/0.1/> \nPREFIX ncbigene:\t\t<http://identifiers.org/ncbigene/>\nPREFIX pubmed:\t\t<http://www.ncbi.nlm.nih.gov/pubmed/> \nPREFIX rdf:\t\t<http://www.w3.org/1999/02/22-rdf-syntax-ns#> \nPREFIX rdfs:\t\t<http://www.w3.org/2000/01/rdf-schema#>\nPREFIX skos:\t\t<http://www.w3.org/2004/02/skos/core#>\nPREFIX xsd:\t\t<http://www.w3.org/2001/XMLSchema#> \nPREFIX cur:\t\t<http://vocabularies.wikipathways.org/wp#Curation:>\n\n### Part 2: ###\n#Control for double mappings to Wikidata IDs.\nSELECT DISTINCT ?metaboliteID \n(GROUP_CONCAT(DISTINCT ?wikidata;separator=\", \") AS ?results) \nWHERE {\n  ?metaboliteID a wp:Metabolite .\n  ?metaboliteID wp:bdbWikidata ?wikidata .\n  ?metaboliteID wp:bdbWikidata ?wikidata2 .\nFILTER(?wikidata != ?wikidata2)\n} GROUP BY ?metaboliteID",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "I. DirectedSmallMoleculesNetwork (DSMN)/controlling duplicate mappings from Wikidata.ttl",
+ "aliases": [
+  "I. DirectedSmallMoleculesNetwork (DSMN)/controlling duplicate mappings from Wikidata.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

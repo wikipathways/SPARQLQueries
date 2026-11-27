@@ -1,0 +1,109 @@
+{
+ "id": "WPQ025",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ025",
+ "label": "Lipid Classes Count per Pathway",
+ "description": "Counts the number of lipids in a specific LIPID MAPS subclass per human pathway, ordered by count. Change the FILTER value to query different subclasses.",
+ "version": "1.0.0",
+ "created": "2023-11-30",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0001-8449-1318",
+   "name": "Denise Slenter"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/Lipids"
+ ],
+ "keywords": [
+  "communities",
+  "LIPID MAPS",
+  "lipids"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/B.%20Communities/Lipids/LipidsClassesCountPerPathway.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pathwayRes (str(?wpid) AS ?pathway) (str(?title) AS ?pathwayTitle) (count(DISTINCT ?lipidID) AS ?Class_LipidsInPWs)\nWHERE {     ?metabolite a wp:Metabolite ;\n    dcterms:identifier ?id ;\n    dcterms:isPartOf ?pathwayRes ;\n    wp:bdbLipidMaps ?lipidID . #Metabolite DataNodes need to have a LIPID MAPS ID, for this query to count correctly (some lipids might be missed due to missing Xrefs)\n  VALUES ?species { \"Homo sapiens\" }\n  ?pathwayRes a wp:Pathway ;\n              wp:organismName ?species ; #Filter for a species (ommit when querying all pathways available for all species)\n    dcterms:identifier ?wpid ;\n    dc:title ?title .\n  VALUES ?lipidClass { \"FA\" }\n  FILTER regex(str(?lipidID), ?lipidClass ). #Filter for a LIPID MAPS ID subclass: 'FA' Fatty Acids ; 'GL' Glycerolipid ; 'GP' Glycerophospholipid ; 'SP' Sphingolipids ; 'ST' Sterol lipids ; 'PR' Prenol Lipids ; 'SL' Saccharolipids ; 'PK' Polyketides\n}\nGROUP BY ?pathwayRes ?wpid ?title\nORDER BY DESC(?Class_LipidsInPWs)",
+ "params": [
+  {
+   "name": "species",
+   "variable": "species",
+   "label": "Species",
+   "description": null,
+   "order": 1,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "Homo sapiens",
+   "autocomplete": "species",
+   "options": null
+  },
+  {
+   "name": "lipidClass",
+   "variable": "lipidClass",
+   "label": "LIPID MAPS Class",
+   "description": null,
+   "order": 2,
+   "kind": "literal",
+   "valueTemplate": null,
+   "default": "FA",
+   "autocomplete": null,
+   "options": [
+    {
+     "value": "FA",
+     "label": "FA"
+    },
+    {
+     "value": "GL",
+     "label": "GL"
+    },
+    {
+     "value": "GP",
+     "label": "GP"
+    },
+    {
+     "value": "SP",
+     "label": "SP"
+    },
+    {
+     "value": "ST",
+     "label": "ST"
+    },
+    {
+     "value": "PR",
+     "label": "PR"
+    },
+    {
+     "value": "SL",
+     "label": "SL"
+    },
+    {
+     "value": "PK",
+     "label": "PK"
+    }
+   ]
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "B. Communities/Lipids/LipidsClassesCountPerPathway.ttl",
+ "aliases": [
+  "B. Communities/Lipids/LipidsClassesCountPerPathway.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

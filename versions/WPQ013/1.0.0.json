@@ -1,0 +1,79 @@
+{
+ "id": "WPQ013",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ013",
+ "label": "Count of Entity Type",
+ "description": "Counts the total number of a selected entity type in WikiPathways.",
+ "version": "1.0.0",
+ "created": "2026-03-30",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+ ],
+ "keywords": [
+  "counts",
+  "metadata"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/3fd553e6b24c4c9d88604eda578ecd8ad192a5c6/A.%20Metadata/datacounts/countOfEntityType.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "SELECT DISTINCT (COUNT(?entity) AS ?count)\nWHERE {\n    VALUES ?entityType { <http://vocabularies.wikipathways.org/wp#DataNode> }\n    ?entity a ?entityType .\n}",
+ "params": [
+  {
+   "name": "entityType",
+   "variable": "entityType",
+   "label": "Entity Type",
+   "description": null,
+   "order": 1,
+   "kind": "iri",
+   "valueTemplate": "http://vocabularies.wikipathways.org/wp#{value}",
+   "default": "DataNode",
+   "autocomplete": null,
+   "options": [
+    {
+     "value": "DataNode",
+     "label": "Data Nodes"
+    },
+    {
+     "value": "GeneProduct",
+     "label": "Gene Products"
+    },
+    {
+     "value": "Interaction",
+     "label": "Interactions"
+    },
+    {
+     "value": "Metabolite",
+     "label": "Metabolites"
+    },
+    {
+     "value": "Protein",
+     "label": "Proteins"
+    }
+   ]
+  }
+ ],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "A. Metadata/datacounts/countOfEntityType.ttl",
+ "aliases": [
+  "A. Metadata/datacounts/countOfEntityType.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

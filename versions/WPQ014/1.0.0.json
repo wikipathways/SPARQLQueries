@@ -1,0 +1,50 @@
+{
+ "id": "WPQ014",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ014",
+ "label": "Count of Pathways",
+ "description": "Counts the total number of pathways in WikiPathways.",
+ "version": "1.0.0",
+ "created": "2020-08-12",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://orcid.org/0000-0003-2230-0840",
+   "name": "Marvin Martens"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+ ],
+ "keywords": [
+  "counts",
+  "metadata"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/wikipathways/SPARQLQueries/blob/f9de718ebdcca57dadb773d47fa4e342cf386857/A.%20Metadata/datacounts/countPathways.rq"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT (count(?Pathway) as ?PathwayCount)\nWHERE {\n    ?Pathway a wp:Pathway, skos:Collection .\n}",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "A. Metadata/datacounts/countPathways.ttl",
+ "aliases": [
+  "A. Metadata/datacounts/countPathways.rq"
+ ],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}

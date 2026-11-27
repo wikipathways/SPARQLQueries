@@ -1,0 +1,49 @@
+{
+ "id": "WPQ067",
+ "iri": "https://sparql.wikipathways.org/.well-known/sparql-examples/WPQ067",
+ "label": "Pathway Count per Ontology Term",
+ "description": "Counts the pathways tagged with each ontology term. Pathways can be tagged with terms from the Pathway, Cell Line and Disease ontologies; wp:ontologyTag covers all of them, as well as the curation and community tags.",
+ "version": "1.0.0",
+ "created": "2024-10-20",
+ "modified": "2026-11-11",
+ "creators": [
+  {
+   "iri": "https://www.wikipathways.org/",
+   "name": "WikiPathways team"
+  }
+ ],
+ "contributors": [
+  {
+   "iri": "https://orcid.org/0000-0001-7542-0286",
+   "name": "Egon Willighagen"
+  }
+ ],
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "categories": [
+  "https://sparql.wikipathways.org/.well-known/sparql-examples/category/DataCounts"
+ ],
+ "keywords": [
+  "counts",
+  "ontology"
+ ],
+ "level": null,
+ "target": "https://sparql.wikipathways.org/sparql",
+ "federatesWith": [],
+ "references": [],
+ "derivedFrom": [
+  "https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/067.ttl",
+  "https://www.wikipathways.org/sparql.html"
+ ],
+ "testedAgainst": null,
+ "deprecated": false,
+ "replacedBy": null,
+ "queryType": "select",
+ "query": "PREFIX wp: <http://vocabularies.wikipathways.org/wp#>\n\nSELECT DISTINCT ?pwOntologyTerm (count(?pwOntologyTerm) as ?pathwayCount)\nWHERE {\n  ?pathwayRDF wp:ontologyTag ?pwOntologyTerm .\n}\nGROUP BY ?pwOntologyTerm\nORDER BY DESC(?pathwayCount)",
+ "params": [],
+ "expect": {
+  "minResults": 1
+ },
+ "path": "A. Metadata/datacounts/PathwayCountPerOntologyTerm.ttl",
+ "aliases": [],
+ "commit": "fed6a2dc597c5bd82160de17a46cbe36185f21a6"
+}
