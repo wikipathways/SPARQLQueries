@@ -1,0 +1,90 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix param: <https://w3id.org/snorql/param#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix snorql: <https://w3id.org/snorql/ns#> .
+@prefix wpcat: <https://sparql.wikipathways.org/.well-known/sparql-examples/category/> .
+@prefix wpq: <https://sparql.wikipathways.org/.well-known/sparql-examples/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wpq:WPQ087 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
+    dcterms:identifier "WPQ087" ;
+    rdfs:label "Ontology terms and their ancestors per pathway"@en ;
+    rdfs:comment "Lists for every pathway of one species (to avoid timeouts) its ontology annotations, each column a set of values separated by a vertical bar (labels can contain commas). Results are split by ontology and retrieve IDs, labels, and upstream terms for the Pathway Ontology (PW), Human Disease Ontology (DOID), and Cell Ontology (CL)."@en ;
+    schema:version "1.0.0" ;
+    dcterms:created "2026-11-26"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0001-8449-1318> ;
+    dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
+    dcterms:subject wpcat:General ;
+    schema:keywords "ontology", "pathway ontology", "disease ontology", "cell type ontology", "ancestors" ;
+    schema:educationalLevel "intermediate" ;
+    schema:target <https://sparql.wikipathways.org/sparql> ;
+    prov:wasDerivedFrom wpq:WPQ015 ;
+    snorql:expect [ snorql:minResults 1 ] ;
+    sh:parameter [
+        a sh:Parameter ;
+        sh:path param:species ;
+        sh:name "Species" ;
+        sh:defaultValue "Homo sapiens" ;
+        sh:datatype xsd:string ;
+        snorql:autocomplete "species" ;
+        sh:order 1
+    ] ;
+    sh:select """PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wp: <http://vocabularies.wikipathways.org/wp#>
+
+SELECT
+  ?wpid
+  (STR(?titleLit) AS ?title)
+  (GROUP_CONCAT(DISTINCT ?pwTerm;       separator=" | ") AS ?pathwayOntologyIds)
+  (GROUP_CONCAT(DISTINCT ?pwLabel;      separator=" | ") AS ?pathwayOntologyLabels)
+  (GROUP_CONCAT(DISTINCT ?pwAncestor;   separator=" | ") AS ?pathwayOntologyAncestors)
+  (GROUP_CONCAT(DISTINCT ?doidTerm;     separator=" | ") AS ?diseaseOntologyIds)
+  (GROUP_CONCAT(DISTINCT ?doidLabel;    separator=" | ") AS ?diseaseOntologyLabels)
+  (GROUP_CONCAT(DISTINCT ?doidAncestor; separator=" | ") AS ?diseaseOntologyAncestors)
+  (GROUP_CONCAT(DISTINCT ?clTerm;       separator=" | ") AS ?cellTypeOntologyIds)
+  (GROUP_CONCAT(DISTINCT ?clLabel;      separator=" | ") AS ?cellTypeOntologyLabels)
+  (GROUP_CONCAT(DISTINCT ?clAncestor;   separator=" | ") AS ?cellTypeOntologyAncestors)
+
+WHERE {
+  VALUES ?species { "Homo sapiens" }
+
+  ?pathwayRDF a wp:Pathway ;
+      dcterms:identifier ?wpid ;
+      dc:title ?titleLit ;
+      wp:organismName ?species .
+
+  OPTIONAL {
+    VALUES ?ontologyPrefix {
+      "http://purl.obolibrary.org/obo/PW_"      # Pathway Ontology
+      "http://purl.obolibrary.org/obo/DOID_"    # Human Disease Ontology
+      "http://purl.obolibrary.org/obo/CL_"      # Cell Ontology
+    }
+
+    ?pathwayRDF wp:ontologyTag ?ontoTag .
+    FILTER(STRSTARTS(STR(?ontoTag), STR(?ontologyPrefix)))
+    ?ontoTag a owl:Class ; rdfs:label ?ontoLabel .
+    BIND(REPLACE(STR(?ontoTag), "^.*/", "") AS ?ontoTerm)
+
+    OPTIONAL {
+      ?ontoTag rdfs:subClassOf* ?ancestor .
+      ?ancestor a owl:Class ; rdfs:label ?ancestorName .
+    }
+
+    BIND(IF(STRSTARTS(?ontoTerm, "PW_"),   ?ontoTerm,     ?unbound) AS ?pwTerm)
+    BIND(IF(STRSTARTS(?ontoTerm, "PW_"),   ?ontoLabel,    ?unbound) AS ?pwLabel)
+    BIND(IF(STRSTARTS(?ontoTerm, "PW_"),   ?ancestorName, ?unbound) AS ?pwAncestor)
+    BIND(IF(STRSTARTS(?ontoTerm, "DOID_"), ?ontoTerm,     ?unbound) AS ?doidTerm)
+    BIND(IF(STRSTARTS(?ontoTerm, "DOID_"), ?ontoLabel,    ?unbound) AS ?doidLabel)
+    BIND(IF(STRSTARTS(?ontoTerm, "DOID_"), ?ancestorName, ?unbound) AS ?doidAncestor)
+    BIND(IF(STRSTARTS(?ontoTerm, "CL_"),   ?ontoTerm,     ?unbound) AS ?clTerm)
+    BIND(IF(STRSTARTS(?ontoTerm, "CL_"),   ?ontoLabel,    ?unbound) AS ?clLabel)
+    BIND(IF(STRSTARTS(?ontoTerm, "CL_"),   ?ancestorName, ?unbound) AS ?clAncestor)
+  }
+}
+GROUP BY ?wpid ?titleLit""" .
