@@ -15,16 +15,17 @@
 wpq:WPQ075 a sh:SPARQLExecutable, sh:SPARQLSelectExecutable ;
     dcterms:identifier "WPQ075" ;
     rdfs:label "Metabolites with InChIKeys from Wikidata"@en ;
-    rdfs:comment "Lists metabolites in WikiPathways with their Wikidata identifier and fetches their InChIKey from Wikidata. Limited to 50 metabolites. Uses a federated SERVICE call; may be slow depending on endpoint availability."@en ;
-    schema:version "1.0.0" ;
+    rdfs:comment "Lists metabolites in WikiPathways with their Wikidata identifier and fetches their InChIKey from Wikidata, through the QLever Wikidata endpoint. Limited to 10 metabolites. Uses a federated SERVICE call; may be slow depending on endpoint availability."@en ;
+    schema:version "1.1.0" ;
     dcterms:created "2026-11-10"^^xsd:date ;
     dcterms:creator <https://www.wikipathways.org/> ;
     dcterms:contributor <https://orcid.org/0000-0003-2230-0840> ;
+    dcterms:contributor <https://orcid.org/0000-0001-8449-1318> ;
     dcterms:license <https://www.gnu.org/licenses/gpl-3.0.html> ;
     dcterms:subject wpcat:Chemistry ;
     schema:keywords "InChIKey", "metabolite", "Wikidata" ;
     schema:target <https://sparql.wikipathways.org/sparql> ;
-    spex:federatesWith <https://query.wikidata.org/sparql> ;
+    spex:federatesWith <https://qlever.cs.uni-freiburg.de/api/wikidata> ;
     prov:wasDerivedFrom <https://github.com/BiGCAT-UM/sparql-examples/blob/4830ae7e0942bb1958a7000d44c82b47391e61d0/examples/WikiPathways/075.ttl> ;
     prov:wasDerivedFrom <https://www.wikipathways.org/federated.html> ;
     snorql:expect [ snorql:minResults 1 ] ;
@@ -36,9 +37,9 @@ SELECT ?metabolite ?wikidata ?inchikey WHERE {
     SELECT ?metabolite ?wikidata WHERE {
       ?metabolite a wp:Metabolite ;
         wp:bdbWikidata ?wikidata .
-    } LIMIT 50
+    } LIMIT 10
   }
-  SERVICE <https://query.wikidata.org/sparql> {
+  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {
     ?wikidata wdt:P235 ?inchikey .
   }
-} LIMIT 50""" .
+} """ .
