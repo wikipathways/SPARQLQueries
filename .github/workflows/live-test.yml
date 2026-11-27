@@ -24,5 +24,17 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r .snorql-tools/tools/examples/requirements.txt
+      # Federated endpoints (Wikidata above all) fail now and then with an HTTP 500
+      # or a timeout. Examples that fail are run once more after a pause; the run
+      # only fails if they fail again.
       - name: Run the examples
-        run: python .snorql-tools/tools/examples/snorql_examples.py live --timeout 150
+        shell: bash
+        run: |
+          tool=.snorql-tools/tools/examples/snorql_examples.py
+          python "$tool" live --timeout 150 | tee live.txt && exit 0
+          failed=$(grep '| FAIL' live.txt | cut -d'|' -f2 | tr -d ' ' | tr '\n' ' ' || true)
+          [ -n "${failed// /}" ] || exit 1
+          echo "Retrying in 2 minutes: $failed"
+          sleep 120
+          echo "Retry of the failed examples:" >> "$GITHUB_STEP_SUMMARY"
+          python "$tool" live --timeout 150 --only $failed
