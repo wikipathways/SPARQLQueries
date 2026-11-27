@@ -36,9 +36,9 @@ SELECT ?metabolite ?wikidata ?inchikey WHERE {
     SELECT ?metabolite ?wikidata WHERE {
       ?metabolite a wp:Metabolite ;
         wp:bdbWikidata ?wikidata .
-    } LIMIT 50
+    } LIMIT 10
   }
-  SERVICE <https://query.wikidata.org/sparql> {
+  SERVICE <https://qlever.cs.uni-freiburg.de/api/wikidata> {
     ?wikidata wdt:P235 ?inchikey .
   }
-} LIMIT 50""" .
+} """ .
